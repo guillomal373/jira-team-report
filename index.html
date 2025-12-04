@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo de Desarrollo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ELITE DEVELOPMENT SQUAD</h1>
+            <p class="subtitle">LEGENDARY CODE ARCHITECTS</p>
+        </header>
+
+        <section class="metrics">
+            <div class="metric-card">
+                <div class="metric-icon">✔</div>
+                <div class="metric-value">15</div>
+                <div class="metric-label">Completed</div>
+                <div class="metric-sub">In the last 7 days</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">✎</div>
+                <div class="metric-value">64</div>
+                <div class="metric-label">Updated</div>
+                <div class="metric-sub">In the last 7 days</div>
+            </div>
+        </section>
+
+        <section class="status-section">
+            <div class="status-left">
+                <h3 class="status-title">Status Overview</h3>
+                <p class="status-desc">Get a snapshot of the status of your work items.</p>
+                <div class="donut-wrap">
+                    <canvas id="statusChart"></canvas>
+                    <div class="donut-center">
+                        <div class="donut-total">64</div>
+                        <div class="donut-sub">Total work items</div>
+                    </div>
+                </div>
+            </div>
+            <div class="status-right">
+                <div class="status-item">
+                    <span class="status-dot" style="background:#6ec5ff"></span>
+                    <span class="status-label">To Do</span>
+                    <span class="status-value">35</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot" style="background:#f5d469"></span>
+                    <span class="status-label">In Review</span>
+                    <span class="status-value">6</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot" style="background:#4b8cff"></span>
+                    <span class="status-label">In Progress</span>
+                    <span class="status-value">5</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot" style="background:#2b5fd9"></span>
+                    <span class="status-label">Sprint</span>
+                    <span class="status-value">1</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot" style="background:#ff5f56"></span>
+                    <span class="status-label">Blocked</span>
+                    <span class="status-value">1</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot" style="background:#1fce88"></span>
+                    <span class="status-label">Done</span>
+                    <span class="status-value">16</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="team-grid">
+            <div class="developer-card">
+                <div class="dev-header">
+                    <div class="dev-image">⚡</div>
+                    <h2 class="dev-name">Carlos Mendoza</h2>
+                    <span class="dev-level">Senior Developer</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart1"></canvas>
+                </div>
+                <div class="skills-legend">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Flutter</span>
+                </div>
+            </div>
+
+            <div class="developer-card">
+                <div class="dev-header">
+                    <div class="dev-image">🔥</div>
+                    <h2 class="dev-name">Ana Martínez</h2>
+                    <span class="dev-level">Mid-Level Developer</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart2"></canvas>
+                </div>
+                <div class="skills-legend">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Flutter</span>
+                </div>
+            </div>
+
+            <div class="developer-card">
+                <div class="dev-header">
+                    <div class="dev-image">💎</div>
+                    <h2 class="dev-name">Diego Ramírez</h2>
+                    <span class="dev-level">Junior Developer</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart3"></canvas>
+                </div>
+                <div class="skills-legend">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Flutter</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
