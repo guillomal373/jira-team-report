@@ -1,0 +1,46 @@
+{
+  "team": [
+    {
+      "name": "Samil Vargas",
+      "role": "Senior Full Stack Developer",
+      "avatar": "images/avatar/dexter/10.png",
+      "badges": ["js", "fire"],
+      "skills": {
+        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
+        "levels": [9, 9, 9, 8, 7]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [8, 3, 2, 7]
+      }
+    },
+    {
+      "name": "Roberto Hiraldo",
+      "role": "Senior Full Stack Developer",
+      "avatar": "images/pictures/roberto.png",
+      "badges": ["fire", "js"],
+      "skills": {
+        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
+        "levels": [8, 7, 8, 7, 8]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [6, 4, 1, 4]
+      }
+    },
+    {
+      "name": "Nicolas Diaz",
+      "role": "Junior Developer",
+      "avatar": "images/pictures/nico.jpg",
+      "badges": ["diamond", "js"],
+      "skills": {
+        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
+        "levels": [7, 6, 7, 6, 5]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [5, 2, 1, 4]
+      }
+    }
+  ]
+}

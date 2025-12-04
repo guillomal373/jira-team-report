@@ -1,4 +1,11 @@
-const skills = ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'];
+const statusColorMap = {
+    'To Do': '#6ec5ff',
+    'In Review': '#f5d469',
+    'In Progress': '#4b8cff',
+    'Sprint': '#2b5fd9',
+    'Blocked': '#ff5f56',
+    'Done': '#1fce88'
+};
 
 // Status overview donut chart
 const statusCtx = document.getElementById('statusChart');
@@ -10,12 +17,12 @@ if (statusCtx) {
             datasets: [{
                 data: [35, 6, 5, 1, 1, 16],
                 backgroundColor: [
-                    '#6ec5ff', // To Do
-                    '#f5d469', // In Review
-                    '#4b8cff', // In Progress
-                    '#2b5fd9', // Sprint
-                    '#ff5f56', // Blocked
-                    '#1fce88'  // Done
+                    statusColorMap['To Do'],
+                    statusColorMap['In Review'],
+                    statusColorMap['In Progress'],
+                    statusColorMap['Sprint'],
+                    statusColorMap['Blocked'],
+                    statusColorMap['Done']
                 ],
                 borderWidth: 0,
                 hoverOffset: 6,
@@ -37,7 +44,7 @@ if (statusCtx) {
     });
 }
 
-const chartConfig = {
+const radarBaseConfig = {
     type: 'radar',
     options: {
         responsive: true,
@@ -74,9 +81,7 @@ const chartConfig = {
             }
         },
         plugins: {
-            legend: {
-                display: false
-            },
+            legend: { display: false },
             tooltip: {
                 enabled: true,
                 backgroundColor: 'rgba(26, 26, 26, 0.95)',
@@ -109,181 +114,308 @@ const chartConfig = {
     }
 };
 
-// Carlos - Senior Developer
-const chart1 = new Chart(document.getElementById('chart1'), {
-    ...chartConfig,
-    data: {
-        labels: skills,
-        datasets: [{
-            data: [9, 9, 9, 8, 7],
-            backgroundColor: 'rgba(201, 168, 92, 0.15)',
-            borderColor: '#c9a85c',
-            borderWidth: 2.5,
-            pointBackgroundColor: '#c9a85c',
-            pointBorderColor: '#1a1a1a',
-            pointBorderWidth: 2,
-            pointRadius: 5,
-            pointHoverBackgroundColor: '#ffffff',
-            pointHoverBorderColor: '#c9a85c',
-            pointHoverRadius: 7
-        }]
-    }
-});
+function createRadarChart(canvas, labels, data) {
+    return new Chart(canvas, {
+        ...radarBaseConfig,
+        data: {
+            labels,
+            datasets: [{
+                data,
+                backgroundColor: 'rgba(201, 168, 92, 0.15)',
+                borderColor: '#c9a85c',
+                borderWidth: 2.5,
+                pointBackgroundColor: '#c9a85c',
+                pointBorderColor: '#1a1a1a',
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverBackgroundColor: '#ffffff',
+                pointHoverBorderColor: '#c9a85c',
+                pointHoverRadius: 7
+            }]
+        }
+    });
+}
 
-// Ana - Mid-Level Developer
-const chart2 = new Chart(document.getElementById('chart2'), {
-    ...chartConfig,
-    data: {
-        labels: skills,
-        datasets: [{
-            data: [8, 7, 8, 7, 8],
-            backgroundColor: 'rgba(201, 168, 92, 0.15)',
-            borderColor: '#c9a85c',
-            borderWidth: 2.5,
-            pointBackgroundColor: '#c9a85c',
-            pointBorderColor: '#1a1a1a',
-            pointBorderWidth: 2,
-            pointRadius: 5,
-            pointHoverBackgroundColor: '#ffffff',
-            pointHoverBorderColor: '#c9a85c',
-            pointHoverRadius: 7
-        }]
-    }
-});
+function createMiniDonut(canvasId, labels, counts) {
+    const ctx = document.getElementById(canvasId);
+    if (!ctx) return null;
 
-// Diego - Junior Developer
-const chart3 = new Chart(document.getElementById('chart3'), {
-    ...chartConfig,
-    data: {
-        labels: skills,
-        datasets: [{
-            data: [7, 6, 7, 6, 5],
-            backgroundColor: 'rgba(201, 168, 92, 0.15)',
-            borderColor: '#c9a85c',
-            borderWidth: 2.5,
-            pointBackgroundColor: '#c9a85c',
-            pointBorderColor: '#1a1a1a',
-            pointBorderWidth: 2,
-            pointRadius: 5,
-            pointHoverBackgroundColor: '#ffffff',
-            pointHoverBorderColor: '#c9a85c',
-            pointHoverRadius: 7
-        }]
-    }
-});
+    const total = counts.reduce((sum, n) => sum + n, 0);
+    const totalEl = document.querySelector(`[data-total-for="${canvasId}"]`);
+    if (totalEl) totalEl.textContent = total;
 
-const charts = [chart1, chart2, chart3];
+    const colors = labels.map(label => statusColorMap[label] || '#6ec5ff');
 
-// Función para resaltar skill
-function highlightSkill(skillIndex, chartIndex) {
-    const chart = charts[chartIndex];
-    const meta = chart.getDatasetMeta(0);
-    
-    // Resaltar el punto en el gráfico
-    meta.data.forEach((point, index) => {
-        if (index === skillIndex) {
-            point.options.pointRadius = 10;
-            point.options.pointBackgroundColor = '#ffffff';
-            point.options.pointBorderColor = '#c9a85c';
-            point.options.pointBorderWidth = 3;
-        } else {
+    return new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels,
+            datasets: [{
+                data: counts,
+                backgroundColor: colors,
+                borderWidth: 0,
+                hoverOffset: 4,
+                cutout: '60%'
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(26, 26, 26, 0.95)',
+                    borderColor: '#c9a85c',
+                    borderWidth: 1,
+                    titleColor: '#c9a85c',
+                    bodyColor: '#ffffff'
+                }
+            }
+        }
+    });
+}
+
+function setupSkillInteractions(card, chart) {
+    const tags = card.querySelectorAll('.skills-legend .skill-tag');
+    const radarCanvas = card.querySelector('.chart-container canvas');
+
+    const highlight = (skillIndex) => {
+        const meta = chart.getDatasetMeta(0);
+        meta.data.forEach((point, index) => {
+            if (index === skillIndex) {
+                point.options.pointRadius = 10;
+                point.options.pointBackgroundColor = '#ffffff';
+                point.options.pointBorderColor = '#c9a85c';
+                point.options.pointBorderWidth = 3;
+            } else {
+                point.options.pointRadius = 5;
+                point.options.pointBackgroundColor = '#c9a85c';
+                point.options.pointBorderColor = '#1a1a1a';
+                point.options.pointBorderWidth = 2;
+            }
+        });
+        chart.update('none');
+    };
+
+    const resetHighlight = () => {
+        const meta = chart.getDatasetMeta(0);
+        meta.data.forEach((point) => {
             point.options.pointRadius = 5;
             point.options.pointBackgroundColor = '#c9a85c';
             point.options.pointBorderColor = '#1a1a1a';
             point.options.pointBorderWidth = 2;
-        }
-    });
-    
-    chart.update('none');
-}
+        });
+        chart.setActiveElements([]);
+        chart.tooltip.setActiveElements([], { x: 0, y: 0 });
+        chart.update('none');
+    };
 
-// Función para resetear
-function resetHighlight(chartIndex) {
-    const chart = charts[chartIndex];
-    const meta = chart.getDatasetMeta(0);
-    
-    meta.data.forEach((point) => {
-        point.options.pointRadius = 5;
-        point.options.pointBackgroundColor = '#c9a85c';
-        point.options.pointBorderColor = '#1a1a1a';
-        point.options.pointBorderWidth = 2;
-    });
-    
-    chart.update('none');
-}
+    const activateTooltip = (index) => {
+        chart.setActiveElements([{ datasetIndex: 0, index }]);
+        chart.tooltip.setActiveElements([{ datasetIndex: 0, index }], { x: 0, y: 0 });
+        chart.update('none');
+    };
 
-// Agregar event listeners a los tags
-document.querySelectorAll('.developer-card').forEach((card, chartIndex) => {
-    const tags = card.querySelectorAll('.skill-tag');
-    const canvas = card.querySelector('canvas');
-    const chart = charts[chartIndex];
-    
     tags.forEach((tag, tagIndex) => {
         tag.addEventListener('click', () => {
-            // Toggle active class
             const wasActive = tag.classList.contains('active');
-            
-            // Remover active de todos los tags del mismo card
             tags.forEach(t => t.classList.remove('active'));
-            
+
             if (!wasActive) {
                 tag.classList.add('active');
-                highlightSkill(tagIndex, chartIndex);
-                
-                // Activar tooltip
-                chart.setActiveElements([{
-                    datasetIndex: 0,
-                    index: tagIndex
-                }]);
-                chart.tooltip.setActiveElements([{
-                    datasetIndex: 0,
-                    index: tagIndex
-                }], {x: 0, y: 0});
-                chart.update('none');
+                highlight(tagIndex);
+                activateTooltip(tagIndex);
             } else {
-                resetHighlight(chartIndex);
-                chart.setActiveElements([]);
-                chart.tooltip.setActiveElements([], {x: 0, y: 0});
-                chart.update('none');
+                resetHighlight();
             }
         });
 
         tag.addEventListener('mouseenter', () => {
             if (!tag.classList.contains('active')) {
-                highlightSkill(tagIndex, chartIndex);
+                highlight(tagIndex);
             }
         });
 
         tag.addEventListener('mouseleave', () => {
             if (!tag.classList.contains('active')) {
-                resetHighlight(chartIndex);
+                resetHighlight();
             }
         });
     });
-});
 
-// Click en los puntos del gráfico
-document.querySelectorAll('canvas').forEach((canvas, chartIndex) => {
-    canvas.addEventListener('click', (e) => {
-        const chart = charts[chartIndex];
-        const points = chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
-        
-        if (points.length > 0) {
-            const pointIndex = points[0].index;
-            const card = canvas.closest('.developer-card');
-            const tags = card.querySelectorAll('.skill-tag');
-            
-            // Toggle
-            const wasActive = tags[pointIndex].classList.contains('active');
-            
-            tags.forEach(t => t.classList.remove('active'));
-            
-            if (!wasActive) {
-                tags[pointIndex].classList.add('active');
-                highlightSkill(pointIndex, chartIndex);
-            } else {
-                resetHighlight(chartIndex);
+    if (radarCanvas) {
+        radarCanvas.addEventListener('click', (e) => {
+            const points = chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+            if (points.length > 0) {
+                const pointIndex = points[0].index;
+                const wasActive = tags[pointIndex].classList.contains('active');
+
+                tags.forEach(t => t.classList.remove('active'));
+
+                if (!wasActive) {
+                    tags[pointIndex].classList.add('active');
+                    highlight(pointIndex);
+                    activateTooltip(pointIndex);
+                } else {
+                    resetHighlight();
+                }
             }
+        });
+    }
+}
+
+function buildStatusRows(labels, counts) {
+    return labels.map((label, idx) => {
+        const color = statusColorMap[label] || '#6ec5ff';
+        const count = counts[idx] ?? 0;
+        return `
+            <div class="mini-status-row">
+                <span class="mini-status-dot" style="background:${color}"></span>
+                <span class="mini-status-label">${label}</span>
+                <span class="mini-status-value">${count}</span>
+            </div>
+        `;
+    }).join('');
+}
+
+function buildSkillTags(labels) {
+    return labels.map(label => `<span class="skill-tag">${label}</span>`).join('');
+}
+
+const badgeAssets = {
+    js: 'images/badges/js.svg',
+    fire: 'images/badges/fire.svg',
+    diamond: 'images/badges/diamond.svg'
+};
+
+function buildBadges(badges = []) {
+    const list = badges.length ? badges : ['js'];
+    const columnsClass = list.length > 4 ? 'dev-badges dev-badges--two' : 'dev-badges';
+    const items = list.map(key => {
+        const normalized = (key || '').toString().toLowerCase();
+        const src = badgeAssets[normalized];
+        if (src) {
+            return `<span class="dev-badge"><img src="${src}" alt="Badge ${key}"></span>`;
         }
-    });
-});
+        return `<span class="dev-badge dev-badge--text">${key}</span>`;
+    }).join('');
+    return `<div class="${columnsClass}">${items}</div>`;
+}
+
+async function loadTeam() {
+    const teamGrid = document.getElementById('team-grid');
+    if (!teamGrid) return;
+
+    const fallbackData = {
+        team: [
+            {
+                name: 'Carlos Mendoza',
+                role: 'Senior Developer',
+                avatar: 'images/1.svg',
+                badges: ['fire', 'js'],
+                skills: {
+                    labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
+                    levels: [9, 9, 9, 8, 7]
+                },
+                status: {
+                    labels: ['To Do', 'In Progress', 'In Review', 'Done'],
+                    counts: [8, 3, 2, 7]
+                }
+            },
+            {
+                name: 'Ana Martínez',
+                role: 'Mid-Level Developer',
+                avatar: 'images/2.svg',
+                badges: ['fire', 'js'],
+                skills: {
+                    labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
+                    levels: [8, 7, 8, 7, 8]
+                },
+                status: {
+                    labels: ['To Do', 'In Progress', 'In Review', 'Done'],
+                    counts: [6, 4, 1, 4]
+                }
+            },
+            {
+                name: 'Diego Ramírez',
+                role: 'Junior Developer',
+                avatar: 'images/3.svg',
+                badges: ['diamond', 'js'],
+                skills: {
+                    labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
+                    levels: [7, 6, 7, 6, 5]
+                },
+                status: {
+                    labels: ['To Do', 'In Progress', 'In Review', 'Done'],
+                    counts: [5, 2, 1, 4]
+                }
+            }
+        ]
+    };
+
+    const renderTeam = (team = []) => {
+        teamGrid.innerHTML = '';
+
+        team.forEach((member, index) => {
+            const radarId = `chart-${index}`;
+            const donutId = `devStatus-${index}`;
+
+            const card = document.createElement('div');
+            card.className = 'developer-card';
+            card.innerHTML = `
+                <div class="dev-header">
+                    <div class="dev-media">
+                        ${buildBadges(member.badges)}
+                        <div class="dev-image">
+                            <img src="${member.avatar}" alt="Avatar of ${member.name}">
+                        </div>
+                    </div>
+                    <h2 class="dev-name">${member.name}</h2>
+                    <span class="dev-level">${member.role}</span>
+                </div>
+                <div class="mini-status-card">
+                    <h4 class="mini-status-title">Work Status</h4>
+                    <div class="mini-donut">
+                        <div class="mini-donut-wrap">
+                            <canvas id="${donutId}"></canvas>
+                            <div class="mini-donut-center">
+                                <div class="mini-donut-total" data-total-for="${donutId}"></div>
+                                <div class="mini-donut-sub">tasks</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-status-legend">
+                        ${buildStatusRows(member.status.labels, member.status.counts)}
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="${radarId}"></canvas>
+                </div>
+                <div class="skills-legend">
+                    ${buildSkillTags(member.skills.labels)}
+                </div>
+            `;
+
+            teamGrid.appendChild(card);
+
+            const radarChart = createRadarChart(
+                card.querySelector(`#${radarId}`),
+                member.skills.labels,
+                member.skills.levels
+            );
+
+            createMiniDonut(donutId, member.status.labels, member.status.counts);
+            setupSkillInteractions(card, radarChart);
+        });
+    };
+
+    try {
+        const response = await fetch('./data/team.json');
+        const data = await response.json();
+        const team = data.team || [];
+        renderTeam(team);
+    } catch (error) {
+        console.error('Error loading team data:', error);
+        renderTeam(fallbackData.team);
+    }
+}
+
+loadTeam();
