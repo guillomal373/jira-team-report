@@ -300,16 +300,63 @@ function buildBadges(badges = []) {
     return `<div class="${columnsClass}">${items}</div>`;
 }
 
+function renderWorkload(team = []) {
+    const container = document.getElementById('workload-list');
+    if (!container) return;
+
+    const normalized = (team || []).map(member => {
+        const counts = (member.status?.counts || []).map(n => Number(n) || 0);
+        const tasks = counts.reduce((sum, n) => sum + n, 0);
+        return {
+            name: member.name || 'Unassigned',
+            role: member.role || '',
+            avatar: member.avatar,
+            tasks
+        };
+    });
+
+    const totalTasks = normalized.reduce((sum, member) => sum + member.tasks, 0);
+    const safeTotal = totalTasks > 0 ? totalTasks : 1;
+
+    const rows = normalized.map(member => {
+        const percent = member.tasks ? Math.round((member.tasks / safeTotal) * 100) : 0;
+        const percentLabel = member.tasks ? `${percent}%` : '...';
+        const initial = (member.name || '?').charAt(0).toUpperCase();
+        const avatar = member.avatar
+            ? `<div class="workload-avatar"><img src="${member.avatar}" alt="${member.name}"></div>`
+            : `<div class="workload-avatar workload-avatar--fallback">${initial}</div>`;
+
+        return `
+            <div class="workload-row">
+                <div class="workload-person">
+                    ${avatar}
+                    <div>
+                        <div class="workload-name">${member.name}</div>
+                        <div class="workload-role">${member.role || 'Contributor'}</div>
+                    </div>
+                </div>
+                <div class="workload-progress">
+                    <span class="workload-percent">${percentLabel}</span>
+                    <div class="workload-bar">
+                        <span class="workload-bar-fill" style="width:${percent}%;"></span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    container.innerHTML = rows || '<p class="workload-desc">No workload data available.</p>';
+}
+
 async function loadTeam() {
     const teamGrid = document.getElementById('team-grid');
-    if (!teamGrid) return;
 
     const fallbackData = {
         team: [
             {
-                name: 'Carlos Mendoza',
-                role: 'Senior Developer',
-                avatar: 'images/1.svg',
+                name: 'Samil Vargas',
+                role: 'Senior Full Stack Developer',
+                avatar: 'images/avatar/dexter/10.png',
                 badges: ['fire', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -321,9 +368,9 @@ async function loadTeam() {
                 }
             },
             {
-                name: 'Ana Martínez',
-                role: 'Mid-Level Developer',
-                avatar: 'images/2.svg',
+                name: 'Roberto Hiraldo',
+                role: 'Senior Full Stack Developer',
+                avatar: 'images/avatar/darkowl/10.png',
                 badges: ['fire', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -335,9 +382,23 @@ async function loadTeam() {
                 }
             },
             {
-                name: 'Diego Ramírez',
+                name: 'Nicolás Díaz',
                 role: 'Junior Developer',
-                avatar: 'images/3.svg',
+                avatar: 'images/avatar/deadpool/10.png',
+                badges: ['diamond', 'js'],
+                skills: {
+                    labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
+                    levels: [7, 6, 7, 6, 5]
+                },
+                status: {
+                    labels: ['To Do', 'In Progress', 'In Review', 'Done'],
+                    counts: [5, 2, 1, 4]
+                }
+            },
+            {
+                name: 'Guillermo Malagón',
+                role: 'Project manager',
+                avatar: 'images/avatar/hulk/10.png',
                 badges: ['diamond', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -352,6 +413,7 @@ async function loadTeam() {
     };
 
     const renderTeam = (team = []) => {
+        if (!teamGrid) return;
         teamGrid.innerHTML = '';
 
         team.forEach((member, index) => {
@@ -411,10 +473,13 @@ async function loadTeam() {
         const response = await fetch('./data/team.json');
         const data = await response.json();
         const team = data.team || [];
-        renderTeam(team);
+        const finalTeam = team.length ? team : fallbackData.team;
+        renderTeam(finalTeam);
+        renderWorkload(finalTeam);
     } catch (error) {
         console.error('Error loading team data:', error);
         renderTeam(fallbackData.team);
+        renderWorkload(fallbackData.team);
     }
 }
 

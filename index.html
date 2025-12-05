@@ -31,48 +31,69 @@
         </section>
 
         <section class="status-section">
-            <div class="status-left">
-                <h3 class="status-title">Status Overview</h3>
-                <p class="status-desc">Get a snapshot of the status of your work items.</p>
-                <div class="donut-wrap">
-                    <canvas id="statusChart"></canvas>
-                    <div class="donut-center">
-                        <div class="donut-total">64</div>
-                        <div class="donut-sub">Total work items</div>
+            <div class="status-card">
+                <div class="status-card-header">
+                    <div>
+                        <h3 class="status-title">Status Overview</h3>
+                        <p class="status-desc">Get a snapshot of the status of your work items.</p>
+                    </div>
+                </div>
+                <div class="status-card-body">
+                    <div class="donut-wrap">
+                        <canvas id="statusChart"></canvas>
+                        <div class="donut-center">
+                            <div class="donut-total">64</div>
+                            <div class="donut-sub">Total work items</div>
+                        </div>
+                    </div>
+                    <div class="status-legend">
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#6ec5ff"></span>
+                            <span class="status-label">To Do</span>
+                            <span class="status-value">35</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#f5d469"></span>
+                            <span class="status-label">In Review</span>
+                            <span class="status-value">6</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#4b8cff"></span>
+                            <span class="status-label">In Progress</span>
+                            <span class="status-value">5</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#2b5fd9"></span>
+                            <span class="status-label">Sprint</span>
+                            <span class="status-value">1</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#ff5f56"></span>
+                            <span class="status-label">Blocked</span>
+                            <span class="status-value">1</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#1fce88"></span>
+                            <span class="status-label">Done</span>
+                            <span class="status-value">16</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="status-right">
-                <div class="status-item">
-                    <span class="status-dot" style="background:#6ec5ff"></span>
-                    <span class="status-label">To Do</span>
-                    <span class="status-value">35</span>
+
+            <div class="workload-card">
+                <div class="workload-top">
+                    <div>
+                        <p class="workload-kicker">Team workload</p>
+                        <h3 class="workload-title">Monitor the capacity of your team.</h3>
+                        <p class="workload-desc">Reassign work items to get the right balance.</p>
+                    </div>
                 </div>
-                <div class="status-item">
-                    <span class="status-dot" style="background:#f5d469"></span>
-                    <span class="status-label">In Review</span>
-                    <span class="status-value">6</span>
+                <div class="workload-headings">
+                    <span>Assignee</span>
+                    <span>Work distribution</span>
                 </div>
-                <div class="status-item">
-                    <span class="status-dot" style="background:#4b8cff"></span>
-                    <span class="status-label">In Progress</span>
-                    <span class="status-value">5</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-dot" style="background:#2b5fd9"></span>
-                    <span class="status-label">Sprint</span>
-                    <span class="status-value">1</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-dot" style="background:#ff5f56"></span>
-                    <span class="status-label">Blocked</span>
-                    <span class="status-value">1</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-dot" style="background:#1fce88"></span>
-                    <span class="status-label">Done</span>
-                    <span class="status-value">16</span>
-                </div>
+                <div id="workload-list" class="workload-list"></div>
             </div>
         </section>
 

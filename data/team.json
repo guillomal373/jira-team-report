@@ -17,7 +17,7 @@
     {
       "name": "Roberto Hiraldo",
       "role": "Senior Full Stack Developer",
-      "avatar": "images/pictures/roberto.png",
+      "avatar": "images/avatar/darkowl/10.png",
       "badges": ["fire", "js"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
@@ -29,9 +29,23 @@
       }
     },
     {
-      "name": "Nicolas Diaz",
+      "name": "Nicolás Díaz",
       "role": "Junior Developer",
-      "avatar": "images/pictures/nico.jpg",
+      "avatar": "images/avatar/deadpool/10.png",
+      "badges": ["diamond", "js"],
+      "skills": {
+        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
+        "levels": [7, 6, 7, 6, 5]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [5, 2, 1, 4]
+      }
+    },
+    {
+      "name": "Guillermo Malagón",
+      "role": "Project manager",
+      "avatar": "images/avatar/hulk/10.png",
       "badges": ["diamond", "js"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
