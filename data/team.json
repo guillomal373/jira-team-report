@@ -3,7 +3,8 @@
     {
       "name": "Samil Vargas",
       "role": "Senior Full Stack Developer",
-      "avatar": "images/avatar/dexter/10.png",
+      "hero": "dexter",
+      "level": 10,
       "badges": ["js", "fire"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
@@ -17,7 +18,8 @@
     {
       "name": "Roberto Hiraldo",
       "role": "Senior Full Stack Developer",
-      "avatar": "images/avatar/darkowl/10.png",
+      "hero": "darkowl",
+      "level": 10,
       "badges": ["fire", "js"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
@@ -31,7 +33,8 @@
     {
       "name": "Nicolás Díaz",
       "role": "Junior Developer",
-      "avatar": "images/avatar/deadpool/10.png",
+      "hero": "deadpool",
+      "level": 10,
       "badges": ["diamond", "js"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
@@ -45,7 +48,8 @@
     {
       "name": "Guillermo Malagón",
       "role": "Project manager",
-      "avatar": "images/avatar/hulk/10.png",
+      "hero": "hulk",
+      "level": 10,
       "badges": ["diamond", "js"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],

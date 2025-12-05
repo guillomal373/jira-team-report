@@ -300,17 +300,28 @@ function buildBadges(badges = []) {
     return `<div class="${columnsClass}">${items}</div>`;
 }
 
+function getAvatarPaths(member = {}) {
+    const hero = (member.hero || '').toString().toLowerCase();
+    const level = Number(member.level) || 10;
+    const folder = hero ? `images/avatar/${hero}` : (member.avatarFolder || '');
+    const main = folder ? `${folder}/${level}.png` : (member.avatar || '');
+    const circle = folder ? `${folder}/circle.png` : (member.avatar ? member.avatar.replace(/[^/]+$/, 'circle.png') : '');
+    return { folder, main, circle };
+}
+
 function renderWorkload(team = []) {
     const container = document.getElementById('workload-list');
     if (!container) return;
 
     const normalized = (team || []).map(member => {
+        const paths = getAvatarPaths(member);
         const counts = (member.status?.counts || []).map(n => Number(n) || 0);
         const tasks = counts.reduce((sum, n) => sum + n, 0);
         return {
             name: member.name || 'Unassigned',
             role: member.role || '',
-            avatar: member.avatar,
+            avatarMain: paths.main,
+            avatarCircle: paths.circle,
             tasks
         };
     });
@@ -322,8 +333,9 @@ function renderWorkload(team = []) {
         const percent = member.tasks ? Math.round((member.tasks / safeTotal) * 100) : 0;
         const percentLabel = member.tasks ? `${percent}%` : '...';
         const initial = (member.name || '?').charAt(0).toUpperCase();
-        const avatar = member.avatar
-            ? `<div class="workload-avatar"><img src="${member.avatar}" alt="${member.name}"></div>`
+        const avatarSrc = member.avatarCircle || member.avatarMain;
+        const avatar = avatarSrc
+            ? `<div class="workload-avatar"><img src="${avatarSrc}" alt="${member.name}"></div>`
             : `<div class="workload-avatar workload-avatar--fallback">${initial}</div>`;
 
         return `
@@ -356,7 +368,8 @@ async function loadTeam() {
             {
                 name: 'Samil Vargas',
                 role: 'Senior Full Stack Developer',
-                avatar: 'images/avatar/dexter/10.png',
+                hero: 'dexter',
+                level: 10,
                 badges: ['fire', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -370,7 +383,8 @@ async function loadTeam() {
             {
                 name: 'Roberto Hiraldo',
                 role: 'Senior Full Stack Developer',
-                avatar: 'images/avatar/darkowl/10.png',
+                hero: 'darkowl',
+                level: 10,
                 badges: ['fire', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -384,7 +398,8 @@ async function loadTeam() {
             {
                 name: 'Nicolás Díaz',
                 role: 'Junior Developer',
-                avatar: 'images/avatar/deadpool/10.png',
+                hero: 'deadpool',
+                level: 10,
                 badges: ['diamond', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -398,7 +413,8 @@ async function loadTeam() {
             {
                 name: 'Guillermo Malagón',
                 role: 'Project manager',
-                avatar: 'images/avatar/hulk/10.png',
+                hero: 'hulk',
+                level: 10,
                 badges: ['diamond', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -419,6 +435,7 @@ async function loadTeam() {
         team.forEach((member, index) => {
             const radarId = `chart-${index}`;
             const donutId = `devStatus-${index}`;
+            const avatarPaths = getAvatarPaths(member);
 
             const card = document.createElement('div');
             card.className = 'developer-card';
@@ -427,7 +444,7 @@ async function loadTeam() {
                     <div class="dev-media">
                         ${buildBadges(member.badges)}
                         <div class="dev-image">
-                            <img src="${member.avatar}" alt="Avatar of ${member.name}">
+                            <img src="${avatarPaths.main}" alt="Avatar of ${member.name}">
                         </div>
                     </div>
                     <h2 class="dev-name">${member.name}</h2>
