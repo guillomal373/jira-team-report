@@ -103,7 +103,8 @@ const radarBaseConfig = {
                 },
                 callbacks: {
                     label: function(context) {
-                        return 'Level: ' + context.parsed.r + '/10';
+                        const label = context.dataset?.label || 'Nivel';
+                        return `${label}: ${context.parsed.r}/10`;
                     }
                 }
             }
@@ -114,24 +115,45 @@ const radarBaseConfig = {
     }
 };
 
-function createRadarChart(canvas, labels, data) {
+function createRadarChart(canvas, labels, currentLevels, initialLevels) {
+    const datasets = [{
+        label: 'Actual',
+        data: currentLevels,
+        backgroundColor: 'rgba(201, 168, 92, 0.15)',
+        borderColor: '#c9a85c',
+        borderWidth: 2.5,
+        pointBackgroundColor: '#c9a85c',
+        pointBorderColor: '#1a1a1a',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverBackgroundColor: '#ffffff',
+        pointHoverBorderColor: '#c9a85c',
+        pointHoverRadius: 7,
+        fill: true
+    }];
+
+    if (Array.isArray(initialLevels) && initialLevels.length === labels.length) {
+        datasets.push({
+            label: 'Inicial',
+            data: initialLevels,
+            backgroundColor: 'rgba(201, 168, 92, 0.04)',
+            borderColor: 'rgba(201, 168, 92, 0.55)',
+            borderWidth: 1.6,
+            borderDash: [6, 6],
+            pointBackgroundColor: 'rgba(201, 168, 92, 0.6)',
+            pointBorderColor: '#0f0f0f',
+            pointBorderWidth: 2,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            fill: false
+        });
+    }
+
     return new Chart(canvas, {
         ...radarBaseConfig,
         data: {
             labels,
-            datasets: [{
-                data,
-                backgroundColor: 'rgba(201, 168, 92, 0.15)',
-                borderColor: '#c9a85c',
-                borderWidth: 2.5,
-                pointBackgroundColor: '#c9a85c',
-                pointBorderColor: '#1a1a1a',
-                pointBorderWidth: 2,
-                pointRadius: 5,
-                pointHoverBackgroundColor: '#ffffff',
-                pointHoverBorderColor: '#c9a85c',
-                pointHoverRadius: 7
-            }]
+            datasets
         }
     });
 }
@@ -176,41 +198,47 @@ function createMiniDonut(canvasId, labels, counts) {
 function setupSkillInteractions(card, chart) {
     const tags = card.querySelectorAll('.skills-legend .skill-tag');
     const radarCanvas = card.querySelector('.chart-container canvas');
+    const basePointStyles = chart.data.datasets.map(ds => ({
+        radius: ds.pointRadius || 5,
+        bg: ds.pointBackgroundColor || '#c9a85c',
+        border: ds.pointBorderColor || '#1a1a1a',
+        borderWidth: ds.pointBorderWidth || 2
+    }));
 
-    const highlight = (skillIndex) => {
-        const meta = chart.getDatasetMeta(0);
-        meta.data.forEach((point, index) => {
-            if (index === skillIndex) {
-                point.options.pointRadius = 10;
-                point.options.pointBackgroundColor = '#ffffff';
-                point.options.pointBorderColor = '#c9a85c';
-                point.options.pointBorderWidth = 3;
-            } else {
-                point.options.pointRadius = 5;
-                point.options.pointBackgroundColor = '#c9a85c';
-                point.options.pointBorderColor = '#1a1a1a';
-                point.options.pointBorderWidth = 2;
-            }
+    const setPointState = (skillIndex = null) => {
+        chart.data.datasets.forEach((_, datasetIndex) => {
+            const meta = chart.getDatasetMeta(datasetIndex);
+            const base = basePointStyles[datasetIndex] || {};
+
+            meta.data.forEach((point, index) => {
+                const isActive = skillIndex === index;
+                point.options.pointRadius = isActive ? (base.radius + 3) : base.radius;
+                point.options.pointBackgroundColor = isActive ? '#ffffff' : base.bg;
+                point.options.pointBorderColor = isActive ? '#c9a85c' : base.border;
+                point.options.pointBorderWidth = isActive ? 3 : base.borderWidth;
+            });
         });
         chart.update('none');
     };
 
+    const highlight = (skillIndex) => {
+        setPointState(skillIndex);
+    };
+
     const resetHighlight = () => {
-        const meta = chart.getDatasetMeta(0);
-        meta.data.forEach((point) => {
-            point.options.pointRadius = 5;
-            point.options.pointBackgroundColor = '#c9a85c';
-            point.options.pointBorderColor = '#1a1a1a';
-            point.options.pointBorderWidth = 2;
-        });
+        setPointState(null);
         chart.setActiveElements([]);
         chart.tooltip.setActiveElements([], { x: 0, y: 0 });
         chart.update('none');
     };
 
     const activateTooltip = (index) => {
-        chart.setActiveElements([{ datasetIndex: 0, index }]);
-        chart.tooltip.setActiveElements([{ datasetIndex: 0, index }], { x: 0, y: 0 });
+        const activeElements = chart.data.datasets.map((_, datasetIndex) => ({
+            datasetIndex,
+            index
+        }));
+        chart.setActiveElements(activeElements);
+        chart.tooltip.setActiveElements(activeElements, { x: 0, y: 0 });
         chart.update('none');
     };
 
@@ -278,6 +306,21 @@ function buildStatusRows(labels, counts) {
 
 function buildSkillTags(labels) {
     return labels.map(label => `<span class="skill-tag">${label}</span>`).join('');
+}
+
+function normalizeSkillData(skills = {}) {
+    const labels = skills.labels || [];
+    const currentLevels = skills.levels || skills.current || [];
+    let initialLevels = skills.initialLevels || skills.initial || [];
+
+    if (!Array.isArray(initialLevels) || initialLevels.length !== labels.length) {
+        initialLevels = labels.map((_, idx) => {
+            const current = Number(currentLevels[idx]) || 0;
+            return Math.max(1, current - 2);
+        });
+    }
+
+    return { labels, currentLevels, initialLevels };
 }
 
 const badgeAssets = {
@@ -373,7 +416,8 @@ async function loadTeam() {
                 badges: ['fire', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
-                    levels: [9, 9, 9, 8, 7]
+                    levels: [9, 9, 9, 8, 7],
+                    initialLevels: [7, 7, 8, 6, 5]
                 },
                 status: {
                     labels: ['To Do', 'In Progress', 'In Review', 'Done'],
@@ -388,7 +432,8 @@ async function loadTeam() {
                 badges: ['fire', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
-                    levels: [8, 7, 8, 7, 8]
+                    levels: [8, 7, 8, 7, 8],
+                    initialLevels: [6, 6, 6, 5, 6]
                 },
                 status: {
                     labels: ['To Do', 'In Progress', 'In Review', 'Done'],
@@ -403,7 +448,8 @@ async function loadTeam() {
                 badges: ['diamond', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
-                    levels: [7, 6, 7, 6, 5]
+                    levels: [7, 6, 7, 6, 5],
+                    initialLevels: [5, 5, 5, 4, 4]
                 },
                 status: {
                     labels: ['To Do', 'In Progress', 'In Review', 'Done'],
@@ -418,7 +464,8 @@ async function loadTeam() {
                 badges: ['diamond', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
-                    levels: [7, 6, 7, 6, 5]
+                    levels: [7, 6, 7, 6, 5],
+                    initialLevels: [5, 5, 5, 4, 4]
                 },
                 status: {
                     labels: ['To Do', 'In Progress', 'In Review', 'Done'],
@@ -436,6 +483,7 @@ async function loadTeam() {
             const radarId = `chart-${index}`;
             const donutId = `devStatus-${index}`;
             const avatarPaths = getAvatarPaths(member);
+            const skillData = normalizeSkillData(member.skills);
 
             const card = document.createElement('div');
             card.className = 'developer-card';
@@ -468,8 +516,12 @@ async function loadTeam() {
                 <div class="chart-container">
                     <canvas id="${radarId}"></canvas>
                 </div>
+                <div class="radar-legend">
+                    <span class="radar-pill radar-pill--current">Actual</span>
+                    <span class="radar-pill radar-pill--initial">Inicial</span>
+                </div>
                 <div class="skills-legend">
-                    ${buildSkillTags(member.skills.labels)}
+                    ${buildSkillTags(skillData.labels)}
                 </div>
             `;
 
@@ -477,8 +529,9 @@ async function loadTeam() {
 
             const radarChart = createRadarChart(
                 card.querySelector(`#${radarId}`),
-                member.skills.labels,
-                member.skills.levels
+                skillData.labels,
+                skillData.currentLevels,
+                skillData.initialLevels
             );
 
             createMiniDonut(donutId, member.status.labels, member.status.counts);
