@@ -5,11 +5,12 @@
       "role": "Senior Full Stack Developer",
       "hero": "dexter",
       "level": 10,
+      "color": "#54bdc8",
       "badges": ["js", "fire"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [9, 9, 9, 8, 7],
-        "initialLevels": [7, 7, 8, 6, 5]
+        "initialLevels": [2, 2, 2, 2, 2]
       },
       "status": {
         "labels": ["To Do", "In Progress", "In Review", "Done"],
@@ -21,11 +22,12 @@
       "role": "Senior Full Stack Developer",
       "hero": "darkowl",
       "level": 10,
+      "color": "#6002bb",
       "badges": ["fire", "js"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [8, 7, 8, 7, 8],
-        "initialLevels": [6, 6, 6, 5, 6]
+        "initialLevels": [2, 2, 2, 2, 2]
       },
       "status": {
         "labels": ["To Do", "In Progress", "In Review", "Done"],
@@ -37,11 +39,12 @@
       "role": "Junior Developer",
       "hero": "deadpool",
       "level": 10,
+      "color": "#ab0101",
       "badges": ["diamond", "js"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
-        "initialLevels": [5, 5, 5, 4, 4]
+        "initialLevels": [2, 2, 2, 2, 2]
       },
       "status": {
         "labels": ["To Do", "In Progress", "In Review", "Done"],
@@ -53,11 +56,12 @@
       "role": "Project manager",
       "hero": "hulk",
       "level": 10,
+      "color": "#1e8503",
       "badges": ["diamond", "js"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
-        "initialLevels": [5, 5, 5, 4, 4]
+        "initialLevels": [2, 2, 2, 2, 2]
       },
       "status": {
         "labels": ["To Do", "In Progress", "In Review", "Done"],

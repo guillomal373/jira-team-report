@@ -15,16 +15,21 @@
             <p class="subtitle">LEGENDARY CODE ARCHITECTS</p>
         </header>
 
+        <div class="sprint-filter">
+            <label for="globalSprintSelect">Sprint actual</label>
+            <select id="globalSprintSelect"></select>
+        </div>
+
         <section class="metrics">
             <div class="metric-card">
                 <div class="metric-icon">✔</div>
-                <div class="metric-value">15</div>
+                <div class="metric-value" data-metric="completed">15</div>
                 <div class="metric-label">Completed</div>
                 <div class="metric-sub">In the last 7 days</div>
             </div>
             <div class="metric-card">
                 <div class="metric-icon">✎</div>
-                <div class="metric-value">64</div>
+                <div class="metric-value" data-metric="updated">64</div>
                 <div class="metric-label">Updated</div>
                 <div class="metric-sub">In the last 7 days</div>
             </div>
@@ -42,7 +47,7 @@
                     <div class="donut-wrap">
                         <canvas id="statusChart"></canvas>
                         <div class="donut-center">
-                            <div class="donut-total">64</div>
+                            <div class="donut-total" data-status-total>62</div>
                             <div class="donut-sub">Total work items</div>
                         </div>
                     </div>
@@ -50,32 +55,22 @@
                         <div class="status-item">
                             <span class="status-dot" style="background:#6ec5ff"></span>
                             <span class="status-label">To Do</span>
-                            <span class="status-value">35</span>
-                        </div>
-                        <div class="status-item">
-                            <span class="status-dot" style="background:#f5d469"></span>
-                            <span class="status-label">In Review</span>
-                            <span class="status-value">6</span>
+                            <span class="status-value" data-status="To Do">35</span>
                         </div>
                         <div class="status-item">
                             <span class="status-dot" style="background:#4b8cff"></span>
                             <span class="status-label">In Progress</span>
-                            <span class="status-value">5</span>
+                            <span class="status-value" data-status="In Progress">5</span>
                         </div>
                         <div class="status-item">
-                            <span class="status-dot" style="background:#2b5fd9"></span>
-                            <span class="status-label">Sprint</span>
-                            <span class="status-value">1</span>
-                        </div>
-                        <div class="status-item">
-                            <span class="status-dot" style="background:#ff5f56"></span>
-                            <span class="status-label">Blocked</span>
-                            <span class="status-value">1</span>
+                            <span class="status-dot" style="background:#f5d469"></span>
+                            <span class="status-label">In Review</span>
+                            <span class="status-value" data-status="In Review">6</span>
                         </div>
                         <div class="status-item">
                             <span class="status-dot" style="background:#1fce88"></span>
                             <span class="status-label">Done</span>
-                            <span class="status-value">16</span>
+                            <span class="status-value" data-status="Done">16</span>
                         </div>
                     </div>
                 </div>
@@ -94,6 +89,29 @@
                     <span>Work distribution</span>
                 </div>
                 <div id="workload-list" class="workload-list"></div>
+            </div>
+        </section>
+
+        <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Tareas por estado en el sprint</h3>
+                        <p class="workload-desc">Visualiza cómo se mueven los estados día a día.</p>
+                    </div>
+                </div>
+                <div class="trend-subrow">
+                    <span class="trend-subtag">Evolución diaria</span>
+                </div>
+                <div class="trend-grid">
+                    <div class="trend-chart">
+                        <canvas id="sprintTrendChart"></canvas>
+                    </div>
+                    <div class="trend-chart trend-chart--members">
+                        <div class="trend-subtag trend-subtag--chart">Done por miembro</div>
+                        <canvas id="memberTrendChart"></canvas>
+                    </div>
+                </div>
             </div>
         </section>
 

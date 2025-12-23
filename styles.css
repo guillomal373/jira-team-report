@@ -55,6 +55,26 @@ header {
     position: relative;
 }
 
+.sprint-filter {
+    display: inline-grid;
+    gap: 6px;
+    color: #c9a85c;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.sprint-filter select {
+    background: #111;
+    color: #f5f5f5;
+    border: 1px solid #c9a85c;
+    padding: 10px 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
 header::after {
     content: '';
     position: absolute;
@@ -273,12 +293,13 @@ h1 {
     height: 46px;
     border-radius: 50%;
     overflow: hidden;
-    border: 1px solid #333;
-    background: linear-gradient(135deg, #1e1e1e 0%, #0f0f0f 100%);
+    border: 2px solid var(--avatar-border, #333);
+    background: #0f0f0f;
     box-shadow:
         0 6px 18px rgba(0, 0, 0, 0.7),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
     flex-shrink: 0;
+    position: relative;
 }
 
 .workload-avatar img {
@@ -406,6 +427,80 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     margin-top: 50px;
+}
+
+.trend-section {
+    margin: 30px 0 10px;
+}
+
+.trend-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    border: 1px solid #333;
+    padding: 24px 26px;
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.85),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.trend-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.trend-main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.6em;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+}
+
+.trend-subrow {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin: 6px 0 8px;
+}
+
+.trend-subtag {
+    color: #c9a85c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 0.95em;
+}
+
+.trend-subtag--chart {
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+.trend-chart {
+    margin-top: 12px;
+}
+
+.trend-chart--members {
+    margin-top: 0;
+}
+
+.trend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .trend-grid {
+        grid-template-columns: 1fr;
+    }
+    .trend-chart--members {
+        margin-top: 12px;
+    }
 }
 
 .developer-card {

@@ -1,0 +1,112 @@
+{
+  "sprints": [
+    {
+      "name": "Sprint 2",
+      "period": "2024-03-04 to 2024-03-17",
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "color": "#c9a85c",
+          "statuses": [
+            { "date": "2024-03-04", "To Do": 6, "In Progress": 2, "In Review": 1, "Done": 6 },
+            { "date": "2024-03-06", "To Do": 5, "In Progress": 3, "In Review": 1, "Done": 7 },
+            { "date": "2024-03-08", "To Do": 5, "In Progress": 2, "In Review": 1, "Done": 8 },
+            { "date": "2024-03-11", "To Do": 5, "In Progress": 2, "In Review": 2, "Done": 8 },
+            { "date": "2024-03-13", "To Do": 4, "In Progress": 3, "In Review": 2, "Done": 8 },
+            { "date": "2024-03-15", "To Do": 4, "In Progress": 2, "In Review": 2, "Done": 9 }
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "color": "#4b8cff",
+          "statuses": [
+            { "date": "2024-03-04", "To Do": 5, "In Progress": 2, "In Review": 1, "Done": 4 },
+            { "date": "2024-03-06", "To Do": 4, "In Progress": 3, "In Review": 1, "Done": 5 },
+            { "date": "2024-03-08", "To Do": 4, "In Progress": 2, "In Review": 1, "Done": 6 },
+            { "date": "2024-03-11", "To Do": 4, "In Progress": 2, "In Review": 1, "Done": 6 },
+            { "date": "2024-03-13", "To Do": 4, "In Progress": 3, "In Review": 1, "Done": 6 },
+            { "date": "2024-03-15", "To Do": 3, "In Progress": 3, "In Review": 1, "Done": 6 }
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "color": "#6ec5ff",
+          "statuses": [
+            { "date": "2024-03-04", "To Do": 4, "In Progress": 1, "In Review": 0, "Done": 3 },
+            { "date": "2024-03-06", "To Do": 4, "In Progress": 1, "In Review": 1, "Done": 3 },
+            { "date": "2024-03-08", "To Do": 4, "In Progress": 1, "In Review": 1, "Done": 4 },
+            { "date": "2024-03-11", "To Do": 3, "In Progress": 2, "In Review": 1, "Done": 4 },
+            { "date": "2024-03-13", "To Do": 3, "In Progress": 2, "In Review": 1, "Done": 4 },
+            { "date": "2024-03-15", "To Do": 3, "In Progress": 2, "In Review": 1, "Done": 4 }
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "color": "#f5d469",
+          "statuses": [
+            { "date": "2024-03-04", "To Do": 3, "In Progress": 1, "In Review": 0, "Done": 2 },
+            { "date": "2024-03-06", "To Do": 3, "In Progress": 1, "In Review": 1, "Done": 2 },
+            { "date": "2024-03-08", "To Do": 3, "In Progress": 1, "In Review": 1, "Done": 3 },
+            { "date": "2024-03-11", "To Do": 3, "In Progress": 1, "In Review": 1, "Done": 3 },
+            { "date": "2024-03-13", "To Do": 2, "In Progress": 2, "In Review": 1, "Done": 3 },
+            { "date": "2024-03-15", "To Do": 2, "In Progress": 2, "In Review": 1, "Done": 3 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sprint 3",
+      "period": "2024-03-18 to 2024-03-31",
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "color": "#c9a85c",
+          "statuses": [
+            { "date": "2024-03-18", "To Do": 5, "In Progress": 3, "In Review": 1, "Done": 8 },
+            { "date": "2024-03-20", "To Do": 4, "In Progress": 4, "In Review": 1, "Done": 8 },
+            { "date": "2024-03-22", "To Do": 4, "In Progress": 3, "In Review": 2, "Done": 8 },
+            { "date": "2024-03-25", "To Do": 4, "In Progress": 3, "In Review": 2, "Done": 9 },
+            { "date": "2024-03-27", "To Do": 3, "In Progress": 3, "In Review": 2, "Done": 9 },
+            { "date": "2024-03-29", "To Do": 3, "In Progress": 2, "In Review": 2, "Done": 10 }
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "color": "#4b8cff",
+          "statuses": [
+            { "date": "2024-03-18", "To Do": 6, "In Progress": 2, "In Review": 1, "Done": 6 },
+            { "date": "2024-03-20", "To Do": 5, "In Progress": 3, "In Review": 1, "Done": 6 },
+            { "date": "2024-03-22", "To Do": 5, "In Progress": 2, "In Review": 2, "Done": 6 },
+            { "date": "2024-03-25", "To Do": 5, "In Progress": 3, "In Review": 2, "Done": 6 },
+            { "date": "2024-03-27", "To Do": 4, "In Progress": 3, "In Review": 2, "Done": 6 },
+            { "date": "2024-03-29", "To Do": 4, "In Progress": 2, "In Review": 2, "Done": 7 }
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "color": "#6ec5ff",
+          "statuses": [
+            { "date": "2024-03-18", "To Do": 5, "In Progress": 1, "In Review": 0, "Done": 5 },
+            { "date": "2024-03-20", "To Do": 4, "In Progress": 2, "In Review": 1, "Done": 5 },
+            { "date": "2024-03-22", "To Do": 4, "In Progress": 2, "In Review": 1, "Done": 5 },
+            { "date": "2024-03-25", "To Do": 4, "In Progress": 2, "In Review": 1, "Done": 5 },
+            { "date": "2024-03-27", "To Do": 3, "In Progress": 2, "In Review": 1, "Done": 6 },
+            { "date": "2024-03-29", "To Do": 3, "In Progress": 2, "In Review": 1, "Done": 6 }
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "color": "#f5d469",
+          "statuses": [
+            { "date": "2024-03-18", "To Do": 4, "In Progress": 1, "In Review": 0, "Done": 4 },
+            { "date": "2024-03-20", "To Do": 3, "In Progress": 2, "In Review": 0, "Done": 4 },
+            { "date": "2024-03-22", "To Do": 3, "In Progress": 1, "In Review": 1, "Done": 4 },
+            { "date": "2024-03-25", "To Do": 3, "In Progress": 1, "In Review": 1, "Done": 4 },
+            { "date": "2024-03-27", "To Do": 3, "In Progress": 1, "In Review": 1, "Done": 4 },
+            { "date": "2024-03-29", "To Do": 3, "In Progress": 1, "In Review": 1, "Done": 4 }
+          ]
+        }
+      ]
+    }
+  ]
+}

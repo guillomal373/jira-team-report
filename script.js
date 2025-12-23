@@ -2,26 +2,28 @@ const statusColorMap = {
     'To Do': '#6ec5ff',
     'In Review': '#f5d469',
     'In Progress': '#4b8cff',
-    'Sprint': '#2b5fd9',
-    'Blocked': '#ff5f56',
     'Done': '#1fce88'
 };
+const statusOrder = ['To Do', 'In Progress', 'In Review', 'Done'];
+let sprintTrendChart = null;
+let sprintMemberChart = null;
+const memberPalette = ['#c9a85c', '#4b8cff', '#6ec5ff', '#f5d469', '#ff5f56', '#7de1c3'];
+let statusChartInstance = null;
+let teamCache = [];
 
 // Status overview donut chart
 const statusCtx = document.getElementById('statusChart');
 if (statusCtx) {
-    new Chart(statusCtx, {
+    statusChartInstance = new Chart(statusCtx, {
         type: 'doughnut',
         data: {
-            labels: ['To Do', 'In Review', 'In Progress', 'Sprint', 'Blocked', 'Done'],
+            labels: statusOrder,
             datasets: [{
-                data: [35, 6, 5, 1, 1, 16],
+                data: [35, 5, 6, 16],
                 backgroundColor: [
                     statusColorMap['To Do'],
-                    statusColorMap['In Review'],
                     statusColorMap['In Progress'],
-                    statusColorMap['Sprint'],
-                    statusColorMap['Blocked'],
+                    statusColorMap['In Review'],
                     statusColorMap['Done']
                 ],
                 borderWidth: 0,
@@ -352,19 +354,23 @@ function getAvatarPaths(member = {}) {
     return { folder, main, circle };
 }
 
-function renderWorkload(team = []) {
+function renderWorkload(team = [], taskOverride = {}) {
     const container = document.getElementById('workload-list');
     if (!container) return;
 
     const normalized = (team || []).map(member => {
         const paths = getAvatarPaths(member);
+        const overrideTasks = taskOverride[member.name];
         const counts = (member.status?.counts || []).map(n => Number(n) || 0);
-        const tasks = counts.reduce((sum, n) => sum + n, 0);
+        const defaultTasks = counts.reduce((sum, n) => sum + n, 0);
+        const tasks = typeof overrideTasks === 'number' ? overrideTasks : defaultTasks;
+        const color = member.color || '#c9a85c';
         return {
             name: member.name || 'Unassigned',
             role: member.role || '',
             avatarMain: paths.main,
             avatarCircle: paths.circle,
+            color,
             tasks
         };
     });
@@ -378,8 +384,8 @@ function renderWorkload(team = []) {
         const initial = (member.name || '?').charAt(0).toUpperCase();
         const avatarSrc = member.avatarCircle || member.avatarMain;
         const avatar = avatarSrc
-            ? `<div class="workload-avatar"><img src="${avatarSrc}" alt="${member.name}"></div>`
-            : `<div class="workload-avatar workload-avatar--fallback">${initial}</div>`;
+            ? `<div class="workload-avatar" style="--avatar-border:${member.color};"><img src="${avatarSrc}" alt="${member.name}"></div>`
+            : `<div class="workload-avatar workload-avatar--fallback" style="--avatar-border:${member.color};">${initial}</div>`;
 
         return `
             <div class="workload-row">
@@ -413,6 +419,7 @@ async function loadTeam() {
                 role: 'Senior Full Stack Developer',
                 hero: 'dexter',
                 level: 10,
+                color: '#c9a85c',
                 badges: ['fire', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -429,6 +436,7 @@ async function loadTeam() {
                 role: 'Senior Full Stack Developer',
                 hero: 'darkowl',
                 level: 10,
+                color: '#4b8cff',
                 badges: ['fire', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -445,6 +453,7 @@ async function loadTeam() {
                 role: 'Junior Developer',
                 hero: 'deadpool',
                 level: 10,
+                color: '#6ec5ff',
                 badges: ['diamond', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -461,6 +470,7 @@ async function loadTeam() {
                 role: 'Project manager',
                 hero: 'hulk',
                 level: 10,
+                color: '#f5d469',
                 badges: ['diamond', 'js'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
@@ -546,11 +556,368 @@ async function loadTeam() {
         const finalTeam = team.length ? team : fallbackData.team;
         renderTeam(finalTeam);
         renderWorkload(finalTeam);
+        teamCache = finalTeam;
     } catch (error) {
         console.error('Error loading team data:', error);
         renderTeam(fallbackData.team);
         renderWorkload(fallbackData.team);
+        teamCache = fallbackData.team;
     }
 }
 
 loadTeam();
+loadSprintTrends();
+
+async function loadSprintTrends() {
+    const selectEl = document.getElementById('globalSprintSelect');
+    const chartCanvas = document.getElementById('sprintTrendChart');
+    if (!selectEl || !chartCanvas) return;
+
+    try {
+        const response = await fetch('./data/sprint_tasks.json');
+        const data = await response.json();
+        const sprints = data.sprints || [];
+        if (!sprints.length) return;
+
+        const optionsHtml = sprints.map((s, idx) => `<option value="${idx}">${s.name}</option>`).join('');
+        selectEl.innerHTML = optionsHtml;
+
+        const render = () => {
+            const idx = Number(selectEl.value) || 0;
+            const sprint = sprints[idx];
+            const aggregated = aggregateSprintData(sprint);
+            if (aggregated) {
+                renderTrendChart(chartCanvas, aggregated.labels, aggregated.datasets);
+                const memberData = buildMemberDatasets(sprint, aggregated.labels);
+                renderMemberChart(document.getElementById('memberTrendChart'), aggregated.labels, memberData);
+            }
+            updateMetricsForSprint(sprint);
+            updateStatusOverview(sprint);
+            updateWorkloadForSprint(sprint);
+        };
+
+        selectEl.addEventListener('change', render);
+        render();
+    } catch (error) {
+        console.error('Error loading sprint tasks:', error);
+    }
+}
+
+function updateMetricsForSprint(sprint) {
+    const completedEl = document.querySelector('[data-metric="completed"]');
+    const updatedEl = document.querySelector('[data-metric="updated"]');
+    if (!completedEl || !updatedEl || !sprint) return;
+
+    let latestDate = null;
+    (sprint.members || []).forEach(member => {
+        (member.statuses || []).forEach(entry => {
+            if (!entry.date) return;
+            if (!latestDate || new Date(entry.date) > new Date(latestDate)) {
+                latestDate = entry.date;
+            }
+        });
+    });
+
+    let doneTotal = 0;
+    let allTotal = 0;
+
+    if (latestDate) {
+        (sprint.members || []).forEach(member => {
+            const entry = (member.statuses || []).find(s => s.date === latestDate);
+            if (!entry) return;
+            Object.keys(entry).forEach(key => {
+                if (key === 'date') return;
+                const val = Number(entry[key]) || 0;
+                allTotal += val;
+                if (key === 'Done') doneTotal += val;
+            });
+        });
+    }
+
+    completedEl.textContent = doneTotal || '0';
+    updatedEl.textContent = allTotal || '0';
+}
+
+function aggregateSprintData(sprint) {
+    if (!sprint) return null;
+    const dateMap = new Map();
+    const seenStates = new Set();
+
+    (sprint.members || []).forEach(member => {
+        (member.statuses || []).forEach(entry => {
+            const day = entry.date;
+            if (!day) return;
+            if (!dateMap.has(day)) dateMap.set(day, {});
+            const acc = dateMap.get(day);
+            Object.keys(entry).forEach(key => {
+                if (key === 'date') return;
+                const value = Number(entry[key]) || 0;
+                acc[key] = (acc[key] || 0) + value;
+                seenStates.add(key);
+            });
+        });
+    });
+
+    const labels = Array.from(dateMap.keys()).sort((a, b) => new Date(a) - new Date(b));
+    const states = statusOrder.filter(s => seenStates.has(s)).concat(
+        Array.from(seenStates).filter(s => !statusOrder.includes(s))
+    );
+
+    const datasets = states.map(state => {
+        const color = statusColorMap[state] || '#6ec5ff';
+        const data = labels.map(day => dateMap.get(day)?.[state] || 0);
+        return {
+            label: state,
+            data,
+            borderColor: color,
+            backgroundColor: color + 'cc',
+            borderWidth: 1.2,
+            barPercentage: 0.7,
+            categoryPercentage: 0.7,
+            stack: 'status'
+        };
+    });
+
+    return { labels, datasets };
+}
+
+function renderTrendChart(canvas, labels, datasets) {
+    if (!canvas) return;
+    if (sprintTrendChart) {
+        sprintTrendChart.destroy();
+    }
+
+    sprintTrendChart = new Chart(canvas, {
+        type: 'bar',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#d7d7d7',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(26, 26, 26, 0.95)',
+                    borderColor: '#c9a85c',
+                    borderWidth: 1,
+                    titleColor: '#c9a85c',
+                    bodyColor: '#ffffff',
+                    callbacks: {
+                        label: context => `${context.dataset.label}: ${context.parsed.y}`
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        stepSize: 2,
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                }
+            }
+        }
+    });
+}
+
+function computeSprintStatusCounts(sprint) {
+    if (!sprint) return { counts: {}, total: 0, latestDate: null };
+
+    let latestDate = null;
+    (sprint.members || []).forEach(member => {
+        (member.statuses || []).forEach(entry => {
+            if (!entry.date) return;
+            if (!latestDate || new Date(entry.date) > new Date(latestDate)) {
+                latestDate = entry.date;
+            }
+        });
+    });
+
+    const counts = {};
+    if (latestDate) {
+        (sprint.members || []).forEach(member => {
+            const entry = (member.statuses || []).find(s => s.date === latestDate);
+            if (!entry) return;
+            Object.keys(entry).forEach(key => {
+                if (key === 'date') return;
+                const val = Number(entry[key]) || 0;
+                counts[key] = (counts[key] || 0) + val;
+            });
+        });
+    }
+
+    const total = Object.values(counts).reduce((sum, n) => sum + n, 0);
+    return { counts, total, latestDate };
+}
+
+function computeSprintWorkload(sprint) {
+    const { latestDate } = computeSprintStatusCounts(sprint);
+    const tasksByName = {};
+    if (!latestDate) return tasksByName;
+
+    (sprint.members || []).forEach(member => {
+        const entry = (member.statuses || []).find(s => s.date === latestDate);
+        if (!entry) return;
+        const total = Object.keys(entry).reduce((sum, key) => {
+            if (key === 'date') return sum;
+            const val = Number(entry[key]) || 0;
+            return sum + val;
+        }, 0);
+        tasksByName[member.name] = total;
+    });
+
+    return tasksByName;
+}
+
+function updateStatusOverview(sprint) {
+    if (!statusChartInstance) return;
+    const { counts, total } = computeSprintStatusCounts(sprint);
+    const order = statusOrder;
+    const dataset = statusChartInstance.data.datasets?.[0];
+    if (dataset) {
+        dataset.data = order.map(key => counts[key] || 0);
+    }
+    statusChartInstance.update();
+
+    const totalEl = document.querySelector('[data-status-total]');
+    if (totalEl) totalEl.textContent = total || 0;
+
+    document.querySelectorAll('[data-status]').forEach(el => {
+        const key = el.getAttribute('data-status');
+        el.textContent = counts[key] || 0;
+    });
+}
+
+function updateWorkloadForSprint(sprint) {
+    if (!teamCache || !teamCache.length) return;
+    const taskOverride = computeSprintWorkload(sprint);
+    renderWorkload(teamCache, taskOverride);
+}
+
+function buildMemberDatasets(sprint, labels) {
+    const members = sprint?.members || [];
+    return members.map((member, idx) => {
+        const color = member.color || memberPalette[idx % memberPalette.length] || '#c9a85c';
+        const lookup = new Map((member.statuses || []).map(entry => [entry.date, entry]));
+        const totals = [];
+        const data = labels.map(day => {
+            const entry = lookup.get(day) || {};
+            const done = Number(entry['Done']) || 0;
+            const total = Object.keys(entry).reduce((sum, key) => {
+                if (key === 'date') return sum;
+                const val = Number(entry[key]) || 0;
+                return sum + val;
+            }, 0);
+            totals.push(total);
+            return done;
+        });
+
+        return {
+            label: member.name || `Member ${idx + 1}`,
+            data,
+            totals,
+            borderColor: color,
+            backgroundColor: color + '33',
+            borderWidth: 2.2,
+            tension: 0.35,
+            pointRadius: 5,
+            pointBackgroundColor: '#111',
+            pointBorderColor: color,
+            pointBorderWidth: 2,
+            pointHoverRadius: 7,
+            fill: false
+        };
+    });
+}
+
+function renderMemberChart(canvas, labels, datasets) {
+    if (!canvas) return;
+    if (sprintMemberChart) {
+        sprintMemberChart.destroy();
+    }
+
+    sprintMemberChart = new Chart(canvas, {
+        type: 'line',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#d7d7d7',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(26, 26, 26, 0.95)',
+                    borderColor: '#c9a85c',
+                    borderWidth: 1,
+                    titleColor: '#c9a85c',
+                    bodyColor: '#ffffff',
+                    callbacks: {
+                        label: context => {
+                            const total = context.dataset.totals?.[context.dataIndex] ?? 0;
+                            return `${context.dataset.label}: ${context.parsed.y} de ${total} tareas Done`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#9e9e9e',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        stepSize: 2,
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                }
+            }
+        }
+    });
+}
