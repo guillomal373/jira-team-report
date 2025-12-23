@@ -10,6 +10,7 @@ let sprintMemberChart = null;
 const memberPalette = ['#c9a85c', '#4b8cff', '#6ec5ff', '#f5d469', '#ff5f56', '#7de1c3'];
 let statusChartInstance = null;
 let teamCache = [];
+const memberStatusCharts = new Map();
 
 // Status overview donut chart
 const statusCtx = document.getElementById('statusChart');
@@ -292,15 +293,16 @@ function setupSkillInteractions(card, chart) {
     }
 }
 
-function buildStatusRows(labels, counts) {
+function buildStatusRows(labels, counts, memberName = '') {
     return labels.map((label, idx) => {
         const color = statusColorMap[label] || '#6ec5ff';
         const count = counts[idx] ?? 0;
+        const dataAttr = memberName ? `data-member-status="${memberName}" data-status-key="${label}"` : '';
         return `
             <div class="mini-status-row">
                 <span class="mini-status-dot" style="background:${color}"></span>
                 <span class="mini-status-label">${label}</span>
-                <span class="mini-status-value">${count}</span>
+                <span class="mini-status-value" ${dataAttr}>${count}</span>
             </div>
         `;
     }).join('');
@@ -377,6 +379,7 @@ function renderWorkload(team = [], taskOverride = {}) {
 
     const totalTasks = normalized.reduce((sum, member) => sum + member.tasks, 0);
     const safeTotal = totalTasks > 0 ? totalTasks : 1;
+    normalized.sort((a, b) => (b.tasks || 0) - (a.tasks || 0));
 
     const rows = normalized.map(member => {
         const percent = member.tasks ? Math.round((member.tasks / safeTotal) * 100) : 0;
@@ -519,8 +522,8 @@ async function loadTeam() {
                             </div>
                         </div>
                     </div>
-                    <div class="mini-status-legend">
-                        ${buildStatusRows(member.status.labels, member.status.counts)}
+                <div class="mini-status-legend">
+                        ${buildStatusRows(member.status.labels, member.status.counts, member.name)}
                     </div>
                 </div>
                 <div class="chart-container">
@@ -544,8 +547,12 @@ async function loadTeam() {
                 skillData.initialLevels
             );
 
-            createMiniDonut(donutId, member.status.labels, member.status.counts);
+            const donutChart = createMiniDonut(donutId, member.status.labels, member.status.counts);
             setupSkillInteractions(card, radarChart);
+
+            const totalEl = card.querySelector(`[data-total-for="${donutId}"]`);
+            const statusNodes = card.querySelectorAll(`[data-member-status="${member.name}"]`);
+            memberStatusCharts.set(member.name, { chart: donutChart, totalEl, statusNodes });
         });
     };
 
@@ -565,8 +572,9 @@ async function loadTeam() {
     }
 }
 
-loadTeam();
-loadSprintTrends();
+loadTeam().then(() => {
+    loadSprintTrends();
+});
 
 async function loadSprintTrends() {
     const selectEl = document.getElementById('globalSprintSelect');
@@ -581,6 +589,7 @@ async function loadSprintTrends() {
 
         const optionsHtml = sprints.map((s, idx) => `<option value="${idx}">${s.name}</option>`).join('');
         selectEl.innerHTML = optionsHtml;
+        selectEl.value = String(sprints.length - 1);
 
         const render = () => {
             const idx = Number(selectEl.value) || 0;
@@ -594,6 +603,7 @@ async function loadSprintTrends() {
             updateMetricsForSprint(sprint);
             updateStatusOverview(sprint);
             updateWorkloadForSprint(sprint);
+            updateMemberStatusesForSprint(sprint);
         };
 
         selectEl.addEventListener('change', render);
@@ -820,10 +830,47 @@ function updateWorkloadForSprint(sprint) {
     renderWorkload(teamCache, taskOverride);
 }
 
+function updateMemberStatusesForSprint(sprint) {
+    if (!sprint || !teamCache.length) return;
+
+    // Determine latest date per sprint (reusing workload logic)
+    const latestByName = {};
+    (sprint.members || []).forEach(member => {
+        let latestEntry = null;
+        (member.statuses || []).forEach(entry => {
+            if (!entry.date) return;
+            if (!latestEntry || new Date(entry.date) > new Date(latestEntry.date)) {
+                latestEntry = entry;
+            }
+        });
+        if (latestEntry) latestByName[member.name] = latestEntry;
+    });
+
+    teamCache.forEach(member => {
+        const meta = memberStatusCharts.get(member.name);
+        if (!meta || !meta.chart) return;
+
+        const entry = latestByName[member.name];
+        const countsObj = entry || null;
+        const counts = statusOrder.map(key => Number(countsObj?.[key]) || 0);
+        const total = counts.reduce((sum, n) => sum + n, 0);
+
+        meta.chart.data.datasets[0].data = counts;
+        meta.chart.update();
+        if (meta.totalEl) meta.totalEl.textContent = total;
+
+        meta.statusNodes?.forEach(node => {
+            const key = node.getAttribute('data-status-key');
+            if (key) node.textContent = Number(countsObj?.[key]) || 0;
+        });
+    });
+}
+
 function buildMemberDatasets(sprint, labels) {
     const members = sprint?.members || [];
+    const nameColorMap = Object.fromEntries((teamCache || []).map(m => [m.name, m.color]));
     return members.map((member, idx) => {
-        const color = member.color || memberPalette[idx % memberPalette.length] || '#c9a85c';
+        const color = nameColorMap[member.name] || member.color || memberPalette[idx % memberPalette.length] || '#c9a85c';
         const lookup = new Map((member.statuses || []).map(entry => [entry.date, entry]));
         const totals = [];
         const data = labels.map(day => {
