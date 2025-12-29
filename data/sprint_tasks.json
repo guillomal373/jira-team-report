@@ -57,29 +57,37 @@
         {
           "name": "Samil Vargas",
           "statuses": [
-            { "date": "2024-03-04", "To Do": 1, "In Progress": 1, "In Review": 1, "Done": 1 },
-            { "date": "2024-03-05", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 3 }
+            { "date": "2025-12-24", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10 },
+            { "date": "2025-12-25", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10 },
+            { "date": "2025-12-26", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10 },
+            { "date": "2025-12-29", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10 }
           ]
         },
         {
           "name": "Roberto Hiraldo",
           "statuses": [
-            { "date": "2024-03-04", "To Do": 2, "In Progress": 2, "In Review": 2, "Done": 2 },
-            { "date": "2024-03-05", "To Do": 0, "In Progress": 1, "In Review": 1, "Done": 6 }
+            { "date": "2025-12-24", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4 },
+            { "date": "2025-12-25", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4 },
+            { "date": "2025-12-26", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4 },
+            { "date": "2025-12-29", "To Do": 6, "In Progress": 2, "In Review": 0, "Done": 22 }
           ]
         },
         {
           "name": "Nicolás Díaz",
           "statuses": [
-            { "date": "2024-03-04", "To Do": 3, "In Progress": 3, "In Review": 3, "Done": 3 },
-            { "date": "2024-03-05", "To Do": 1, "In Progress": 5, "In Review": 3, "Done": 3 }
+            { "date": "2025-12-24", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4 },
+            { "date": "2025-12-25", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4 },
+            { "date": "2025-12-26", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4 },
+            { "date": "2025-12-29", "To Do": 11, "In Progress": 8, "In Review": 0, "Done": 4 }
           ]
         },
         {
           "name": "Guillermo Malagón",
           "statuses": [
-            { "date": "2024-03-04", "To Do": 4, "In Progress": 4, "In Review": 4, "Done": 4 },
-            { "date": "2024-03-05", "To Do": 2, "In Progress": 2, "In Review": 8, "Done": 4 }
+            { "date": "2025-12-24", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0 },
+            { "date": "2025-12-25", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0 },
+            { "date": "2025-12-26", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0 },
+            { "date": "2025-12-29", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0 }
           ]
         }
       ]
