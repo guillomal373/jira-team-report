@@ -582,7 +582,7 @@ async function loadSprintTrends() {
     if (!selectEl || !chartCanvas) return;
 
     try {
-        const response = await fetch('./data/sprint_tasks.json');
+        const response = await fetch('./data/sprint_story_points.json');
         const data = await response.json();
         const sprints = data.sprints || [];
         if (!sprints.length) return;
@@ -934,7 +934,7 @@ function renderMemberChart(canvas, labels, datasets) {
                     callbacks: {
                         label: context => {
                             const total = context.dataset.totals?.[context.dataIndex] ?? 0;
-                            return `${context.dataset.label}: ${context.parsed.y} de ${total} tareas Done`;
+                            return `${context.dataset.label}: ${context.parsed.y} of ${total} story points Done`;
                         }
                     }
                 }

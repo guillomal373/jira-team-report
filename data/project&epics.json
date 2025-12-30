@@ -1,0 +1,27 @@
+{
+  "title": "Diagrama de Épicas",
+  "subtitle": "Épica principal a la izquierda, epics de frente y features a la derecha",
+  "linkColor": "rgba(255,255,255,0.35)",
+  "linkWidth": 1.4,
+  "nodes": [
+    { "id": "Creditor X", "parent": "", "name": "Gamification HQ", "color": "#33a1ff", "labelClass": "epic-pill--root" },
+    { "id": "Audits", "parent": "Creditor X", "name": "Productivity Boosters", "color": "#ff7f50" },
+    { "id": "Cordoba Portal", "parent": "Creditor X", "name": "Quality & Reliability", "color": "#ffd166" },
+    { "id": "Misc", "parent": "Creditor X", "name": "Growth & Adoption", "color": "#2adf8f" },
+
+    { "id": "jira-sync", "parent": "Audits", "name": "Jira Sync 2.0", "color": "#ff7f50", "labelClass": "epic-pill--leaf" },
+    { "id": "nudges", "parent": "Audits", "name": "Smart Nudges", "color": "#ff7f50", "labelClass": "epic-pill--leaf" },
+    { "id": "autopilot", "parent": "Audits", "name": "Automation Rules", "color": "#ff7f50", "labelClass": "epic-pill--leaf" },
+    { "id": "alerts", "parent": "Audits", "name": "Signal-Based Alerts", "color": "#ff7f50", "labelClass": "epic-pill--leaf" },
+
+    { "id": "scorecards", "parent": "Cordoba Portal", "name": "Release Scorecards", "color": "#ffd166", "labelClass": "epic-pill--leaf" },
+    { "id": "coverage", "parent": "Cordoba Portal", "name": "Test Coverage Signals", "color": "#ffd166", "labelClass": "epic-pill--leaf" },
+    { "id": "performance", "parent": "Cordoba Portal", "name": "Performance Guardrails", "color": "#ffd166", "labelClass": "epic-pill--leaf" },
+    { "id": "resilience", "parent": "Cordoba Portal", "name": "Operational Resilience", "color": "#ffd166", "labelClass": "epic-pill--leaf" },
+
+    { "id": "launch", "parent": "Misc", "name": "Launch Toolkit", "color": "#2adf8f", "labelClass": "epic-pill--leaf" },
+    { "id": "playbook", "parent": "Misc", "name": "Community Playbook", "color": "#2adf8f", "labelClass": "epic-pill--leaf" },
+    { "id": "feedback", "parent": "Misc", "name": "Feedback Engine", "color": "#2adf8f", "labelClass": "epic-pill--leaf" },
+    { "id": "adoption", "parent": "Misc", "name": "Adoption KPIs", "color": "#2adf8f", "labelClass": "epic-pill--leaf" }
+  ]
+}
