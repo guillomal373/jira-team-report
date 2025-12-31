@@ -61,7 +61,8 @@
             { "date": "2025-12-25", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10 },
             { "date": "2025-12-26", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10 },
             { "date": "2025-12-29", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10 },
-            { "date": "2025-12-30", "To Do": 14, "In Progress": 3, "In Review": 0, "Done": 17 }
+            { "date": "2025-12-30", "To Do": 14, "In Progress": 3, "In Review": 0, "Done": 17 },
+            { "date": "2025-12-31", "To Do": 14, "In Progress": 3, "In Review": 0, "Done": 17 }
           ]
         },
         {
@@ -71,7 +72,8 @@
             { "date": "2025-12-25", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4 },
             { "date": "2025-12-26", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4 },
             { "date": "2025-12-29", "To Do": 6, "In Progress": 2, "In Review": 0, "Done": 22 },
-            { "date": "2025-12-30", "To Do": 14, "In Progress": 2, "In Review": 0, "Done": 22 }
+            { "date": "2025-12-30", "To Do": 14, "In Progress": 2, "In Review": 0, "Done": 22 },
+            { "date": "2025-12-31", "To Do": 8, "In Progress": 8, "In Review": 0, "Done": 22 }
           ]
         },
         {
@@ -81,7 +83,8 @@
             { "date": "2025-12-25", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4 },
             { "date": "2025-12-26", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4 },
             { "date": "2025-12-29", "To Do": 11, "In Progress": 8, "In Review": 0, "Done": 4 },
-            { "date": "2025-12-30", "To Do": 7, "In Progress": 4, "In Review": 0, "Done": 9 }
+            { "date": "2025-12-30", "To Do": 7, "In Progress": 4, "In Review": 0, "Done": 9 },
+            { "date": "2025-12-31", "To Do": 2, "In Progress": 3, "In Review": 0, "Done": 16 }
           ]
         },
         {
@@ -91,7 +94,8 @@
             { "date": "2025-12-25", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0 },
             { "date": "2025-12-26", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0 },
             { "date": "2025-12-29", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0 },
-            { "date": "2025-12-30", "To Do": 3, "In Progress": 7, "In Review": 0, "Done": 5 }
+            { "date": "2025-12-30", "To Do": 3, "In Progress": 7, "In Review": 0, "Done": 5 },
+            { "date": "2025-12-31", "To Do": 0, "In Progress": 5, "In Review": 0, "Done": 5 }
           ]
         }
       ]
