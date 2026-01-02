@@ -7,6 +7,8 @@ const statusColorMap = {
 const statusOrder = ['To Do', 'In Progress', 'In Review', 'Done'];
 let sprintTrendChart = null;
 let sprintMemberChart = null;
+let sprintSummaryChart = null;
+let memberSummaryChart = null;
 const memberPalette = ['#c9a85c', '#4b8cff', '#6ec5ff', '#f5d469', '#ff5f56', '#7de1c3'];
 let statusChartInstance = null;
 let teamCache = [];
@@ -591,6 +593,8 @@ async function loadSprintTrends() {
         selectEl.innerHTML = optionsHtml;
         selectEl.value = String(sprints.length - 1);
 
+        renderSprintSummaries(sprints);
+
         const render = () => {
             const idx = Number(selectEl.value) || 0;
             const sprint = sprints[idx];
@@ -754,6 +758,237 @@ function renderTrendChart(canvas, labels, datasets) {
             }
         }
     });
+}
+
+function getLatestStatusEntry(member = {}) {
+    let latest = null;
+    (member?.statuses || []).forEach(entry => {
+        if (!entry.date) return;
+        if (!latest || new Date(entry.date) > new Date(latest.date)) {
+            latest = entry;
+        }
+    });
+    return latest;
+}
+
+function aggregateStatusBySprint(sprints = []) {
+    const labels = [];
+    const countsBySprint = [];
+    const seenStates = new Set();
+
+    sprints.forEach(sprint => {
+        labels.push(sprint?.name || 'Sprint');
+        const { counts } = computeSprintStatusCounts(sprint);
+        countsBySprint.push(counts);
+        Object.keys(counts).forEach(key => seenStates.add(key));
+    });
+
+    const states = statusOrder.filter(s => seenStates.has(s)).concat(
+        Array.from(seenStates).filter(s => !statusOrder.includes(s))
+    );
+
+    const datasets = states.map(state => {
+        const color = statusColorMap[state] || '#6ec5ff';
+        const data = countsBySprint.map(counts => counts[state] || 0);
+        return {
+            label: state,
+            data,
+            borderColor: color,
+            backgroundColor: color + 'cc',
+            borderWidth: 1.2,
+            barPercentage: 0.7,
+            categoryPercentage: 0.7,
+            stack: 'status-summary'
+        };
+    });
+
+    return { labels, datasets };
+}
+
+function buildMemberSummaryDatasets(sprints = []) {
+    const allNames = new Set();
+    sprints.forEach(sprint => {
+        (sprint?.members || []).forEach(member => allNames.add(member.name));
+    });
+
+    const nameColorMap = Object.fromEntries((teamCache || []).map(m => [m.name, m.color]));
+
+    return Array.from(allNames).map((name, idx) => {
+        const color = nameColorMap[name] || memberPalette[idx % memberPalette.length] || '#c9a85c';
+        const data = [];
+        const totals = [];
+
+        sprints.forEach(sprint => {
+            const member = (sprint?.members || []).find(m => m.name === name);
+            const latestEntry = getLatestStatusEntry(member);
+            const done = Number(latestEntry?.['Done']) || 0;
+            const total = latestEntry
+                ? Object.keys(latestEntry).reduce((sum, key) => {
+                    if (key === 'date') return sum;
+                    const val = Number(latestEntry[key]) || 0;
+                    return sum + val;
+                }, 0)
+                : 0;
+
+            data.push(done);
+            totals.push(total);
+        });
+
+        return {
+            label: name || `Member ${idx + 1}`,
+            data,
+            totals,
+            borderColor: color,
+            backgroundColor: color + '33',
+            borderWidth: 2.2,
+            tension: 0.35,
+            pointRadius: 5,
+            pointBackgroundColor: '#111',
+            pointBorderColor: color,
+            pointBorderWidth: 2,
+            pointHoverRadius: 7,
+            fill: false
+        };
+    });
+}
+
+function renderSprintSummaryChart(canvas, labels, datasets) {
+    if (!canvas) return;
+    if (sprintSummaryChart) {
+        sprintSummaryChart.destroy();
+    }
+
+    sprintSummaryChart = new Chart(canvas, {
+        type: 'bar',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#d7d7d7',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(26, 26, 26, 0.95)',
+                    borderColor: '#c9a85c',
+                    borderWidth: 1,
+                    titleColor: '#c9a85c',
+                    bodyColor: '#ffffff',
+                    callbacks: {
+                        label: context => `${context.dataset.label}: ${context.parsed.y}`
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        stepSize: 2,
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                }
+            }
+        }
+    });
+}
+
+function renderMemberSummaryChart(canvas, labels, datasets) {
+    if (!canvas) return;
+    if (memberSummaryChart) {
+        memberSummaryChart.destroy();
+    }
+
+    memberSummaryChart = new Chart(canvas, {
+        type: 'line',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#d7d7d7',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(26, 26, 26, 0.95)',
+                    borderColor: '#c9a85c',
+                    borderWidth: 1,
+                    titleColor: '#c9a85c',
+                    bodyColor: '#ffffff',
+                    callbacks: {
+                        label: context => {
+                            const total = context.dataset.totals?.[context.dataIndex] ?? 0;
+                            return `${context.dataset.label}: ${context.parsed.y} of ${total} story points Done`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#9e9e9e',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        stepSize: 2,
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                }
+            }
+        }
+    });
+}
+
+function renderSprintSummaries(sprints = []) {
+    if (!Array.isArray(sprints) || !sprints.length) return;
+    const statusData = aggregateStatusBySprint(sprints);
+    const memberData = buildMemberSummaryDatasets(sprints);
+    renderSprintSummaryChart(document.getElementById('sprintSummaryChart'), statusData.labels, statusData.datasets);
+    renderMemberSummaryChart(document.getElementById('memberSummaryChart'), statusData.labels, memberData);
 }
 
 function computeSprintStatusCounts(sprint) {

@@ -15,6 +15,29 @@
             <p class="subtitle">LEGENDARY CODE ARCHITECTS</p>
         </header>
 
+        <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Story Points by Sprint (Summary)</h3>
+                        <p class="workload-desc">Sprint-level snapshots of story points and ownership.</p>
+                    </div>
+                </div>
+                <div class="trend-subrow">
+                    <span class="trend-subtag">Sprint story points overview</span>
+                </div>
+                <div class="trend-grid">
+                    <div class="trend-chart">
+                        <canvas id="sprintSummaryChart"></canvas>
+                    </div>
+                    <div class="trend-chart trend-chart--members">
+                        <div class="trend-subtag trend-subtag--chart">Story Points Done per member (per sprint)</div>
+                        <canvas id="memberSummaryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="sprint-filter">
             <label for="globalSprintSelect">Sprint actual</label>
             <select id="globalSprintSelect"></select>
