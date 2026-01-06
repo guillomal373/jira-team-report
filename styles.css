@@ -424,8 +424,8 @@ h1 {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 2vw, 40px);
     margin-top: 50px;
 }
 
@@ -506,7 +506,7 @@ h1 {
 .developer-card {
     background: #121212;
     border: 1px solid #333;
-    padding: 40px 30px;
+    padding: clamp(24px, 3vw, 32px) clamp(20px, 2.4vw, 28px);
     box-shadow: 
         0 10px 40px rgba(0, 0, 0, 0.8),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -556,8 +556,8 @@ h1 {
 }
 
 .dev-image {
-    width: 276px;
-    height: 310px;
+    width: clamp(200px, 22vw, 240px);
+    height: clamp(220px, 25vw, 270px);
     background: #121212;
     display: block;
     margin: 0 auto;
@@ -590,8 +590,8 @@ h1 {
 }
 
 .dev-badge {
-    width: 52px;
-    height: 52px;
+    width: clamp(44px, 4vw, 52px);
+    height: clamp(44px, 4vw, 52px);
     border-radius: 12px;
     background: #141414;
     color: #fefefe;
@@ -648,6 +648,55 @@ h1 {
     box-shadow:
         0 6px 18px rgba(0, 0, 0, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card-toggle {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: rgba(25, 25, 25, 0.8);
+    color: #c9a85c;
+    border: 1px solid rgba(201, 168, 92, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-toggle:hover {
+    border-color: #c9a85c;
+    background: rgba(201, 168, 92, 0.08);
+    box-shadow: 0 8px 18px rgba(201, 168, 92, 0.15);
+}
+
+.toggle-icon {
+    transition: transform 0.25s ease;
+}
+
+.developer-card.collapsed .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.dev-details {
+    margin-top: 18px;
+    transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.25s ease;
+}
+
+.developer-card:not(.collapsed) .dev-details {
+    max-height: 1600px;
+    opacity: 1;
+}
+
+.developer-card.collapsed .dev-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    pointer-events: none;
 }
 
 .chart-container {
@@ -861,8 +910,8 @@ h1 {
 
 @media (min-width: 769px) and (max-width: 1200px) {
     .team-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
     }
 
     .developer-card {

@@ -13,6 +13,32 @@ const memberPalette = ['#c9a85c', '#4b8cff', '#6ec5ff', '#f5d469', '#ff5f56', '#
 let statusChartInstance = null;
 let teamCache = [];
 const memberStatusCharts = new Map();
+const excludedAverageNames = ['Guillermo Malagón'];
+
+function getNonZeroAverage(values = []) {
+    const numeric = values.map(v => Number(v) || 0).filter(v => v > 0);
+    if (!numeric.length) return 0;
+    const sum = numeric.reduce((acc, n) => acc + n, 0);
+    return sum / numeric.length;
+}
+
+function getSprintAveragesForIndex(chart, index) {
+    if (!chart || index == null) return { doneAvg: null, totalAvg: null };
+    const doneValues = [];
+    const totalValues = [];
+
+    (chart.data?.datasets || []).forEach(ds => {
+        if (ds.excludeFromAverage) return;
+        const done = Number(ds.data?.[index]) || 0;
+        const total = Number(ds.totals?.[index]) || 0;
+        if (done > 0) doneValues.push(done);
+        if (total > 0) totalValues.push(total);
+    });
+
+    const doneAvg = doneValues.length ? getNonZeroAverage(doneValues) : null;
+    const totalAvg = totalValues.length ? getNonZeroAverage(totalValues) : null;
+    return { doneAvg, totalAvg };
+}
 
 // Status overview donut chart
 const statusCtx = document.getElementById('statusChart');
@@ -295,6 +321,26 @@ function setupSkillInteractions(card, chart) {
     }
 }
 
+function setupCardToggle(card) {
+    const toggle = card.querySelector('.card-toggle');
+    const details = card.querySelector('.dev-details');
+    const label = card.querySelector('.toggle-label');
+    if (!toggle || !details || !label) return;
+
+    const setState = (expanded) => {
+        card.classList.toggle('collapsed', !expanded);
+        details.hidden = !expanded;
+        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        label.textContent = expanded ? 'Hide details' : 'More details';
+    };
+
+    setState(false);
+    toggle.addEventListener('click', () => {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        setState(!isExpanded);
+    });
+}
+
 function buildStatusRows(labels, counts, memberName = '') {
     return labels.map((label, idx) => {
         const color = statusColorMap[label] || '#6ec5ff';
@@ -513,30 +559,36 @@ async function loadTeam() {
                     <h2 class="dev-name">${member.name}</h2>
                     <span class="dev-level">${member.role}</span>
                 </div>
-                <div class="mini-status-card">
-                    <h4 class="mini-status-title">Work Status</h4>
-                    <div class="mini-donut">
-                        <div class="mini-donut-wrap">
-                            <canvas id="${donutId}"></canvas>
-                            <div class="mini-donut-center">
-                                <div class="mini-donut-total" data-total-for="${donutId}"></div>
-                                <div class="mini-donut-sub">tasks</div>
+                <button class="card-toggle" type="button" aria-expanded="false">
+                    <span class="toggle-label">More details</span>
+                    <span class="toggle-icon">▼</span>
+                </button>
+                <div class="dev-details">
+                    <div class="mini-status-card">
+                        <h4 class="mini-status-title">Work Status</h4>
+                        <div class="mini-donut">
+                            <div class="mini-donut-wrap">
+                                <canvas id="${donutId}"></canvas>
+                                <div class="mini-donut-center">
+                                    <div class="mini-donut-total" data-total-for="${donutId}"></div>
+                                    <div class="mini-donut-sub">tasks</div>
+                                </div>
                             </div>
                         </div>
+                        <div class="mini-status-legend">
+                            ${buildStatusRows(member.status.labels, member.status.counts, member.name)}
+                        </div>
                     </div>
-                <div class="mini-status-legend">
-                        ${buildStatusRows(member.status.labels, member.status.counts, member.name)}
+                    <div class="chart-container">
+                        <canvas id="${radarId}"></canvas>
                     </div>
-                </div>
-                <div class="chart-container">
-                    <canvas id="${radarId}"></canvas>
-                </div>
-                <div class="radar-legend">
-                    <span class="radar-pill radar-pill--current">Actual</span>
-                    <span class="radar-pill radar-pill--initial">Inicial</span>
-                </div>
-                <div class="skills-legend">
-                    ${buildSkillTags(skillData.labels)}
+                    <div class="radar-legend">
+                        <span class="radar-pill radar-pill--current">Actual</span>
+                        <span class="radar-pill radar-pill--initial">Inicial</span>
+                    </div>
+                    <div class="skills-legend">
+                        ${buildSkillTags(skillData.labels)}
+                    </div>
                 </div>
             `;
 
@@ -551,6 +603,7 @@ async function loadTeam() {
 
             const donutChart = createMiniDonut(donutId, member.status.labels, member.status.counts);
             setupSkillInteractions(card, radarChart);
+            setupCardToggle(card);
 
             const totalEl = card.querySelector(`[data-total-for="${donutId}"]`);
             const statusNodes = card.querySelectorAll(`[data-member-status="${member.name}"]`);
@@ -834,10 +887,17 @@ function buildMemberSummaryDatasets(sprints = []) {
             totals.push(total);
         });
 
+        const excludeFromAverage = excludedAverageNames.includes(name);
+        const averageDone = excludeFromAverage ? null : getNonZeroAverage(data);
+        const averageTotal = excludeFromAverage ? null : getNonZeroAverage(totals);
+
         return {
             label: name || `Member ${idx + 1}`,
             data,
             totals,
+            excludeFromAverage,
+            averageDone,
+            averageTotal,
             borderColor: color,
             backgroundColor: color + '33',
             borderWidth: 2.2,
@@ -948,7 +1008,20 @@ function renderMemberSummaryChart(canvas, labels, datasets) {
                     callbacks: {
                         label: context => {
                             const total = context.dataset.totals?.[context.dataIndex] ?? 0;
-                            return `${context.dataset.label}: ${context.parsed.y} of ${total} story points Done`;
+                            const avgDone = context.dataset.averageDone;
+                            const avgTotal = context.dataset.averageTotal;
+                            const { doneAvg, totalAvg } = getSprintAveragesForIndex(context.chart, context.dataIndex);
+                            const formatNum = (n) => Number.isInteger(n) ? n : n.toFixed(1);
+                            const lines = [
+                                `${context.dataset.label}: ${context.parsed.y} of ${total} story points Done`
+                            ];
+                            if (avgDone != null && avgTotal != null) {
+                                lines.push(`Average (no zeros): ${formatNum(avgDone)} of ${formatNum(avgTotal)} story points Done`);
+                            }
+                            if (doneAvg != null && totalAvg != null) {
+                                lines.push(`Sprint average (no zeros): ${formatNum(doneAvg)} of ${formatNum(totalAvg)} story points Done`);
+                            }
+                            return lines;
                         }
                     }
                 }
