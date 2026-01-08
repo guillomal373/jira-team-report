@@ -145,14 +145,18 @@
           "name": "Samil Vargas",
           "statuses": [
             { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-06", "To Do": 26, "In Progress": 10, "In Review": 0, "Done": 0 }
+            { "date": "2026-01-06", "To Do": 26, "In Progress": 10, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-07", "To Do": 23, "In Progress": 16, "In Review": 8, "Done": 2 },
+            { "date": "2026-01-08", "To Do": 23, "In Progress": 8, "In Review": 0, "Done": 10 }
           ]
         },
         {
           "name": "Roberto Hiraldo",
           "statuses": [
             { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-06", "To Do": 13, "In Progress": 13, "In Review": 0, "Done": 0 }
+            { "date": "2026-01-06", "To Do": 13, "In Progress": 13, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-07", "To Do": 13, "In Progress": 18, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-08", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 13 }
           ]
         },
         {
@@ -160,58 +164,27 @@
           "statuses": [
 
             { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 }
+            { "date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-07", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 8 },
+            { "date": "2026-01-08", "To Do": 3, "In Progress": 2, "In Review": 0, "Done": 8 }
           ]
         },
         {
           "name": "Guillermo Malagón",
           "statuses": [
             { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 }
+            { "date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-07", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-08", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2 }
           ]
         },
         {
           "name": "Daniel Rubiano",
           "statuses": [
             { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Sprint 5 - test",
-      "period": "2026-01-05 to 2026-01-16",
-      "members": [
-        {
-          "name": "Samil Vargas",
-          "statuses": [
-            { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 10 }
-          ]
-        },
-        {
-          "name": "Roberto Hiraldo",
-          "statuses": [
-            { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 20 }
-          ]
-        },
-        {
-          "name": "Nicolás Díaz",
-          "statuses": [
-
-            { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 20 }
-          ]
-        },
-        {
-          "name": "Guillermo Malagón",
-          "statuses": [
-            { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 }
-          ]
-        },
-        {
-          "name": "Daniel Rubiano",
-          "statuses": [
-            { "date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 30 }
+            { "date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-07", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2 },
+            { "date": "2026-01-08", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2 }
           ]
         }
       ]
