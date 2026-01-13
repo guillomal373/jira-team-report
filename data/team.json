@@ -6,7 +6,7 @@
       "hero": "dexter",
       "level": 10,
       "color": "#54bdc8",
-      "badges": ["js", "fire"],
+      "badges": ["laravel", "jira", "confluence"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [9, 9, 9, 8, 7],
@@ -23,7 +23,7 @@
       "hero": "darkowl",
       "level": 10,
       "color": "#6002bb",
-      "badges": ["fire", "js"],
+      "badges": ["swift", "jira", "confluence"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [8, 7, 8, 7, 8],
@@ -40,7 +40,7 @@
       "hero": "deadpool",
       "level": 10,
       "color": "#ab0101",
-      "badges": ["diamond", "js"],
+      "badges": ["aws", "jira", "confluence"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
@@ -57,7 +57,7 @@
       "hero": "barto",
       "level": 10,
       "color": "#ff9f1c",
-      "badges": ["AWS", "js"],
+      "badges": ["aws", "jira", "confluence"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
@@ -74,7 +74,7 @@
       "hero": "hulk",
       "level": 10,
       "color": "#1e8503",
-      "badges": ["diamond", "js"],
+      "badges": ["jira", "confluence"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
