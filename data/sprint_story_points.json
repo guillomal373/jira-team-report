@@ -151,7 +151,8 @@
             { "date": "2026-01-09", "To Do": 18, "In Progress": 8, "In Review": 0, "Done": 10 },
             { "date": "2026-01-12", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 18 },
             { "date": "2026-01-13", "To Do": 8, "In Progress": 10, "In Review": 0, "Done": 18 },
-            { "date": "2026-01-14", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 28 } 
+            { "date": "2026-01-14", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 28 },
+            { "date": "2026-01-15", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 28 } 
           ]
         },
         {
@@ -164,7 +165,8 @@
             { "date": "2026-01-09", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 16 },
             { "date": "2026-01-12", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16 },
             { "date": "2026-01-13", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16 },
-            { "date": "2026-01-14", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16 }
+            { "date": "2026-01-14", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16 },
+            { "date": "2026-01-15", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16 }
           ]
         },
         {
@@ -178,7 +180,8 @@
             { "date": "2026-01-09", "To Do": 3, "In Progress": 4, "In Review": 0, "Done": 12 },
             { "date": "2026-01-12", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 14 },
             { "date": "2026-01-13", "To Do": 14, "In Progress": 6, "In Review": 0, "Done": 14 },
-            { "date": "2026-01-14", "To Do": 2, "In Progress": 7, "In Review": 0, "Done": 21 }
+            { "date": "2026-01-14", "To Do": 2, "In Progress": 7, "In Review": 0, "Done": 21 },
+            { "date": "2026-01-15", "To Do": 2, "In Progress": 7, "In Review": 0, "Done": 21 }
           ]
         },
         {
@@ -191,7 +194,8 @@
             { "date": "2026-01-09", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2 },
             { "date": "2026-01-12", "To Do": 13, "In Progress": 0, "In Review": 0, "Done": 8 },
             { "date": "2026-01-13", "To Do": 3, "In Progress": 3, "In Review": 0, "Done": 22 },
-            { "date": "2026-01-14", "To Do": 3, "In Progress": 10, "In Review": 0, "Done": 23 }
+            { "date": "2026-01-14", "To Do": 3, "In Progress": 10, "In Review": 0, "Done": 23 },
+            { "date": "2026-01-15", "To Do": 1, "In Progress": 2, "In Review": 0, "Done": 33 }
           ]
         },
         {
@@ -203,7 +207,8 @@
             { "date": "2026-01-08", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2 },
             { "date": "2026-01-09", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2 },
             { "date": "2026-01-13", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2 },
-            { "date": "2026-01-14", "To Do": 0, "In Progress": 4, "In Review": 0, "Done": 2 }
+            { "date": "2026-01-14", "To Do": 0, "In Progress": 4, "In Review": 0, "Done": 2 },
+            { "date": "2026-01-15", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 5 }
           ]
         }
       ]
