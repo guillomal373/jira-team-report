@@ -1,6 +1,40 @@
 {
   "team": [
     {
+      "name": "Nicolás Díaz",
+      "role": "Junior Full stack Developer",
+      "hero": "deadpool",
+      "level": 10,
+      "color": "#ab0101",
+      "badges": ["aws", "jira", "confluence"],
+      "skills": {
+        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
+        "levels": [7, 6, 7, 6, 5],
+        "initialLevels": [2, 2, 2, 2, 2]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [5, 2, 1, 4]
+      }
+    },
+    {
+      "name": "Felipe pacheco",
+      "role": "Junior FullStack Developer",
+      "hero": "masterchief",
+      "level": 10,
+      "color": "#1e8503",
+      "badges": ["confluence"],
+      "skills": {
+        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
+        "levels": [7, 6, 7, 6, 5],
+        "initialLevels": [2, 2, 2, 2, 2]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [5, 2, 1, 4]
+      }
+    },
+    {
       "name": "Samil Vargas",
       "role": "Senior Full Stack Developer",
       "hero": "dexter",
@@ -32,23 +66,6 @@
       "status": {
         "labels": ["To Do", "In Progress", "In Review", "Done"],
         "counts": [6, 4, 1, 4]
-      }
-    },
-    {
-      "name": "Nicolás Díaz",
-      "role": "Junior Full stack Developer",
-      "hero": "deadpool",
-      "level": 10,
-      "color": "#ab0101",
-      "badges": ["aws", "jira", "confluence"],
-      "skills": {
-        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
-        "levels": [7, 6, 7, 6, 5],
-        "initialLevels": [2, 2, 2, 2, 2]
-      },
-      "status": {
-        "labels": ["To Do", "In Progress", "In Review", "Done"],
-        "counts": [5, 2, 1, 4]
       }
     },
     {
