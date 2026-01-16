@@ -43,7 +43,7 @@
             <select id="globalSprintSelect"></select>
         </div>
 
-        <section class="metrics">
+        <!-- <section class="metrics">
             <div class="metric-card">
                 <div class="metric-icon">✔</div>
                 <div class="metric-value" data-metric="completed">15</div>
@@ -56,8 +56,31 @@
                 <div class="metric-label">Updated</div>
                 <div class="metric-sub">In the last 7 days</div>
             </div>
-        </section>
+        </section> -->
 
+        <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Story Points by Sprint Status</h3>
+                        <p class="workload-desc">See how statuses move day by day.</p>
+                    </div>
+                </div>
+                <div class="trend-subrow">
+                    <span class="trend-subtag">Daily story points trend</span>
+                </div>
+                <div class="trend-grid">
+                    <div class="trend-chart">
+                        <canvas id="sprintTrendChart"></canvas>
+                    </div>
+                    <div class="trend-chart trend-chart--members">
+                        <div class="trend-subtag trend-subtag--chart">Story Points Done per member</div>
+                        <canvas id="memberTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <section class="status-section">
             <div class="status-card">
                 <div class="status-card-header">
@@ -115,28 +138,6 @@
             </div>
         </section>
 
-        <section class="trend-section">
-            <div class="trend-card">
-                <div class="trend-card-header">
-                    <div class="trend-header-text">
-                        <h3 class="trend-main-title">Story Points by Sprint Status</h3>
-                        <p class="workload-desc">See how statuses move day by day.</p>
-                    </div>
-                </div>
-                <div class="trend-subrow">
-                    <span class="trend-subtag">Daily story points trend</span>
-                </div>
-                <div class="trend-grid">
-                    <div class="trend-chart">
-                        <canvas id="sprintTrendChart"></canvas>
-                    </div>
-                    <div class="trend-chart trend-chart--members">
-                        <div class="trend-subtag trend-subtag--chart">Story Points Done per member</div>
-                        <canvas id="memberTrendChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <div id="team-grid" class="team-grid"></div>
     </div>
