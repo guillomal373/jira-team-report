@@ -22,7 +22,7 @@
       "role": "Junior FullStack Developer",
       "hero": "masterchief",
       "level": 10,
-      "color": "#1e8503",
+      "color": "#ff6a00",
       "badges": ["confluence"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
