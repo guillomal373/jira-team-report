@@ -764,6 +764,7 @@ function renderTrendChart(canvas, labels, datasets) {
         data: { labels, datasets },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     labels: {
@@ -928,6 +929,7 @@ function renderSprintSummaryChart(canvas, labels, datasets) {
         data: { labels, datasets },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     labels: {
@@ -993,6 +995,7 @@ function renderMemberSummaryChart(canvas, labels, datasets) {
         data: { labels, datasets },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     labels: {
@@ -1227,6 +1230,7 @@ function renderMemberChart(canvas, labels, datasets) {
         data: { labels, datasets },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     labels: {

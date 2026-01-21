@@ -481,6 +481,12 @@ h1 {
 
 .trend-chart {
     margin-top: 12px;
+    height: 240px;
+}
+
+.trend-chart canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .trend-chart--members {
@@ -905,6 +911,10 @@ h1 {
 
     .team-grid {
         grid-template-columns: 1fr;
+    }
+
+    .trend-chart {
+        height: 480px;
     }
 }
 
