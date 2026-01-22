@@ -232,14 +232,16 @@
           "name": "Samil Vargas",
           "statuses": [
             { "date": "2026-01-20", "To Do": 8, "In Progress": 3, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-21", "To Do": 8, "In Progress": 3, "In Review": 0, "Done": 8 }
+            { "date": "2026-01-21", "To Do": 8, "In Progress": 3, "In Review": 0, "Done": 8 },
+            { "date": "2026-01-22", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12 }
           ]
         },
         {
           "name": "Roberto Hiraldo",
           "statuses": [
             { "date": "2026-01-20", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-21", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 3 }
+            { "date": "2026-01-21", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 3 },
+            { "date": "2026-01-22", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 3 }
           ]
         },
         {
@@ -247,28 +249,32 @@
           "statuses": [
 
             { "date": "2026-01-20", "To Do": 14, "In Progress": 9, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-21", "To Do": 14, "In Progress": 7, "In Review": 0, "Done": 2 }
-          ]
-        },
-        {
-          "name": "Daniel Rubiano",
-          "statuses": [
-            { "date": "2026-01-20", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-21", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2 }
+            { "date": "2026-01-21", "To Do": 14, "In Progress": 7, "In Review": 0, "Done": 2 },
+            { "date": "2026-01-22", "To Do": 7, "In Progress": 17, "In Review": 0, "Done": 2 }
           ]
         },
         {
           "name": "Felipe pacheco",
           "statuses": [
             { "date": "2026-01-20", "To Do": 18, "In Progress": 9, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-21", "To Do": 18, "In Progress": 9, "In Review": 0, "Done": 2 }
+            { "date": "2026-01-21", "To Do": 18, "In Progress": 9, "In Review": 0, "Done": 2 },
+            { "date": "2026-01-22", "To Do": 11, "In Progress": 19, "In Review": 0, "Done": 2 }
+          ]
+        },
+        {
+          "name": "Daniel Rubiano",
+          "statuses": [
+            { "date": "2026-01-20", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-21", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2 },
+            { "date": "2026-01-22", "To Do": 10, "In Progress": 1, "In Review": 0, "Done": 2 }
           ]
         },
         {
           "name": "Guillermo Malagón",
           "statuses": [
-            { "date": "2026-01-21", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 0 },
-            { "date": "2026-01-21", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 6 }
+            { "date": "2026-01-20", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 0 },
+            { "date": "2026-01-21", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 6 },
+            { "date": "2026-01-22", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 6 }
           ]
         }
       ]
