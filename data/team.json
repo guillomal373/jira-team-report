@@ -6,16 +6,49 @@
       "hero": "deadpool",
       "level": 10,
       "color": "#ab0101",
-      "badges": ["aws", "jira", "confluence"],
+      "badges": [
+        "aws",
+        "jira",
+        "confluence"
+      ],
       "skills": {
-        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
-        "levels": [7, 6, 7, 6, 5],
-        "initialLevels": [2, 2, 2, 2, 2]
+        "labels": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Flutter"
+        ],
+        "levels": [
+          7,
+          6,
+          7,
+          6,
+          5
+        ],
+        "initialLevels": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
       },
       "status": {
-        "labels": ["To Do", "In Progress", "In Review", "Done"],
-        "counts": [5, 2, 1, 4]
-      }
+        "labels": [
+          "To Do",
+          "In Progress",
+          "In Review",
+          "Done"
+        ],
+        "counts": [
+          5,
+          2,
+          1,
+          4
+        ]
+      },
+      "active": true
     },
     {
       "name": "Felipe pacheco",
@@ -23,16 +56,47 @@
       "hero": "masterchief",
       "level": 10,
       "color": "#ff6a00",
-      "badges": ["confluence"],
+      "badges": [
+        "confluence"
+      ],
       "skills": {
-        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
-        "levels": [7, 6, 7, 6, 5],
-        "initialLevels": [2, 2, 2, 2, 2]
+        "labels": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Flutter"
+        ],
+        "levels": [
+          7,
+          6,
+          7,
+          6,
+          5
+        ],
+        "initialLevels": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
       },
       "status": {
-        "labels": ["To Do", "In Progress", "In Review", "Done"],
-        "counts": [5, 2, 1, 4]
-      }
+        "labels": [
+          "To Do",
+          "In Progress",
+          "In Review",
+          "Done"
+        ],
+        "counts": [
+          5,
+          2,
+          1,
+          4
+        ]
+      },
+      "active": true
     },
     {
       "name": "Samil Vargas",
@@ -40,16 +104,49 @@
       "hero": "dexter",
       "level": 10,
       "color": "#54bdc8",
-      "badges": ["laravel", "jira", "confluence"],
+      "badges": [
+        "laravel",
+        "jira",
+        "confluence"
+      ],
       "skills": {
-        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
-        "levels": [9, 9, 9, 8, 7],
-        "initialLevels": [2, 2, 2, 2, 2]
+        "labels": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Flutter"
+        ],
+        "levels": [
+          9,
+          9,
+          9,
+          8,
+          7
+        ],
+        "initialLevels": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
       },
       "status": {
-        "labels": ["To Do", "In Progress", "In Review", "Done"],
-        "counts": [8, 3, 2, 7]
-      }
+        "labels": [
+          "To Do",
+          "In Progress",
+          "In Review",
+          "Done"
+        ],
+        "counts": [
+          8,
+          3,
+          2,
+          7
+        ]
+      },
+      "active": true
     },
     {
       "name": "Roberto Hiraldo",
@@ -57,16 +154,49 @@
       "hero": "darkowl",
       "level": 10,
       "color": "#6002bb",
-      "badges": ["swift", "jira", "confluence"],
+      "badges": [
+        "swift",
+        "jira",
+        "confluence"
+      ],
       "skills": {
-        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
-        "levels": [8, 7, 8, 7, 8],
-        "initialLevels": [2, 2, 2, 2, 2]
+        "labels": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Flutter"
+        ],
+        "levels": [
+          8,
+          7,
+          8,
+          7,
+          8
+        ],
+        "initialLevels": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
       },
       "status": {
-        "labels": ["To Do", "In Progress", "In Review", "Done"],
-        "counts": [6, 4, 1, 4]
-      }
+        "labels": [
+          "To Do",
+          "In Progress",
+          "In Review",
+          "Done"
+        ],
+        "counts": [
+          6,
+          4,
+          1,
+          4
+        ]
+      },
+      "active": true
     },
     {
       "name": "Daniel Rubiano",
@@ -74,16 +204,49 @@
       "hero": "barto",
       "level": 10,
       "color": "#ff9f1c",
-      "badges": ["aws", "jira", "confluence"],
+      "badges": [
+        "aws",
+        "jira",
+        "confluence"
+      ],
       "skills": {
-        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
-        "levels": [7, 6, 7, 6, 5],
-        "initialLevels": [2, 2, 2, 2, 2]
+        "labels": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Flutter"
+        ],
+        "levels": [
+          7,
+          6,
+          7,
+          6,
+          5
+        ],
+        "initialLevels": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
       },
       "status": {
-        "labels": ["To Do", "In Progress", "In Review", "Done"],
-        "counts": [5, 2, 1, 4]
-      }
+        "labels": [
+          "To Do",
+          "In Progress",
+          "In Review",
+          "Done"
+        ],
+        "counts": [
+          5,
+          2,
+          1,
+          4
+        ]
+      },
+      "active": false
     },
     {
       "name": "Guillermo Malagón",
@@ -91,16 +254,48 @@
       "hero": "hulk",
       "level": 10,
       "color": "#1e8503",
-      "badges": ["jira", "confluence"],
+      "badges": [
+        "jira",
+        "confluence"
+      ],
       "skills": {
-        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
-        "levels": [7, 6, 7, 6, 5],
-        "initialLevels": [2, 2, 2, 2, 2]
+        "labels": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Flutter"
+        ],
+        "levels": [
+          7,
+          6,
+          7,
+          6,
+          5
+        ],
+        "initialLevels": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
       },
       "status": {
-        "labels": ["To Do", "In Progress", "In Review", "Done"],
-        "counts": [5, 2, 1, 4]
-      }
+        "labels": [
+          "To Do",
+          "In Progress",
+          "In Review",
+          "Done"
+        ],
+        "counts": [
+          5,
+          2,
+          1,
+          4
+        ]
+      },
+      "active": true
     }
   ]
 }

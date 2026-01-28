@@ -14,6 +14,8 @@ let statusChartInstance = null;
 let teamCache = [];
 const memberStatusCharts = new Map();
 const excludedAverageNames = ['Guillermo Malagón'];
+const isActiveMember = (member = {}) => member?.active !== false;
+const getActiveMembers = (members = []) => (members || []).filter(isActiveMember);
 
 function getNonZeroAverage(values = []) {
     const numeric = values.map(v => Number(v) || 0).filter(v => v > 0);
@@ -553,6 +555,7 @@ async function loadTeam() {
 
             const card = document.createElement('div');
             card.className = 'developer-card';
+            card.setAttribute('data-member-card', member.name || '');
             card.innerHTML = `
                 <div class="dev-header">
                     <div class="dev-media">
@@ -569,6 +572,17 @@ async function loadTeam() {
                     <span class="toggle-icon">▼</span>
                 </button>
                 <div class="dev-details">
+                    <div class="mini-metrics-card">
+                        <h4 class="mini-status-title">Velocity</h4>
+                        <div class="mini-metric-row">
+                            <span class="mini-metric-label">Velocidad (Sprint)</span>
+                            <span class="mini-metric-value" data-member-velocity="${member.name}">0</span>
+                        </div>
+                        <div class="mini-metric-row">
+                            <span class="mini-metric-label">Velocidad promedio</span>
+                            <span class="mini-metric-value" data-member-velocity-avg="${member.name}">0</span>
+                        </div>
+                    </div>
                     <div class="mini-status-card">
                         <h4 class="mini-status-title">Work Status</h4>
                         <div class="mini-donut">
@@ -621,14 +635,16 @@ async function loadTeam() {
         const data = await response.json();
         const team = data.team || [];
         const finalTeam = team.length ? team : fallbackData.team;
-        renderTeam(finalTeam);
-        renderWorkload(finalTeam);
-        teamCache = finalTeam;
+        const activeTeam = getActiveMembers(finalTeam);
+        renderTeam(activeTeam);
+        renderWorkload(activeTeam);
+        teamCache = activeTeam;
     } catch (error) {
         console.error('Error loading team data:', error);
-        renderTeam(fallbackData.team);
-        renderWorkload(fallbackData.team);
-        teamCache = fallbackData.team;
+        const activeFallback = getActiveMembers(fallbackData.team);
+        renderTeam(activeFallback);
+        renderWorkload(activeFallback);
+        teamCache = activeFallback;
     }
 }
 
@@ -666,6 +682,7 @@ async function loadSprintTrends() {
             updateStatusOverview(sprint);
             updateWorkloadForSprint(sprint);
             updateMemberStatusesForSprint(sprint);
+            updateMemberVelocityForSprint(sprint, sprints);
         };
 
         selectEl.addEventListener('change', render);
@@ -681,7 +698,7 @@ function updateMetricsForSprint(sprint) {
     if (!completedEl || !updatedEl || !sprint) return;
 
     let latestDate = null;
-    (sprint.members || []).forEach(member => {
+    getActiveMembers(sprint.members).forEach(member => {
         (member.statuses || []).forEach(entry => {
             if (!entry.date) return;
             if (!latestDate || new Date(entry.date) > new Date(latestDate)) {
@@ -694,7 +711,7 @@ function updateMetricsForSprint(sprint) {
     let allTotal = 0;
 
     if (latestDate) {
-        (sprint.members || []).forEach(member => {
+        getActiveMembers(sprint.members).forEach(member => {
             const entry = (member.statuses || []).find(s => s.date === latestDate);
             if (!entry) return;
             Object.keys(entry).forEach(key => {
@@ -715,7 +732,7 @@ function aggregateSprintData(sprint) {
     const dateMap = new Map();
     const seenStates = new Set();
 
-    (sprint.members || []).forEach(member => {
+    getActiveMembers(sprint.members).forEach(member => {
         (member.statuses || []).forEach(entry => {
             const day = entry.date;
             if (!day) return;
@@ -830,6 +847,64 @@ function getLatestStatusEntry(member = {}) {
     return latest;
 }
 
+function formatVelocityValue(value) {
+    const num = Number(value) || 0;
+    return Number.isInteger(num) ? String(num) : num.toFixed(1);
+}
+
+function buildAverageDoneMap(sprints = []) {
+    const allNames = new Set();
+    sprints.forEach(sprint => {
+        getActiveMembers(sprint?.members).forEach(member => allNames.add(member.name));
+    });
+
+    const averageMap = new Map();
+    Array.from(allNames).forEach(name => {
+        if (excludedAverageNames.includes(name)) {
+            averageMap.set(name, null);
+            return;
+        }
+        const doneValues = [];
+        sprints.forEach(sprint => {
+            const member = getActiveMembers(sprint?.members).find(m => m.name === name);
+            if (!member) return;
+            const latestEntry = getLatestStatusEntry(member);
+            const done = Number(latestEntry?.['Done']) || 0;
+            doneValues.push(done);
+        });
+        averageMap.set(name, getNonZeroAverage(doneValues));
+    });
+
+    return averageMap;
+}
+
+function updateMemberVelocityForSprint(sprint, sprints = []) {
+    const velocityNodes = document.querySelectorAll('[data-member-velocity]');
+    const averageNodes = document.querySelectorAll('[data-member-velocity-avg]');
+    if (!velocityNodes.length && !averageNodes.length) return;
+
+    const doneByName = new Map();
+    getActiveMembers(sprint?.members).forEach(member => {
+        const latestEntry = getLatestStatusEntry(member);
+        const done = Number(latestEntry?.['Done']) || 0;
+        doneByName.set(member.name, done);
+    });
+
+    const averageMap = buildAverageDoneMap(sprints);
+
+    velocityNodes.forEach(node => {
+        const name = node.getAttribute('data-member-velocity') || '';
+        const done = doneByName.get(name) || 0;
+        node.textContent = formatVelocityValue(done);
+    });
+
+    averageNodes.forEach(node => {
+        const name = node.getAttribute('data-member-velocity-avg') || '';
+        const avg = averageMap.has(name) ? averageMap.get(name) : 0;
+        node.textContent = avg == null ? '—' : formatVelocityValue(avg);
+    });
+}
+
 function aggregateStatusBySprint(sprints = []) {
     const labels = [];
     const countsBySprint = [];
@@ -867,7 +942,7 @@ function aggregateStatusBySprint(sprints = []) {
 function buildMemberSummaryDatasets(sprints = []) {
     const allNames = new Set();
     sprints.forEach(sprint => {
-        (sprint?.members || []).forEach(member => allNames.add(member.name));
+        getActiveMembers(sprint?.members).forEach(member => allNames.add(member.name));
     });
 
     const nameColorMap = Object.fromEntries((teamCache || []).map(m => [m.name, m.color]));
@@ -878,7 +953,7 @@ function buildMemberSummaryDatasets(sprints = []) {
         const totals = [];
 
         sprints.forEach(sprint => {
-            const member = (sprint?.members || []).find(m => m.name === name);
+            const member = getActiveMembers(sprint?.members).find(m => m.name === name);
             const latestEntry = getLatestStatusEntry(member);
             const done = Number(latestEntry?.['Done']) || 0;
             const total = latestEntry
@@ -1076,7 +1151,7 @@ function computeSprintStatusCounts(sprint) {
     if (!sprint) return { counts: {}, total: 0, latestDate: null };
 
     let latestDate = null;
-    (sprint.members || []).forEach(member => {
+    getActiveMembers(sprint.members).forEach(member => {
         (member.statuses || []).forEach(entry => {
             if (!entry.date) return;
             if (!latestDate || new Date(entry.date) > new Date(latestDate)) {
@@ -1087,7 +1162,7 @@ function computeSprintStatusCounts(sprint) {
 
     const counts = {};
     if (latestDate) {
-        (sprint.members || []).forEach(member => {
+        getActiveMembers(sprint.members).forEach(member => {
             const entry = (member.statuses || []).find(s => s.date === latestDate);
             if (!entry) return;
             Object.keys(entry).forEach(key => {
@@ -1107,7 +1182,7 @@ function computeSprintWorkload(sprint) {
     const tasksByName = {};
     if (!latestDate) return tasksByName;
 
-    (sprint.members || []).forEach(member => {
+    getActiveMembers(sprint.members).forEach(member => {
         const entry = (member.statuses || []).find(s => s.date === latestDate);
         if (!entry) return;
         const total = Object.keys(entry).reduce((sum, key) => {
@@ -1151,7 +1226,7 @@ function updateMemberStatusesForSprint(sprint) {
 
     // Determine latest date per sprint (reusing workload logic)
     const latestByName = {};
-    (sprint.members || []).forEach(member => {
+    getActiveMembers(sprint.members).forEach(member => {
         let latestEntry = null;
         (member.statuses || []).forEach(entry => {
             if (!entry.date) return;
@@ -1183,7 +1258,7 @@ function updateMemberStatusesForSprint(sprint) {
 }
 
 function buildMemberDatasets(sprint, labels) {
-    const members = sprint?.members || [];
+    const members = getActiveMembers(sprint?.members);
     const nameColorMap = Object.fromEntries((teamCache || []).map(m => [m.name, m.color]));
     return members.map((member, idx) => {
         const color = nameColorMap[member.name] || member.color || memberPalette[idx % memberPalette.length] || '#c9a85c';
