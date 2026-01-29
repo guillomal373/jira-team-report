@@ -17,6 +17,39 @@ const excludedAverageNames = ['Guillermo Malagón'];
 const isActiveMember = (member = {}) => member?.active !== false;
 const getActiveMembers = (members = []) => (members || []).filter(isActiveMember);
 
+const trendDeltaLabelPlugin = {
+    id: 'trendDeltaLabelPlugin',
+    afterDatasetsDraw(chart) {
+        const { ctx } = chart;
+        ctx.save();
+        ctx.font = 'bold 11px Roboto Condensed';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+
+        chart.data.datasets.forEach((dataset, datasetIndex) => {
+            const meta = chart.getDatasetMeta(datasetIndex);
+            if (meta?.hidden) return;
+            const data = dataset.data || [];
+            meta.data.forEach((point, idx) => {
+                if (!point || data[idx] == null) return;
+                const current = Number(data[idx]) || 0;
+                const prev = idx > 0 ? Number(data[idx - 1]) || 0 : null;
+                let label = '—';
+                if (prev !== null) {
+                    const diff = current - prev;
+                    if (diff > 0) label = `+${diff}`;
+                    else if (diff < 0) label = `${diff}`;
+                    else label = '=';
+                }
+                ctx.fillStyle = dataset.borderColor || '#d7d7d7';
+                ctx.fillText(label, point.x, point.y - 10);
+            });
+        });
+
+        ctx.restore();
+    }
+};
+
 function getNonZeroAverage(values = []) {
     const numeric = values.map(v => Number(v) || 0).filter(v => v > 0);
     if (!numeric.length) return 0;
@@ -782,6 +815,9 @@ function renderTrendChart(canvas, labels, datasets) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: {
+                padding: { top: 26 }
+            },
             plugins: {
                 legend: {
                     labels: {
@@ -1068,6 +1104,7 @@ function renderMemberSummaryChart(canvas, labels, datasets) {
     memberSummaryChart = new Chart(canvas, {
         type: 'line',
         data: { labels, datasets },
+        plugins: [trendDeltaLabelPlugin],
         options: {
             responsive: true,
             maintainAspectRatio: false,
@@ -1123,6 +1160,7 @@ function renderMemberSummaryChart(canvas, labels, datasets) {
                 },
                 y: {
                     beginAtZero: true,
+                    grace: '18%',
                     ticks: {
                         color: '#9e9e9e',
                         stepSize: 2,
@@ -1303,9 +1341,13 @@ function renderMemberChart(canvas, labels, datasets) {
     sprintMemberChart = new Chart(canvas, {
         type: 'line',
         data: { labels, datasets },
+        plugins: [trendDeltaLabelPlugin],
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: {
+                padding: { top: 26 }
+            },
             plugins: {
                 legend: {
                     labels: {
@@ -1345,6 +1387,7 @@ function renderMemberChart(canvas, labels, datasets) {
                 },
                 y: {
                     beginAtZero: true,
+                    grace: '18%',
                     ticks: {
                         color: '#9e9e9e',
                         stepSize: 2,
