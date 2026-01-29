@@ -509,6 +509,28 @@ h1 {
     }
 }
 
+@media (min-width: 1024px) {
+    body {
+        padding: 60px 40px;
+    }
+
+    header {
+        margin-bottom: 90px;
+    }
+
+    .trend-section {
+        margin: 40px 0 20px;
+    }
+
+    .trend-card {
+        padding: 32px 36px;
+    }
+
+    .trend-grid {
+        gap: 28px;
+    }
+}
+
 .developer-card {
     background: #121212;
     border: 1px solid #333;
