@@ -6,68 +6,38 @@
       "members": [
         {
           "name": "Samil Vargas",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 10
-            }
-          ],
-          "active": true
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 10}
+          ]
         },
         {
           "name": "Roberto Hiraldo",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 12
-            }
-          ],
-          "active": true
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 12}
+          ]
         },
         {
           "name": "Nicolás Díaz",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            }
-          ],
-          "active": true
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
         },
         {
           "name": "Guillermo Malagón",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 25
-            }
-          ],
-          "active": true
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 25}
+          ]
         },
         {
           "name": "Daniel Rubiano",
+          "active": false,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            }
-          ],
-          "active": false
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
         }
       ]
     },
@@ -77,68 +47,38 @@
       "members": [
         {
           "name": "Samil Vargas",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 35
-            }
-          ],
-          "active": true
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 35}
+          ]
         },
         {
           "name": "Roberto Hiraldo",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 36
-            }
-          ],
-          "active": true
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 36}
+          ]
         },
         {
           "name": "Nicolás Díaz",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 34
-            }
-          ],
-          "active": true
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 34}
+          ]
         },
         {
           "name": "Guillermo Malagón",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 26
-            }
-          ],
-          "active": true
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 26}
+          ]
         },
         {
           "name": "Daniel Rubiano",
+          "active": false,
           "statuses": [
-            {
-              "date": "2025-11-04",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            }
-          ],
-          "active": false
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
         }
       ]
     },
@@ -148,278 +88,68 @@
       "members": [
         {
           "name": "Samil Vargas",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-12-24",
-              "To Do": 10,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2025-12-25",
-              "To Do": 10,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2025-12-26",
-              "To Do": 10,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2025-12-29",
-              "To Do": 10,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2025-12-30",
-              "To Do": 14,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 15
-            },
-            {
-              "date": "2025-12-31",
-              "To Do": 14,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 15
-            },
-            {
-              "date": "2026-01-02",
-              "To Do": 17,
-              "In Progress": 9,
-              "In Review": 0,
-              "Done": 15
-            }
-          ],
-          "active": true
+            {"date": "2025-12-24", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10},
+            {"date": "2025-12-25", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10},
+            {"date": "2025-12-26", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10},
+            {"date": "2025-12-29", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10},
+            {"date": "2025-12-30", "To Do": 14, "In Progress": 3, "In Review": 0, "Done": 15},
+            {"date": "2025-12-31", "To Do": 14, "In Progress": 3, "In Review": 0, "Done": 15},
+            {"date": "2026-01-02", "To Do": 17, "In Progress": 9, "In Review": 0, "Done": 15}
+          ]
         },
         {
           "name": "Roberto Hiraldo",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-12-24",
-              "To Do": 6,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 4
-            },
-            {
-              "date": "2025-12-25",
-              "To Do": 6,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 4
-            },
-            {
-              "date": "2025-12-26",
-              "To Do": 6,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 4
-            },
-            {
-              "date": "2025-12-29",
-              "To Do": 6,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 22
-            },
-            {
-              "date": "2025-12-30",
-              "To Do": 14,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 22
-            },
-            {
-              "date": "2025-12-31",
-              "To Do": 8,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 22
-            },
-            {
-              "date": "2026-01-02",
-              "To Do": 6,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 22
-            }
-          ],
-          "active": true
+            {"date": "2025-12-24", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4},
+            {"date": "2025-12-25", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4},
+            {"date": "2025-12-26", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4},
+            {"date": "2025-12-29", "To Do": 6, "In Progress": 2, "In Review": 0, "Done": 22},
+            {"date": "2025-12-30", "To Do": 14, "In Progress": 2, "In Review": 0, "Done": 22},
+            {"date": "2025-12-31", "To Do": 8, "In Progress": 8, "In Review": 0, "Done": 22},
+            {"date": "2026-01-02", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 22}
+          ]
         },
         {
           "name": "Nicolás Díaz",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-12-24",
-              "To Do": 16,
-              "In Progress": 6,
-              "In Review": 0,
-              "Done": 4
-            },
-            {
-              "date": "2025-12-25",
-              "To Do": 16,
-              "In Progress": 6,
-              "In Review": 0,
-              "Done": 4
-            },
-            {
-              "date": "2025-12-26",
-              "To Do": 16,
-              "In Progress": 6,
-              "In Review": 0,
-              "Done": 4
-            },
-            {
-              "date": "2025-12-29",
-              "To Do": 11,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 4
-            },
-            {
-              "date": "2025-12-30",
-              "To Do": 7,
-              "In Progress": 4,
-              "In Review": 0,
-              "Done": 9
-            },
-            {
-              "date": "2025-12-31",
-              "To Do": 2,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 16
-            },
-            {
-              "date": "2026-01-02",
-              "To Do": 2,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 16
-            }
-          ],
-          "active": true
+            {"date": "2025-12-24", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4},
+            {"date": "2025-12-25", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4},
+            {"date": "2025-12-26", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4},
+            {"date": "2025-12-29", "To Do": 11, "In Progress": 8, "In Review": 0, "Done": 4},
+            {"date": "2025-12-30", "To Do": 7, "In Progress": 4, "In Review": 0, "Done": 9},
+            {"date": "2025-12-31", "To Do": 2, "In Progress": 3, "In Review": 0, "Done": 16},
+            {"date": "2026-01-02", "To Do": 2, "In Progress": 3, "In Review": 0, "Done": 16}
+          ]
         },
         {
           "name": "Guillermo Malagón",
+          "active": true,
           "statuses": [
-            {
-              "date": "2025-12-24",
-              "To Do": 3,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-25",
-              "To Do": 3,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-26",
-              "To Do": 3,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-29",
-              "To Do": 3,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-30",
-              "To Do": 3,
-              "In Progress": 7,
-              "In Review": 0,
-              "Done": 5
-            },
-            {
-              "date": "2025-12-31",
-              "To Do": 0,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 5
-            },
-            {
-              "date": "2026-01-02",
-              "To Do": 0,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 8
-            }
-          ],
-          "active": true
+            {"date": "2025-12-24", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0},
+            {"date": "2025-12-25", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0},
+            {"date": "2025-12-26", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0},
+            {"date": "2025-12-29", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0},
+            {"date": "2025-12-30", "To Do": 3, "In Progress": 7, "In Review": 0, "Done": 5},
+            {"date": "2025-12-31", "To Do": 0, "In Progress": 5, "In Review": 0, "Done": 5},
+            {"date": "2026-01-02", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 8}
+          ]
         },
         {
           "name": "Daniel Rubiano",
+          "active": false,
           "statuses": [
-            {
-              "date": "2025-12-24",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-25",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-26",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-29",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-30",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2025-12-31",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-02",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            }
-          ],
-          "active": false
+            {"date": "2025-12-24", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-25", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-26", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-29", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-30", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-31", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
         }
       ]
     },
@@ -429,418 +159,88 @@
       "members": [
         {
           "name": "Samil Vargas",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-05",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-06",
-              "To Do": 26,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-07",
-              "To Do": 23,
-              "In Progress": 16,
-              "In Review": 8,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-08",
-              "To Do": 23,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2026-01-09",
-              "To Do": 18,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2026-01-12",
-              "To Do": 13,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 18
-            },
-            {
-              "date": "2026-01-13",
-              "To Do": 8,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 18
-            },
-            {
-              "date": "2026-01-14",
-              "To Do": 8,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 28
-            },
-            {
-              "date": "2026-01-15",
-              "To Do": 8,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 28
-            },
-            {
-              "date": "2026-01-16",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 36
-            },
-            {
-              "date": "2026-01-17",
-              "To Do": 8,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 41
-            }
-          ],
-          "active": true
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 26, "In Progress": 10, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 23, "In Progress": 16, "In Review": 8, "Done": 2},
+            {"date": "2026-01-08", "To Do": 23, "In Progress": 8, "In Review": 0, "Done": 10},
+            {"date": "2026-01-09", "To Do": 18, "In Progress": 8, "In Review": 0, "Done": 10},
+            {"date": "2026-01-12", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 18},
+            {"date": "2026-01-13", "To Do": 8, "In Progress": 10, "In Review": 0, "Done": 18},
+            {"date": "2026-01-14", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 28},
+            {"date": "2026-01-15", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 28},
+            {"date": "2026-01-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 36},
+            {"date": "2026-01-17", "To Do": 8, "In Progress": 8, "In Review": 0, "Done": 41}
+          ]
         },
         {
           "name": "Roberto Hiraldo",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-05",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-06",
-              "To Do": 13,
-              "In Progress": 13,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-07",
-              "To Do": 13,
-              "In Progress": 18,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-08",
-              "To Do": 13,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 13
-            },
-            {
-              "date": "2026-01-09",
-              "To Do": 13,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 16
-            },
-            {
-              "date": "2026-01-12",
-              "To Do": 11,
-              "In Progress": 4,
-              "In Review": 0,
-              "Done": 16
-            },
-            {
-              "date": "2026-01-13",
-              "To Do": 11,
-              "In Progress": 4,
-              "In Review": 0,
-              "Done": 16
-            },
-            {
-              "date": "2026-01-14",
-              "To Do": 11,
-              "In Progress": 4,
-              "In Review": 0,
-              "Done": 16
-            },
-            {
-              "date": "2026-01-15",
-              "To Do": 11,
-              "In Progress": 4,
-              "In Review": 0,
-              "Done": 16
-            },
-            {
-              "date": "2026-01-16",
-              "To Do": 9,
-              "In Progress": 6,
-              "In Review": 0,
-              "Done": 16
-            },
-            {
-              "date": "2026-01-17",
-              "To Do": 4,
-              "In Progress": 6,
-              "In Review": 0,
-              "Done": 16
-            }
-          ],
-          "active": true
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 13, "In Progress": 13, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 13, "In Progress": 18, "In Review": 0, "Done": 0},
+            {"date": "2026-01-08", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 13},
+            {"date": "2026-01-09", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 16},
+            {"date": "2026-01-12", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16},
+            {"date": "2026-01-13", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16},
+            {"date": "2026-01-14", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16},
+            {"date": "2026-01-15", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16},
+            {"date": "2026-01-16", "To Do": 9, "In Progress": 6, "In Review": 0, "Done": 16},
+            {"date": "2026-01-17", "To Do": 4, "In Progress": 6, "In Review": 0, "Done": 16}
+          ]
         },
         {
           "name": "Nicolás Díaz",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-05",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-06",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-07",
-              "To Do": 5,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 8
-            },
-            {
-              "date": "2026-01-08",
-              "To Do": 3,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 8
-            },
-            {
-              "date": "2026-01-09",
-              "To Do": 3,
-              "In Progress": 4,
-              "In Review": 0,
-              "Done": 12
-            },
-            {
-              "date": "2026-01-12",
-              "To Do": 0,
-              "In Progress": 1,
-              "In Review": 0,
-              "Done": 14
-            },
-            {
-              "date": "2026-01-13",
-              "To Do": 14,
-              "In Progress": 6,
-              "In Review": 0,
-              "Done": 14
-            },
-            {
-              "date": "2026-01-14",
-              "To Do": 2,
-              "In Progress": 7,
-              "In Review": 0,
-              "Done": 21
-            },
-            {
-              "date": "2026-01-15",
-              "To Do": 2,
-              "In Progress": 7,
-              "In Review": 0,
-              "Done": 21
-            },
-            {
-              "date": "2026-01-16",
-              "To Do": 0,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 21
-            },
-            {
-              "date": "2026-01-17",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 31
-            }
-          ],
-          "active": true
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 8},
+            {"date": "2026-01-08", "To Do": 3, "In Progress": 2, "In Review": 0, "Done": 8},
+            {"date": "2026-01-09", "To Do": 3, "In Progress": 4, "In Review": 0, "Done": 12},
+            {"date": "2026-01-12", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 14},
+            {"date": "2026-01-13", "To Do": 14, "In Progress": 6, "In Review": 0, "Done": 14},
+            {"date": "2026-01-14", "To Do": 2, "In Progress": 7, "In Review": 0, "Done": 21},
+            {"date": "2026-01-15", "To Do": 2, "In Progress": 7, "In Review": 0, "Done": 21},
+            {"date": "2026-01-16", "To Do": 0, "In Progress": 10, "In Review": 0, "Done": 21},
+            {"date": "2026-01-17", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 31}
+          ]
         },
         {
           "name": "Daniel Rubiano",
+          "active": false,
           "statuses": [
-            {
-              "date": "2026-01-05",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-06",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-07",
-              "To Do": 3,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-08",
-              "To Do": 3,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-09",
-              "To Do": 3,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-12",
-              "To Do": 13,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 8
-            },
-            {
-              "date": "2026-01-13",
-              "To Do": 3,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 22
-            },
-            {
-              "date": "2026-01-14",
-              "To Do": 3,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 23
-            },
-            {
-              "date": "2026-01-15",
-              "To Do": 1,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 33
-            },
-            {
-              "date": "2026-01-16",
-              "To Do": 1,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 41
-            },
-            {
-              "date": "2026-01-17",
-              "To Do": 1,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 44
-            }
-          ],
-          "active": false
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2},
+            {"date": "2026-01-08", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2},
+            {"date": "2026-01-09", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2},
+            {"date": "2026-01-12", "To Do": 13, "In Progress": 0, "In Review": 0, "Done": 8},
+            {"date": "2026-01-13", "To Do": 3, "In Progress": 3, "In Review": 0, "Done": 22},
+            {"date": "2026-01-14", "To Do": 3, "In Progress": 10, "In Review": 0, "Done": 23},
+            {"date": "2026-01-15", "To Do": 1, "In Progress": 2, "In Review": 0, "Done": 33},
+            {"date": "2026-01-16", "To Do": 1, "In Progress": 3, "In Review": 0, "Done": 41},
+            {"date": "2026-01-17", "To Do": 1, "In Progress": 0, "In Review": 0, "Done": 44}
+          ]
         },
         {
           "name": "Guillermo Malagón",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-05",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-06",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-07",
-              "To Do": 0,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-08",
-              "To Do": 0,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-09",
-              "To Do": 0,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-12",
-              "To Do": 0,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-13",
-              "To Do": 0,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-14",
-              "To Do": 0,
-              "In Progress": 4,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-15",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 5
-            },
-            {
-              "date": "2026-01-16",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 5
-            },
-            {
-              "date": "2026-01-17",
-              "To Do": 3,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 8
-            }
-          ],
-          "active": true
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-08", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-09", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-12", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-13", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-14", "To Do": 0, "In Progress": 4, "In Review": 0, "Done": 2},
+            {"date": "2026-01-15", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 5},
+            {"date": "2026-01-16", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 5},
+            {"date": "2026-01-17", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 8}
+          ]
         }
       ]
     },
@@ -850,340 +250,88 @@
       "members": [
         {
           "name": "Samil Vargas",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-19",
-              "To Do": 8,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-20",
-              "To Do": 8,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 8
-            },
-            {
-              "date": "2026-01-22",
-              "To Do": 8,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 12
-            },
-            {
-              "date": "2026-01-23",
-              "To Do": 8,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 12
-            },
-            {
-              "date": "2026-01-27",
-              "To Do": 8,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 12
-            },
-            {
-              "date": "2026-01-28",
-              "To Do": 8,
-              "In Progress": 0,
-              "In Review": 0,
-              "Done": 12
-            }
-          ],
-          "active": true
+            {"date": "2026-01-19", "To Do": 8, "In Progress": 3, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 8, "In Progress": 3, "In Review": 0, "Done": 8},
+            {"date": "2026-01-22", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12},
+            {"date": "2026-01-23", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12},
+            {"date": "2026-01-27", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12},
+            {"date": "2026-01-28", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12},
+            {"date": "2026-01-29", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 20}
+          ]
         },
         {
           "name": "Roberto Hiraldo",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-19",
-              "To Do": 0,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-20",
-              "To Do": 0,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 3
-            },
-            {
-              "date": "2026-01-21",
-              "To Do": 0,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 3
-            },
-            {
-              "date": "2026-01-22",
-              "To Do": 4,
-              "In Progress": 9,
-              "In Review": 0,
-              "Done": 7
-            },
-            {
-              "date": "2026-01-27",
-              "To Do": 4,
-              "In Progress": 9,
-              "In Review": 0,
-              "Done": 7
-            },
-            {
-              "date": "2026-01-28",
-              "To Do": 4,
-              "In Progress": 15,
-              "In Review": 0,
-              "Done": 9
-            }
-          ],
-          "active": true
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 3},
+            {"date": "2026-01-21", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 3},
+            {"date": "2026-01-22", "To Do": 4, "In Progress": 9, "In Review": 0, "Done": 7},
+            {"date": "2026-01-27", "To Do": 4, "In Progress": 9, "In Review": 0, "Done": 7},
+            {"date": "2026-01-28", "To Do": 4, "In Progress": 15, "In Review": 0, "Done": 9},
+            {"date": "2026-01-29", "To Do": 0, "In Progress": 20, "In Review": 0, "Done": 11}
+          ]
         },
         {
           "name": "Nicolás Díaz",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-19",
-              "To Do": 14,
-              "In Progress": 9,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-20",
-              "To Do": 14,
-              "In Progress": 7,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-21",
-              "To Do": 7,
-              "In Progress": 17,
-              "In Review": 0,
-              "Done": 5
-            },
-            {
-              "date": "2026-01-22",
-              "To Do": 7,
-              "In Progress": 12,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2026-01-23",
-              "To Do": 7,
-              "In Progress": 7,
-              "In Review": 0,
-              "Done": 15
-            },
-            {
-              "date": "2026-01-26",
-              "To Do": 0,
-              "In Progress": 7,
-              "In Review": 0,
-              "Done": 20
-            },
-            {
-              "date": "2026-01-27",
-              "To Do": 0,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 23
-            },
-            {
-              "date": "2026-01-28",
-              "To Do": 0,
-              "In Progress": 5,
-              "In Review": 0,
-              "Done": 23
-            }
-          ],
-          "active": true
+            {"date": "2026-01-19", "To Do": 14, "In Progress": 9, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 14, "In Progress": 7, "In Review": 0, "Done": 2},
+            {"date": "2026-01-21", "To Do": 7, "In Progress": 17, "In Review": 0, "Done": 5},
+            {"date": "2026-01-22", "To Do": 7, "In Progress": 12, "In Review": 0, "Done": 10},
+            {"date": "2026-01-23", "To Do": 7, "In Progress": 7, "In Review": 0, "Done": 15},
+            {"date": "2026-01-26", "To Do": 0, "In Progress": 7, "In Review": 0, "Done": 20},
+            {"date": "2026-01-27", "To Do": 0, "In Progress": 5, "In Review": 0, "Done": 23},
+            {"date": "2026-01-28", "To Do": 0, "In Progress": 5, "In Review": 0, "Done": 23},
+            {"date": "2026-01-29", "To Do": 14, "In Progress": 12, "In Review": 0, "Done": 23}
+          ]
         },
         {
           "name": "Felipe pacheco",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-19",
-              "To Do": 18,
-              "In Progress": 9,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-20",
-              "To Do": 18,
-              "In Progress": 9,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-21",
-              "To Do": 11,
-              "In Progress": 13,
-              "In Review": 0,
-              "Done": 6
-            },
-            {
-              "date": "2026-01-22",
-              "To Do": 11,
-              "In Progress": 11,
-              "In Review": 0,
-              "Done": 8
-            },
-            {
-              "date": "2026-01-23",
-              "To Do": 11,
-              "In Progress": 8,
-              "In Review": 0,
-              "Done": 15
-            },
-            {
-              "date": "2026-01-26",
-              "To Do": 2,
-              "In Progress": 1,
-              "In Review": 0,
-              "Done": 20
-            },
-            {
-              "date": "2026-01-27",
-              "To Do": 2,
-              "In Progress": 1,
-              "In Review": 0,
-              "Done": 20
-            },
-            {
-              "date": "2026-01-28",
-              "To Do": 2,
-              "In Progress": 17,
-              "In Review": 0,
-              "Done": 21
-            }
-          ],
-          "active": true
-        },
-        {
-          "name": "Daniel Rubiano",
-          "statuses": [
-            {
-              "date": "2026-01-19",
-              "To Do": 0,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-20",
-              "To Do": 0,
-              "In Progress": 2,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-21",
-              "To Do": 10,
-              "In Progress": 1,
-              "In Review": 0,
-              "Done": 2
-            },
-            {
-              "date": "2026-01-22",
-              "To Do": 10,
-              "In Progress": 1,
-              "In Review": 0,
-              "Done": 9
-            },
-            {
-              "date": "2026-01-23",
-              "To Do": 1,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2026-01-26",
-              "To Do": 1,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 11
-            },
-            {
-              "date": "2026-01-27",
-              "To Do": 1,
-              "In Progress": 10,
-              "In Review": 0,
-              "Done": 11
-            }
-          ],
-          "active": false
+            {"date": "2026-01-19", "To Do": 18, "In Progress": 9, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 18, "In Progress": 9, "In Review": 0, "Done": 2},
+            {"date": "2026-01-21", "To Do": 11, "In Progress": 13, "In Review": 0, "Done": 6},
+            {"date": "2026-01-22", "To Do": 11, "In Progress": 11, "In Review": 0, "Done": 8},
+            {"date": "2026-01-23", "To Do": 11, "In Progress": 8, "In Review": 0, "Done": 15},
+            {"date": "2026-01-26", "To Do": 2, "In Progress": 1, "In Review": 0, "Done": 20},
+            {"date": "2026-01-27", "To Do": 2, "In Progress": 1, "In Review": 0, "Done": 20},
+            {"date": "2026-01-28", "To Do": 2, "In Progress": 17, "In Review": 0, "Done": 21},
+            {"date": "2026-01-29", "To Do": 2, "In Progress": 24, "In Review": 0, "Done": 21}
+          ]
         },
         {
           "name": "Guillermo Malagón",
+          "active": true,
           "statuses": [
-            {
-              "date": "2026-01-19",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 0
-            },
-            {
-              "date": "2026-01-20",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 6
-            },
-            {
-              "date": "2026-01-21",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 8
-            },
-            {
-              "date": "2026-01-22",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 10
-            },
-            {
-              "date": "2026-01-23",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 13
-            },
-            {
-              "date": "2026-01-26",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 16
-            },
-            {
-              "date": "2026-01-27",
-              "To Do": 0,
-              "In Progress": 3,
-              "In Review": 0,
-              "Done": 21
-            },
-            {
-              "date": "2026-01-28",
-              "To Do": 0,
-              "In Progress": 4,
-              "In Review": 0,
-              "Done": 26
-            }
-          ],
-          "active": true
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 6},
+            {"date": "2026-01-21", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 8},
+            {"date": "2026-01-22", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 10},
+            {"date": "2026-01-23", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 13},
+            {"date": "2026-01-26", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 16},
+            {"date": "2026-01-27", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 21},
+            {"date": "2026-01-28", "To Do": 0, "In Progress": 4, "In Review": 0, "Done": 26},
+            {"date": "2026-01-29", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 27}
+          ]
+        },
+        {
+          "name": "Daniel Rubiano",
+          "active": false,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-21", "To Do": 10, "In Progress": 1, "In Review": 0, "Done": 2},
+            {"date": "2026-01-22", "To Do": 10, "In Progress": 1, "In Review": 0, "Done": 9},
+            {"date": "2026-01-23", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 10},
+            {"date": "2026-01-26", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11},
+            {"date": "2026-01-27", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11},
+            {"date": "2026-01-27", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11}
+          ]
         }
       ]
     }
