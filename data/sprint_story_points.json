@@ -246,7 +246,7 @@
     },
     {
       "name": "Sprint 5 - Cordaba Portal Dev Env - OTP & AuditFlow",
-      "period": "2026-01-25 to 2026-02-06",
+      "period": "2026-01-25 to 2026-01-30",
       "members": [
         {
           "name": "Samil Vargas",
@@ -336,6 +336,47 @@
             {"date": "2026-01-26", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11},
             {"date": "2026-01-27", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11},
             {"date": "2026-01-27", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sprint 6 - CX App to Prod, CP MVP Clarify",
+      "period": "2026-02-02 to 2026-02-13",
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Felipe pacheco",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
           ]
         }
       ]
