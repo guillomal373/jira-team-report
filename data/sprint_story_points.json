@@ -348,35 +348,40 @@
           "name": "Samil Vargas",
           "active": true,
           "statuses": [
-            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 6, "In Progress": 0, "In Review": 0, "Done": 0}
           ]
         },
         {
           "name": "Roberto Hiraldo",
           "active": true,
           "statuses": [
-            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 5}
           ]
         },
         {
           "name": "Nicolás Díaz",
           "active": true,
           "statuses": [
-            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 9, "In Progress": 19, "In Review": 0, "Done": 13}
           ]
         },
         {
           "name": "Felipe pacheco",
           "active": true,
           "statuses": [
-            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 5, "In Progress": 16, "In Review": 0, "Done": 0}
           ]
         },
         {
           "name": "Guillermo Malagón",
           "active": true,
           "statuses": [
-            {"date": "2026-01-19", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 5}
           ]
         }
       ]
