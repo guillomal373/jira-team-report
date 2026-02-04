@@ -8,6 +8,7 @@
       "color": "#ab0101",
       "badges": [
         "aws",
+        "dotnet",
         "jira",
         "confluence"
       ],
@@ -57,7 +58,8 @@
       "level": 10,
       "color": "#ff6a00",
       "badges": [
-        "confluence"
+        "confluence",
+        "dotnet"
       ],
       "skills": {
         "labels": [
@@ -107,7 +109,8 @@
       "badges": [
         "laravel",
         "jira",
-        "confluence"
+        "confluence",
+        "dotnet"
       ],
       "skills": {
         "labels": [
