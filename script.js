@@ -412,13 +412,16 @@ function normalizeSkillData(skills = {}) {
 
 const badgeAssets = {
     js: 'images/badges/js.svg',
+    dotnet: 'images/badges/dotnet.svg',
+    net: 'images/badges/dotnet.svg',
     fire: 'images/badges/fire.svg',
     diamond: 'images/badges/diamond.svg',
     aws: 'images/badges/aws.svg',
     laravel: 'images/badges/laravel.svg',
     swift: 'images/badges/swift.svg',
     jira: 'images/badges/jira.svg',
-    confluence: 'images/badges/confluence.svg'
+    confluence: 'images/badges/confluence.svg',
+    dotnet: 'images/badges/dotnet.svg'
 };
 
 function buildBadges(badges = []) {

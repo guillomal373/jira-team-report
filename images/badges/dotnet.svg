@@ -1,0 +1,22 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dotnetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6a40ff"/>
+      <stop offset="60%" stop-color="#4f2bd6"/>
+      <stop offset="100%" stop-color="#3a20a8"/>
+    </linearGradient>
+    <linearGradient id="dotnetSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="#0f0f0f"/>
+  <rect x="12" y="12" width="40" height="40" rx="12" fill="url(#dotnetGrad)"/>
+  <ellipse cx="24" cy="20" rx="12" ry="8" fill="url(#dotnetSheen)" opacity="0.45"/>
+
+  <g font-family="Bebas Neue, Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="34" y="39" font-size="18" fill="#2a1b73" opacity="0.45">.NET</text>
+    <text x="32" y="37" font-size="18" fill="#f7f7fb">.NET</text>
+  </g>
+</svg>
