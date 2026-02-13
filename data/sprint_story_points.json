@@ -354,7 +354,10 @@
             {"date": "2026-02-05", "To Do": 3, "In Progress": 3, "In Review": 0, "Done": 11},            
             {"date": "2026-02-06", "To Do": 3, "In Progress": 3, "In Review": 0, "Done": 11},
             {"date": "2026-02-09", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 14},
-            {"date": "2026-02-10", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 14}
+            {"date": "2026-02-10", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 14},
+            {"date": "2026-02-11", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 14},
+            {"date": "2026-02-12", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 17},
+            {"date": "2026-02-13", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 18}
           ]
         },
         {
@@ -367,7 +370,10 @@
             {"date": "2026-02-05", "To Do": 5, "In Progress": 16, "In Review": 0, "Done": 5},            
             {"date": "2026-02-06", "To Do": 5, "In Progress": 16, "In Review": 0, "Done": 5},
             {"date": "2026-02-09", "To Do": 5, "In Progress": 3, "In Review": 19, "Done": 5},
-            {"date": "2026-02-10", "To Do": 5, "In Progress": 3, "In Review": 26, "Done": 5}
+            {"date": "2026-02-10", "To Do": 5, "In Progress": 3, "In Review": 26, "Done": 5},
+            {"date": "2026-02-11", "To Do": 5, "In Progress": 3, "In Review": 34, "Done": 5},
+            {"date": "2026-02-12", "To Do": 10, "In Progress": 0, "In Review": 23, "Done": 14},
+            {"date": "2026-02-13", "To Do": 10, "In Progress": 0, "In Review": 23, "Done": 16}
           ]
         },
         {
@@ -380,7 +386,10 @@
             {"date": "2026-02-05", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 27},            
             {"date": "2026-02-06", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 27},
             {"date": "2026-02-09", "To Do": 6, "In Progress": 1, "In Review": 0, "Done": 40},
-            {"date": "2026-02-10", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 40}
+            {"date": "2026-02-10", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 40},
+            {"date": "2026-02-11", "To Do": 6, "In Progress": 2, "In Review": 0, "Done": 46},
+            {"date": "2026-02-12", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 46},
+            {"date": "2026-02-13", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 46}
           ]
         },
         {
@@ -390,10 +399,13 @@
             {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
             {"date": "2026-02-03", "To Do": 5, "In Progress": 16, "In Review": 0, "Done": 0},
             {"date": "2026-02-04", "To Do": 5, "In Progress": 9, "In Review": 0, "Done": 5},
-            {"date": "2026-02-05", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 18},            
+            {"date": "2026-02-05", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 18}, 
             {"date": "2026-02-06", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 18},
             {"date": "2026-02-09", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 26},
-            {"date": "2026-02-10", "To Do": 5, "In Progress": 2, "In Review": 0, "Done": 31}
+            {"date": "2026-02-10", "To Do": 5, "In Progress": 2, "In Review": 0, "Done": 31},
+            {"date": "2026-02-11", "To Do": 5, "In Progress": 2, "In Review": 0, "Done": 31},
+            {"date": "2026-02-12", "To Do": 5, "In Progress": 14, "In Review": 0, "Done": 32},
+            {"date": "2026-02-13", "To Do": 5, "In Progress": 14, "In Review": 0, "Done": 35}
           ]
         },
         {
@@ -406,7 +418,10 @@
             {"date": "2026-02-05", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 9},            
             {"date": "2026-02-06", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 13},
             {"date": "2026-02-09", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 17},
-            {"date": "2026-02-10", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 20}
+            {"date": "2026-02-10", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 20},
+            {"date": "2026-02-11", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 25},
+            {"date": "2026-02-12", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 25},
+            {"date": "2026-02-13", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 25}
           ]
         }
       ]
