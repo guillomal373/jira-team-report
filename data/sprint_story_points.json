@@ -373,7 +373,7 @@
             {"date": "2026-02-10", "To Do": 5, "In Progress": 3, "In Review": 26, "Done": 5},
             {"date": "2026-02-11", "To Do": 5, "In Progress": 3, "In Review": 34, "Done": 5},
             {"date": "2026-02-12", "To Do": 10, "In Progress": 0, "In Review": 23, "Done": 14},
-            {"date": "2026-02-13", "To Do": 10, "In Progress": 0, "In Review": 23, "Done": 16}
+            {"date": "2026-02-13", "To Do": 10, "In Progress": 0, "In Review": 23, "Done": 21}
           ]
         },
         {
@@ -389,7 +389,7 @@
             {"date": "2026-02-10", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 40},
             {"date": "2026-02-11", "To Do": 6, "In Progress": 2, "In Review": 0, "Done": 46},
             {"date": "2026-02-12", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 46},
-            {"date": "2026-02-13", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 46}
+            {"date": "2026-02-13", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 56}
           ]
         },
         {
@@ -405,7 +405,7 @@
             {"date": "2026-02-10", "To Do": 5, "In Progress": 2, "In Review": 0, "Done": 31},
             {"date": "2026-02-11", "To Do": 5, "In Progress": 2, "In Review": 0, "Done": 31},
             {"date": "2026-02-12", "To Do": 5, "In Progress": 14, "In Review": 0, "Done": 32},
-            {"date": "2026-02-13", "To Do": 5, "In Progress": 14, "In Review": 0, "Done": 35}
+            {"date": "2026-02-13", "To Do": 5, "In Progress": 5, "In Review": 0, "Done": 44}
           ]
         },
         {
@@ -421,7 +421,48 @@
             {"date": "2026-02-10", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 20},
             {"date": "2026-02-11", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 25},
             {"date": "2026-02-12", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 25},
-            {"date": "2026-02-13", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 25}
+            {"date": "2026-02-13", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sprint 7 - CX Android App, CP MVP release",
+      "period": "2026-02-16 to 2026-02-27",
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Felipe pacheco",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
           ]
         }
       ]

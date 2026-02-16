@@ -611,11 +611,11 @@ async function loadTeam() {
                     <div class="mini-metrics-card">
                         <h4 class="mini-status-title">Velocity</h4>
                         <div class="mini-metric-row">
-                            <span class="mini-metric-label">Velocidad (Sprint)</span>
+                            <span class="mini-metric-label">Sprint Velocity</span>
                             <span class="mini-metric-value" data-member-velocity="${member.name}">0</span>
                         </div>
                         <div class="mini-metric-row">
-                            <span class="mini-metric-label">Velocidad promedio</span>
+                            <span class="mini-metric-label">Average Velocity</span>
                             <span class="mini-metric-value" data-member-velocity-avg="${member.name}">0</span>
                         </div>
                     </div>
