@@ -434,35 +434,40 @@
           "name": "Samil Vargas",
           "active": true,
           "statuses": [
-            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}, 
+            {"date": "2026-02-17", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 16}
           ]
         },
         {
           "name": "Roberto Hiraldo",
           "active": true,
           "statuses": [
-            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}, 
+            {"date": "2026-02-17", "To Do": 10, "In Progress": 18, "In Review": 0, "Done": 0}
           ]
         },
         {
           "name": "Nicolás Díaz",
           "active": true,
           "statuses": [
-            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}, 
+            {"date": "2026-02-17", "To Do": 13, "In Progress": 0, "In Review": 17, "Done": 0}
           ]
         },
         {
           "name": "Felipe pacheco",
           "active": true,
           "statuses": [
-            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}, 
+            {"date": "2026-02-17", "To Do": 13, "In Progress": 8, "In Review": 0, "Done": 3}
           ]
         },
         {
           "name": "Guillermo Malagón",
           "active": true,
           "statuses": [
-            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}, 
+            {"date": "2026-02-17", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 5}
           ]
         }
       ]
