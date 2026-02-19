@@ -30,6 +30,7 @@ const trendDeltaLabelPlugin = {
         ctx.textBaseline = 'bottom';
 
         chart.data.datasets.forEach((dataset, datasetIndex) => {
+            if (dataset?.hideTrendDeltaLabel) return;
             const meta = chart.getDatasetMeta(datasetIndex);
             if (meta?.hidden) return;
             const data = dataset.data || [];
@@ -431,6 +432,9 @@ const badgeAssets = {
     aws: 'images/badges/aws.svg',
     laravel: 'images/badges/laravel.svg',
     swift: 'images/badges/swift.svg',
+    android: 'images/badges/android.svg',
+    e2e: 'images/badges/e2e.svg',
+    cypress: 'images/badges/cypress.svg',
     jira: 'images/badges/jira.svg',
     confluence: 'images/badges/confluence.svg',
     dotnet: 'images/badges/dotnet.svg'
@@ -543,7 +547,7 @@ async function loadTeam() {
                 hero: 'darkowl',
                 level: 10,
                 color: '#4b8cff',
-                badges: ['fire', 'js'],
+                badges: ['fire', 'js', 'android'],
                 skills: {
                     labels: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Flutter'],
                     levels: [8, 7, 8, 7, 8],
@@ -623,12 +627,16 @@ async function loadTeam() {
                     <div class="mini-metrics-card">
                         <h4 class="mini-status-title">Velocity</h4>
                         <div class="mini-metric-row">
-                            <span class="mini-metric-label">Sprint Velocity</span>
+                            <span class="mini-metric-label">Sprint Vel.</span>
                             <span class="mini-metric-value" data-member-velocity="${member.name}">0</span>
                         </div>
                         <div class="mini-metric-row">
-                            <span class="mini-metric-label">Average Velocity</span>
+                            <span class="mini-metric-label">Average Vel.</span>
                             <span class="mini-metric-value" data-member-velocity-avg="${member.name}">0</span>
+                        </div>
+                        <div class="mini-metric-row">
+                            <span class="mini-metric-label">Expected Sprint Vel.</span>
+                            <span class="mini-metric-value">40</span>
                         </div>
                     </div>
                     <div class="mini-status-card">
@@ -1352,10 +1360,28 @@ function renderMemberChart(canvas, labels, datasets) {
     if (sprintMemberChart) {
         sprintMemberChart.destroy();
     }
+    const guideData = (labels || []).map((_, idx) => idx * 4);
+    const guideDataset = {
+        label: 'Guide (+4/day) 80% work per day',
+        data: guideData,
+        borderColor: '#ffffff',
+        backgroundColor: 'rgba(255, 255, 255, 0.20)',
+        borderWidth: 1.8,
+        borderDash: [7, 5],
+        tension: 0,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointBackgroundColor: '#ffffff',
+        pointBorderColor: '#ffffff',
+        fill: true,
+        hideTrendDeltaLabel: true,
+        isGuideLine: true
+    };
+    const chartDatasets = [...datasets, guideDataset];
 
     sprintMemberChart = new Chart(canvas, {
         type: 'line',
-        data: { labels, datasets },
+        data: { labels, datasets: chartDatasets },
         plugins: [trendDeltaLabelPlugin],
         options: {
             responsive: true,
@@ -1385,6 +1411,9 @@ function renderMemberChart(canvas, labels, datasets) {
                     bodyColor: '#ffffff',
                     callbacks: {
                         label: context => {
+                            if (context.dataset.isGuideLine) {
+                                return `${context.dataset.label}: ${context.parsed.y}`;
+                            }
                             const total = context.dataset.totals?.[context.dataIndex] ?? 0;
                             return `${context.dataset.label}: ${context.parsed.y} of ${total} story points Done`;
                         }

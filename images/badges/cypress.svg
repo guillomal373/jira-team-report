@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="#0f0f0f"/>
+
+  <g transform="translate(10 12)">
+    <circle cx="16" cy="20" r="14" fill="#4df1c1"/>
+    <circle cx="22.5" cy="20" r="16" fill="#169b79"/>
+    <circle cx="29.5" cy="20" r="18" fill="#05003c"/>
+    <text x="29.5" y="27" text-anchor="middle" font-family="Bebas Neue, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">cy</text>
+  </g>
+</svg>

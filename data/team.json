@@ -8,9 +8,11 @@
       "color": "#ab0101",
       "badges": [
         "aws",
-        "dotnet",
         "jira",
-        "confluence"
+        "confluence",
+        "dotnet",
+        "swift",
+        "cypress"
       ],
       "skills": {
         "labels": [
@@ -58,6 +60,9 @@
       "level": 10,
       "color": "#ff6a00",
       "badges": [
+        "aws",
+        "cypress",
+        "jira",
         "confluence",
         "dotnet"
       ],
@@ -110,7 +115,7 @@
         "laravel",
         "jira",
         "confluence",
-        "dotnet"
+        "android"
       ],
       "skills": {
         "labels": [
@@ -160,7 +165,8 @@
       "badges": [
         "swift",
         "jira",
-        "confluence"
+        "confluence",
+        "dotnet"
       ],
       "skills": {
         "labels": [

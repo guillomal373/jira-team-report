@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="e2eGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4b8cff"/>
+      <stop offset="100%" stop-color="#1f4fd3"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="#0f0f0f"/>
+  <rect x="12" y="12" width="40" height="40" rx="8" fill="url(#e2eGrad)"/>
+  <text x="32" y="38" text-anchor="middle" font-family="Bebas Neue, Arial, sans-serif" font-size="19" font-weight="700" fill="#ffffff">E2E</text>
+</svg>
