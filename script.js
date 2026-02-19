@@ -627,7 +627,7 @@ async function loadTeam() {
                     <div class="mini-metrics-card">
                         <h4 class="mini-status-title">Velocity</h4>
                         <div class="mini-metric-row">
-                            <span class="mini-metric-label">Sprint Vel.</span>
+                            <span class="mini-metric-label" data-member-velocity-label>Sprint Vel.</span>
                             <span class="mini-metric-value" data-member-velocity="${member.name}">0</span>
                         </div>
                         <div class="mini-metric-row">
@@ -911,6 +911,16 @@ function formatVelocityValue(value) {
     return Number.isInteger(num) ? String(num) : num.toFixed(1);
 }
 
+function getSprintDayCount(sprint) {
+    const days = new Set();
+    getActiveMembers(sprint?.members).forEach(member => {
+        (member.statuses || []).forEach(entry => {
+            if (entry?.date) days.add(entry.date);
+        });
+    });
+    return days.size;
+}
+
 function buildAverageDoneMap(sprints = []) {
     const allNames = new Set();
     sprints.forEach(sprint => {
@@ -940,7 +950,13 @@ function buildAverageDoneMap(sprints = []) {
 function updateMemberVelocityForSprint(sprint, sprints = []) {
     const velocityNodes = document.querySelectorAll('[data-member-velocity]');
     const averageNodes = document.querySelectorAll('[data-member-velocity-avg]');
-    if (!velocityNodes.length && !averageNodes.length) return;
+    const velocityLabelNodes = document.querySelectorAll('[data-member-velocity-label]');
+    if (!velocityNodes.length && !averageNodes.length && !velocityLabelNodes.length) return;
+
+    const sprintDays = getSprintDayCount(sprint);
+    velocityLabelNodes.forEach(node => {
+        node.textContent = `Sprint Vel. ( ${sprintDays} Days )`;
+    });
 
     const doneByName = new Map();
     getActiveMembers(sprint?.members).forEach(member => {
@@ -1360,9 +1376,10 @@ function renderMemberChart(canvas, labels, datasets) {
     if (sprintMemberChart) {
         sprintMemberChart.destroy();
     }
+    const sprintDays = (labels || []).length;
     const guideData = (labels || []).map((_, idx) => idx * 4);
     const guideDataset = {
-        label: 'Guide (+4/day) 80% work per day',
+        label: `Guide (+4/day) 80% work per day ( ${sprintDays} Days )`,
         data: guideData,
         borderColor: '#ffffff',
         backgroundColor: 'rgba(255, 255, 255, 0.20)',
