@@ -21,6 +21,9 @@ const trendDeltaLabelPlugin = {
     id: 'trendDeltaLabelPlugin',
     afterDatasetsDraw(chart) {
         const { ctx } = chart;
+        const pluginOptions = chart.options?.plugins?.trendDeltaLabelPlugin || {};
+        const showLastPointValue = pluginOptions.showLastPointValue === true;
+        const showLastPointTotal = pluginOptions.showLastPointTotal === true;
         ctx.save();
         ctx.font = 'bold 11px Roboto Condensed';
         ctx.textAlign = 'center';
@@ -34,12 +37,21 @@ const trendDeltaLabelPlugin = {
                 if (!point || data[idx] == null) return;
                 const current = Number(data[idx]) || 0;
                 const prev = idx > 0 ? Number(data[idx - 1]) || 0 : null;
-                let label = '—';
-                if (prev !== null) {
-                    const diff = current - prev;
-                    if (diff > 0) label = `+${diff}`;
-                    else if (diff < 0) label = `${diff}`;
-                    else label = '=';
+                const isLastPoint = idx === data.length - 1;
+                let label;
+                if (isLastPoint && (showLastPointValue || showLastPointTotal)) {
+                    const lastValue = showLastPointTotal
+                        ? Number(dataset.totals?.[idx])
+                        : current;
+                    label = Number.isFinite(lastValue) ? `${lastValue}` : `${current}`;
+                } else {
+                    label = '—';
+                    if (prev !== null) {
+                        const diff = current - prev;
+                        if (diff > 0) label = `+${diff}`;
+                        else if (diff < 0) label = `${diff}`;
+                        else label = '=';
+                    }
                 }
                 ctx.fillStyle = dataset.borderColor || '#d7d7d7';
                 ctx.fillText(label, point.x, point.y - 10);
@@ -1352,6 +1364,9 @@ function renderMemberChart(canvas, labels, datasets) {
                 padding: { top: 26 }
             },
             plugins: {
+                trendDeltaLabelPlugin: {
+                    showLastPointValue: true
+                },
                 legend: {
                     labels: {
                         color: '#d7d7d7',
