@@ -16,6 +16,14 @@ const memberStatusCharts = new Map();
 const excludedAverageNames = ['Guillermo Malagón'];
 const isActiveMember = (member = {}) => member?.active !== false;
 const getActiveMembers = (members = []) => (members || []).filter(isActiveMember);
+let labelMapByAssignee = new Map();
+const csvTableState = {
+    header: [],
+    rows: [],
+    assigneeIndex: -1,
+    assigneeAliases: new Map()
+};
+let explicitAssigneeAliases = new Map();
 
 const trendDeltaLabelPlugin = {
     id: 'trendDeltaLabelPlugin',
@@ -408,6 +416,37 @@ function buildSkillTags(labels) {
     return labels.map(label => `<span class="skill-tag">${label}</span>`).join('');
 }
 
+function buildWordCloudTagsFromCounts(countsMap) {
+    if (!countsMap || (countsMap instanceof Map && countsMap.size === 0)) {
+        return '<span class="word-cloud-placeholder">Sin labels</span>';
+    }
+
+    const entries = countsMap instanceof Map
+        ? Array.from(countsMap.entries())
+        : Object.entries(countsMap || {});
+
+    if (!entries.length) return '<span class="word-cloud-placeholder">Sin labels</span>';
+
+    entries.sort((a, b) => b[1] - a[1]);
+    const maxCount = entries[0]?.[1] || 1;
+
+    return entries.map(([label, count]) => {
+        const ratio = maxCount ? count / maxCount : 0;
+        let size = 'sm';
+        if (ratio >= 0.75) size = 'xl';
+        else if (ratio >= 0.5) size = 'lg';
+        else if (ratio >= 0.25) size = 'md';
+        return `<span class="word-cloud-tag word-cloud-tag--${size}">${label}</span>`;
+    }).join('');
+}
+
+function getWordCloudMarkupForMember(name = '') {
+    if (!labelMapByAssignee || labelMapByAssignee.size === 0) {
+        return '<span class="word-cloud-placeholder">Cargando labels...</span>';
+    }
+    return buildWordCloudTagsFromCounts(labelMapByAssignee.get(name));
+}
+
 function normalizeSkillData(skills = {}) {
     const labels = skills.labels || [];
     const currentLevels = skills.levels || skills.current || [];
@@ -604,6 +643,7 @@ async function loadTeam() {
             const donutId = `devStatus-${index}`;
             const avatarPaths = getAvatarPaths(member);
             const skillData = normalizeSkillData(member.skills);
+            const wordCloudMarkup = getWordCloudMarkupForMember(member.name);
 
             const card = document.createElement('div');
             card.className = 'developer-card';
@@ -664,6 +704,12 @@ async function loadTeam() {
                     <div class="skills-legend">
                         ${buildSkillTags(skillData.labels)}
                     </div>
+                    <div class="word-cloud">
+                        <h4 class="word-cloud-title">Nube de Palabras</h4>
+                        <div class="word-cloud-body">
+                            ${wordCloudMarkup}
+                        </div>
+                    </div>
                 </div>
             `;
 
@@ -691,6 +737,7 @@ async function loadTeam() {
         const data = await response.json();
         const team = data.team || [];
         const finalTeam = team.length ? team : fallbackData.team;
+        explicitAssigneeAliases = buildExplicitAliasMapFromTeam(finalTeam);
         const activeTeam = getActiveMembers(finalTeam);
         renderTeam(activeTeam);
         renderWorkload(activeTeam);
@@ -706,6 +753,7 @@ async function loadTeam() {
 
 loadTeam().then(() => {
     loadSprintTrends();
+    loadCsvTable();
 });
 
 async function loadSprintTrends() {
@@ -745,6 +793,318 @@ async function loadSprintTrends() {
         render();
     } catch (error) {
         console.error('Error loading sprint tasks:', error);
+    }
+}
+
+function parseCsv(text = '') {
+    const normalized = text.replace(/^\uFEFF/, '');
+    const rows = [];
+    let row = [];
+    let value = '';
+    let inQuotes = false;
+
+    for (let i = 0; i < normalized.length; i++) {
+        const char = normalized[i];
+        const next = normalized[i + 1];
+
+        if (inQuotes) {
+            if (char === '"' && next === '"') {
+                value += '"';
+                i += 1;
+            } else if (char === '"') {
+                inQuotes = false;
+            } else {
+                value += char;
+            }
+            continue;
+        }
+
+        if (char === '"') {
+            inQuotes = true;
+            continue;
+        }
+
+        if (char === ',') {
+            row.push(value);
+            value = '';
+            continue;
+        }
+
+        if (char === '\n') {
+            row.push(value);
+            rows.push(row);
+            row = [];
+            value = '';
+            continue;
+        }
+
+        if (char === '\r') {
+            continue;
+        }
+
+        value += char;
+    }
+
+    if (value.length || row.length) {
+        row.push(value);
+        rows.push(row);
+    }
+
+    return rows;
+}
+
+function renderCsvTable(table, header, rows) {
+    if (!table) return;
+    const thead = table.querySelector('thead') || table.createTHead();
+    const tbody = table.querySelector('tbody') || table.createTBody();
+
+    thead.innerHTML = '';
+    tbody.innerHTML = '';
+
+    const headerRow = document.createElement('tr');
+    header.forEach((cell, idx) => {
+        const th = document.createElement('th');
+        th.textContent = cell || `Col ${idx + 1}`;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+
+    rows.forEach((row) => {
+        const tr = document.createElement('tr');
+        row.forEach((cell) => {
+            const td = document.createElement('td');
+            td.textContent = cell;
+            tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
+}
+
+function buildLabelMapFromCsv(rows = []) {
+    if (!rows.length) return new Map();
+
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const assigneeIndex = header.findIndex(
+        cell => cell.toLowerCase() === 'assignee'
+    );
+    const labelIndexes = header
+        .map((cell, idx) => cell.toLowerCase().startsWith('labels') ? idx : -1)
+        .filter(idx => idx >= 0);
+
+    if (assigneeIndex < 0 || !labelIndexes.length) return new Map();
+
+    const map = new Map();
+
+    rows.slice(1).forEach(row => {
+        const assignee = String(row[assigneeIndex] || '').trim();
+        if (!assignee) return;
+
+        const canonical = csvTableState.assigneeAliases.get(assignee) || assignee;
+        const counts = map.get(canonical) || new Map();
+
+        labelIndexes.forEach(idx => {
+            const cell = String(row[idx] || '').trim();
+            if (!cell) return;
+            cell.split(/[,;]+/).forEach(label => {
+                const value = label.trim();
+                if (!value) return;
+                counts.set(value, (counts.get(value) || 0) + 1);
+            });
+        });
+
+        map.set(canonical, counts);
+    });
+
+    return map;
+}
+
+function updateWordClouds(map = new Map()) {
+    document.querySelectorAll('[data-member-card]').forEach(card => {
+        const name = card.getAttribute('data-member-card') || '';
+        const body = card.querySelector('.word-cloud-body');
+        if (!body) return;
+        body.innerHTML = buildWordCloudTagsFromCounts(map.get(name));
+    });
+}
+
+function normalizeName(value = '') {
+    return String(value || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function buildExplicitAliasMapFromTeam(teamMembers = []) {
+    const map = new Map();
+    (teamMembers || []).forEach(member => {
+        const name = member?.name;
+        if (!name) return;
+        const aliases = member?.csvAliases || member?.csvAlias || [];
+        const list = Array.isArray(aliases) ? aliases : [aliases];
+        list.forEach(alias => {
+            const normalized = normalizeName(alias);
+            if (!alias || !normalized) return;
+            map.set(normalized, name);
+        });
+    });
+    return map;
+}
+
+function buildAssigneeAliasMap(teamMembers = [], csvAssignees = []) {
+    const teamNormalized = (teamMembers || [])
+        .map(member => ({
+            name: member?.name || '',
+            normalized: normalizeName(member?.name || '')
+        }))
+        .filter(entry => entry.name && entry.normalized);
+
+    const aliasMap = new Map();
+    (csvAssignees || []).forEach(assignee => {
+        const normalizedAssignee = normalizeName(assignee);
+        if (!normalizedAssignee) return;
+
+        if (explicitAssigneeAliases.has(normalizedAssignee)) {
+            aliasMap.set(assignee, explicitAssigneeAliases.get(normalizedAssignee));
+            return;
+        }
+
+        let match = teamNormalized.find(entry => entry.normalized === normalizedAssignee);
+
+        if (!match) {
+            const matches = teamNormalized.filter(entry =>
+                normalizedAssignee.includes(entry.normalized) ||
+                entry.normalized.includes(normalizedAssignee)
+            );
+            if (matches.length) {
+                match = matches.sort((a, b) => b.normalized.length - a.normalized.length)[0];
+            }
+        }
+
+        aliasMap.set(assignee, match ? match.name : assignee);
+    });
+
+    return aliasMap;
+}
+
+function getAssigneeIndex(header = []) {
+    return header.findIndex(
+        cell => String(cell || '').trim().toLowerCase() === 'assignee'
+    );
+}
+
+function buildAssigneeOptions(selectEl, teamMembers = [], csvAssignees = [], aliasMap = new Map()) {
+    if (!selectEl) return;
+    const teamNames = (teamMembers || []).map(member => member?.name).filter(Boolean);
+    const csvNames = (csvAssignees || [])
+        .map(name => aliasMap.get(name) || name)
+        .filter(Boolean);
+    const options = Array.from(new Set([...teamNames, ...csvNames]))
+        .sort((a, b) => a.localeCompare(b));
+    const html = ['<option value="all">Todos</option>']
+        .concat(options.map(name => `<option value="${name}">${name}</option>`))
+        .join('');
+    selectEl.innerHTML = html;
+}
+
+function filterCsvRowsByAssignee(rows = [], assigneeIndex, selected, aliasMap = new Map()) {
+    if (!rows.length) return [];
+    if (assigneeIndex < 0 || !selected || selected === 'all') return rows;
+    return rows.filter(row => {
+        const raw = String(row[assigneeIndex] || '').trim();
+        const canonical = aliasMap.get(raw) || raw;
+        return canonical === selected;
+    });
+}
+
+function applyCsvAssigneeFilter() {
+    const table = document.getElementById('csv-records-table');
+    const messageEl = document.querySelector('[data-csv-message]');
+    const countEl = document.querySelector('[data-csv-count]');
+    const selectEl = document.querySelector('[data-csv-assignee]');
+    if (!table) return;
+
+    const selected = selectEl?.value || 'all';
+    const filteredRows = filterCsvRowsByAssignee(
+        csvTableState.rows,
+        csvTableState.assigneeIndex,
+        selected,
+        csvTableState.assigneeAliases
+    );
+    renderCsvTable(table, csvTableState.header, filteredRows);
+
+    if (countEl) countEl.textContent = String(filteredRows.length);
+    if (messageEl) {
+        messageEl.style.display = filteredRows.length ? 'none' : 'block';
+        messageEl.textContent = filteredRows.length ? '' : 'No hay registros para el filtro seleccionado.';
+    }
+}
+
+async function loadCsvTable() {
+    const table = document.getElementById('csv-records-table');
+    const messageEl = document.querySelector('[data-csv-message]');
+    const countEl = document.querySelector('[data-csv-count]');
+    const filterEl = document.querySelector('[data-csv-assignee]');
+    if (!table) return;
+
+    if (messageEl) messageEl.textContent = 'Cargando CSV...';
+
+    try {
+        const csvPath = './data/sprints-csv/Sprint Summary export (Jira).csv';
+        const response = await fetch(encodeURI(csvPath));
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const text = await response.text();
+        const rows = parseCsv(text).filter(row =>
+            row.some(cell => String(cell || '').trim().length > 0)
+        );
+
+        if (!rows.length) {
+            if (messageEl) messageEl.textContent = 'No hay registros disponibles.';
+            if (countEl) countEl.textContent = '0';
+            return;
+        }
+
+        const maxCols = Math.max(...rows.map(r => r.length));
+        const normalizedRows = rows.map(row => {
+            if (row.length < maxCols) {
+                return row.concat(Array(maxCols - row.length).fill(''));
+            }
+            return row;
+        });
+
+        const header = normalizedRows[0] || [];
+        const dataRows = normalizedRows.slice(1);
+        const assigneeIndex = getAssigneeIndex(header);
+        const csvAssignees = assigneeIndex >= 0
+            ? Array.from(new Set(
+                dataRows
+                    .map(row => String(row[assigneeIndex] || '').trim())
+                    .filter(Boolean)
+            ))
+            : [];
+
+        const assigneeAliases = buildAssigneeAliasMap(teamCache, csvAssignees);
+
+        csvTableState.header = header;
+        csvTableState.rows = dataRows;
+        csvTableState.assigneeIndex = assigneeIndex;
+        csvTableState.assigneeAliases = assigneeAliases;
+
+        labelMapByAssignee = buildLabelMapFromCsv(normalizedRows);
+        updateWordClouds(labelMapByAssignee);
+
+        buildAssigneeOptions(filterEl, teamCache, csvAssignees, assigneeAliases);
+        if (filterEl && !filterEl.dataset.bound) {
+            filterEl.addEventListener('change', applyCsvAssigneeFilter);
+            filterEl.dataset.bound = 'true';
+        }
+
+        applyCsvAssigneeFilter();
+    } catch (error) {
+        console.error('Error loading CSV:', error);
+        if (messageEl) messageEl.textContent = 'No se pudo cargar el CSV.';
     }
 }
 
