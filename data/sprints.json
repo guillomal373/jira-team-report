@@ -1,0 +1,34 @@
+{
+  "sprints": [
+    {
+      "name": "Sprint 3 - Minus 4 days",
+      "period": "2025-12-22 to 2026-01-02",
+      "csvFile": "sprints-csv/Sprint 3 Summary export (Jira).csv"
+    },
+    {
+      "name": "Sprint 4 - OTP & AuditFlow",
+      "period": "2026-01-05 to 2026-01-16",
+      "csvFile": "sprints-csv/Sprint 4 Summary export (Jira).csv"
+    },
+    {
+      "name": "Sprint 5 - Cordaba Portal Dev Env - OTP & AuditFlow",
+      "period": "2026-01-25 to 2026-01-30",
+      "csvFile": "sprints-csv/Sprint 5 Summary export (Jira).csv"
+    },
+    {
+      "name": "Sprint 6 - CX App to Prod, CP MVP Clarify--",
+      "period": "2026-02-02 to 2026-02-13--",
+      "csvFile": "sprints-csv/Sprint 6 Summary export (Jira).csv"
+    },
+    {
+      "name": "Sprint 7 - CX Android App, CP MVP release",
+      "period": "2026-02-16 to 2026-02-27",
+      "csvFile": "sprints-csv/Sprint 7 Summary export (Jira).csv"
+    },
+    {
+      "name": "Sprint 8 - CX Apps & MVP CP",
+      "period": "2026-03-02 to 2026-03-16",
+      "csvFile": "sprints-csv/Sprint 8 Summary export (Jira).csv"
+    }
+  ]
+}

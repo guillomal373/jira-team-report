@@ -1,0 +1,6 @@
+Issue Type,Issue key,Issue id,Summary,Assignee,Assignee Id,Priority,Status,Custom field (Story point estimate),Time Spent,Created,Updated,Custom field (Start date),Due date,Labels,Labels,Labels,Labels
+Task,HED-402,19429,Creating Scrub Space and videotutorials,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,In Progress,5.0,,13/Feb/26 11:35 AM,02/Mar/26 7:10 AM,,20/Feb/26 12:00 AM,CASA1,CASA2,CASA,CASA
+Story,HED-322,17903,"The team wants to use claude AI for our spikes, code, etc",Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,BLOCKED,1.0,,28/Jan/26 9:22 AM,02/Mar/26 7:10 AM,,,CASA1,CASA1,CASA,CASA
+Task,HED-450,19762,CP - Implement an option to edit existing documents.,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,To Do,,,17/Feb/26 8:41 AM,02/Mar/26 7:10 AM,,,CASA1,CASA1,CASA,CASA
+Story,HED-500,17903,"The team wants to use claude AI for our spikes, code, etc",Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,BLOCKED,1.0,,28/Jan/26 9:22 AM,03/Mar/26 7:10 AM,,,CASA,,CASA1,CASA
+Task,HED-501,19762,CP - Implement an option to edit existing documents.,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,To Do,,,17/Feb/26 8:41 AM,03/Mar/26 7:10 AM,,,CASA,CASA,,CASA

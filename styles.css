@@ -1054,8 +1054,33 @@ h1 {
     letter-spacing: 1px;
     font-size: 1.2em;
     text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.word-cloud-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     margin-bottom: 10px;
-    text-align: center;
+}
+
+.word-cloud-toggle {
+    background: transparent;
+    color: #c9a85c;
+    border: 1px solid rgba(201, 168, 92, 0.5);
+    padding: 6px 10px;
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.word-cloud-toggle:hover {
+    border-color: #c9a85c;
+    background: rgba(201, 168, 92, 0.12);
 }
 
 .word-cloud-body {

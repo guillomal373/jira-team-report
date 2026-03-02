@@ -16,12 +16,16 @@ const memberStatusCharts = new Map();
 const excludedAverageNames = ['Guillermo Malagón'];
 const isActiveMember = (member = {}) => member?.active !== false;
 const getActiveMembers = (members = []) => (members || []).filter(isActiveMember);
-let labelMapByAssignee = new Map();
+let labelMapByAssigneeCurrent = new Map();
+let labelMapByAssigneeTotal = new Map();
+let isCurrentLabelsReady = false;
+let isTotalLabelsReady = false;
 const csvTableState = {
     header: [],
     rows: [],
     assigneeIndex: -1,
-    assigneeAliases: new Map()
+    assigneeAliases: new Map(),
+    statusIndex: -1
 };
 let explicitAssigneeAliases = new Map();
 
@@ -440,11 +444,14 @@ function buildWordCloudTagsFromCounts(countsMap) {
     }).join('');
 }
 
-function getWordCloudMarkupForMember(name = '') {
-    if (!labelMapByAssignee || labelMapByAssignee.size === 0) {
+function getWordCloudMarkupForMember(name = '', mode = 'current') {
+    const isTotal = mode === 'total';
+    const map = isTotal ? labelMapByAssigneeTotal : labelMapByAssigneeCurrent;
+    const isReady = isTotal ? isTotalLabelsReady : isCurrentLabelsReady;
+    if (!isReady || !map || map.size === 0) {
         return '<span class="word-cloud-placeholder">Cargando labels...</span>';
     }
-    return buildWordCloudTagsFromCounts(labelMapByAssignee.get(name));
+    return buildWordCloudTagsFromCounts(map.get(name));
 }
 
 function normalizeSkillData(skills = {}) {
@@ -664,19 +671,22 @@ async function loadTeam() {
                     <span class="toggle-icon">▼</span>
                 </button>
                 <div class="dev-details">
+                    <div class="word-cloud">
+                        <div class="word-cloud-header">
+                            <h4 class="word-cloud-title">Nube de Palabras</h4>
+                            <button class="word-cloud-toggle" type="button" data-wordcloud-toggle>
+                                Ver acumulado
+                            </button>
+                        </div>
+                        <div class="word-cloud-body">
+                            ${wordCloudMarkup}
+                        </div>
+                    </div>
                     <div class="mini-metrics-card">
                         <h4 class="mini-status-title">Velocity</h4>
                         <div class="mini-metric-row">
                             <span class="mini-metric-label" data-member-velocity-label>Sprint Vel.</span>
                             <span class="mini-metric-value" data-member-velocity="${member.name}">0</span>
-                        </div>
-                        <div class="mini-metric-row">
-                            <span class="mini-metric-label">Average Vel.</span>
-                            <span class="mini-metric-value" data-member-velocity-avg="${member.name}">0</span>
-                        </div>
-                        <div class="mini-metric-row">
-                            <span class="mini-metric-label">Expected Sprint Vel.</span>
-                            <span class="mini-metric-value">40</span>
                         </div>
                     </div>
                     <div class="mini-status-card">
@@ -704,16 +714,24 @@ async function loadTeam() {
                     <div class="skills-legend">
                         ${buildSkillTags(skillData.labels)}
                     </div>
-                    <div class="word-cloud">
-                        <h4 class="word-cloud-title">Nube de Palabras</h4>
-                        <div class="word-cloud-body">
-                            ${wordCloudMarkup}
-                        </div>
-                    </div>
                 </div>
             `;
 
             teamGrid.appendChild(card);
+            card.dataset.wordcloudMode = 'current';
+
+            const wordCloudToggle = card.querySelector('[data-wordcloud-toggle]');
+            if (wordCloudToggle) {
+                wordCloudToggle.addEventListener('click', () => {
+                    const currentMode = card.dataset.wordcloudMode || 'current';
+                    const nextMode = currentMode === 'current' ? 'total' : 'current';
+                    card.dataset.wordcloudMode = nextMode;
+                    wordCloudToggle.textContent = nextMode === 'current'
+                        ? 'Ver acumulado'
+                        : 'Ver sprint';
+                    updateWordClouds();
+                });
+            }
 
             const radarChart = createRadarChart(
                 card.querySelector(`#${radarId}`),
@@ -753,7 +771,6 @@ async function loadTeam() {
 
 loadTeam().then(() => {
     loadSprintTrends();
-    loadCsvTable();
 });
 
 async function loadSprintTrends() {
@@ -762,32 +779,57 @@ async function loadSprintTrends() {
     if (!selectEl || !chartCanvas) return;
 
     try {
-        const response = await fetch('./data/sprint_story_points.json');
-        const data = await response.json();
+        const [metaResponse, dataResponse] = await Promise.all([
+            fetch('./data/sprints.json'),
+            fetch('./data/sprint_story_points.json')
+        ]);
+        const metaData = metaResponse.ok ? await metaResponse.json() : {};
+        const data = dataResponse.ok ? await dataResponse.json() : {};
+        const sprintMeta = metaData.sprints || [];
         const sprints = data.sprints || [];
-        if (!sprints.length) return;
+        if (!sprintMeta.length) {
+            console.error('No sprint metadata found in sprints.json');
+            return;
+        }
 
-        const optionsHtml = sprints.map((s, idx) => `<option value="${idx}">${s.name}</option>`).join('');
+        const optionsSource = sprintMeta;
+        const optionsHtml = optionsSource.map((s, idx) => `<option value="${idx}">${s.name}</option>`).join('');
         selectEl.innerHTML = optionsHtml;
-        selectEl.value = String(sprints.length - 1);
+        selectEl.value = String(optionsSource.length - 1);
 
-        renderSprintSummaries(sprints);
+        if (sprints.length) {
+            renderSprintSummaries(sprints);
+        }
+
+        const resolveSprintData = (idx) => {
+            const metaEntry = optionsSource[idx] || null;
+            if (!metaEntry) return { metaEntry: null, sprint: null };
+            const matched = sprints.find(s => s.name === metaEntry.name) || null;
+            return { metaEntry, sprint: matched };
+        };
 
         const render = () => {
             const idx = Number(selectEl.value) || 0;
-            const sprint = sprints[idx];
-            const aggregated = aggregateSprintData(sprint);
-            if (aggregated) {
-                renderTrendChart(chartCanvas, aggregated.labels, aggregated.datasets);
-                const memberData = buildMemberDatasets(sprint, aggregated.labels);
-                renderMemberChart(document.getElementById('memberTrendChart'), aggregated.labels, memberData);
-            }
+            const { metaEntry, sprint } = resolveSprintData(idx);
             updateMetricsForSprint(sprint);
             updateStatusOverview(sprint);
             updateWorkloadForSprint(sprint);
             updateMemberStatusesForSprint(sprint);
             updateMemberVelocityForSprint(sprint, sprints);
+            if (metaEntry?.csvFile) {
+                const csvPath = `./data/${metaEntry.csvFile}`;
+                loadCsvTable(csvPath);
+                loadCsvMemberTrendForSprint(csvPath, teamCache);
+            } else {
+                loadCsvTable();
+                loadCsvMemberTrendForSprint();
+            }
         };
+
+        if (!isTotalLabelsReady) {
+            loadAccumulatedWordClouds(sprintMeta);
+        }
+        loadCsvStatusSummaryForAllSprints(sprintMeta, teamCache);
 
         selectEl.addEventListener('change', render);
         render();
@@ -853,6 +895,35 @@ function parseCsv(text = '') {
     return rows;
 }
 
+const csvCache = new Map();
+
+async function loadCsvRows(csvPath) {
+    if (!csvPath) return [];
+    if (csvCache.has(csvPath)) return csvCache.get(csvPath);
+
+    const response = await fetch(encodeURI(csvPath));
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const text = await response.text();
+    const rows = parseCsv(text).filter(row =>
+        row.some(cell => String(cell || '').trim().length > 0)
+    );
+    if (!rows.length) {
+        csvCache.set(csvPath, []);
+        return [];
+    }
+
+    const maxCols = Math.max(...rows.map(r => r.length));
+    const normalizedRows = rows.map(row => {
+        if (row.length < maxCols) {
+            return row.concat(Array(maxCols - row.length).fill(''));
+        }
+        return row;
+    });
+
+    csvCache.set(csvPath, normalizedRows);
+    return normalizedRows;
+}
+
 function renderCsvTable(table, header, rows) {
     if (!table) return;
     const thead = table.querySelector('thead') || table.createTHead();
@@ -880,7 +951,7 @@ function renderCsvTable(table, header, rows) {
     });
 }
 
-function buildLabelMapFromCsv(rows = []) {
+function buildLabelMapFromCsv(rows = [], aliasMap = new Map()) {
     if (!rows.length) return new Map();
 
     const header = rows[0].map(cell => String(cell || '').trim());
@@ -899,7 +970,7 @@ function buildLabelMapFromCsv(rows = []) {
         const assignee = String(row[assigneeIndex] || '').trim();
         if (!assignee) return;
 
-        const canonical = csvTableState.assigneeAliases.get(assignee) || assignee;
+        const canonical = aliasMap.get(assignee) || assignee;
         const counts = map.get(canonical) || new Map();
 
         labelIndexes.forEach(idx => {
@@ -918,12 +989,335 @@ function buildLabelMapFromCsv(rows = []) {
     return map;
 }
 
-function updateWordClouds(map = new Map()) {
+function parseCsvDate(value = '') {
+    const raw = String(value || '').trim();
+    if (!raw) return null;
+
+    const isoMatch = raw.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (isoMatch) {
+        return `${isoMatch[1]}-${isoMatch[2]}-${isoMatch[3]}`;
+    }
+
+    const match = raw.match(/(\d{1,2})\/([A-Za-z]{3})\/(\d{2,4})/);
+    if (!match) return null;
+
+    const day = Number(match[1]);
+    const monthKey = match[2].toLowerCase();
+    const yearRaw = match[3];
+    const monthMap = {
+        jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+        jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
+    };
+    const month = monthMap[monthKey];
+    if (month == null) return null;
+
+    const yearNum = Number(yearRaw.length === 2 ? `20${yearRaw}` : yearRaw);
+    if (!yearNum || Number.isNaN(yearNum)) return null;
+
+    const date = new Date(yearNum, month, day);
+    if (Number.isNaN(date.getTime())) return null;
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+}
+
+function buildTrendDataFromCsvRows(rows = [], teamMembers = []) {
+    if (!rows.length) return null;
+
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const headerLower = header.map(cell => cell.toLowerCase());
+
+    const findIndex = (predicate) => headerLower.findIndex(predicate);
+    const assigneeIndex = findIndex(cell => cell === 'assignee');
+    const statusIndex = findIndex(cell => cell === 'status' || cell.includes('status'));
+    const pointsIndex = findIndex(cell => cell.includes('story point'));
+    const updatedIndex = findIndex(cell => cell === 'updated');
+    const createdIndex = findIndex(cell => cell === 'created');
+    const startIndex = findIndex(cell => cell.includes('start date'));
+    const dueIndex = findIndex(cell => cell === 'due date');
+
+    if (statusIndex < 0 || pointsIndex < 0) return null;
+
+    const dataRows = rows.slice(1);
+    const csvAssignees = assigneeIndex >= 0
+        ? Array.from(new Set(
+            dataRows
+                .map(row => String(row[assigneeIndex] || '').trim())
+                .filter(Boolean)
+        ))
+        : [];
+    const aliasMap = buildAssigneeAliasMap(teamMembers, csvAssignees);
+    const activeNames = new Set((teamMembers || []).map(member => member?.name).filter(Boolean));
+
+    const dateMap = new Map();
+    const seenStates = new Set();
+    const dateIndexes = [updatedIndex, createdIndex, startIndex, dueIndex].filter(idx => idx >= 0);
+
+    dataRows.forEach(row => {
+        if (assigneeIndex >= 0 && activeNames.size) {
+            const rawAssignee = String(row[assigneeIndex] || '').trim();
+            if (!rawAssignee) return;
+            const canonical = aliasMap.get(rawAssignee) || rawAssignee;
+            if (!activeNames.has(canonical)) return;
+        }
+
+        const status = String(row[statusIndex] || '').trim();
+        if (!status) return;
+
+        const dateRaw = dateIndexes.map(idx => row[idx]).find(val => String(val || '').trim().length > 0);
+        const dateKey = parseCsvDate(dateRaw);
+        if (!dateKey) return;
+
+        const pointsValue = String(row[pointsIndex] || '').replace(',', '.');
+        const points = Number(pointsValue) || 0;
+
+        if (!dateMap.has(dateKey)) dateMap.set(dateKey, {});
+        const acc = dateMap.get(dateKey);
+        acc[status] = (acc[status] || 0) + points;
+        seenStates.add(status);
+    });
+
+    if (!dateMap.size) return null;
+
+    const labels = Array.from(dateMap.keys()).sort((a, b) => new Date(a) - new Date(b));
+    const states = statusOrder.filter(s => seenStates.has(s)).concat(
+        Array.from(seenStates).filter(s => !statusOrder.includes(s))
+    );
+
+    const datasets = states.map(state => {
+        const color = statusColorMap[state] || '#6ec5ff';
+        const data = labels.map(day => dateMap.get(day)?.[state] || 0);
+        return {
+            label: state,
+            data,
+            borderColor: color,
+            backgroundColor: color + 'cc',
+            borderWidth: 1.2,
+            barPercentage: 0.7,
+            categoryPercentage: 0.7,
+            stack: 'status'
+        };
+    });
+
+    return { labels, datasets };
+}
+
+function buildStatusTotalsFromCsvRows(rows = [], teamMembers = []) {
+    if (!rows.length) return { counts: {}, states: [] };
+
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const headerLower = header.map(cell => cell.toLowerCase());
+    const assigneeIndex = headerLower.findIndex(cell => cell === 'assignee');
+    const statusIndex = headerLower.findIndex(cell => cell === 'status' || cell.includes('status'));
+    const pointsIndex = headerLower.findIndex(cell => cell.includes('story point'));
+
+    if (statusIndex < 0 || pointsIndex < 0) return { counts: {}, states: [] };
+
+    const dataRows = rows.slice(1);
+    const csvAssignees = assigneeIndex >= 0
+        ? Array.from(new Set(
+            dataRows
+                .map(row => String(row[assigneeIndex] || '').trim())
+                .filter(Boolean)
+        ))
+        : [];
+    const aliasMap = buildAssigneeAliasMap(teamMembers, csvAssignees);
+    const activeNames = new Set((teamMembers || []).map(member => member?.name).filter(Boolean));
+
+    const counts = {};
+    const states = new Set();
+
+    dataRows.forEach(row => {
+        if (assigneeIndex >= 0 && activeNames.size) {
+            const rawAssignee = String(row[assigneeIndex] || '').trim();
+            if (!rawAssignee) return;
+            const canonical = aliasMap.get(rawAssignee) || rawAssignee;
+            if (!activeNames.has(canonical)) return;
+        }
+
+        const status = String(row[statusIndex] || '').trim();
+        if (!status) return;
+        const pointsValue = String(row[pointsIndex] || '').replace(',', '.');
+        const points = Number(pointsValue) || 0;
+        counts[status] = (counts[status] || 0) + points;
+        states.add(status);
+    });
+
+    return { counts, states: Array.from(states) };
+}
+
+function buildMemberDatasetsFromCsvRows(rows = [], teamMembers = []) {
+    if (!rows.length) return { labels: [], datasets: [] };
+
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const headerLower = header.map(cell => cell.toLowerCase());
+    const assigneeIndex = headerLower.findIndex(cell => cell === 'assignee');
+    const statusIndex = headerLower.findIndex(cell => cell === 'status' || cell.includes('status'));
+    const pointsIndex = headerLower.findIndex(cell => cell.includes('story point'));
+    const updatedIndex = headerLower.findIndex(cell => cell === 'updated');
+
+    if (assigneeIndex < 0 || statusIndex < 0 || pointsIndex < 0 || updatedIndex < 0) {
+        return { labels: [], datasets: [] };
+    }
+
+    const dataRows = rows.slice(1);
+    const csvAssignees = Array.from(new Set(
+        dataRows
+            .map(row => String(row[assigneeIndex] || '').trim())
+            .filter(Boolean)
+    ));
+    const aliasMap = buildAssigneeAliasMap(teamMembers, csvAssignees);
+    const activeMembers = (teamMembers || []).filter(isActiveMember);
+    const activeNames = new Set(activeMembers.map(member => member?.name).filter(Boolean));
+
+    const datesSet = new Set();
+    const byMemberDate = new Map();
+    const totalsByMember = new Map();
+    let hasDone = false;
+
+    dataRows.forEach(row => {
+        const status = String(row[statusIndex] || '').trim();
+        if (!status) return;
+        if (status.toLowerCase() === 'done') {
+            const pointsValue = String(row[pointsIndex] || '').replace(',', '.');
+            const points = Number(pointsValue) || 0;
+            if (points > 0) hasDone = true;
+        }
+    });
+
+    const includeAllStatuses = !hasDone;
+
+    dataRows.forEach(row => {
+        const rawAssignee = String(row[assigneeIndex] || '').trim();
+        if (!rawAssignee) return;
+        const canonical = aliasMap.get(rawAssignee) || rawAssignee;
+        if (!activeNames.has(canonical)) return;
+
+        const status = String(row[statusIndex] || '').trim();
+        if (!status) return;
+        if (!includeAllStatuses && status.toLowerCase() !== 'done') return;
+
+        const dateKey = parseCsvDate(row[updatedIndex]);
+        if (!dateKey) return;
+
+        const pointsValue = String(row[pointsIndex] || '').replace(',', '.');
+        const points = Number(pointsValue) || 0;
+        if (!Number.isFinite(points) || points <= 0) return;
+
+        datesSet.add(dateKey);
+        if (!byMemberDate.has(canonical)) byMemberDate.set(canonical, new Map());
+        const dateMap = byMemberDate.get(canonical);
+        dateMap.set(dateKey, (dateMap.get(dateKey) || 0) + points);
+        totalsByMember.set(canonical, (totalsByMember.get(canonical) || 0) + points);
+    });
+
+    const labels = Array.from(datesSet).sort((a, b) => new Date(a) - new Date(b));
+    const nameColorMap = Object.fromEntries((teamCache || []).map(m => [m.name, m.color]));
+
+    const datasets = activeMembers.map((member, idx) => {
+        const name = member?.name || `Member ${idx + 1}`;
+        const color = nameColorMap[name] || member?.color || memberPalette[idx % memberPalette.length] || '#c9a85c';
+        const perDate = byMemberDate.get(name) || new Map();
+        let running = 0;
+        const data = labels.map(day => {
+            running += Number(perDate.get(day)) || 0;
+            return running;
+        });
+        const total = totalsByMember.get(name) || 0;
+        const totals = labels.map(() => total);
+
+        return {
+            label: name,
+            data,
+            totals,
+            borderColor: color,
+            backgroundColor: color + '33',
+            borderWidth: 2.2,
+            tension: 0.35,
+            pointRadius: 5,
+            pointBackgroundColor: '#111',
+            pointBorderColor: color,
+            pointBorderWidth: 2,
+            pointHoverRadius: 7,
+            fill: false
+        };
+    });
+
+    return { labels, datasets };
+}
+
+async function loadCsvStatusSummaryForAllSprints(sprintMeta = [], teamMembers = []) {
+    if (!Array.isArray(sprintMeta) || !sprintMeta.length) return;
+    const chartCanvas = document.getElementById('sprintTrendChart');
+    if (!chartCanvas) return;
+
+    const labels = [];
+    const countsBySprint = [];
+    const seenStates = new Set();
+
+    for (const entry of sprintMeta) {
+        const name = entry?.name || 'Sprint';
+        labels.push(name);
+        const csvFile = entry?.csvFile ? `./data/${entry.csvFile}` : '';
+        if (!csvFile) {
+            countsBySprint.push({});
+            continue;
+        }
+        try {
+            const rows = await loadCsvRows(csvFile);
+            const { counts, states } = buildStatusTotalsFromCsvRows(rows, teamMembers);
+            countsBySprint.push(counts);
+            states.forEach(state => seenStates.add(state));
+        } catch (error) {
+            console.warn('CSV not found for sprint status summary:', csvFile, error);
+            countsBySprint.push({});
+        }
+    }
+
+    const states = statusOrder.filter(s => seenStates.has(s)).concat(
+        Array.from(seenStates).filter(s => !statusOrder.includes(s))
+    );
+
+    const datasets = states.map(state => {
+        const color = statusColorMap[state] || '#6ec5ff';
+        const data = countsBySprint.map(counts => counts[state] || 0);
+        return {
+            label: state,
+            data,
+            borderColor: color,
+            backgroundColor: color + 'cc',
+            borderWidth: 1.2,
+            barPercentage: 0.7,
+            categoryPercentage: 0.7,
+            stack: 'status'
+        };
+    });
+
+    renderTrendChart(chartCanvas, labels, datasets);
+}
+
+async function loadCsvMemberTrendForSprint(csvPathOverride, teamMembers = []) {
+    const chartCanvas = document.getElementById('memberTrendChart');
+    if (!chartCanvas) return;
+
+    try {
+        const csvPath = csvPathOverride || './data/sprints-csv/Sprint Summary export (Jira).csv';
+        const normalizedRows = await loadCsvRows(csvPath);
+        const trendData = buildMemberDatasetsFromCsvRows(normalizedRows, teamMembers);
+        renderMemberChart(chartCanvas, trendData.labels, trendData.datasets);
+    } catch (error) {
+        console.error('Error loading CSV member trend:', error);
+    }
+}
+
+function updateWordClouds() {
     document.querySelectorAll('[data-member-card]').forEach(card => {
         const name = card.getAttribute('data-member-card') || '';
         const body = card.querySelector('.word-cloud-body');
         if (!body) return;
-        body.innerHTML = buildWordCloudTagsFromCounts(map.get(name));
+        const mode = card.dataset.wordcloudMode || 'current';
+        body.innerHTML = getWordCloudMarkupForMember(name, mode);
     });
 }
 
@@ -995,16 +1389,27 @@ function getAssigneeIndex(header = []) {
     );
 }
 
+function getStatusIndex(header = []) {
+    return header.findIndex(
+        cell => String(cell || '').trim().toLowerCase() === 'status'
+    );
+}
+
 function buildAssigneeOptions(selectEl, teamMembers = [], csvAssignees = [], aliasMap = new Map()) {
     if (!selectEl) return;
     const teamNames = (teamMembers || []).map(member => member?.name).filter(Boolean);
-    const csvNames = (csvAssignees || [])
-        .map(name => aliasMap.get(name) || name)
-        .filter(Boolean);
-    const options = Array.from(new Set([...teamNames, ...csvNames]))
-        .sort((a, b) => a.localeCompare(b));
+    const options = Array.from(new Set(teamNames)).sort((a, b) => a.localeCompare(b));
     const html = ['<option value="all">Todos</option>']
         .concat(options.map(name => `<option value="${name}">${name}</option>`))
+        .join('');
+    selectEl.innerHTML = html;
+}
+
+function buildStatusOptions(selectEl, statuses = []) {
+    if (!selectEl) return;
+    const options = Array.from(new Set(statuses)).sort((a, b) => a.localeCompare(b));
+    const html = ['<option value="all">Todos</option>']
+        .concat(options.map(status => `<option value="${status}">${status}</option>`))
         .join('');
     selectEl.innerHTML = html;
 }
@@ -1019,19 +1424,33 @@ function filterCsvRowsByAssignee(rows = [], assigneeIndex, selected, aliasMap = 
     });
 }
 
-function applyCsvAssigneeFilter() {
+function filterCsvRowsByStatus(rows = [], statusIndex, selected) {
+    if (!rows.length) return [];
+    if (statusIndex < 0 || !selected || selected === 'all') return rows;
+    const selectedNorm = String(selected || '').trim().toLowerCase();
+    return rows.filter(row => String(row[statusIndex] || '').trim().toLowerCase() === selectedNorm);
+}
+
+function applyCsvFilters() {
     const table = document.getElementById('csv-records-table');
     const messageEl = document.querySelector('[data-csv-message]');
     const countEl = document.querySelector('[data-csv-count]');
     const selectEl = document.querySelector('[data-csv-assignee]');
+    const statusEl = document.querySelector('[data-csv-status]');
     if (!table) return;
 
-    const selected = selectEl?.value || 'all';
-    const filteredRows = filterCsvRowsByAssignee(
+    const selectedAssignee = selectEl?.value || 'all';
+    const selectedStatus = statusEl?.value || 'all';
+    const filteredByAssignee = filterCsvRowsByAssignee(
         csvTableState.rows,
         csvTableState.assigneeIndex,
-        selected,
+        selectedAssignee,
         csvTableState.assigneeAliases
+    );
+    const filteredRows = filterCsvRowsByStatus(
+        filteredByAssignee,
+        csvTableState.statusIndex,
+        selectedStatus
     );
     renderCsvTable(table, csvTableState.header, filteredRows);
 
@@ -1042,41 +1461,95 @@ function applyCsvAssigneeFilter() {
     }
 }
 
-async function loadCsvTable() {
+function getPeriodEndDate(period = '') {
+    const matches = String(period).match(/\\d{4}-\\d{2}-\\d{2}/g) || [];
+    if (!matches.length) return null;
+    const end = matches[matches.length - 1];
+    const date = new Date(`${end}T23:59:59`);
+    return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function mergeLabelMaps(target = new Map(), source = new Map()) {
+    source.forEach((countsMap, assignee) => {
+        const dest = target.get(assignee) || new Map();
+        countsMap.forEach((count, label) => {
+            dest.set(label, (dest.get(label) || 0) + count);
+        });
+        target.set(assignee, dest);
+    });
+    return target;
+}
+
+async function buildLabelMapForCsv(csvPath, teamMembers = []) {
+    const normalizedRows = await loadCsvRows(csvPath);
+    if (!normalizedRows.length) return new Map();
+
+    const header = normalizedRows[0] || [];
+    const dataRows = normalizedRows.slice(1);
+    const assigneeIndex = getAssigneeIndex(header);
+    const csvAssignees = assigneeIndex >= 0
+        ? Array.from(new Set(
+            dataRows
+                .map(row => String(row[assigneeIndex] || '').trim())
+                .filter(Boolean)
+        ))
+        : [];
+    const assigneeAliases = buildAssigneeAliasMap(teamMembers, csvAssignees);
+    return buildLabelMapFromCsv(normalizedRows, assigneeAliases);
+}
+
+async function loadAccumulatedWordClouds(sprintMeta = []) {
+    if (!Array.isArray(sprintMeta) || !sprintMeta.length) return;
+    const today = new Date();
+    const eligible = sprintMeta.filter(entry => {
+        const endDate = getPeriodEndDate(entry?.period);
+        return !endDate || endDate <= today;
+    });
+
+    const csvFiles = Array.from(new Set(
+        eligible
+            .map(entry => entry?.csvFile)
+            .filter(Boolean)
+    ));
+
+    const aggregate = new Map();
+    for (const csvFile of csvFiles) {
+        try {
+            const map = await buildLabelMapForCsv(`./data/${csvFile}`, teamCache);
+            mergeLabelMaps(aggregate, map);
+        } catch (error) {
+            console.warn('CSV not found for accumulated labels:', csvFile, error);
+        }
+    }
+
+    labelMapByAssigneeTotal = aggregate;
+    isTotalLabelsReady = true;
+    updateWordClouds();
+}
+
+async function loadCsvTable(csvPathOverride) {
     const table = document.getElementById('csv-records-table');
     const messageEl = document.querySelector('[data-csv-message]');
     const countEl = document.querySelector('[data-csv-count]');
     const filterEl = document.querySelector('[data-csv-assignee]');
+    const statusEl = document.querySelector('[data-csv-status]');
     if (!table) return;
 
     if (messageEl) messageEl.textContent = 'Cargando CSV...';
 
     try {
-        const csvPath = './data/sprints-csv/Sprint Summary export (Jira).csv';
-        const response = await fetch(encodeURI(csvPath));
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const text = await response.text();
-        const rows = parseCsv(text).filter(row =>
-            row.some(cell => String(cell || '').trim().length > 0)
-        );
-
-        if (!rows.length) {
+        const csvPath = csvPathOverride || './data/sprints-csv/Sprint Summary export (Jira).csv';
+        const normalizedRows = await loadCsvRows(csvPath);
+        if (!normalizedRows.length) {
             if (messageEl) messageEl.textContent = 'No hay registros disponibles.';
             if (countEl) countEl.textContent = '0';
             return;
         }
 
-        const maxCols = Math.max(...rows.map(r => r.length));
-        const normalizedRows = rows.map(row => {
-            if (row.length < maxCols) {
-                return row.concat(Array(maxCols - row.length).fill(''));
-            }
-            return row;
-        });
-
         const header = normalizedRows[0] || [];
         const dataRows = normalizedRows.slice(1);
         const assigneeIndex = getAssigneeIndex(header);
+        const statusIndex = getStatusIndex(header);
         const csvAssignees = assigneeIndex >= 0
             ? Array.from(new Set(
                 dataRows
@@ -1084,24 +1557,66 @@ async function loadCsvTable() {
                     .filter(Boolean)
             ))
             : [];
+        const csvStatuses = statusIndex >= 0
+            ? Array.from(new Set(
+                dataRows
+                    .map(row => String(row[statusIndex] || '').trim())
+                    .filter(Boolean)
+            ))
+            : [];
 
         const assigneeAliases = buildAssigneeAliasMap(teamCache, csvAssignees);
+        const activeNames = new Set((teamCache || []).map(member => member?.name).filter(Boolean));
+        const filteredRows = assigneeIndex >= 0
+            ? dataRows.filter(row => {
+                const raw = String(row[assigneeIndex] || '').trim();
+                const canonical = assigneeAliases.get(raw) || raw;
+                return activeNames.has(canonical);
+            })
+            : dataRows;
+        const filteredAssignees = assigneeIndex >= 0
+            ? Array.from(new Set(
+                filteredRows
+                    .map(row => String(row[assigneeIndex] || '').trim())
+                    .filter(Boolean)
+            ))
+            : [];
+        const filteredStatuses = statusIndex >= 0
+            ? Array.from(new Set(
+                filteredRows
+                    .map(row => String(row[statusIndex] || '').trim())
+                    .filter(Boolean)
+            ))
+            : [];
+        const normalizedFilteredRows = [header, ...filteredRows];
 
         csvTableState.header = header;
-        csvTableState.rows = dataRows;
+        csvTableState.rows = filteredRows;
         csvTableState.assigneeIndex = assigneeIndex;
         csvTableState.assigneeAliases = assigneeAliases;
+        csvTableState.statusIndex = statusIndex;
 
-        labelMapByAssignee = buildLabelMapFromCsv(normalizedRows);
-        updateWordClouds(labelMapByAssignee);
+        labelMapByAssigneeCurrent = buildLabelMapFromCsv(normalizedFilteredRows, assigneeAliases);
+        isCurrentLabelsReady = true;
+        updateWordClouds();
 
-        buildAssigneeOptions(filterEl, teamCache, csvAssignees, assigneeAliases);
+        buildAssigneeOptions(filterEl, teamCache, filteredAssignees, assigneeAliases);
+        buildStatusOptions(statusEl, filteredStatuses.length ? filteredStatuses : csvStatuses);
         if (filterEl && !filterEl.dataset.bound) {
-            filterEl.addEventListener('change', applyCsvAssigneeFilter);
+            filterEl.addEventListener('change', applyCsvFilters);
             filterEl.dataset.bound = 'true';
         }
+        if (statusEl && !statusEl.dataset.bound) {
+            statusEl.addEventListener('change', applyCsvFilters);
+            statusEl.dataset.bound = 'true';
+        }
 
-        applyCsvAssigneeFilter();
+        if (filterEl) filterEl.value = 'all';
+        if (statusEl) {
+            const hasDone = Array.from(statusEl.options || []).some(opt => opt.value === 'Done');
+            statusEl.value = hasDone ? 'Done' : 'all';
+        }
+        applyCsvFilters();
     } catch (error) {
         console.error('Error loading CSV:', error);
         if (messageEl) messageEl.textContent = 'No se pudo cargar el CSV.';
@@ -1281,37 +1796,10 @@ function getSprintDayCount(sprint) {
     return days.size;
 }
 
-function buildAverageDoneMap(sprints = []) {
-    const allNames = new Set();
-    sprints.forEach(sprint => {
-        getActiveMembers(sprint?.members).forEach(member => allNames.add(member.name));
-    });
-
-    const averageMap = new Map();
-    Array.from(allNames).forEach(name => {
-        if (excludedAverageNames.includes(name)) {
-            averageMap.set(name, null);
-            return;
-        }
-        const doneValues = [];
-        sprints.forEach(sprint => {
-            const member = getActiveMembers(sprint?.members).find(m => m.name === name);
-            if (!member) return;
-            const latestEntry = getLatestStatusEntry(member);
-            const done = Number(latestEntry?.['Done']) || 0;
-            doneValues.push(done);
-        });
-        averageMap.set(name, getNonZeroAverage(doneValues));
-    });
-
-    return averageMap;
-}
-
 function updateMemberVelocityForSprint(sprint, sprints = []) {
     const velocityNodes = document.querySelectorAll('[data-member-velocity]');
-    const averageNodes = document.querySelectorAll('[data-member-velocity-avg]');
     const velocityLabelNodes = document.querySelectorAll('[data-member-velocity-label]');
-    if (!velocityNodes.length && !averageNodes.length && !velocityLabelNodes.length) return;
+    if (!velocityNodes.length && !velocityLabelNodes.length) return;
 
     const sprintDays = getSprintDayCount(sprint);
     velocityLabelNodes.forEach(node => {
@@ -1325,18 +1813,10 @@ function updateMemberVelocityForSprint(sprint, sprints = []) {
         doneByName.set(member.name, done);
     });
 
-    const averageMap = buildAverageDoneMap(sprints);
-
     velocityNodes.forEach(node => {
         const name = node.getAttribute('data-member-velocity') || '';
         const done = doneByName.get(name) || 0;
         node.textContent = formatVelocityValue(done);
-    });
-
-    averageNodes.forEach(node => {
-        const name = node.getAttribute('data-member-velocity-avg') || '';
-        const avg = averageMap.has(name) ? averageMap.get(name) : 0;
-        node.textContent = avg == null ? '—' : formatVelocityValue(avg);
     });
 }
 
@@ -1736,25 +2216,7 @@ function renderMemberChart(canvas, labels, datasets) {
     if (sprintMemberChart) {
         sprintMemberChart.destroy();
     }
-    const sprintDays = (labels || []).length;
-    const guideData = (labels || []).map((_, idx) => idx * 4);
-    const guideDataset = {
-        label: `Guide (+4/day) 80% work per day ( ${sprintDays} Days )`,
-        data: guideData,
-        borderColor: '#ffffff',
-        backgroundColor: 'rgba(255, 255, 255, 0.20)',
-        borderWidth: 1.8,
-        borderDash: [7, 5],
-        tension: 0,
-        pointRadius: 0,
-        pointHoverRadius: 4,
-        pointBackgroundColor: '#ffffff',
-        pointBorderColor: '#ffffff',
-        fill: true,
-        hideTrendDeltaLabel: true,
-        isGuideLine: true
-    };
-    const chartDatasets = [...datasets, guideDataset];
+    const chartDatasets = datasets;
 
     sprintMemberChart = new Chart(canvas, {
         type: 'line',
@@ -1788,9 +2250,6 @@ function renderMemberChart(canvas, labels, datasets) {
                     bodyColor: '#ffffff',
                     callbacks: {
                         label: context => {
-                            if (context.dataset.isGuideLine) {
-                                return `${context.dataset.label}: ${context.parsed.y}`;
-                            }
                             const total = context.dataset.totals?.[context.dataIndex] ?? 0;
                             return `${context.dataset.label}: ${context.parsed.y} of ${total} story points Done`;
                         }
