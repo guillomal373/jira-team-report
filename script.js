@@ -5,10 +5,26 @@ const statusColorMap = {
     'Done': '#1fce88'
 };
 const statusOrder = ['To Do', 'In Progress', 'In Review', 'Done'];
+const storyPointSizeMap = new Map([
+    [1, 'XS'],
+    [2, 'S'],
+    [3, 'M'],
+    [5, 'L'],
+    [8, 'XL']
+]);
+const storyPointSizeOrder = ['XS', 'S', 'M', 'L', 'XL'];
+const storyPointSizeColorMap = {
+    XS: '#9fd7ff',
+    S: '#5fa8ff',
+    M: '#f5d469',
+    L: '#f0a74f',
+    XL: '#e65b5b'
+};
 let sprintTrendChart = null;
 let sprintMemberChart = null;
 let sprintSummaryChart = null;
 let memberSummaryChart = null;
+let sprint3SummaryChart = null;
 const memberPalette = ['#c9a85c', '#4b8cff', '#6ec5ff', '#f5d469', '#ff5f56', '#7de1c3'];
 let statusChartInstance = null;
 let teamCache = [];
@@ -799,6 +815,7 @@ async function loadSprintTrends() {
 
         if (sprints.length) {
             renderSprintSummaries(sprints);
+            loadSprint3SummaryChart(sprintMeta, teamCache);
         }
 
         const resolveSprintData = (idx) => {
@@ -820,9 +837,11 @@ async function loadSprintTrends() {
                 const csvPath = `./data/${metaEntry.csvFile}`;
                 loadCsvTable(csvPath);
                 loadCsvMemberTrendForSprint(csvPath, teamCache);
+                loadCsvStoryPointMatrixForSprint(csvPath, teamCache);
             } else {
                 loadCsvTable();
                 loadCsvMemberTrendForSprint();
+                loadCsvStoryPointMatrixForSprint(undefined, teamCache);
             }
         };
 
@@ -897,12 +916,36 @@ function parseCsv(text = '') {
 
 const csvCache = new Map();
 
+function buildCsvFetchUrls(csvPath = '') {
+    const raw = String(csvPath || '').trim();
+    if (!raw) return [];
+    const encoded = encodeURI(raw);
+    const encodedParens = encoded.replace(/[()]/g, char => `%${char.charCodeAt(0).toString(16).toUpperCase()}`);
+    const urls = [encoded];
+    if (encodedParens !== encoded) urls.push(encodedParens);
+    return urls;
+}
+
 async function loadCsvRows(csvPath) {
     if (!csvPath) return [];
     if (csvCache.has(csvPath)) return csvCache.get(csvPath);
 
-    const response = await fetch(encodeURI(csvPath));
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const urls = buildCsvFetchUrls(csvPath);
+    let response = null;
+    let lastError = null;
+    for (const url of urls) {
+        try {
+            const attempt = await fetch(url);
+            if (attempt.ok) {
+                response = attempt;
+                break;
+            }
+            lastError = new Error(`HTTP ${attempt.status}`);
+        } catch (error) {
+            lastError = error;
+        }
+    }
+    if (!response) throw lastError || new Error('CSV fetch failed');
     const text = await response.text();
     const rows = parseCsv(text).filter(row =>
         row.some(cell => String(cell || '').trim().length > 0)
@@ -951,6 +994,47 @@ function renderCsvTable(table, header, rows) {
     });
 }
 
+function renderStoryPointMatrix(table, header, rows) {
+    if (!table) return;
+    const thead = table.querySelector('thead') || table.createTHead();
+    const tbody = table.querySelector('tbody') || table.createTBody();
+
+    thead.innerHTML = '';
+    tbody.innerHTML = '';
+
+    if (!header.length) return;
+
+    const headerRow = document.createElement('tr');
+    header.forEach((cell, idx) => {
+        const th = document.createElement('th');
+        th.textContent = cell || `Col ${idx + 1}`;
+        if (idx === 0) th.classList.add('matrix-sticky');
+        else th.classList.add('matrix-number');
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+
+    rows.forEach((row) => {
+        const tr = document.createElement('tr');
+        row.forEach((cell, idx) => {
+            if (idx === 0) {
+                const th = document.createElement('th');
+                th.textContent = cell;
+                th.classList.add('matrix-sticky');
+                tr.appendChild(th);
+            } else {
+                const td = document.createElement('td');
+                td.textContent = cell;
+                td.classList.add('matrix-number');
+                const numericVal = Number(cell) || 0;
+                if (numericVal > 0) td.classList.add('matrix-cell--hot');
+                tr.appendChild(td);
+            }
+        });
+        tbody.appendChild(tr);
+    });
+}
+
 function buildLabelMapFromCsv(rows = [], aliasMap = new Map()) {
     if (!rows.length) return new Map();
 
@@ -987,6 +1071,116 @@ function buildLabelMapFromCsv(rows = [], aliasMap = new Map()) {
     });
 
     return map;
+}
+
+function sortStoryPointValues(values = []) {
+    return values.sort((a, b) => {
+        const aLabel = String(a || '').trim();
+        const bLabel = String(b || '').trim();
+        const aLower = aLabel.toLowerCase();
+        const bLower = bLabel.toLowerCase();
+        const aMissing = aLower === 'sin estimar';
+        const bMissing = bLower === 'sin estimar';
+        if (aMissing && !bMissing) return 1;
+        if (bMissing && !aMissing) return -1;
+
+        const aNum = Number(aLabel.replace(',', '.'));
+        const bNum = Number(bLabel.replace(',', '.'));
+        const numericPattern = /^[0-9]+([.,][0-9]+)?$/;
+        const aIsNum = Number.isFinite(aNum) && numericPattern.test(aLabel);
+        const bIsNum = Number.isFinite(bNum) && numericPattern.test(bLabel);
+        if (aIsNum && bIsNum) return aNum - bNum;
+        if (aIsNum) return -1;
+        if (bIsNum) return 1;
+        return aLabel.localeCompare(bLabel, 'es', { numeric: true, sensitivity: 'base' });
+    });
+}
+
+function formatStoryPointDisplayLabel(rawLabel = '') {
+    const label = String(rawLabel || '').trim();
+    if (!label) return label;
+    if (label.toLowerCase() === 'sin estimar') return 'Sin estimar';
+
+    const numericValue = Number(label.replace(',', '.'));
+    if (!Number.isFinite(numericValue)) return label;
+
+    const size = storyPointSizeMap.get(numericValue);
+    const displayValue = Number.isInteger(numericValue) ? String(numericValue) : String(numericValue);
+    if (!size) return label;
+    return `${size} (${displayValue})`;
+}
+
+function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
+    if (!rows.length) return { header: [], rows: [], total: 0, reason: 'empty' };
+
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const assigneeIndex = getAssigneeIndex(header);
+    const statusIndex = getStatusIndex(header);
+    const pointsIndex = getStoryPointIndex(header);
+
+    if (assigneeIndex < 0 || pointsIndex < 0) {
+        return { header: [], rows: [], total: 0, reason: 'missing-columns' };
+    }
+
+    const dataRows = rows.slice(1);
+    const csvAssignees = assigneeIndex >= 0
+        ? Array.from(new Set(
+            dataRows
+                .map(row => String(row[assigneeIndex] || '').trim())
+                .filter(Boolean)
+        ))
+        : [];
+    const aliasMap = buildAssigneeAliasMap(teamMembers, csvAssignees);
+    const activeMembers = getActiveMembers(teamMembers);
+    const activeNames = activeMembers.map(member => member?.name).filter(Boolean);
+    const activeNameSet = new Set(activeNames);
+
+    const countsByMember = new Map();
+    //const totalsByMember = new Map();
+    //const totalsByMember = new Map();
+    const totalsByMember = new Map();
+    const storyPointSet = new Set();
+    let total = 0;
+
+    dataRows.forEach(row => {
+        const rawAssignee = String(row[assigneeIndex] || '').trim();
+        if (!rawAssignee) return;
+        const canonical = aliasMap.get(rawAssignee) || rawAssignee;
+        if (activeNameSet.size && !activeNameSet.has(canonical)) return;
+
+        if (statusIndex >= 0) {
+            const status = String(row[statusIndex] || '').trim();
+            if (!status) return;
+            if (status.toLowerCase() !== 'done') return;
+        }
+
+        const rawPoints = String(row[pointsIndex] || '').trim();
+        const pointsLabel = rawPoints ? rawPoints : 'Sin estimar';
+        storyPointSet.add(pointsLabel);
+
+        const counts = countsByMember.get(canonical) || new Map();
+        counts.set(pointsLabel, (counts.get(pointsLabel) || 0) + 1);
+        countsByMember.set(canonical, counts);
+        total += 1;
+    });
+
+    if (!storyPointSet.size || !countsByMember.size) {
+        return { header: [], rows: [], total, reason: 'no-data' };
+    }
+
+    const sortedPoints = sortStoryPointValues(Array.from(storyPointSet));
+    const extras = Array.from(countsByMember.keys()).filter(name => !activeNameSet.has(name));
+    extras.sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' }));
+    const allMembers = activeNames.concat(extras);
+
+    const matrixRows = allMembers.map(name => {
+        const counts = countsByMember.get(name) || new Map();
+        const values = sortedPoints.map(point => counts.get(point) || 0);
+        return [name, ...values];
+    });
+
+    const displayPoints = sortedPoints.map(formatStoryPointDisplayLabel);
+    return { header: ['Miembro', ...displayPoints], rows: matrixRows, total };
 }
 
 function parseCsvDate(value = '') {
@@ -1395,11 +1589,20 @@ function getStatusIndex(header = []) {
     );
 }
 
+function getStoryPointIndex(header = []) {
+    const normalized = header.map(cell => String(cell || '').trim().toLowerCase());
+    const exact = normalized.findIndex(cell => cell === 'custom field (story point estimate)');
+    if (exact >= 0) return exact;
+    const estimate = normalized.findIndex(cell => cell.includes('story point estimate'));
+    if (estimate >= 0) return estimate;
+    return normalized.findIndex(cell => cell.includes('story point'));
+}
+
 function buildAssigneeOptions(selectEl, teamMembers = [], csvAssignees = [], aliasMap = new Map()) {
     if (!selectEl) return;
     const teamNames = (teamMembers || []).map(member => member?.name).filter(Boolean);
     const options = Array.from(new Set(teamNames)).sort((a, b) => a.localeCompare(b));
-    const html = ['<option value="all">Todos</option>']
+    const html = ['<option value="all">All</option>']
         .concat(options.map(name => `<option value="${name}">${name}</option>`))
         .join('');
     selectEl.innerHTML = html;
@@ -1408,7 +1611,7 @@ function buildAssigneeOptions(selectEl, teamMembers = [], csvAssignees = [], ali
 function buildStatusOptions(selectEl, statuses = []) {
     if (!selectEl) return;
     const options = Array.from(new Set(statuses)).sort((a, b) => a.localeCompare(b));
-    const html = ['<option value="all">Todos</option>']
+    const html = ['<option value="all">All</option>']
         .concat(options.map(status => `<option value="${status}">${status}</option>`))
         .join('');
     selectEl.innerHTML = html;
@@ -1623,6 +1826,52 @@ async function loadCsvTable(csvPathOverride) {
     }
 }
 
+async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = []) {
+    const table = document.getElementById('storypoint-matrix-table');
+    const messageEl = document.querySelector('[data-matrix-message]');
+    const countEl = document.querySelector('[data-matrix-count]');
+    if (!table) return;
+
+    if (messageEl) messageEl.textContent = 'Cargando matriz...';
+
+    try {
+        const csvPath = csvPathOverride || './data/sprints-csv/Sprint Summary export (Jira).csv';
+        const normalizedRows = await loadCsvRows(csvPath);
+        if (!normalizedRows.length) {
+            renderStoryPointMatrix(table, [], []);
+            if (messageEl) {
+                messageEl.style.display = 'block';
+                messageEl.textContent = 'No hay registros disponibles.';
+            }
+            if (countEl) countEl.textContent = '0';
+            return;
+        }
+
+        const { header, rows, total, reason } = buildStoryPointMatrixFromCsvRows(normalizedRows, teamMembers);
+        renderStoryPointMatrix(table, header, rows);
+        if (countEl) countEl.textContent = String(total || 0);
+        if (messageEl) {
+            if (rows.length) {
+                messageEl.style.display = 'none';
+                messageEl.textContent = '';
+            } else {
+                messageEl.style.display = 'block';
+                messageEl.textContent = reason === 'missing-columns'
+                    ? 'No se encontraron las columnas de Assignee o Story point estimate en el CSV.'
+                    : 'No hay tareas Done para este sprint.';
+            }
+        }
+    } catch (error) {
+        console.error('Error loading story point matrix:', error);
+        renderStoryPointMatrix(table, [], []);
+        if (messageEl) {
+            messageEl.style.display = 'block';
+            messageEl.textContent = 'No se pudo cargar la matriz.';
+        }
+        if (countEl) countEl.textContent = '0';
+    }
+}
+
 function updateMetricsForSprint(sprint) {
     const completedEl = document.querySelector('[data-metric="completed"]');
     const updatedEl = document.querySelector('[data-metric="updated"]');
@@ -1768,6 +2017,231 @@ function renderTrendChart(canvas, labels, datasets) {
             }
         }
     });
+}
+
+function findSprintByNumber(sprints = [], number = 0) {
+    const regex = new RegExp(`\\bSprint\\s*${number}\\b`, 'i');
+    return (sprints || []).find(entry => regex.test(entry?.name || '')) || null;
+}
+
+function getStoryPointSizeLabel(rawValue = '') {
+    const numericValue = Number(String(rawValue || '').replace(',', '.'));
+    if (!Number.isFinite(numericValue)) return null;
+    return storyPointSizeMap.get(numericValue) || null;
+}
+
+function buildSprintMemberSizeDatasetsFromCsvRows(rows = [], teamMembers = []) {
+    if (!rows.length) return { labels: [], datasets: [], reason: 'empty' };
+
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const assigneeIndex = getAssigneeIndex(header);
+    const pointsIndex = getStoryPointIndex(header);
+
+    if (assigneeIndex < 0 || pointsIndex < 0) {
+        return { labels: [], datasets: [], reason: 'missing-columns' };
+    }
+
+    const dataRows = rows.slice(1);
+    const csvAssignees = Array.from(new Set(
+        dataRows
+            .map(row => String(row[assigneeIndex] || '').trim())
+            .filter(Boolean)
+    ));
+    const aliasMap = buildAssigneeAliasMap(teamMembers, csvAssignees);
+    const activeMembers = getActiveMembers(teamMembers);
+    const activeNames = activeMembers.map(member => member?.name).filter(Boolean);
+    const activeNameSet = new Set(activeNames);
+
+    const countsByMember = new Map();
+
+    dataRows.forEach(row => {
+        const rawAssignee = String(row[assigneeIndex] || '').trim();
+        if (!rawAssignee) return;
+        const canonical = aliasMap.get(rawAssignee) || rawAssignee;
+        if (activeNameSet.size && !activeNameSet.has(canonical)) return;
+
+        const sizeLabel = getStoryPointSizeLabel(row[pointsIndex]);
+        if (!sizeLabel) return;
+
+        const counts = countsByMember.get(canonical) || new Map();
+        counts.set(sizeLabel, (counts.get(sizeLabel) || 0) + 1);
+        countsByMember.set(canonical, counts);
+        totalsByMember.set(canonical, (totalsByMember.get(canonical) || 0) + 1);
+    });
+
+    const labels = ['Sprint 3'];
+    const baseMembers = activeNames.length ? activeNames : Array.from(countsByMember.keys());
+    const members = baseMembers.filter(name => (totalsByMember.get(name) || 0) > 0);
+    if (!members.length && baseMembers.length) {
+        members.push(...baseMembers);
+    }
+    const datasets = [];
+
+    storyPointSizeOrder.forEach((size, sizeIndex) => {
+        const color = storyPointSizeColorMap[size] || '#6ec5ff';
+        members.forEach(member => {
+            const counts = countsByMember.get(member) || new Map();
+            const value = counts.get(size) || 0;
+            datasets.push({
+                label: size,
+                legendKey: size,
+                member,
+                data: [value],
+                borderColor: color,
+                backgroundColor: color + 'cc',
+                borderWidth: 1.2,
+                barPercentage: 0.7,
+                categoryPercentage: 0.7,
+                stack: member,
+                order: sizeIndex
+            });
+        });
+    });
+
+    return { labels, datasets, reason: datasets.length ? '' : 'no-data' };
+}
+
+function renderSprint3SummaryChart(canvas, labels, datasets) {
+    if (!canvas) return;
+    if (sprint3SummaryChart) {
+        sprint3SummaryChart.destroy();
+    }
+
+    sprint3SummaryChart = new Chart(canvas, {
+        type: 'bar',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: { top: 16 }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#d7d7d7',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 12,
+                            weight: 'bold'
+                        },
+                        generateLabels: chart => {
+                            const defaults = Chart.defaults.plugins.legend.labels.generateLabels(chart);
+                            const seen = new Set();
+                            return defaults.filter(item => {
+                                const ds = chart.data.datasets?.[item.datasetIndex] || {};
+                                const key = ds.legendKey || ds.label || item.text;
+                                if (seen.has(key)) return false;
+                                item.text = key;
+                                seen.add(key);
+                                return true;
+                            });
+                        }
+                    },
+                    onClick: (event, legendItem, legend) => {
+                        const chart = legend.chart;
+                        const key = legendItem.text;
+                        chart.data.datasets.forEach((ds, idx) => {
+                            if ((ds.legendKey || ds.label) !== key) return;
+                            const meta = chart.getDatasetMeta(idx);
+                            meta.hidden = meta.hidden === null ? !chart.isDatasetVisible(idx) : null;
+                        });
+                        chart.update();
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(26, 26, 26, 0.95)',
+                    borderColor: '#c9a85c',
+                    borderWidth: 1,
+                    titleColor: '#c9a85c',
+                    bodyColor: '#ffffff',
+                    callbacks: {
+                        label: context => {
+                            const member = context.dataset.member || 'Miembro';
+                            return `${member} · ${context.dataset.label}: ${context.parsed.y}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        stepSize: 2,
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                }
+            }
+        }
+    });
+}
+
+async function loadSprint3SummaryChart(sprintMeta = [], teamMembers = []) {
+    const messageEl = document.querySelector('[data-sprint3-message]');
+    const canvas = document.getElementById('sprint3MemberStackedChart');
+    if (!canvas) return;
+
+    if (messageEl) {
+        messageEl.textContent = 'Cargando resumen...';
+        messageEl.style.display = 'block';
+    }
+
+    const sprint3Meta = findSprintByNumber(sprintMeta, 3);
+    if (!sprint3Meta?.csvFile) {
+        if (messageEl) {
+            messageEl.textContent = 'No se encontró el CSV de Sprint 3 en sprints.json.';
+            messageEl.style.display = 'block';
+        }
+        return;
+    }
+
+    try {
+        //const rawFile = String(sprint3Meta.csvFile || '').trim().replace(/^\\.?\\/?data\\//, '');
+        const rawFile = String(sprint3Meta.csvFile || '').trim().replace(/^\.?\/?data\//, '');
+
+        const csvPath = `./data/${rawFile}`;
+        const rows = await loadCsvRows(csvPath);
+        const { labels, datasets, reason } = buildSprintMemberSizeDatasetsFromCsvRows(rows, teamMembers);
+        if (!labels.length || !datasets.length) {
+            if (messageEl) {
+                messageEl.textContent = reason === 'missing-columns'
+                    ? 'No se encontró la columna de Story point estimate en el CSV.'
+                    : 'Sprint 3 no tiene datos para graficar.';
+                messageEl.style.display = 'block';
+            }
+            return;
+        }
+
+        if (messageEl) {
+            messageEl.textContent = '';
+            messageEl.style.display = 'none';
+        }
+        renderSprint3SummaryChart(canvas, labels, datasets);
+    } catch (error) {
+        if (messageEl) {
+            messageEl.textContent = 'No se pudo cargar el CSV de Sprint 3.';
+            messageEl.style.display = 'block';
+        }
+    }
 }
 
 function getLatestStatusEntry(member = {}) {

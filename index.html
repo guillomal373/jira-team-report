@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestro Equipo de Desarrollo</title>
+    <title>Our Development Team</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -38,8 +38,26 @@
             </div>
         </section> -->
 
+        <!-- <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Sprint 3 · Summary by Person</h3>
+                        <p class="workload-desc">Sprint 3 tasks by story point size.</p>
+                    </div>
+                </div>
+                <div class="trend-subrow">
+                    <span class="trend-subtag">Stacked &amp; Grouped Column</span>
+                </div>
+                <p class="chart-empty" data-sprint3-message>Loading summary...</p>
+                <div class="trend-chart">
+                    <canvas id="sprint3MemberStackedChart"></canvas>
+                </div>
+            </div>
+        </section> -->
+
         <div class="sprint-filter">
-            <label for="globalSprintSelect">Sprint actual</label>
+            <label for="globalSprintSelect">Current sprint</label>
             <select id="globalSprintSelect"></select>
         </div>
 
@@ -77,6 +95,30 @@
                         <div class="trend-subtag trend-subtag--chart">Story Points Done per member</div>
                         <canvas id="memberTrendChart"></canvas>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Story Point Estimate x Member</h3>
+                        <p class="workload-desc">Done tasks in the current sprint by estimate and member.</p>
+                    </div>
+                    <div class="matrix-actions">
+                        <div class="matrix-meta">
+                            <span class="trend-subtag">Done tasks</span>
+                            <span class="matrix-count" data-matrix-count>0</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="matrix-empty" data-matrix-message>Loading matrix...</p>
+                <div class="matrix-table-wrap">
+                    <table id="storypoint-matrix-table" class="matrix-table">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -143,7 +185,7 @@
                 <div class="trend-card-header">
                     <div class="trend-header-text">
                         <h3 class="trend-main-title">Jira CSV Records</h3>
-                        <p class="workload-desc">Listado completo del export CSV del sprint.</p>
+                        <p class="workload-desc">Full list of the sprint CSV export.</p>
                     </div>
                     <div class="csv-actions">
                         <label class="csv-filter">
@@ -155,12 +197,12 @@
                             <select data-csv-status></select>
                         </label>
                         <div class="csv-meta">
-                            <span class="trend-subtag">Registros</span>
+                            <span class="trend-subtag">Records</span>
                             <span class="csv-count" data-csv-count>0</span>
                         </div>
                     </div>
                 </div>
-                <p class="csv-empty" data-csv-message>Cargando CSV...</p>
+                <p class="csv-empty" data-csv-message>Loading CSV...</p>
                 <div class="csv-table-wrap">
                     <table id="csv-records-table" class="csv-table">
                         <thead></thead>
