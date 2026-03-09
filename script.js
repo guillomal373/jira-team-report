@@ -1136,8 +1136,6 @@ function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
     const activeNameSet = new Set(activeNames);
 
     const countsByMember = new Map();
-    //const totalsByMember = new Map();
-    //const totalsByMember = new Map();
     const totalsByMember = new Map();
     const storyPointSet = new Set();
     let total = 0;
@@ -1161,6 +1159,7 @@ function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
         const counts = countsByMember.get(canonical) || new Map();
         counts.set(pointsLabel, (counts.get(pointsLabel) || 0) + 1);
         countsByMember.set(canonical, counts);
+        totalsByMember.set(canonical, (totalsByMember.get(canonical) || 0) + 1);
         total += 1;
     });
 
@@ -1172,8 +1171,14 @@ function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
     const extras = Array.from(countsByMember.keys()).filter(name => !activeNameSet.has(name));
     extras.sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' }));
     const allMembers = activeNames.concat(extras);
+    const sortedMembers = allMembers.slice().sort((a, b) => {
+        const totalA = totalsByMember.get(a) || 0;
+        const totalB = totalsByMember.get(b) || 0;
+        if (totalB !== totalA) return totalB - totalA;
+        return a.localeCompare(b, 'es', { sensitivity: 'base' });
+    });
 
-    const matrixRows = allMembers.map(name => {
+    const matrixRows = sortedMembers.map(name => {
         const counts = countsByMember.get(name) || new Map();
         const values = sortedPoints.map(point => counts.get(point) || 0);
         return [name, ...values];
