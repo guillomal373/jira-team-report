@@ -36,6 +36,7 @@ let labelMapByAssigneeCurrent = new Map();
 let labelMapByAssigneeTotal = new Map();
 let isCurrentLabelsReady = false;
 let isTotalLabelsReady = false;
+let memberVelocityRequestId = 0;
 const csvTableState = {
     header: [],
     rows: [],
@@ -825,14 +826,14 @@ async function loadSprintTrends() {
             return { metaEntry, sprint: matched };
         };
 
-        const render = () => {
+        const render = async () => {
             const idx = Number(selectEl.value) || 0;
             const { metaEntry, sprint } = resolveSprintData(idx);
             updateMetricsForSprint(sprint);
             updateStatusOverview(sprint);
             updateWorkloadForSprint(sprint);
             updateMemberStatusesForSprint(sprint);
-            updateMemberVelocityForSprint(sprint, sprints);
+            await updateMemberVelocityForSprint(sprint, metaEntry, teamCache);
             if (metaEntry?.csvFile) {
                 const csvPath = `./data/${metaEntry.csvFile}`;
                 loadCsvTable(csvPath);
@@ -1603,6 +1604,48 @@ function getStoryPointIndex(header = []) {
     return normalized.findIndex(cell => cell.includes('story point'));
 }
 
+function buildMemberDoneTotalsFromCsvRows(rows = [], teamMembers = []) {
+    if (!rows.length) return null;
+
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const assigneeIndex = getAssigneeIndex(header);
+    const statusIndex = getStatusIndex(header);
+    const pointsIndex = getStoryPointIndex(header);
+
+    if (assigneeIndex < 0 || statusIndex < 0 || pointsIndex < 0) return null;
+
+    const dataRows = rows.slice(1);
+    const csvAssignees = Array.from(new Set(
+        dataRows
+            .map(row => String(row[assigneeIndex] || '').trim())
+            .filter(Boolean)
+    ));
+    const aliasMap = buildAssigneeAliasMap(teamMembers, csvAssignees);
+    const activeMembers = (teamMembers || []).filter(isActiveMember);
+    const activeNames = new Set(activeMembers.map(member => member?.name).filter(Boolean));
+
+    const totals = new Map();
+
+    dataRows.forEach(row => {
+        const rawAssignee = String(row[assigneeIndex] || '').trim();
+        if (!rawAssignee) return;
+        const canonical = aliasMap.get(rawAssignee) || rawAssignee;
+        if (activeNames.size && !activeNames.has(canonical)) return;
+
+        const status = String(row[statusIndex] || '').trim();
+        if (!status) return;
+        if (status.toLowerCase() !== 'done') return;
+
+        const pointsValue = String(row[pointsIndex] || '').replace(',', '.');
+        const points = Number(pointsValue) || 0;
+        if (!Number.isFinite(points) || points <= 0) return;
+
+        totals.set(canonical, (totals.get(canonical) || 0) + points);
+    });
+
+    return totals;
+}
+
 function buildAssigneeOptions(selectEl, teamMembers = [], csvAssignees = [], aliasMap = new Map()) {
     if (!selectEl) return;
     const teamNames = (teamMembers || []).map(member => member?.name).filter(Boolean);
@@ -2275,23 +2318,38 @@ function getSprintDayCount(sprint) {
     return days.size;
 }
 
-function updateMemberVelocityForSprint(sprint, sprints = []) {
+async function updateMemberVelocityForSprint(sprint, metaEntry, teamMembers = []) {
     const velocityNodes = document.querySelectorAll('[data-member-velocity]');
     const velocityLabelNodes = document.querySelectorAll('[data-member-velocity-label]');
     if (!velocityNodes.length && !velocityLabelNodes.length) return;
 
+    const requestId = ++memberVelocityRequestId;
     const sprintDays = getSprintDayCount(sprint);
     velocityLabelNodes.forEach(node => {
         node.textContent = `Sprint Vel. ( ${sprintDays} Days )`;
     });
 
-    const doneByName = new Map();
+    const fallbackDoneByName = new Map();
     getActiveMembers(sprint?.members).forEach(member => {
         const latestEntry = getLatestStatusEntry(member);
         const done = Number(latestEntry?.['Done']) || 0;
-        doneByName.set(member.name, done);
+        fallbackDoneByName.set(member.name, done);
     });
 
+    let doneByName = fallbackDoneByName;
+    if (metaEntry?.csvFile) {
+        try {
+            const csvPath = `./data/${metaEntry.csvFile}`;
+            const normalizedRows = await loadCsvRows(csvPath);
+            if (requestId !== memberVelocityRequestId) return;
+            const csvTotals = buildMemberDoneTotalsFromCsvRows(normalizedRows, teamMembers);
+            if (csvTotals) doneByName = csvTotals;
+        } catch (error) {
+            console.warn('Error loading CSV velocity:', error);
+        }
+    }
+
+    if (requestId !== memberVelocityRequestId) return;
     velocityNodes.forEach(node => {
         const name = node.getAttribute('data-member-velocity') || '';
         const done = doneByName.get(name) || 0;
