@@ -1,51 +1,51 @@
 # Jira Team Report
 
-Dashboard web estatico para visualizar metricas de equipo y sprints a partir de exportes CSV de Jira. La pagina consume archivos JSON/CSV locales y dibuja graficas con Chart.js para ver tendencias de story points, rendimiento por miembro y un tablero resumido del sprint actual.
+Static web dashboard to visualize team and sprint metrics from Jira CSV exports. The page consumes local JSON/CSV files and draws charts with Chart.js to show story point trends, member performance, and a summary board for the current sprint.
 
-**Caracteristicas principales**
-- Tendencia diaria de story points por estado y por miembro.
-- Matriz de story points completados por miembro.
-- Tabla completa del CSV con filtros por assignee y status.
-- Vista rapida por sprint seleccionable.
+**Main features**
+- Daily story point trend by status and by member.
+- Story points completed matrix by member.
+- Full CSV table with filters by assignee and status.
+- Quick view per selectable sprint.
 
-**Como ejecutarlo**
-1. Entra a la carpeta del proyecto:
+**How to run**
+1. Go to the project folder:
 ```
 cd /Users/guillermomalagon/Library/CloudStorage/OneDrive-DSSOLUTIONSS.A.S/Documentos/team-gamification/jira-team-report
 ```
-2. Inicia un servidor local (recomendado para que `fetch` lea JSON/CSV):
+2. Start a local server (recommended so `fetch` can read JSON/CSV):
 ```
 python3 -m http.server 8080
 ```
-3. Abre en el navegador:
+3. Open in the browser:
 ```
 http://localhost:8080
 ```
 
-**Estructura clave**
-- `index.html`: layout y secciones del dashboard.
-- `styles.css`: estilos y tema visual.
-- `script.js`: carga de datos, agregaciones y graficas.
-- `data/team.json`: miembros, roles, alias de Jira y configuracion visual.
-- `data/sprints.json`: catalogo de sprints y ruta del CSV por sprint.
-- `data/sprint_story_points.json`: series diarias de story points por sprint.
-- `data/sprints-csv/`: exportes CSV de Jira por sprint.
+**Key structure**
+- `index.html`: dashboard layout and sections.
+- `styles.css`: styles and visual theme.
+- `script.js`: data loading, aggregations, and charts.
+- `data/team.json`: members, roles, Jira aliases, and visual config.
+- `data/sprints.json`: sprint catalog and CSV path per sprint.
+- `data/sprint_story_points.json`: daily story point series by sprint.
+- `data/sprints-csv/`: Jira CSV exports per sprint.
 
-**Formato esperado del CSV**
-El dashboard necesita al menos estas columnas (los nombres son los del export de Jira):
+**Expected CSV format**
+The dashboard needs at least these columns (names from the Jira export):
 - `Assignee`
 - `Status`
-- `Custom field (Story point estimate)` o cualquier columna que contenga `Story point`
-- `Updated` (o `Created`, `Start Date`, `Due Date` como alternativa para fechas)
+- `Custom field (Story point estimate)` or any column containing `Story point`
+- `Updated` (or `Created`, `Start Date`, `Due Date` as date alternatives)
 
-**Actualizar datos (nuevo sprint)**
-1. Exporta el sprint desde Jira en CSV (idealmente “Sprint Summary export”).
-2. Guarda el archivo en `data/sprints-csv/`.
-3. Agrega una entrada en `data/sprints.json` con `name`, `period` y `csvFile`.
-4. (Opcional) Actualiza `data/sprint_story_points.json` si quieres la tendencia diaria.
-5. Si cambia el nombre de un assignee en Jira, agrega un alias en `data/team.json` usando `csvAliases`.
+**Update data (new sprint)**
+1. Export the sprint from Jira in CSV (ideally “Sprint Summary export”).
+2. Save the file in `data/sprints-csv/`.
+3. Add an entry in `data/sprints.json` with `name`, `period`, and `csvFile`.
+4. (Optional) Update `data/sprint_story_points.json` if you want the daily trend.
+5. If an assignee name changes in Jira, add an alias in `data/team.json` using `csvAliases`.
 
-**Solucion de problemas**
-- No aparecen datos: verifica los nombres de columnas del CSV y que el servidor local este corriendo.
-- Filtros vacios o miembros faltantes: revisa `data/team.json` y agrega `csvAliases`.
-- Errores de carga en `file://`: usa `python3 -m http.server` en vez de abrir el HTML directo.
+**Troubleshooting**
+- No data appears: verify the CSV column names and that the local server is running.
+- Empty filters or missing members: check `data/team.json` and add `csvAliases`.
+- Load errors on `file://`: use `python3 -m http.server` instead of opening the HTML directly.

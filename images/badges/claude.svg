@@ -1,0 +1,25 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="claudeClip">
+      <rect x="12" y="12" width="40" height="40" rx="8"/>
+    </clipPath>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="#0f0f0f"/>
+  <g clip-path="url(#claudeClip)">
+    <rect x="12" y="12" width="40" height="40" rx="8" fill="#ffffff"/>
+    <!-- starburst -->
+    <g transform="translate(32 28) scale(0.8)" fill="#e36a3a">
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(18)"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(36)"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(54)"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(72)"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(90)"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(108)"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(126)"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(144)"/>
+      <path d="M0-12 L2-2 L0 2 L-2-2 Z" transform="rotate(162)"/>
+    </g>
+    <text x="32" y="49" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#111111">Claude</text>
+  </g>
+</svg>

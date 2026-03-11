@@ -1,6 +1,6 @@
 {
-  "title": "Diagrama de Épicas",
-  "subtitle": "Épica principal a la izquierda, epics de frente y features a la derecha",
+  "title": "Epic Diagram",
+  "subtitle": "Main epic on the left, epics in front, and features on the right",
   "linkColor": "rgba(255,255,255,0.35)",
   "linkWidth": 1.4,
   "nodes": [

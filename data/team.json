@@ -102,7 +102,7 @@
       "hero": "hulk",
       "level": 10,
       "color": "#1e8503",
-      "badges": ["jira", "confluence"],
+      "badges": ["jira", "confluence", "claude"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
