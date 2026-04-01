@@ -34,6 +34,11 @@
       "name": "Sprint 9 - MVP CP + CX Bugs (Testing Apps)",
       "period": "2026-03-16 to 2026-03-30",
       "csvFile": "sprints-csv/Sprint 9 Summary export (Jira).csv"
+    },
+    {
+      "name": "Sprint 10 - CP MVP + CX Issues",
+      "period": "2026-03-30 to 2026-04-10",
+      "csvFile": "sprints-csv/Sprint 10 Summary export (Jira).csv"
     }
   ]
 }
