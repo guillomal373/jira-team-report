@@ -5,6 +5,8 @@ const statusColorMap = {
     'Done': '#1fce88'
 };
 const statusOrder = ['To Do', 'In Progress', 'In Review', 'Done'];
+const completedStatusKeys = new Set(['done', 'ready for deployment']);
+const completedStoryPointLabel = 'Done + Ready for Deployment';
 const storyPointSizeMap = new Map([
     [1, 'XS'],
     [2, 'S'],
@@ -32,6 +34,8 @@ const memberStatusCharts = new Map();
 const excludedAverageNames = ['Guillermo Malagón'];
 const isActiveMember = (member = {}) => member?.active !== false;
 const getActiveMembers = (members = []) => (members || []).filter(isActiveMember);
+const normalizeStatusKey = (status = '') => String(status || '').trim().replace(/\s+/g, ' ').toLowerCase();
+const isCompletedStatus = (status = '') => completedStatusKeys.has(normalizeStatusKey(status));
 let labelMapByAssigneeCurrent = new Map();
 let labelMapByAssigneeTotal = new Map();
 let isCurrentLabelsReady = false;
@@ -97,6 +101,14 @@ function getNonZeroAverage(values = []) {
     if (!numeric.length) return 0;
     const sum = numeric.reduce((acc, n) => acc + n, 0);
     return sum / numeric.length;
+}
+
+function getCompletedStoryPointsFromEntry(entry = {}) {
+    return Object.keys(entry || {}).reduce((sum, key) => {
+        if (key === 'date' || !isCompletedStatus(key)) return sum;
+        const val = Number(entry[key]) || 0;
+        return sum + val;
+    }, 0);
 }
 
 function getSprintAveragesForIndex(chart, index) {
@@ -1390,19 +1402,19 @@ function buildMemberDatasetsFromCsvRows(rows = [], teamMembers = []) {
     const datesSet = new Set();
     const byMemberDate = new Map();
     const totalsByMember = new Map();
-    let hasDone = false;
+    let hasCompletedStatus = false;
 
     dataRows.forEach(row => {
         const status = String(row[statusIndex] || '').trim();
         if (!status) return;
-        if (status.toLowerCase() === 'done') {
+        if (isCompletedStatus(status)) {
             const pointsValue = String(row[pointsIndex] || '').replace(',', '.');
             const points = Number(pointsValue) || 0;
-            if (points > 0) hasDone = true;
+            if (points > 0) hasCompletedStatus = true;
         }
     });
 
-    const includeAllStatuses = !hasDone;
+    const includeAllStatuses = !hasCompletedStatus;
 
     dataRows.forEach(row => {
         const rawAssignee = String(row[assigneeIndex] || '').trim();
@@ -1412,7 +1424,7 @@ function buildMemberDatasetsFromCsvRows(rows = [], teamMembers = []) {
 
         const status = String(row[statusIndex] || '').trim();
         if (!status) return;
-        if (!includeAllStatuses && status.toLowerCase() !== 'done') return;
+        if (!includeAllStatuses && !isCompletedStatus(status)) return;
 
         const dateKey = parseCsvDate(row[updatedIndex]);
         if (!dateKey) return;
@@ -2438,7 +2450,7 @@ function buildMemberSummaryDatasets(sprints = []) {
         sprints.forEach(sprint => {
             const member = getActiveMembers(sprint?.members).find(m => m.name === name);
             const latestEntry = getLatestStatusEntry(member);
-            const done = Number(latestEntry?.['Done']) || 0;
+            const done = getCompletedStoryPointsFromEntry(latestEntry);
             const total = latestEntry
                 ? Object.keys(latestEntry).reduce((sum, key) => {
                     if (key === 'date') return sum;
@@ -2580,13 +2592,13 @@ function renderMemberSummaryChart(canvas, labels, datasets) {
                             const { doneAvg, totalAvg } = getSprintAveragesForIndex(context.chart, context.dataIndex);
                             const formatNum = (n) => Number.isInteger(n) ? n : n.toFixed(1);
                             const lines = [
-                                `${context.dataset.label}: ${context.parsed.y} of ${total} story points Done`
+                                `${context.dataset.label}: ${context.parsed.y} of ${total} story points ${completedStoryPointLabel}`
                             ];
                             if (avgDone != null && avgTotal != null) {
-                                lines.push(`Average (no zeros): ${formatNum(avgDone)} of ${formatNum(avgTotal)} story points Done`);
+                                lines.push(`Average (no zeros): ${formatNum(avgDone)} of ${formatNum(avgTotal)} story points ${completedStoryPointLabel}`);
                             }
                             if (doneAvg != null && totalAvg != null) {
-                                lines.push(`Sprint average (no zeros): ${formatNum(doneAvg)} of ${formatNum(totalAvg)} story points Done`);
+                                lines.push(`Sprint average (no zeros): ${formatNum(doneAvg)} of ${formatNum(totalAvg)} story points ${completedStoryPointLabel}`);
                             }
                             return lines;
                         }
@@ -2751,7 +2763,7 @@ function buildMemberDatasets(sprint, labels) {
         const totals = [];
         const data = labels.map(day => {
             const entry = lookup.get(day) || {};
-            const done = Number(entry['Done']) || 0;
+            const done = getCompletedStoryPointsFromEntry(entry);
             const total = Object.keys(entry).reduce((sum, key) => {
                 if (key === 'date') return sum;
                 const val = Number(entry[key]) || 0;
@@ -2819,7 +2831,7 @@ function renderMemberChart(canvas, labels, datasets) {
                     callbacks: {
                         label: context => {
                             const total = context.dataset.totals?.[context.dataIndex] ?? 0;
-                            return `${context.dataset.label}: ${context.parsed.y} of ${total} story points Done`;
+                            return `${context.dataset.label}: ${context.parsed.y} of ${total} story points ${completedStoryPointLabel}`;
                         }
                     }
                 }
