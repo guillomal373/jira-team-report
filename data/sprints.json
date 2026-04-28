@@ -44,6 +44,11 @@
       "name": "Sprint 11 - CP + CX Issues 3",
       "period": "2026-04-15 to 2026-04-28",
       "csvFile": "sprints-csv/Sprint 11 Summary export (Jira).csv"
+    },
+    {
+      "name": "Sprint 12 - CP + CX Issues 4 (D+G)",
+      "period": "2026-04-28 to 2026-05-08",
+      "csvFile": "sprints-csv/Sprint 12 Summary export (Jira).csv"
     }
   ]
 }
