@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Issues and App Stats for CreditorX</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="hero">
+      <section class="hero__content" aria-label="Elite Development Squad banner">
+        <h1>Issues and App Stats for CreditorX</h1>
+        <p>Legendary Code Architects v1.7.0</p>
+        <span class="hero__accent" aria-hidden="true"></span>
+      </section>
+      <section class="year-filter-panel" aria-label="Current year selector">
+        <label class="records-filter records-filter--stacked" for="year-filter">
+          <span>Current Year</span>
+          <select id="year-filter" aria-label="Filter records by year">
+            <option value="all">All</option>
+          </select>
+        </label>
+        <div class="records-filter records-filter--stacked records-filter--date">
+          <label class="records-checkbox" for="by-date-filter">
+            <input id="by-date-filter" type="checkbox" />
+            <span>By Date</span>
+          </label>
+          <input
+            id="date-filter"
+            class="records-date-input"
+            type="date"
+            aria-label="Filter records by date"
+            hidden
+          />
+        </div>
+      </section>
+      <section class="status-overview" aria-label="Issue status overview">
+        <div class="status-overview__summary">
+          <div class="status-summary__list" id="status-summary-list"></div>
+        </div>
+        <div class="status-overview__pie">
+          <div class="status-pie-card">
+            <div class="status-pie-card__header">
+              <h2 id="status-pie-title">Status Distribution</h2>
+              <p class="status-pie-card__subtitle" id="status-pie-subtitle">
+                Ticket share by current status.
+              </p>
+            </div>
+            <div class="status-pie-card__body">
+              <svg
+                class="status-pie-card__chart"
+                id="status-pie-chart"
+                viewBox="0 0 320 320"
+                role="img"
+                aria-label="Status distribution pie chart"
+              ></svg>
+              <div class="status-pie-card__legend" id="status-pie-legend"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="timeline-panel" aria-labelledby="timeline-title">
+        <header class="timeline-panel__header">
+          <div>
+            <h2 id="timeline-title">Daily Issues Timeline</h2>
+            <p class="timeline-panel__subtitle" id="timeline-subtitle">
+              Daily issue volume from Mar 1 to today.
+            </p>
+          </div>
+        </header>
+        <div class="timeline-panel__chart-wrap">
+          <svg
+            class="timeline-panel__chart"
+            id="timeline-chart"
+            viewBox="0 0 960 280"
+            role="img"
+            aria-label="Daily issues timeline chart"
+          ></svg>
+        </div>
+      </section>
+      <section class="records-panel" aria-labelledby="records-title">
+        <header class="records-panel__header">
+          <div>
+            <h2 id="records-title">Issue Records</h2>
+            <p class="records-panel__subtitle" id="records-subtitle">Data loaded from CSV files in <code>data/</code>.</p>
+          </div>
+          <div class="records-panel__actions">
+            <label class="records-filter records-filter--table" for="status-filter">
+              <span>Status</span>
+              <select id="status-filter" aria-label="Filter table by status">
+                <option value="all">All</option>
+              </select>
+            </label>
+            <div class="columns-control" id="columns-control">
+              <button
+                type="button"
+                class="columns-toggle"
+                id="columns-toggle"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="columns-menu"
+              >
+                Columns
+              </button>
+              <div class="columns-menu" id="columns-menu" hidden>
+                <div class="columns-menu__header">
+                  <strong>Visible Columns</strong>
+                </div>
+                <div class="columns-menu__toolbar">
+                  <button type="button" class="columns-menu__action" id="columns-select-all">
+                    Select All
+                  </button>
+                  <button type="button" class="columns-menu__action" id="columns-reset">
+                    Reset
+                  </button>
+                </div>
+                <div class="columns-menu__list" id="columns-list"></div>
+              </div>
+            </div>
+            <div class="records-panel__count" aria-label="Total records">
+              <span>Records</span>
+              <strong id="records-count">0</strong>
+            </div>
+          </div>
+        </header>
+        <div class="records-table-wrap">
+          <table class="records-table" id="records-table">
+            <thead id="records-head"></thead>
+            <tbody id="records-body">
+              <tr class="records-table__empty">
+                <td>Loading CSV data...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
