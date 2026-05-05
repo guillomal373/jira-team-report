@@ -46,6 +46,47 @@ body::before {
   pointer-events: none;
 }
 
+.portal-home {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at top, rgba(239, 186, 119, 0.22), rgba(239, 186, 119, 0.08)),
+    rgba(44, 34, 26, 0.92);
+  border: 1px solid rgba(239, 186, 119, 0.28);
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  z-index: 10;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.portal-home svg {
+  width: 36px;
+  height: 36px;
+  stroke: #efba77;
+  stroke-width: 1.9;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.portal-home:hover,
+.portal-home:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(239, 186, 119, 0.48);
+  box-shadow:
+    0 20px 38px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(239, 186, 119, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
 .hero {
   min-height: 100vh;
   width: min(100%, 1440px);
@@ -826,6 +867,18 @@ p {
 }
 
 @media (max-width: 980px) {
+  .portal-home {
+    top: 16px;
+    left: 16px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .portal-home svg {
+    width: 28px;
+    height: 28px;
+  }
+
   .hero__content {
     gap: 22px;
     padding-inline: 16px;
