@@ -3,103 +3,475 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Dashboards</title>
+    <title>Access Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="jira/styles.css">
     <style>
-        .container {
-            max-width: 960px;
-            padding-top: 48px;
+        :root {
+            --bg: #09090c;
+            --panel: rgba(20, 20, 25, 0.72);
+            --panel-border: rgba(244, 193, 124, 0.24);
+            --text: #f3f0ea;
+            --muted: rgba(243, 240, 234, 0.76);
+            --gold: #efba77;
+            --gold-soft: rgba(239, 186, 119, 0.26);
+            --purple: #b969ff;
+            --purple-soft: rgba(185, 105, 255, 0.20);
         }
 
-        .launcher-card {
-            max-width: 760px;
-            margin: 0 auto;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Roboto Condensed', sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(185, 105, 255, 0.12), transparent 28%),
+                radial-gradient(circle at top right, rgba(239, 186, 119, 0.12), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(239, 186, 119, 0.08), transparent 26%),
+                linear-gradient(180deg, #0d0e13 0%, #09090c 100%);
+            overflow-x: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            pointer-events: none;
+            inset: 0;
+        }
+
+        body::before {
+            background-image:
+                radial-gradient(rgba(239, 186, 119, 0.16) 1px, transparent 1px),
+                radial-gradient(rgba(185, 105, 255, 0.10) 1px, transparent 1px);
+            background-size: 12px 12px, 18px 18px;
+            background-position: 0 0, 100% 100%;
+            mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.9));
+            opacity: 0.4;
+        }
+
+        body::after {
+            background:
+                radial-gradient(circle at 100% 0%, transparent 0 15%, rgba(239, 186, 119, 0.18) 15.2%, transparent 15.5%),
+                radial-gradient(circle at 100% 0%, transparent 0 21%, rgba(239, 186, 119, 0.13) 21.2%, transparent 21.5%),
+                radial-gradient(circle at 100% 0%, transparent 0 27%, rgba(239, 186, 119, 0.10) 27.2%, transparent 27.5%),
+                radial-gradient(circle at 0% 100%, transparent 0 16%, rgba(239, 186, 119, 0.11) 16.2%, transparent 16.5%);
+            opacity: 0.7;
+        }
+
+        .page {
+            width: min(1400px, calc(100% - 48px));
+            margin: 18px auto;
+            padding: 28px 30px 14px;
+            position: relative;
+            border: 1px solid var(--panel-border);
+            border-radius: 24px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+                rgba(11, 12, 17, 0.84);
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .page::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(239, 186, 119, 0.10), transparent 32%),
+                linear-gradient(90deg, transparent, rgba(239, 186, 119, 0.06), transparent);
+            pointer-events: none;
+        }
+
+        .portal-header {
+            position: relative;
+            z-index: 1;
             text-align: center;
+            padding: 0 0 14px;
         }
 
-        .launcher-copy {
-            max-width: 520px;
-            margin: 0 auto 28px;
-            color: #9e9e9e;
-            font-size: 1rem;
-            line-height: 1.6;
+        .portal-badge {
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 16px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at top, rgba(239, 186, 119, 0.26), rgba(239, 186, 119, 0.08)),
+                rgba(28, 22, 18, 0.88);
+            border: 1px solid rgba(239, 186, 119, 0.26);
+            box-shadow:
+                0 18px 44px rgba(0, 0, 0, 0.34),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
 
-        .launcher-actions {
+        .portal-badge svg {
+            width: 38px;
+            height: 38px;
+            stroke: var(--gold);
+            stroke-width: 1.8;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .portal-title {
+            margin: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3.4rem, 5.6vw, 5.6rem);
+            line-height: 0.94;
+            letter-spacing: 2.5px;
+            background: linear-gradient(90deg, #ffffff 22%, #f0ba78 78%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            text-shadow: 0 10px 38px rgba(0, 0, 0, 0.35);
+        }
+
+        .portal-divider {
+            width: 96px;
+            height: 16px;
+            margin: 12px auto 14px;
+            position: relative;
+        }
+
+        .portal-divider::before {
+            content: "";
+            position: absolute;
+            inset: 9px 0;
+            background: linear-gradient(90deg, transparent, rgba(239, 186, 119, 0.95), transparent);
+            border-radius: 999px;
+            box-shadow: 0 0 26px rgba(239, 186, 119, 0.5);
+        }
+
+        .portal-subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: clamp(1rem, 1.45vw, 1.14rem);
+        }
+
+        .portal-grid {
+            position: relative;
+            z-index: 1;
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
-            margin-top: 24px;
+            margin-top: 20px;
         }
 
-        .launcher-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 96px;
-            padding: 18px 24px;
-            border: 1px solid #4a3c28;
-            background: linear-gradient(135deg, rgba(201, 168, 92, 0.2) 0%, rgba(20, 20, 20, 0.95) 100%);
-            color: #ffffff;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem;
-            letter-spacing: 3px;
+        .portal-card {
+            position: relative;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+            padding: 26px 24px 16px;
+            min-height: 0;
             text-decoration: none;
+            color: inherit;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+                rgba(16, 17, 24, 0.90);
             box-shadow:
-                0 14px 34px rgba(0, 0, 0, 0.55),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
-            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+                0 22px 50px rgba(0, 0, 0, 0.34),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
         }
 
-        .launcher-button:hover,
-        .launcher-button:focus-visible {
-            transform: translateY(-2px);
-            border-color: #c9a85c;
+        .portal-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, var(--card-glow), transparent 38%);
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .portal-card:hover,
+        .portal-card:focus-visible {
+            transform: translateY(-4px);
+            border-color: var(--card-accent);
             box-shadow:
-                0 18px 40px rgba(0, 0, 0, 0.65),
-                0 0 0 1px rgba(201, 168, 92, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+                0 30px 65px rgba(0, 0, 0, 0.42),
+                0 0 0 1px var(--card-accent),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
             outline: none;
         }
 
-        @media (max-width: 640px) {
-            .launcher-actions {
+        .portal-card--jira {
+            --card-accent: rgba(185, 105, 255, 0.62);
+            --card-glow: rgba(185, 105, 255, 0.12);
+            --card-underline: #b969ff;
+            --card-icon-bg: rgba(71, 53, 101, 0.58);
+            --card-icon-border: rgba(185, 105, 255, 0.28);
+            --card-icon-stroke: #bf82ff;
+        }
+
+        .portal-card--creditorx {
+            --card-accent: rgba(239, 186, 119, 0.52);
+            --card-glow: rgba(239, 186, 119, 0.11);
+            --card-underline: #efba77;
+            --card-icon-bg: rgba(94, 70, 38, 0.56);
+            --card-icon-border: rgba(239, 186, 119, 0.24);
+            --card-icon-stroke: #efba77;
+            background:
+                linear-gradient(180deg, rgba(239, 186, 119, 0.04), rgba(255, 255, 255, 0.01)),
+                rgba(24, 21, 17, 0.92);
+        }
+
+        .portal-card-head {
+            display: grid;
+            grid-template-columns: 94px 1fr;
+            gap: 20px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portal-card-icon {
+            width: 82px;
+            height: 82px;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            background: var(--card-icon-bg);
+            border: 1px solid var(--card-icon-border);
+            box-shadow:
+                0 18px 32px rgba(0, 0, 0, 0.26),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .portal-card-icon svg {
+            width: 38px;
+            height: 38px;
+            stroke: var(--card-icon-stroke);
+            stroke-width: 1.8;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .portal-card-title {
+            margin: 4px 0 0;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.3rem, 2.9vw, 3.2rem);
+            line-height: 0.98;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .portal-card-line {
+            width: 46px;
+            height: 3px;
+            margin-top: 12px;
+            border-radius: 999px;
+            background: var(--card-underline);
+            box-shadow: 0 0 16px var(--card-accent);
+        }
+
+        .portal-card-copy {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: rgba(243, 240, 234, 0.84);
+            font-size: 0.95rem;
+            line-height: 1.48;
+        }
+
+        .portal-card-cta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: rgba(10, 10, 14, 0.54);
+            color: var(--text);
+            font-size: 0.92rem;
+        }
+
+        .portal-card-cta strong {
+            font-size: 0.92rem;
+            font-weight: 400;
+        }
+
+        .portal-card-cta svg {
+            width: 23px;
+            height: 23px;
+            stroke: var(--card-underline);
+            stroke-width: 1.8;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex: 0 0 auto;
+        }
+
+        .portal-footer {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 14px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(243, 240, 234, 0.74);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .portal-footer svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold);
+            stroke-width: 1.8;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @media (max-width: 1100px) {
+            .page {
+                width: min(100% - 32px, 980px);
+                padding: 24px 22px 18px;
+            }
+
+            .portal-grid {
                 grid-template-columns: 1fr;
             }
 
-            h1 {
-                font-size: 3.4em;
-                letter-spacing: 4px;
+            .portal-card {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .page {
+                margin: 16px auto;
+                border-radius: 18px;
+                padding: 22px 18px 16px;
             }
 
-            .subtitle {
+            .portal-title {
                 letter-spacing: 2px;
+            }
+
+            .portal-card {
+                padding: 20px 18px 16px;
+                gap: 18px;
+            }
+
+            .portal-card-head {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .portal-card-icon {
+                width: 78px;
+                height: 78px;
+                border-radius: 20px;
+            }
+
+            .portal-card-title {
+                margin-top: 0;
+            }
+
+            .portal-card-copy {
+                font-size: 0.95rem;
+            }
+
+            .portal-card-cta {
+                padding: 13px 16px;
+            }
+
+            .portal-footer {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>TEAM DASHBOARDS</h1>
-            <p class="subtitle">SELECT A MODULE</p>
+    <main class="page">
+        <header class="portal-header">
+            <div class="portal-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                    <path d="M10 17l5-5-5-5"></path>
+                    <path d="M15 12H4"></path>
+                </svg>
+            </div>
+            <h1 class="portal-title">Access Portal</h1>
+            <div class="portal-divider" aria-hidden="true"></div>
+            <p class="portal-subtitle">Choose the active workspace and open the corresponding dashboard.</p>
         </header>
 
-        <section class="trend-section">
-            <div class="trend-card launcher-card">
-                <div class="trend-card-header">
-                    <div class="trend-header-text">
-                        <h2 class="trend-main-title">Access Portal</h2>
-                        <p class="launcher-copy">Choose the active workspace and open the corresponding dashboard.</p>
+        <section class="portal-grid" aria-label="Dashboard modules">
+            <a class="portal-card portal-card--jira" href="jira/index.html">
+                <div class="portal-card-head">
+                    <div class="portal-card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 7.5a2.5 2.5 0 0 1 2.5-2.5h4l2 2H18.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="portal-card-title">JIRA</h2>
+                        <div class="portal-card-line" aria-hidden="true"></div>
                     </div>
                 </div>
-                <div class="launcher-actions">
-                    <a class="launcher-button" href="jira/index.html">JIRA</a>
-                    <a class="launcher-button" href="creditorx-issues-appstats/index.html">CreditorX</a>
+                <p class="portal-card-copy">This dashboard helps the team understand how work is moving during each sprint by showing progress, workload, delivery pace, and where bottlenecks may be affecting planning and execution.</p>
+                <div class="portal-card-cta">
+                    <strong>Open Jira Dashboard</strong>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 5l7 7-7 7"></path>
+                    </svg>
                 </div>
-            </div>
+            </a>
+
+            <a class="portal-card portal-card--creditorx" href="creditorx-issues-appstats/index.html">
+                <div class="portal-card-head">
+                    <div class="portal-card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 7.5a2.5 2.5 0 0 1 2.5-2.5h4l2 2H18.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="portal-card-title">CreditorX</h2>
+                        <div class="portal-card-line" aria-hidden="true"></div>
+                    </div>
+                </div>
+                <p class="portal-card-copy">This dashboard helps the team monitor customer issues and app behavior in one place, making it easier to track volume, status changes, emerging patterns, and which cases need attention.</p>
+                <div class="portal-card-cta">
+                    <strong>Open CreditorX Dashboard</strong>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </a>
         </section>
-    </div>
+
+        <footer class="portal-footer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path>
+                <path d="M9.5 12.5l1.7 1.7 3.6-4"></path>
+            </svg>
+            <span>Secure access. Real-time insights. Smarter decisions.</span>
+        </footer>
+    </main>
 </body>
 </html>
