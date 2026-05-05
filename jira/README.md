@@ -11,7 +11,7 @@ Static web dashboard to visualize team and sprint metrics from Jira CSV exports.
 **How to run**
 1. Go to the project folder:
 ```
-cd /Users/guillermomalagon/Library/CloudStorage/OneDrive-DSSOLUTIONSS.A.S/Documentos/team-gamification/jira-team-report
+cd /Users/guillermomalagon/Library/CloudStorage/OneDrive-DSSOLUTIONSS.A.S/Documentos/team-gamification/jira-team-report/jira
 ```
 2. Start a local server (recommended so `fetch` can read JSON/CSV):
 ```

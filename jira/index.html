@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WLSVWLMQ');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Development Team</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w0xfonbw5g");
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLSVWLMQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="container">
+        <header>
+            <h1>ELITE DEVELOPMENT SQUAD</h1>
+            <p class="subtitle">LEGENDARY CODE ARCHITECTS v1.7.0</p>
+        </header>
+
+        <!-- <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Story Points by Sprint (Summary)</h3>
+                        <p class="workload-desc">Sprint-level snapshots of story points and ownership.</p>
+                    </div>
+                </div>
+                <div class="trend-subrow">
+                    <span class="trend-subtag">Sprint story points overview</span>
+                </div>
+                <div class="trend-grid">
+                    <div class="trend-chart">
+                        <canvas id="sprintSummaryChart"></canvas>
+                    </div>
+                    <div class="trend-chart trend-chart--members">
+                        <div class="trend-subtag trend-subtag--chart">Story Points Done + Ready for Deployment per member (per sprint)</div>
+                        <canvas id="memberSummaryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Sprint 3 · Summary by Person</h3>
+                        <p class="workload-desc">Sprint 3 tasks by story point size.</p>
+                    </div>
+                </div>
+                <div class="trend-subrow">
+                    <span class="trend-subtag">Stacked &amp; Grouped Column</span>
+                </div>
+                <p class="chart-empty" data-sprint3-message>Loading summary...</p>
+                <div class="trend-chart">
+                    <canvas id="sprint3MemberStackedChart"></canvas>
+                </div>
+            </div>
+        </section> -->
+
+        <div class="sprint-filter">
+            <label for="globalSprintSelect">Current sprint</label>
+            <select id="globalSprintSelect"></select>
+        </div>
+
+        <!-- <section class="metrics">
+            <div class="metric-card">
+                <div class="metric-icon">✔</div>
+                <div class="metric-value" data-metric="completed">15</div>
+                <div class="metric-label">Completed</div>
+                <div class="metric-sub">In the last 7 days</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">✎</div>
+                <div class="metric-value" data-metric="updated">64</div>
+                <div class="metric-label">Updated</div>
+                <div class="metric-sub">In the last 7 days</div>
+            </div>
+        </section> -->
+
+        <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Story Points by Sprint Status</h3>
+                        <p class="workload-desc">See how statuses move day by day.</p>
+                    </div>
+                </div>
+                <div class="trend-subrow">
+                    <span class="trend-subtag">Daily story points trend</span>
+                </div>
+                <div class="trend-grid">
+                    <div class="trend-chart">
+                        <canvas id="sprintTrendChart"></canvas>
+                    </div>
+                    <div class="trend-chart trend-chart--members">
+                        <div class="trend-subtag trend-subtag--chart">Story Points Done + Ready for Deployment per member</div>
+                        <canvas id="memberTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Story Point Estimate x Member</h3>
+                        <p class="workload-desc">Done tasks in the current sprint by estimate and member.</p>
+                    </div>
+                    <div class="matrix-actions">
+                        <div class="matrix-meta">
+                            <span class="trend-subtag">Done tasks</span>
+                            <span class="matrix-count" data-matrix-count>0</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="matrix-empty" data-matrix-message>Loading matrix...</p>
+                <div class="matrix-table-wrap">
+                    <table id="storypoint-matrix-table" class="matrix-table">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <!-- <section class="status-section">
+            <div class="status-card">
+                <div class="status-card-header">
+                    <div>
+                        <h3 class="status-title">Status Overview</h3>
+                        <p class="status-desc">Get a snapshot of the status of your work items.</p>
+                    </div>
+                </div>
+                <div class="status-card-body">
+                    <div class="donut-wrap">
+                        <canvas id="statusChart"></canvas>
+                        <div class="donut-center">
+                            <div class="donut-total" data-status-total>62</div>
+                            <div class="donut-sub">Total work items</div>
+                        </div>
+                    </div>
+                    <div class="status-legend">
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#6ec5ff"></span>
+                            <span class="status-label">To Do</span>
+                            <span class="status-value" data-status="To Do">35</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#4b8cff"></span>
+                            <span class="status-label">In Progress</span>
+                            <span class="status-value" data-status="In Progress">5</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#f5d469"></span>
+                            <span class="status-label">In Review</span>
+                            <span class="status-value" data-status="In Review">6</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-dot" style="background:#1fce88"></span>
+                            <span class="status-label">Done</span>
+                            <span class="status-value" data-status="Done">16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workload-card">
+                <div class="workload-top">
+                    <div>
+                        <p class="workload-kicker">Team workload</p>
+                        <h3 class="workload-title">Monitor the capacity of your team.</h3>
+                        <p class="workload-desc">Reassign work items to get the right balance.</p>
+                    </div>
+                </div>
+                <div class="workload-headings">
+                    <span>Assignee</span>
+                    <span>Work distribution</span>
+                </div>
+                <div id="workload-list" class="workload-list"></div>
+            </div>
+        </section> -->
+
+        <section class="trend-section">
+            <div class="trend-card">
+                <div class="trend-card-header">
+                    <div class="trend-header-text">
+                        <h3 class="trend-main-title">Jira CSV Records</h3>
+                        <p class="workload-desc">Full list of the sprint CSV export.</p>
+                    </div>
+                    <div class="csv-actions">
+                        <label class="csv-filter">
+                            <span>Assignee</span>
+                            <select data-csv-assignee></select>
+                        </label>
+                        <label class="csv-filter">
+                            <span>Status</span>
+                            <select data-csv-status></select>
+                        </label>
+                        <div class="csv-meta">
+                            <span class="trend-subtag">Records</span>
+                            <span class="csv-count" data-csv-count>0</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="csv-empty" data-csv-message>Loading CSV...</p>
+                <div class="csv-table-wrap">
+                    <table id="csv-records-table" class="csv-table">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <div id="team-grid" class="team-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
