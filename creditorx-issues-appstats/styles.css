@@ -151,6 +151,41 @@ p {
   box-shadow: 0 0 16px rgba(205, 170, 86, 0.26);
 }
 
+.hero__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.hero__nav-link {
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 1px solid rgba(205, 170, 86, 0.26);
+  background: rgba(18, 18, 18, 0.92);
+  color: #eaeaea;
+  font-size: 0.94rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease,
+    color 160ms ease, background-color 160ms ease;
+}
+
+.hero__nav-link:hover,
+.hero__nav-link:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(241, 209, 138, 0.72);
+  color: #f1d18a;
+  outline: none;
+}
+
+.hero__nav-link--active {
+  border-color: rgba(241, 209, 138, 0.82);
+  background: rgba(51, 41, 24, 0.62);
+  color: #f1d18a;
+}
+
 .records-panel {
   width: 100%;
   border: 1px solid var(--panel-border);
@@ -522,8 +557,38 @@ p {
   text-shadow: none;
 }
 
+.timeline-panel__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 16px;
+}
+
+.timeline-panel__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.timeline-panel__legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--legend-color, #cdaa56);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.timeline-panel__legend-label {
+  font-size: 0.88rem;
+  color: #ececec;
+  letter-spacing: 0.02em;
+}
+
 .timeline-panel__chart-wrap {
-  margin-top: 20px;
+  margin-top: 16px;
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -532,7 +597,92 @@ p {
   display: block;
   width: 100%;
   min-width: 920px;
-  height: 280px;
+  height: 320px;
+}
+
+.timeline-tooltip {
+  position: fixed;
+  z-index: 30;
+  min-width: 220px;
+  max-width: 320px;
+  padding: 14px 16px;
+  border: 1px solid rgba(205, 170, 86, 0.34);
+  background:
+    linear-gradient(180deg, rgba(34, 34, 34, 0.98), rgba(17, 17, 17, 0.98));
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+}
+
+.timeline-tooltip__date,
+.timeline-tooltip__total,
+.timeline-tooltip__section-label {
+  margin: 0;
+  text-align: left;
+  text-shadow: none;
+}
+
+.timeline-tooltip__date {
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: #f4f4f4;
+}
+
+.timeline-tooltip__total {
+  margin-top: 4px;
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.timeline-tooltip__section-label {
+  margin-top: 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--text-soft);
+}
+
+.timeline-tooltip__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.timeline-tooltip__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline-tooltip__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.timeline-tooltip__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--tooltip-color, #cdaa56);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.timeline-tooltip__label {
+  min-width: 0;
+  font-size: 0.9rem;
+  color: #ededed;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeline-tooltip__value {
+  font-size: 0.9rem;
+  color: #f6f6f6;
 }
 
 .timeline-grid-line {
@@ -555,22 +705,29 @@ p {
   text-anchor: middle;
 }
 
-.timeline-area {
-  fill: rgba(205, 170, 86, 0.1);
+.timeline-bar-segment {
+  stroke: rgba(18, 18, 18, 0.9);
+  stroke-width: 1;
 }
 
-.timeline-line {
-  fill: none;
-  stroke: #d8b66c;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.timeline-bar-hitbox {
+  cursor: pointer;
 }
 
-.timeline-point {
-  fill: #f3d18a;
-  stroke: rgba(18, 18, 18, 0.95);
-  stroke-width: 1.5;
+.timeline-bar-value {
+  font-size: 11px;
+  font-weight: 600;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(0, 0, 0, 0.38);
+  stroke-width: 1.4;
+}
+
+.timeline-bar-total {
+  fill: #f3f3f3;
+  font-size: 12px;
+  font-weight: 600;
+  text-anchor: middle;
 }
 
 .timeline-baseline {
@@ -900,8 +1057,21 @@ p {
     padding: 28px 16px 24px;
   }
 
+  .hero__nav {
+    width: 100%;
+  }
+
+  .hero__nav-link {
+    width: 100%;
+    text-align: center;
+  }
+
   .timeline-panel {
     padding: 20px 18px 18px;
+  }
+
+  .timeline-panel__legend {
+    gap: 8px 10px;
   }
 
   .status-overview {

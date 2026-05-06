@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreditorX Issue Playbook</title>
+    <link rel="stylesheet" href="playbook.css" />
+  </head>
+  <body>
+    <a class="portal-home" href="../index.html" aria-label="Back to access portal">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M10 5H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"></path>
+        <path d="M14 17l-5-5 5-5"></path>
+        <path d="M9 12h11"></path>
+      </svg>
+    </a>
+    <a class="portal-dashboard" href="./index.html" aria-label="Back to CreditorX dashboard">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+        <rect x="14" y="3" width="7" height="4" rx="1.5"></rect>
+        <rect x="14" y="10" width="7" height="11" rx="1.5"></rect>
+        <rect x="3" y="13" width="7" height="8" rx="1.5"></rect>
+      </svg>
+    </a>
+    <main class="playbook">
+      <section class="playbook-hero" aria-label="CreditorX issue playbook header">
+        <span class="playbook-hero__eyebrow">Parallel Page</span>
+        <h1>CreditorX Issue Playbook</h1>
+        <p class="playbook-hero__subtitle">
+          Quick handling tips, operational instructions, and a visual map for issue-state transitions.
+        </p>
+        <nav class="playbook-hero__nav" aria-label="CreditorX playbook navigation">
+          <a class="playbook-hero__nav-link" href="./index.html">Dashboard</a>
+          <a class="playbook-hero__nav-link playbook-hero__nav-link--active" href="./playbook.html" aria-current="page">
+            Tips, Instructions and Flow
+          </a>
+        </nav>
+      </section>
+
+      <section class="playbook-section" aria-labelledby="flow-title">
+        <header class="playbook-section__header">
+          <div>
+            <span class="playbook-section__eyebrow">Flow Diagram</span>
+            <h2 id="flow-title">Issue State Flow</h2>
+          </div>
+          <p class="playbook-section__summary">
+            Recommended path from intake through validation, including the main loops that typically happen in this workflow.
+          </p>
+        </header>
+
+        <div class="flow-board">
+          <img
+            class="flow-board__image"
+            src="./imgs/flow.png"
+            alt="Issue state flow diagram for CreditorX issue statuses"
+          />
+        </div>
+
+        <article class="flow-guidance flow-guidance--faq" aria-label="FAQ access">
+          <div class="flow-guidance__row">
+            <h3>FAQs</h3>
+            <button class="flow-guidance__button" type="button">FAQs</button>
+          </div>
+          <p>
+            Use this access point for the most common customer-facing answers, repeated troubleshooting steps, and standard guidance before escalating.
+          </p>
+        </article>
+
+        <article class="flow-guidance" aria-label="Customer service handling rule">
+          <h3>Customer Service Rule</h3>
+          <p>
+            All issues in <code>Call Agent</code> and <code>Completed</code> must be handled by Customer Service.
+          </p>
+          <p>
+            After they attend the case, they must change the status to <code>Resolved with CX</code> or <code>Unresolved with CX</code>.
+          </p>
+        </article>
+      </section>
+
+      <section class="overview-grid" aria-label="CreditorX playbook overview">
+        <article class="signal-card signal-card--gold">
+          <span class="signal-card__label">Purpose</span>
+          <strong class="signal-card__value">Triage Faster</strong>
+          <p class="signal-card__text">
+            Standardize what the team captures before sending an issue deeper into the queue.
+          </p>
+        </article>
+        <article class="signal-card signal-card--blue">
+          <span class="signal-card__label">Focus</span>
+          <strong class="signal-card__value">Better Handoffs</strong>
+          <p class="signal-card__text">
+            Keep each status update clear enough that the next person can act without re-reading the whole thread.
+          </p>
+        </article>
+        <article class="signal-card signal-card--green">
+          <span class="signal-card__label">Goal</span>
+          <strong class="signal-card__value">Close Cleanly</strong>
+          <p class="signal-card__text">
+            Move tickets to the right end state with evidence, next action, or customer confirmation.
+          </p>
+        </article>
+      </section>
+
+      <section class="playbook-section" aria-labelledby="tips-title">
+        <header class="playbook-section__header">
+          <div>
+            <span class="playbook-section__eyebrow">Quick Tips</span>
+            <h2 id="tips-title">What To Collect Before Escalating</h2>
+          </div>
+          <p class="playbook-section__summary">
+            These inputs reduce loops between <code>Triage</code>, <code>Call Agent</code>, and <code>In progress</code>.
+          </p>
+        </header>
+        <div class="tips-grid">
+          <article class="info-card">
+            <h3>Identity and Context</h3>
+            <ul>
+              <li>Customer ID or account ID exactly as entered.</li>
+              <li>Platform and device: <code>iOS</code> or <code>Android</code>, plus phone model when relevant.</li>
+              <li>Flow stage: login, first login, blocked list, settings, carrier setup, or password reset.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Error Evidence</h3>
+            <ul>
+              <li>Exact error message, not a paraphrase.</li>
+              <li>Screenshot or short screen recording when the issue is visual or intermittent.</li>
+              <li>Date and approximate time when the user reproduced the problem.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Validation Checks</h3>
+            <ul>
+              <li>Confirm if the user already tried reinstalling, logging out, or resetting password.</li>
+              <li>Check whether phone number, DOB, and last 4 of SSN were validated against the expected source.</li>
+              <li>Note if the issue was reproduced internally or only reported by the customer.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Comment Quality</h3>
+            <ul>
+              <li>Write the next action in the first sentence.</li>
+              <li>Separate facts from assumptions.</li>
+              <li>Link the Jira ticket when engineering work already exists.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="playbook-section" aria-labelledby="instructions-title">
+        <header class="playbook-section__header">
+          <div>
+            <span class="playbook-section__eyebrow">Instructions</span>
+            <h2 id="instructions-title">How To Use The Statuses</h2>
+          </div>
+          <p class="playbook-section__summary">
+            Use statuses as operational signals, not just labels. Each one should imply a specific next move.
+          </p>
+        </header>
+        <div class="status-grid">
+          <article class="status-card status-card--new">
+            <h3>New</h3>
+            <p>The issue was received but has not been evaluated yet.</p>
+          </article>
+          <article class="status-card status-card--triage">
+            <h3>Triage</h3>
+            <p>Initial review is in progress and ownership or category is being decided.</p>
+          </article>
+          <article class="status-card status-card--call-agent">
+            <h3>Call Agent</h3>
+            <p>More information is required from the reporting side before meaningful work can continue.</p>
+          </article>
+          <article class="status-card status-card--queue">
+            <h3>In queue</h3>
+            <p>The issue is accepted and waiting for engineering or operational execution.</p>
+          </article>
+          <article class="status-card status-card--progress">
+            <h3>In progress</h3>
+            <p>Someone is actively testing, fixing, validating, or coordinating the solution.</p>
+          </article>
+          <article class="status-card status-card--followup">
+            <h3>Follow up</h3>
+            <p>Additional confirmation is pending after a fix, reply, or change was already provided.</p>
+          </article>
+          <article class="status-card status-card--completed">
+            <h3>Completed</h3>
+            <p>The internal work is done and the expected action or recommendation was delivered.</p>
+          </article>
+          <article class="status-card status-card--resolved">
+            <h3>Resolved with cx</h3>
+            <p>The customer impact is confirmed as solved.</p>
+          </article>
+          <article class="status-card status-card--unresolved">
+            <h3>Unresolved with cx</h3>
+            <p>The customer still reports the issue or the expected outcome was not achieved.</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>

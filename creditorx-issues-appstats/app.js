@@ -46,6 +46,7 @@ const statusPieLegend = document.getElementById("status-pie-legend");
 const statusPieSubtitle = document.getElementById("status-pie-subtitle");
 const timelineChart = document.getElementById("timeline-chart");
 const timelineSubtitle = document.getElementById("timeline-subtitle");
+const timelineLegend = document.getElementById("timeline-legend");
 const columnsControl = document.getElementById("columns-control");
 const columnsToggle = document.getElementById("columns-toggle");
 const columnsMenu = document.getElementById("columns-menu");
@@ -57,6 +58,7 @@ let tableHeaders = [];
 let allRows = [];
 let dateSortDirection = "desc";
 let visibleColumns = new Set();
+let timelineTooltip = null;
 
 const STATUS_CLASS_MAP = {
   new: "status-new",
@@ -337,6 +339,103 @@ function formatCompactDate(date) {
     month: "short",
     day: "numeric",
   }).format(date);
+}
+
+function getTimelineTooltip() {
+  if (timelineTooltip) {
+    return timelineTooltip;
+  }
+
+  timelineTooltip = document.createElement("div");
+  timelineTooltip.className = "timeline-tooltip";
+  timelineTooltip.hidden = true;
+  document.body.appendChild(timelineTooltip);
+  return timelineTooltip;
+}
+
+function hideTimelineTooltip() {
+  const tooltip = getTimelineTooltip();
+  tooltip.hidden = true;
+}
+
+function setTimelineTooltipPosition(clientX, clientY) {
+  const tooltip = getTimelineTooltip();
+  const offset = 16;
+  const { innerWidth, innerHeight } = window;
+  const { width, height } = tooltip.getBoundingClientRect();
+  let left = clientX + offset;
+  let top = clientY + offset;
+
+  if (left + width > innerWidth - 12) {
+    left = Math.max(12, clientX - width - offset);
+  }
+
+  if (top + height > innerHeight - 12) {
+    top = Math.max(12, clientY - height - offset);
+  }
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+}
+
+function getTimelineTooltipText(point) {
+  const lines = [
+    `${formatDisplayDate(point.date)}: ${point.total} issue${point.total === 1 ? "" : "s"}`,
+  ];
+
+  point.segments.forEach((segment) => {
+    lines.push(`${segment.status}: ${segment.value}`);
+  });
+
+  return lines.join("\n");
+}
+
+function showTimelineTooltip(point, clientX, clientY) {
+  const tooltip = getTimelineTooltip();
+  tooltip.replaceChildren();
+
+  const dateLabel = document.createElement("p");
+  dateLabel.className = "timeline-tooltip__date";
+  dateLabel.textContent = formatDisplayDate(point.date);
+
+  const totalLabel = document.createElement("p");
+  totalLabel.className = "timeline-tooltip__total";
+  totalLabel.textContent = `${point.total} issue${point.total === 1 ? "" : "s"} total`;
+
+  const conventionLabel = document.createElement("p");
+  conventionLabel.className = "timeline-tooltip__section-label";
+  conventionLabel.textContent = "Status convention";
+
+  const list = document.createElement("div");
+  list.className = "timeline-tooltip__list";
+
+  point.segments.forEach((segment) => {
+    const item = document.createElement("div");
+    item.className = "timeline-tooltip__item";
+
+    const statusGroup = document.createElement("div");
+    statusGroup.className = "timeline-tooltip__status";
+
+    const swatch = document.createElement("span");
+    swatch.className = "timeline-tooltip__swatch";
+    swatch.style.setProperty("--tooltip-color", getStatusColor(segment.status));
+
+    const label = document.createElement("span");
+    label.className = "timeline-tooltip__label";
+    label.textContent = segment.status;
+
+    const value = document.createElement("span");
+    value.className = "timeline-tooltip__value";
+    value.textContent = String(segment.value);
+
+    statusGroup.append(swatch, label);
+    item.append(statusGroup, value);
+    list.appendChild(item);
+  });
+
+  tooltip.append(dateLabel, totalLabel, conventionLabel, list);
+  tooltip.hidden = false;
+  setTimelineTooltipPosition(clientX, clientY);
 }
 
 function toIsoDate(date) {
@@ -953,6 +1052,53 @@ function getStatusColor(status) {
   return STATUS_COLOR_MAP[status.toLowerCase()] ?? STATUS_COLOR_MAP.unknown;
 }
 
+function parseHexColor(color) {
+  const trimmed = String(color ?? "").trim();
+  const normalized = trimmed.startsWith("#") ? trimmed.slice(1) : trimmed;
+
+  if (!/^[0-9a-f]{6}$/i.test(normalized)) {
+    return null;
+  }
+
+  return {
+    red: Number.parseInt(normalized.slice(0, 2), 16),
+    green: Number.parseInt(normalized.slice(2, 4), 16),
+    blue: Number.parseInt(normalized.slice(4, 6), 16),
+  };
+}
+
+function getSegmentLabelColor(color) {
+  const rgb = parseHexColor(color);
+
+  if (!rgb) {
+    return "#f5f5f5";
+  }
+
+  const brightness = (rgb.red * 299 + rgb.green * 587 + rgb.blue * 114) / 1000;
+  return brightness > 160 ? "#161616" : "#f6f6f6";
+}
+
+function getTimelineScale(maxObservedValue) {
+  const safeMaxValue = Math.max(1, Math.ceil(maxObservedValue));
+
+  if (safeMaxValue <= 6) {
+    return {
+      axisMax: safeMaxValue,
+      tickStep: 1,
+      tickCount: safeMaxValue,
+    };
+  }
+
+  const tickCount = 4;
+  const tickStep = Math.max(1, Math.ceil(safeMaxValue / tickCount));
+
+  return {
+    axisMax: tickStep * tickCount,
+    tickStep,
+    tickCount,
+  };
+}
+
 function describeYearSelection() {
   return yearFilter.value === "all" ? "selected years" : yearFilter.value;
 }
@@ -985,10 +1131,14 @@ function getTimelineSeries(rows, headers) {
   const dateColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(DATE_COLUMN_NAME)
   );
+  const statusColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
+  );
   const { startDate, endDate, selectedYear } = buildTimelineRange();
   const series = [];
   const counts = new Map();
   const currentDate = new Date(startDate);
+  const timelineStatusCounts = new Map();
 
   rows.forEach((row) => {
     if (dateColumnIndex < 0) {
@@ -1002,15 +1152,36 @@ function getTimelineSeries(rows, headers) {
     }
 
     const isoDate = toIsoDate(parsedDate);
-    counts.set(isoDate, (counts.get(isoDate) ?? 0) + 1);
+    const rawStatus =
+      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
+    const status = rawStatus || "Unknown";
+    const dateCounts = counts.get(isoDate) ?? new Map();
+    dateCounts.set(status, (dateCounts.get(status) ?? 0) + 1);
+    counts.set(isoDate, dateCounts);
+    timelineStatusCounts.set(status, (timelineStatusCounts.get(status) ?? 0) + 1);
   });
+
+  const orderedStatuses = getOrderedStatusEntries(timelineStatusCounts).map(
+    ([status]) => status
+  );
 
   while (currentDate <= endDate) {
     const isoDate = toIsoDate(currentDate);
+    const dateCounts = counts.get(isoDate) ?? new Map();
+    const segments = orderedStatuses
+      .map((status) => ({
+        status,
+        value: dateCounts.get(status) ?? 0,
+      }))
+      .filter(({ value }) => value > 0);
+    const total = segments.reduce((sum, segment) => sum + segment.value, 0);
+
     series.push({
       isoDate,
       label: formatCompactDate(currentDate),
-      value: counts.get(isoDate) ?? 0,
+      value: total,
+      total,
+      segments,
       date: new Date(currentDate),
     });
     currentDate.setDate(currentDate.getDate() + 1);
@@ -1018,6 +1189,7 @@ function getTimelineSeries(rows, headers) {
 
   return {
     series,
+    orderedStatuses,
     startDate,
     endDate,
     selectedYear,
@@ -1147,29 +1319,48 @@ function renderStatusPie(rows, headers) {
   });
 }
 
-function renderTimeline(rows, headers) {
-  const { series, startDate, endDate, selectedYear } = getTimelineSeries(
+function renderTimeline(rows, headers, scaleRows = rows) {
+  const { series, orderedStatuses, startDate, endDate, selectedYear } = getTimelineSeries(
     rows,
     headers
   );
+  const { series: scaleSeries } = getTimelineSeries(scaleRows, headers);
 
-  timelineSubtitle.textContent = `Daily issue volume from ${formatCompactDate(startDate)} to ${formatCompactDate(endDate)} ${selectedYear}.`;
+  timelineSubtitle.textContent = `Daily issue volume by status from ${formatCompactDate(startDate)} to ${formatCompactDate(endDate)} ${selectedYear}.`;
   timelineChart.replaceChildren();
+  timelineLegend.replaceChildren();
+  hideTimelineTooltip();
 
-  const width = Math.max(960, series.length * 16);
-  const height = 280;
-  const margin = { top: 18, right: 22, bottom: 38, left: 46 };
+  const width = Math.max(960, series.length * 22);
+  const height = 320;
+  const margin = { top: 16, right: 22, bottom: 40, left: 46 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
-  const maxValue = Math.max(1, ...series.map((point) => point.value));
-  const yTicks = 4;
+  const observedMaxValue = Math.max(0, ...scaleSeries.map((point) => point.total));
+  const { axisMax, tickStep, tickCount } = getTimelineScale(observedMaxValue);
 
   timelineChart.setAttribute("viewBox", `0 0 ${width} ${height}`);
 
-  for (let tick = 0; tick <= yTicks; tick += 1) {
-    const value = Math.round((maxValue / yTicks) * tick);
+  orderedStatuses.forEach((status) => {
+    const item = document.createElement("div");
+    item.className = "timeline-panel__legend-item";
+
+    const swatch = document.createElement("span");
+    swatch.className = "timeline-panel__legend-swatch";
+    swatch.style.setProperty("--legend-color", getStatusColor(status));
+
+    const label = document.createElement("span");
+    label.className = "timeline-panel__legend-label";
+    label.textContent = status;
+
+    item.append(swatch, label);
+    timelineLegend.appendChild(item);
+  });
+
+  for (let tick = 0; tick <= tickCount; tick += 1) {
+    const value = tickStep * tick;
     const y =
-      margin.top + innerHeight - (innerHeight * tick) / yTicks;
+      margin.top + innerHeight - (innerHeight * tick) / tickCount;
 
     const gridLine = createSvgElement("line", {
       x1: margin.left,
@@ -1193,33 +1384,12 @@ function renderTimeline(rows, headers) {
     return;
   }
 
-  const getX = (index) =>
-    series.length === 1
-      ? margin.left + innerWidth / 2
-      : margin.left + (innerWidth * index) / (series.length - 1);
   const getY = (value) =>
-    margin.top + innerHeight - (value / maxValue) * innerHeight;
-
-  const linePoints = series.map(
-    (point, index) => `${getX(index)},${getY(point.value)}`
-  );
-  const areaPoints = [
-    `${getX(0)},${margin.top + innerHeight}`,
-    ...linePoints,
-    `${getX(series.length - 1)},${margin.top + innerHeight}`,
-  ];
-
-  const area = createSvgElement("polygon", {
-    points: areaPoints.join(" "),
-    class: "timeline-area",
-  });
-  timelineChart.appendChild(area);
-
-  const line = createSvgElement("polyline", {
-    points: linePoints.join(" "),
-    class: "timeline-line",
-  });
-  timelineChart.appendChild(line);
+    margin.top + innerHeight - (value / axisMax) * innerHeight;
+  const slotWidth = innerWidth / Math.max(series.length, 1);
+  const barWidth = Math.max(10, Math.min(26, slotWidth * 0.72));
+  const getBarX = (index) =>
+    margin.left + index * slotWidth + (slotWidth - barWidth) / 2;
 
   const xLabelIndices = new Set([0, series.length - 1]);
   series.forEach((point, index) => {
@@ -1229,20 +1399,94 @@ function renderTimeline(rows, headers) {
   });
 
   series.forEach((point, index) => {
-    const circle = createSvgElement("circle", {
-      cx: getX(index),
-      cy: getY(point.value),
-      r: 3.5,
-      class: "timeline-point",
+    const x = getBarX(index);
+    const slotX = margin.left + index * slotWidth;
+    let accumulatedValue = 0;
+
+    point.segments.forEach((segment) => {
+      const nextValue = accumulatedValue + segment.value;
+      const y = getY(nextValue);
+      const segmentHeight = getY(accumulatedValue) - y;
+      const color = getStatusColor(segment.status);
+      const rect = createSvgElement("rect", {
+        x,
+        y,
+        width: barWidth,
+        height: segmentHeight,
+        rx: nextValue === point.total ? 4 : 0,
+        ry: nextValue === point.total ? 4 : 0,
+        fill: color,
+        class: "timeline-bar-segment",
+      });
+      const title = createSvgElement("title");
+      title.textContent = `${point.isoDate} · ${segment.status}: ${segment.value} issue${segment.value === 1 ? "" : "s"}`;
+      rect.appendChild(title);
+      timelineChart.appendChild(rect);
+
+      if (segmentHeight >= 18) {
+        const segmentLabel = createSvgElement("text", {
+          x: x + barWidth / 2,
+          y: y + segmentHeight / 2 + 4,
+          class: "timeline-bar-value",
+          fill: getSegmentLabelColor(color),
+        });
+        segmentLabel.textContent = String(segment.value);
+        timelineChart.appendChild(segmentLabel);
+      }
+
+      accumulatedValue = nextValue;
     });
-    const title = createSvgElement("title");
-    title.textContent = `${point.isoDate}: ${point.value} issue${point.value === 1 ? "" : "s"}`;
-    circle.appendChild(title);
-    timelineChart.appendChild(circle);
+
+    if (point.total > 0) {
+      const totalLabel = createSvgElement("text", {
+        x: x + barWidth / 2,
+        y: getY(point.total) - 8,
+        class: "timeline-bar-total",
+      });
+      totalLabel.textContent = String(point.total);
+      timelineChart.appendChild(totalLabel);
+
+      const hitbox = createSvgElement("rect", {
+        x: slotX,
+        y: margin.top,
+        width: slotWidth,
+        height: innerHeight,
+        fill: "transparent",
+        class: "timeline-bar-hitbox",
+        tabindex: 0,
+      });
+      hitbox.setAttribute("aria-label", getTimelineTooltipText(point));
+      const title = createSvgElement("title");
+      title.textContent = getTimelineTooltipText(point);
+      hitbox.appendChild(title);
+
+      hitbox.addEventListener("mousemove", (event) => {
+        showTimelineTooltip(point, event.clientX, event.clientY);
+      });
+      hitbox.addEventListener("mouseenter", (event) => {
+        showTimelineTooltip(point, event.clientX, event.clientY);
+      });
+      hitbox.addEventListener("mouseleave", () => {
+        hideTimelineTooltip();
+      });
+      hitbox.addEventListener("focus", () => {
+        const bounds = hitbox.getBoundingClientRect();
+        showTimelineTooltip(
+          point,
+          bounds.left + bounds.width / 2,
+          bounds.top + Math.min(bounds.height * 0.3, 48)
+        );
+      });
+      hitbox.addEventListener("blur", () => {
+        hideTimelineTooltip();
+      });
+
+      timelineChart.appendChild(hitbox);
+    }
 
     if (xLabelIndices.has(index)) {
       const label = createSvgElement("text", {
-        x: getX(index),
+        x: x + barWidth / 2,
         y: height - 12,
         class: "timeline-axis-text timeline-axis-text--x",
       });
@@ -1253,10 +1497,11 @@ function renderTimeline(rows, headers) {
 }
 
 function refreshTable() {
+  const yearFilteredRows = getYearFilteredRows();
   const baseFilteredRows = getFilteredRows();
   renderStatusSummary(baseFilteredRows, tableHeaders);
   renderStatusPie(baseFilteredRows, tableHeaders);
-  renderTimeline(baseFilteredRows, tableHeaders);
+  renderTimeline(baseFilteredRows, tableHeaders, yearFilteredRows);
 
   populateStatusFilter(baseFilteredRows, tableHeaders);
   const filteredRows = getTableFilteredRows(baseFilteredRows, tableHeaders);
