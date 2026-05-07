@@ -3,6 +3,8 @@ const CSV_MANIFEST_PATH = `${DATA_DIRECTORY}files.json`;
 const FALLBACK_CSV_FILES = [
   "data/Issues-4-may.csv",
   "data/Issues-5-may.csv",
+  "data/issues-6-may.csv",
+  "data/Issues-7-may.csv",
 ];
 const COLUMN_PREFS_STORAGE_KEY = "creditorx-issues-visible-columns-v1";
 const DATE_COLUMN_NAME = "Date";
@@ -657,9 +659,6 @@ function mergeDatasets(datasets) {
     mergedHeaders.splice(insertionIndex, 0, LAST_UPDATE_COLUMN_NAME);
   }
 
-  const lastUpdateColumnIndex = mergedHeaders.findIndex(
-    (header) => normalizeColumnKey(header) === normalizeColumnKey(LAST_UPDATE_COLUMN_NAME)
-  );
   const consolidatedIssues = new Map();
 
   datasetsInOrder.forEach((dataset) => {
@@ -686,19 +685,12 @@ function mergeDatasets(datasets) {
         return;
       }
 
-      if (existingIssue.status !== nextStatus.toLowerCase()) {
-        existingIssue.row = mergedHeaders.map((header) =>
-          header === LAST_UPDATE_COLUMN_NAME
-            ? dataset.sourceLastUpdate
-            : rowMap.get(header) ?? ""
-        );
-        existingIssue.status = nextStatus.toLowerCase();
-      } else if (
-        !existingIssue.row[lastUpdateColumnIndex] &&
-        dataset.sourceLastUpdate
-      ) {
-        existingIssue.row[lastUpdateColumnIndex] = dataset.sourceLastUpdate;
-      }
+      existingIssue.row = mergedHeaders.map((header) =>
+        header === LAST_UPDATE_COLUMN_NAME
+          ? dataset.sourceLastUpdate
+          : rowMap.get(header) ?? ""
+      );
+      existingIssue.status = nextStatus.toLowerCase();
     });
   });
 
