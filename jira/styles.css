@@ -677,6 +677,119 @@ h1 {
     cursor: pointer;
 }
 
+.columns-control {
+    position: relative;
+}
+
+.columns-toggle {
+    min-width: 132px;
+    height: 44px;
+    padding: 0 16px;
+    border: 1px solid rgba(201, 168, 92, 0.85);
+    background: rgba(17, 17, 17, 0.96);
+    color: #c9a85c;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.columns-toggle:hover,
+.columns-toggle[aria-expanded="true"] {
+    border-color: #f1d18a;
+    color: #f1d18a;
+}
+
+.columns-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 320px;
+    padding: 18px;
+    border: 1px solid rgba(201, 168, 92, 0.45);
+    background: rgba(18, 18, 18, 0.98);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+    z-index: 8;
+}
+
+.columns-menu__header strong {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e9c873;
+}
+
+.columns-menu__toolbar {
+    display: flex;
+    gap: 14px;
+    margin-top: 14px;
+    margin-bottom: 16px;
+}
+
+.columns-menu__action {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #e0e0e0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.columns-menu__action:hover {
+    color: #f1d18a;
+}
+
+.columns-menu__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 360px;
+    overflow: auto;
+}
+
+.columns-menu__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.columns-menu__label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.columns-menu__checkbox {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #c9a85c;
+}
+
+.columns-menu__text {
+    display: block;
+    min-width: 0;
+    color: #ececec;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .csv-meta {
     display: inline-flex;
     align-items: center;

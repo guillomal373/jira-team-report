@@ -22,6 +22,15 @@ const storyPointSizeColorMap = {
     L: '#f0a74f',
     XL: '#e65b5b'
 };
+const defaultCsvVisibleColumns = new Set([
+    'issue key',
+    'summary',
+    'status',
+    'custom field (story point estimate)',
+    'created',
+    'updated',
+    'labels'
+]);
 let sprintTrendChart = null;
 let sprintMemberChart = null;
 let sprintSummaryChart = null;
@@ -46,7 +55,8 @@ const csvTableState = {
     rows: [],
     assigneeIndex: -1,
     assigneeAliases: new Map(),
-    statusIndex: -1
+    statusIndex: -1,
+    visibleColumns: new Set()
 };
 let explicitAssigneeAliases = new Map();
 
@@ -722,6 +732,10 @@ async function loadTeam() {
                             <span class="mini-metric-label">Highest Sprint Vel.</span>
                             <span class="mini-metric-value" data-member-highest-velocity="${member.name}">0</span>
                         </div>
+                        <div class="mini-metric-row">
+                            <span class="mini-metric-label">Average Sprint Vel.</span>
+                            <span class="mini-metric-value" data-member-average-velocity="${member.name}">0</span>
+                        </div>
                     </div>
                     <div class="mini-status-card is-hidden-for-later">
                         <h4 class="mini-status-title">Work Status</h4>
@@ -1009,15 +1023,44 @@ function escHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
-function renderCsvTable(table, header, rows) {
+function renderCsvTable(table, header, rows, visibleColumnIndexes = null) {
     if (!table) return;
     const thead = table.querySelector('thead') || table.createTHead();
     const tbody = table.querySelector('tbody') || table.createTBody();
+    const indexes = Array.isArray(visibleColumnIndexes) && visibleColumnIndexes.length
+        ? visibleColumnIndexes
+        : header.map((_, idx) => idx);
 
-    thead.innerHTML = `<tr>${header.map((cell, idx) => `<th>${escHtml(cell || `Col ${idx + 1}`)}</th>`).join('')}</tr>`;
+    thead.innerHTML = `<tr>${indexes.map(idx => `<th>${escHtml(header[idx] || `Col ${idx + 1}`)}</th>`).join('')}</tr>`;
     tbody.innerHTML = rows.map(row =>
-        `<tr>${row.map(cell => `<td>${escHtml(cell)}</td>`).join('')}</tr>`
+        `<tr>${indexes.map(idx => `<td>${escHtml(row[idx])}</td>`).join('')}</tr>`
     ).join('');
+}
+
+function groupCsvLabelColumns(header = [], rows = []) {
+    const labelIndexes = header
+        .map((cell, idx) => String(cell || '').trim().toLowerCase() === 'labels' ? idx : -1)
+        .filter(idx => idx >= 0);
+
+    if (labelIndexes.length <= 1) {
+        return { header, rows };
+    }
+
+    const labelIndexSet = new Set(labelIndexes);
+    const firstLabelIndex = labelIndexes[0];
+    const retainedIndexes = header
+        .map((_, idx) => idx)
+        .filter(idx => idx === firstLabelIndex || !labelIndexSet.has(idx));
+    const nextHeader = retainedIndexes.map(idx => header[idx]);
+    const nextRows = rows.map(row => {
+        const groupedLabels = labelIndexes
+            .map(idx => String(row[idx] || '').trim())
+            .filter(Boolean);
+
+        return retainedIndexes.map(idx => idx === firstLabelIndex ? groupedLabels.join(', ') : row[idx]);
+    });
+
+    return { header: nextHeader, rows: nextRows };
 }
 
 function renderStoryPointMatrix(table, header, rows) {
@@ -1705,6 +1748,130 @@ function buildStatusOptions(selectEl, statuses = []) {
     selectEl.innerHTML = html;
 }
 
+function getCsvColumnKey(header, index) {
+    return `${index}:${String(header || '').trim() || `Col ${index + 1}`}`;
+}
+
+function isDefaultCsvVisibleColumn(header = '') {
+    return defaultCsvVisibleColumns.has(String(header || '').trim().toLowerCase());
+}
+
+function resetCsvVisibleColumns() {
+    csvTableState.visibleColumns = new Set(
+        csvTableState.header
+            .map((header, idx) => ({ header, idx }))
+            .filter(({ header }) => isDefaultCsvVisibleColumn(header))
+            .map(({ header, idx }) => getCsvColumnKey(header, idx))
+    );
+}
+
+function showAllCsvColumns() {
+    csvTableState.visibleColumns = new Set(
+        csvTableState.header.map((header, idx) => getCsvColumnKey(header, idx))
+    );
+}
+
+function getSelectedCsvColumnIndexes(header = []) {
+    if (!csvTableState.visibleColumns.size) return header.map((_, idx) => idx);
+    const indexes = header
+        .map((cell, idx) => ({ idx, key: getCsvColumnKey(cell, idx) }))
+        .filter(entry => csvTableState.visibleColumns.has(entry.key))
+        .map(entry => entry.idx);
+    return indexes.length ? indexes : header.map((_, idx) => idx);
+}
+
+function renderCsvColumnsMenu() {
+    const listEl = document.querySelector('[data-csv-columns-list]');
+    if (!listEl) return;
+
+    listEl.innerHTML = '';
+    csvTableState.header.forEach((header, idx) => {
+        const key = getCsvColumnKey(header, idx);
+        const item = document.createElement('div');
+        item.className = 'columns-menu__item';
+
+        const label = document.createElement('label');
+        label.className = 'columns-menu__label';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'columns-menu__checkbox';
+        checkbox.checked = csvTableState.visibleColumns.has(key);
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                csvTableState.visibleColumns.add(key);
+            } else {
+                csvTableState.visibleColumns.delete(key);
+            }
+            applyCsvFilters();
+        });
+
+        const text = document.createElement('span');
+        text.className = 'columns-menu__text';
+        text.textContent = header || `Col ${idx + 1}`;
+
+        label.append(checkbox, text);
+        item.appendChild(label);
+        listEl.appendChild(item);
+    });
+}
+
+function setCsvColumnsMenuOpen(isOpen) {
+    const menuEl = document.querySelector('[data-csv-columns-menu]');
+    const toggleEl = document.querySelector('[data-csv-columns-toggle]');
+    if (!menuEl || !toggleEl) return;
+
+    menuEl.hidden = !isOpen;
+    toggleEl.setAttribute('aria-expanded', String(isOpen));
+}
+
+function toggleCsvColumnsMenu() {
+    const menuEl = document.querySelector('[data-csv-columns-menu]');
+    setCsvColumnsMenuOpen(Boolean(menuEl?.hidden));
+}
+
+function bindCsvColumnsControl() {
+    const controlEl = document.querySelector('[data-csv-columns-control]');
+    const toggleEl = document.querySelector('[data-csv-columns-toggle]');
+    const selectAllEl = document.querySelector('[data-csv-columns-select-all]');
+    const resetEl = document.querySelector('[data-csv-columns-reset]');
+
+    if (toggleEl && !toggleEl.dataset.bound) {
+        toggleEl.addEventListener('click', toggleCsvColumnsMenu);
+        toggleEl.dataset.bound = 'true';
+    }
+
+    if (selectAllEl && !selectAllEl.dataset.bound) {
+        selectAllEl.addEventListener('click', () => {
+            showAllCsvColumns();
+            renderCsvColumnsMenu();
+            applyCsvFilters();
+        });
+        selectAllEl.dataset.bound = 'true';
+    }
+
+    if (resetEl && !resetEl.dataset.bound) {
+        resetEl.addEventListener('click', () => {
+            resetCsvVisibleColumns();
+            renderCsvColumnsMenu();
+            applyCsvFilters();
+        });
+        resetEl.dataset.bound = 'true';
+    }
+
+    if (controlEl && !controlEl.dataset.bound) {
+        document.addEventListener('click', event => {
+            if (!controlEl.contains(event.target)) {
+                setCsvColumnsMenuOpen(false);
+            }
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') setCsvColumnsMenuOpen(false);
+        });
+        controlEl.dataset.bound = 'true';
+    }
+}
+
 function filterCsvRowsByAssignee(rows = [], assigneeIndex, selected, aliasMap = new Map()) {
     if (!rows.length) return [];
     if (assigneeIndex < 0 || !selected || selected === 'all') return rows;
@@ -1743,7 +1910,8 @@ function applyCsvFilters() {
         csvTableState.statusIndex,
         selectedStatus
     );
-    renderCsvTable(table, csvTableState.header, filteredRows);
+    const visibleColumnIndexes = getSelectedCsvColumnIndexes(csvTableState.header);
+    renderCsvTable(table, csvTableState.header, filteredRows, visibleColumnIndexes);
 
     if (countEl) countEl.textContent = String(filteredRows.length);
     if (messageEl) {
@@ -1880,12 +2048,16 @@ async function loadCsvTable(csvPathOverride) {
             ))
             : [];
         const normalizedFilteredRows = [header, ...filteredRows];
+        const tableData = groupCsvLabelColumns(header, filteredRows);
+        const tableAssigneeIndex = getAssigneeIndex(tableData.header);
+        const tableStatusIndex = getStatusIndex(tableData.header);
 
-        csvTableState.header = header;
-        csvTableState.rows = filteredRows;
-        csvTableState.assigneeIndex = assigneeIndex;
+        csvTableState.header = tableData.header;
+        csvTableState.rows = tableData.rows;
+        csvTableState.assigneeIndex = tableAssigneeIndex;
         csvTableState.assigneeAliases = assigneeAliases;
-        csvTableState.statusIndex = statusIndex;
+        csvTableState.statusIndex = tableStatusIndex;
+        resetCsvVisibleColumns();
 
         labelMapByAssigneeCurrent = buildLabelMapFromCsv(normalizedFilteredRows, assigneeAliases);
         isCurrentLabelsReady = true;
@@ -1893,6 +2065,8 @@ async function loadCsvTable(csvPathOverride) {
 
         buildAssigneeOptions(filterEl, teamCache, filteredAssignees, assigneeAliases);
         buildStatusOptions(statusEl, filteredStatuses.length ? filteredStatuses : csvStatuses);
+        renderCsvColumnsMenu();
+        bindCsvColumnsControl();
         if (filterEl && !filterEl.dataset.bound) {
             filterEl.addEventListener('change', applyCsvFilters);
             filterEl.dataset.bound = 'true';
@@ -2110,6 +2284,11 @@ function renderTrendChart(canvas, labels, datasets) {
 function findSprintByNumber(sprints = [], number = 0) {
     const regex = new RegExp(`\\bSprint\\s*${number}\\b`, 'i');
     return (sprints || []).find(entry => regex.test(entry?.name || '')) || null;
+}
+
+function getSprintNumber(entry = {}) {
+    const match = String(entry?.name || '').match(/\bSprint\s*(\d+)\b/i);
+    return match ? Number(match[1]) : null;
 }
 
 function getStoryPointSizeLabel(rawValue = '') {
@@ -2407,9 +2586,11 @@ async function updateMemberVelocityForSprint(sprint, metaEntry, teamMembers = []
 
 async function updateHighestMemberVelocity(sprintMeta = [], teamMembers = []) {
     const highestNodes = document.querySelectorAll('[data-member-highest-velocity]');
-    if (!highestNodes.length || !Array.isArray(sprintMeta) || !sprintMeta.length) return;
+    const averageNodes = document.querySelectorAll('[data-member-average-velocity]');
+    if ((!highestNodes.length && !averageNodes.length) || !Array.isArray(sprintMeta) || !sprintMeta.length) return;
 
     const highestByName = new Map();
+    const averageStatsByName = new Map();
     await Promise.all(sprintMeta.map(async entry => {
         if (!entry?.csvFile) return;
 
@@ -2417,19 +2598,34 @@ async function updateHighestMemberVelocity(sprintMeta = [], teamMembers = []) {
             const rows = await loadCsvRows(`./data/${entry.csvFile}`);
             const totals = buildMemberDoneTotalsFromCsvRows(rows, teamMembers);
             if (!totals) return;
+            const sprintNumber = getSprintNumber(entry);
 
             totals.forEach((value, name) => {
                 const currentHighest = highestByName.get(name) || 0;
                 if (value > currentHighest) highestByName.set(name, value);
+
+                if (sprintNumber != null && sprintNumber >= 5 && value >= 10) {
+                    const currentStats = averageStatsByName.get(name) || { total: 0, count: 0 };
+                    currentStats.total += value;
+                    currentStats.count += 1;
+                    averageStatsByName.set(name, currentStats);
+                }
             });
         } catch (error) {
-            console.warn('Error loading CSV highest velocity:', entry.csvFile, error);
+            console.warn('Error loading CSV velocity stats:', entry.csvFile, error);
         }
     }));
 
     highestNodes.forEach(node => {
         const name = node.getAttribute('data-member-highest-velocity') || '';
         node.textContent = formatVelocityValue(highestByName.get(name) || 0);
+    });
+
+    averageNodes.forEach(node => {
+        const name = node.getAttribute('data-member-average-velocity') || '';
+        const stats = averageStatsByName.get(name);
+        const average = stats?.count ? stats.total / stats.count : 0;
+        node.textContent = formatVelocityValue(average);
     });
 }
 

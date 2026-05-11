@@ -221,6 +221,32 @@
                             <span>Status</span>
                             <select data-csv-status></select>
                         </label>
+                        <div class="columns-control" data-csv-columns-control>
+                            <button
+                                type="button"
+                                class="columns-toggle"
+                                data-csv-columns-toggle
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                aria-controls="csv-columns-menu"
+                            >
+                                Columns
+                            </button>
+                            <div class="columns-menu" id="csv-columns-menu" data-csv-columns-menu hidden>
+                                <div class="columns-menu__header">
+                                    <strong>Visible Columns</strong>
+                                </div>
+                                <div class="columns-menu__toolbar">
+                                    <button type="button" class="columns-menu__action" data-csv-columns-select-all>
+                                        Select All
+                                    </button>
+                                    <button type="button" class="columns-menu__action" data-csv-columns-reset>
+                                        Reset
+                                    </button>
+                                </div>
+                                <div class="columns-menu__list" data-csv-columns-list></div>
+                            </div>
+                        </div>
                         <div class="csv-meta">
                             <span class="trend-subtag">Records</span>
                             <span class="csv-count" data-csv-count>0</span>
