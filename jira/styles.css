@@ -977,6 +977,10 @@ h1 {
     pointer-events: none;
 }
 
+.is-hidden-for-later {
+    display: none !important;
+}
+
 .chart-container {
     position: relative;
     height: 280px;

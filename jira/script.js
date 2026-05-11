@@ -718,8 +718,12 @@ async function loadTeam() {
                             <span class="mini-metric-label" data-member-velocity-label>Sprint Vel.</span>
                             <span class="mini-metric-value" data-member-velocity="${member.name}">0</span>
                         </div>
+                        <div class="mini-metric-row">
+                            <span class="mini-metric-label">Highest Sprint Vel.</span>
+                            <span class="mini-metric-value" data-member-highest-velocity="${member.name}">0</span>
+                        </div>
                     </div>
-                    <div class="mini-status-card">
+                    <div class="mini-status-card is-hidden-for-later">
                         <h4 class="mini-status-title">Work Status</h4>
                         <div class="mini-donut">
                             <div class="mini-donut-wrap">
@@ -734,14 +738,14 @@ async function loadTeam() {
                             ${buildStatusRows(member.status.labels, member.status.counts, member.name)}
                         </div>
                     </div>
-                    <div class="chart-container">
+                    <div class="chart-container is-hidden-for-later">
                         <canvas id="${radarId}"></canvas>
                     </div>
-                    <div class="radar-legend">
+                    <div class="radar-legend is-hidden-for-later">
                         <span class="radar-pill radar-pill--current">Current</span>
                         <span class="radar-pill radar-pill--initial">Initial</span>
                     </div>
-                    <div class="skills-legend">
+                    <div class="skills-legend is-hidden-for-later">
                         ${buildSkillTags(skillData.labels)}
                     </div>
                 </div>
@@ -862,6 +866,7 @@ async function loadSprintTrends() {
         if (!isTotalLabelsReady) {
             loadAccumulatedWordClouds(sprintMeta);
         }
+        updateHighestMemberVelocity(sprintMeta, teamCache);
         loadCsvStatusSummaryForAllSprints(sprintMeta, teamCache);
 
         selectEl.addEventListener('change', render);
@@ -2397,6 +2402,34 @@ async function updateMemberVelocityForSprint(sprint, metaEntry, teamMembers = []
         const name = node.getAttribute('data-member-velocity') || '';
         const done = doneByName.get(name) || 0;
         node.textContent = formatVelocityValue(done);
+    });
+}
+
+async function updateHighestMemberVelocity(sprintMeta = [], teamMembers = []) {
+    const highestNodes = document.querySelectorAll('[data-member-highest-velocity]');
+    if (!highestNodes.length || !Array.isArray(sprintMeta) || !sprintMeta.length) return;
+
+    const highestByName = new Map();
+    await Promise.all(sprintMeta.map(async entry => {
+        if (!entry?.csvFile) return;
+
+        try {
+            const rows = await loadCsvRows(`./data/${entry.csvFile}`);
+            const totals = buildMemberDoneTotalsFromCsvRows(rows, teamMembers);
+            if (!totals) return;
+
+            totals.forEach((value, name) => {
+                const currentHighest = highestByName.get(name) || 0;
+                if (value > currentHighest) highestByName.set(name, value);
+            });
+        } catch (error) {
+            console.warn('Error loading CSV highest velocity:', entry.csvFile, error);
+        }
+    }));
+
+    highestNodes.forEach(node => {
+        const name = node.getAttribute('data-member-highest-velocity') || '';
+        node.textContent = formatVelocityValue(highestByName.get(name) || 0);
     });
 }
 

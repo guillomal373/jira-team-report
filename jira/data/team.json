@@ -97,6 +97,27 @@
       "active": false
     },
     {
+      "name": "Diana Adarme",
+      "csvAliases": [
+        "Diana Maribel Adarme Dominguez"
+      ],
+      "role": "Jr Front-End Developer",
+      "hero": "lucy",
+      "level": 10,
+      "color": "#FF00FF",
+      "badges": ["jira", "confluence"],
+      "skills": {
+        "labels": ["JavaScript", "TypeScript", "React"],
+        "levels": [7, 6, 7, 6, 5],
+        "initialLevels": [2, 2, 2, 2, 2]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [5, 2, 1, 4]
+      },
+      "active": true
+    },
+    {
       "name": "Guillermo Malagón",
       "role": "Project manager",
       "hero": "hulk",

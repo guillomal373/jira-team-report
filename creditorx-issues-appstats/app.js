@@ -5,6 +5,7 @@ const FALLBACK_CSV_FILES = [
   "data/Issues-5-may.csv",
   "data/issues-6-may.csv",
   "data/Issues-7-may.csv",
+  "data/Issues-8-may.csv",
 ];
 const COLUMN_PREFS_STORAGE_KEY = "creditorx-issues-visible-columns-v1";
 const DATE_COLUMN_NAME = "Date";
