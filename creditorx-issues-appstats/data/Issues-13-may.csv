@@ -1,0 +1,787 @@
+"Customer Name","Reported By",Date,Carrier/Provider,"Customer ID","IOS or Android","Reported Issue",Status,Module/Section,"Dev Team comments","Jira ticket",Priority
+"Lorena Martinez",joeym@cordobalegal.com,2025-10-27,,CORDOBA-1114516608,Android,"When the client logs into CREDITOR X and enters their date of birth (September 5, 1966), the system does not allow them to select the correct day (05); it only allows them to choose the number 04, preventing them from accessing the account.",Completed,,,,Medium
+"Alison Tober",Luis.Agramonte@cordobalegal.com,2026-04-24,,CORDOBA-1206460669,Android,"""you already logged into the app before"" Even when the client haven't logged in before.","Call Agent (Additional information)",,"D- The user is already registered in the CX database, meaning they have logged in before. Please contact the user and instruct them to try logging in with their FORTHCRM credentials. If they don't remember them, guide them through the password reset process. The following link, in step 2, contains a step-by-step video explaining how to reset your password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Antoinette Alawad",rosbelym@cordobalegal.com,2026-04-27,,1205794298,IOS,"Wrong credentials","Call Agent (Additional information)","First Login","D- The error occurs because some of the data entered during the initial login is incorrect and does not match the data registered in FORTHCRM. The user should be guided through the process, verifying that the entered data is correct. Inform the user of their Account ID, confirm they correctly enter the last four digits of their SSN, and finally, check that the date format is correct (MM-DD-YYYY). If the data matches the FORTHCRM records, they should be able to create their user account without issue.
+
+https://hiredexperts.atlassian.net/wiki/x/AYC1GQ",,Medium
+"Marysol Nevarez",Josias.Campusano@cordobalegal.com,2026-04-24,,1192806304,IOS,"Gets an error when putting and resenting password.","Call Agent (Additional information)",,"D- Please provide more details about the error you are experiencing. Also, please note that the username can be your email address or account ID. I have attached a link where point 3 provides a step-by-step guide on how to complete the process.
+
+https://hiredexperts.atlassian.net/wiki/pages/resumedraft.action?draftId=431325185",,Medium
+"Stephanie A Greene",Josias.Campusano@cordobalegal.com,2026-04-24,,1202363861,IOS,"“Is this your first login?“ option is not working.","Call Agent (Additional information)",,"D- Can you give us more details regarding this case? What do you mean by ""the button doesn't work,"" ""it doesn't redirect,"" or ""it doesn't let you register for first login""? Also, can you tell me the iOS version and the phone being used to validate if it's a version issue?",,Medium
+"Teresa Hamme",Frehynner.Zambrano@cordobalegal.com,2026-04-27,,CORDOBA-1201150053,Android,"Error- Wrong credentials Creditor X
+Thx!","Call Agent (Additional information)",,"D - Contact the user and request that they reset their password again, indicating that they must enter their registered email address in the first field. See point 2 at the following link for step-by-step instructions on how to do this.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Delvin Rose",Frehynner.Zambrano@cordobalegal.com,2026-04-25,,CORDOBA-1206213008,Android,"Cannot continue with registration, after typing Client ID, Last four numbers of SSN and DOB, the system throws an error ""error, associated phone is not registered in X""","Call Agent (Additional information)","First Login","D- This is because the phone_number is not registered in FORTHCRM. Please contact the user so they can register their phone number there and the user can be activated in CreditorX.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Kimberly Mcintyre",Frehynner.Zambrano@cordobalegal.com,2026-04-25,,CORDOBA-1205204513,Android,"When sending USSD command an error pops up ""Important! without this action we won`t be allowed to handle your calls redirection!"" and it does not let her continue with the app set up and registration process. Screenshot uploaded.","Call Agent (Additional information)",,"D-Contact the user and inform them that they can skip this step using the ""Abort Onboarding Process"" button. However, emphasize that it's best to configure the USSD commands at this time, and please assist the user while they complete the configuration.
+
+I've included a link where step 1 shows the step-by-step process for configuring the USSD commands.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Caroleena Christensen",marisleidyd@cordobalegal.com,2026-04-24,,1206348014,IOS,"associated phone number is missing from external system","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Lee Cleveland",Luis.Agramonte@cordobalegal.com,2026-04-24,,CORDOBA-1202851475,Android,"Unable to create a password. Been for almost 1 hr trying to create one and is not able to do so.","Call Agent (Additional information)","First Login","D- Contact the user and guide them through creating their password. Inform them that the password must have the following characteristics:
+
+1. At least 8 characters.
+
+2. Contain at least one lowercase letter.
+
+3. Contain at least one uppercase letter.
+
+4. Contain at least one special character.
+
+For example: Qwerty=123
+
+If this doesn't work, please provide us with the specific step where you are having trouble creating the password so we can better troubleshoot the issue.",,Medium
+"Molly J Shannon",Frehynner.Zambrano@cordobalegal.com,2026-04-27,,CORDOBA-1197876238,Android,"When the cx is trying to add a new phone number for a creditor Lendmark the app shows up error enter a valid number","Call Agent (Additional information)",,"D- Please verify with the user that the phone number meets the following requirements:
+
+1. It must not contain any letters.
+
+2. It must contain 10 digits, excluding the plus sign (+1).
+
+If it still doesn't work, please send us the phone number you are trying to register.",,Medium
+"Lisa Blust",acabrera@cordobalegal.com,2026-04-24,,CORDOBA-1198207050,IOS,"cst problems with the app Creditor X > cst not able to log in she create the account when tried to log in shows loading but doesn't go through > Let her know that we will escalate the problem once we have a solution we will let her know","Call Agent (Additional information)",,"D- Please let us know what steps the customer took before the problems arose, for example, reinstalling the software. Similarly, if they didn't reinstall, we recommend they do so. Also, please specify the device model, as we have verified that the account was created correctly.",,Medium
+"Jose Alvarez",acabrera@cordobalegal.com,2026-04-24,,CORDOBA-958199049,IOS,"error associated with phone number - Creditor X issues","Call Agent (Additional information)",,"D- If the error occurs on the first login, please verify that the 'home number' field is filled in in FORTHCRM, as this field is required to access CreditorX. Please update this field in FORTHCRM and try logging in again.",,Medium
+,,,,,,,,,,,Medium
+"Kristen R O'Brien",Frehynner.Zambrano@cordobalegal.com,2026-04-24,,1179549050,Android,"reditor X showing up error every time she tries to use the app, example voicemail and log out, each button shows error she already uninstall and download again, still not working","In queue",,"D - Validar con samil el error que se presenta en cada ventana de la app",,Medium
+"Leigh Anderson",acabrera@cordobalegal.com,2026-04-23,,1189360476,IOS,"cst having the inconvenience with the app that when she tries to log in on the app with the email and password that she previously set up > there is an error code that it says ""something is wrong in our end"".","In queue",,"D- EN ESPERA POR LA VALIDACION DEL ERROR","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-830"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Randal Dykstra",acabrera@cordobalegal.com,2026-04-23,,1207373760,IOS,"on the part of account information, after cx introduce user ID, last 4 of SSN and DOB and clicks on confirm shows him an error message saying that the phone number is not associated.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Thomas Berg",acabrera@cordobalegal.com,2026-04-23,,CORDOBA-1205356549,IOS,"the app creditor X shows that his phone number is not register on the app > let him know that we will escalate that with the proper team
+ As cst had already escalate the case before he was calling us to give a follow up","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Carolyn D Kimmons",acabrera@cordobalegal.com,2026-04-23,,CORDOBA-1205655874,IOS,"cst having the problem to go pass the USSD > it goes on green the USSD with the check mark but it shows 6 times and doesnt let her check the option ""i've sent the required USSDs commands"".","Call Agent (Additional information)",,"D- Instruct the customer to validate again and try reinstalling the application. If it doesn't work, provide us with more information such as the phone version or what they have tried to mitigate the error.",,Medium
+"Esayas G Berhe",Josias.Campusano@cordobalegal.com,2026-04-27,,1181035890,Android,"Cx could not receive the link to recover his password.","Call Agent (Additional information)",,"D - Contact the user and request that they reset their password again, indicating that they must enter their registered email address in the first field. See point 2 at the following link for step-by-step instructions on how to do this.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Larry Bumgarner",Frehynner.Zambrano@cordobalegal.com,2026-04-27,,1204887252,Android,"problem description: The customer reported an issue logging into CreditorX. He mentioned that during his first attempt, he did not complete the setup process fully. Now, when he tries to access the account, his password does not work. When attempting to reset the password, the system states that the user does not exist. However, when he tries the “first-time login” option, it indicates that he has already logged in before.","Call Agent (Additional information)",,"D- Once the user's existence on the platform is verified, contact the user and inform them that to reset their password, they must enter their registered email address (bumgarnerlarry@gmail.com) in the username field, and then enter it again in the email field, and continue with the rest of the process as indicated in the application. Assist them throughout the process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Betty G Miller",wilid@cordobalegal.com,2026-04-23,,1199923876,IOS,"Cx attempted to log in multiple times without success. As a troubleshooting step, she deleted the app, reinstalled it, and attempted to log in again, but the issue persists.","Call Agent (Additional information)",,"D- Instruct the customer to validate again and try reinstalling the application. If it doesn't work, provide us with more information such as the phone version or what they have tried to mitigate the error.",,Medium
+"Margaret Estes",Luis.Agramonte@cordobalegal.com,2026-04-28,,CORDOBA-1206618393,Android,"Not allowing customer to first login, but Recovery password does not work.","Call Agent (Additional information)",,"D - Contact the user and request that they reset their password again, indicating that they must enter their registered email address in the first field. See point 2 at the following link for step-by-step instructions on how to do this.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+,,,,,,,,,,,Medium
+,,,,,,,,,,,Medium
+"Carolyn D Kimmons",Josias.Campusano@cordobalegal.com,2026-04-29,,1205655874,Android,"Cx is having issues to add the creditors , the app took her out two times when she was already logged in and trying to add creditors phone numbers.","In queue",,"D- validar con samil porque no deja agregar creditors",,Medium
+"Esdras Estime",marisleidyd@cordobalegal.com,2026-04-29,,1207201221,IOS,"The client reports that when entering their personal data, user ID, social security number, and date of birth, upon clicking ""confirm,"" they receive an error message and are redirected to the main page. They attempted to do so again, but the same message is displayed.","Call Agent (Additional information)","First Login","D- The error occurs because some of the data entered during the initial login is incorrect and does not match the data registered in FORTHCRM. The user should be guided through the process, verifying that the entered data is correct. Inform the user of their Account ID, confirm they correctly enter the last four digits of their SSN, and finally, check that the date format is correct (MM-DD-YYYY). If the data matches the FORTHCRM records, they should be able to create their user account without issue.
+
+https://hiredexperts.atlassian.net/wiki/x/AYC1GQ",,Medium
+"Marco Roldan-Leben",rosbelym@cordobalegal.com,2026-04-29,,1206464479,IOS,"associated phone is missing for the external system","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Carol V Reid",rosbelym@cordobalegal.com,2026-04-29,,CORDOBA-1206302201,IOS,"Wrong User ID and Password.","Call Agent (Additional information)",Auth/Login,"D- Once the user account is validated and correctly created, they should be instructed to reset their password through the application. If possible, an agent should assist them with this process. Attached is a link where step 3 provides step-by-step instructions for password reset. If the username is not the email address, it must be the Account ID.
+
+https://hiredexperts.atlassian.net/wiki/x/AYC1GQ",,Medium
+"Steve Dunn",Frehynner.Zambrano@cordobalegal.com,2026-04-28,,CORDOBA-1175638155,Android,"Cannot continue with registration, after typing Client ID, Last four numbers of SSN and DOB, the system throws an error ""error, Wrong credentials"" Confirmed all the information was correct. Guided to upload an screenshot.","Call Agent (Additional information)",,"D- The error occurs because some of the data entered during the initial login is incorrect and does not match the data registered in FORTHCRM. The user should be guided through the process, verifying that the entered data is correct. Inform the user of their Account ID, confirm they correctly enter the last four digits of their SSN, and finally, check that the date format is correct (MM-DD-YYYY). If the data matches the FORTHCRM records, they should be able to create their user account without issue.",,Medium
+"David Jackson",Luis.Agramonte@cordobalegal.com,2026-04-28,,CORDOBA-1185478932,IOS,"When trying to allow the app to access his contacts its sending him back again to the USSD command page.","Call Agent (Additional information)",,"D- The test was performed on an iPhone 14 where the flow was executed correctly when the USSD commands were run; no permissions to access contacts were requested. We would like to know which device version you are trying to access so that we can perform more accurate tests.",,Medium
+"Josefa Chiu",Josias.Campusano@cordobalegal.com,2026-04-27,,1193112052,IOS,"Creditor X downloaded properly but is not allowing the registration, invalid credentials.","Call Agent (Additional information)",,"D- The related Customer ID does not exist within the FORTH database, apparently in an external id, so to allow access to the platform the customer must be told that the valid Account id is: (1194303842), ​​and to validate t",,Medium
+"Lucy Kimani",Luis.Agramonte@cordobalegal.com,2026-04-28,,CORDOBA-1192239779,IOS,"cx is getting a message cx had access before for the application but cx says she has never accessed","Call Agent (Additional information)",Auth/Login,"D- The user is validated and it is confirmed that the account has already been created. Please assist the client in the password reset process so they can regain access. Attached is a link where step 3 provides a step-by-step guide on how to perform this process.
+
+https://hiredexperts.atlassian.net/wiki/pages/resumedraft.action?draftId=431325185",,Medium
+"Steve Wilson",Frehynner.Zambrano@cordobalegal.com,2026-04-28,,CORDOBA-1203675230,IOS,"Error: ""Phone number is not in the external data base""","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AYC1GQ",,Medium
+"Christopher Sewell",Frehynner.Zambrano@cordobalegal.com,2026-04-28,,CORDOBA-1192653851,IOS,"Client has register the account already and when trying to recover the password, it is not working and not able to log. Client sent an email with the error screenshot.  Ref#1455235","Call Agent (Additional information)",Auth/Login,"D- The account has been validated and verified as created correctly. Please attempt to reset your password with the assistance of an agent. In the username field, you must use the account ID (1192653851). Attached is a link where step 3 provides the step-by-step instructions for the password recovery process.
+
+The account has been validated and verified as created correctly. Please attempt to reset your password with the assistance of an agent. In the username field, you must use the account ID (1192653851). Attached is a link where step 3 provides the step-by-step instructions for the password recovery process.",,Medium
+"Tiffany Brown",robertc@cordobalegal.com,2026-04-28,,CORDOBA-1203595052,IOS,"While the registration process, the next message populate, Phone number is missing from the external system data.","Call Agent (Additional information)","First Login","Please read iOS FAQs in
+
+1-First Login - Associated phone number is missing.
+
+https://hiredexperts.atlassian.net/wiki/external/MGM0MzI4NzgyMDIyNGUxNzkwZGQyMTRiOTNmYjU4NWI",,Medium
+"Chevelle Hall",Frehynner.Zambrano@cordobalegal.com,2026-04-27,,CORDOBA-1206271999,Android,"issues with Creditor X. Android device and the error shows that the phone number is not matching to our internal system. Cache already cleared but still the issues.","Call Agent (Additional information)","First Login","D- This is because the phone_number is not registered in FORTHCRM. Please contact the user so they can register their phone number there and the user can be activated in CreditorX.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Caroline Schade",marisleidyd@cordobalegal.com,2026-04-27,,1204482761,IOS,"issues to Login into the Creditors x, it says the phone number is not allow to use in this app","Call Agent (Additional information)",,"D- If the error occurs on the first login, please verify that the 'home number' field is filled in in FORTHCRM, as this field is required to access CreditorX. Please update this field in FORTHCRM and try logging in again.",,Medium
+"Tammy Vallot",Josias.Campusano@cordobalegal.com,2026-04-27,,1205630365,IOS,"Creditor X the cx said that her phone number is not on the data
+is listed on the external system data. That what the cx said.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AYC1GQ",,Medium
+"Tina Jewell",rosbelym@cordobalegal.com,2026-04-27,,CORDOBA-1206219126,Android,"*Associated phone number is missing for external system data. 
+Unknown credentials.
+Uninstalled/installed app. 
+Cache: Was being erased.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Thomas Haas",Luis.Agramonte@cordobalegal.com,2026-04-23,,1202660118,IOS,"Username not found.","Call Agent (Additional information)",,"D- It has been verified that the user has not yet been created. It is recommended to assist the user in completing their first login. I am attaching a link where step 4 provides the step-by-step instructions on how to carry out this process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Rona Williams",wilid@cordobalegal.com,2026-04-21,,1196447555,Android,"App saying that she doesn't have an account with us.","Call Agent (Additional information)",,"D- Indeed, the user does not have a registered user account in the CreditorX database. However, to create or activate this account, they can perform the ""first login,"" where entering their FORTHCRM credentials will activate the account. Please guide the user through this process. I have included a link where step 4 shows the step-by-step instructions for the first login.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Pamelia Weaver",juan.arenas@cordobalegal.com,2026-04-29,,1203689121,IOS,"the customer called to report that there is an error on the creditor x app, stated that on the account number  it said that no able to recognize the information , email sent the cx replayed back to us with the screenshot","Call Agent (Additional information)",,"D- The related Customer ID does not exist within the FORTH database, apparently in an external id, so to allow access to the platform the customer must be told that the valid Account id is: (1203690526), ​​and to validate the login with this data.",,Medium
+"Daryl Grahm",Frehynner.Zambrano@cordobalegal.com,2026-04-20,,CORDOBA-1203807064,IOS,"Error: ""Your name does not match our records"". ""Something went wrong"".","Call Agent (Additional information)",,"D- Inform the client that their username is their email address, to validate their login again, and if unsuccessful, to reset their password. I've attached a link where step 2 provides step-by-step instructions on how to do this.",,Medium
+"Niover Guerrero",marisleidyd@cordobalegal.com,2026-04-20,,1206313350,IOS,"Client cannot access, app stated loading on credentials part.","Call Agent (Additional information)",,"D- Instruct the client to validate by reinstalling the application and granting the necessary permissions again. If this does not work, please indicate what version of device they have and, if possible, what methods they have tried to use to resolve the issue.",,Medium
+"William Spellmon",marisleidyd@cordobalegal.com,2026-04-20,,1196834001,Android,"he client cannot access creditor X, it says "" User ID already created"" but he was trying for the fist time today.","Call Agent (Additional information)",,"D- The user account has already been created. Please assist the client in resetting their password so they can access the application. Attached is a link where step 2 provides step-by-step instructions for password reset.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Anthony Dominique",Frehynner.Zambrano@cordobalegal.com,2026-04-20,,CORDOBA-1205811094,IOS,"Error: ""Associated phone number is missing from external system date. Please contact Creditr X Team"".","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Fuad Seid",Frehynner.Zambrano@cordobalegal.com,2026-04-20,,CORDOBA-1198286016,IOS,"Error: ""Your name does not match our records"". ""Username and password incorrect","Call Agent (Additional information)",,"D- Inform the client that their username is their email address, to validate their login again, and if unsuccessful, to reset their password. I've attached a link where step 2 provides step-by-step instructions on how to do this.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"DEBORAH C BAKER",rosbelym@cordobalegal.com,2026-04-20,,1203741851,Android,"Error Unauthorized","Call Agent (Additional information)",,"D- The account has been validated and created correctly. Please log in, and if you are unable to do so, reset your password. Attached is a link where step 4 provides the step-by-step instructions for completing the process.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Tammy Weaver",rosbelym@cordobalegal.com,2026-04-20,,1194307648,Android,"“ERROR MESSAGES” when click on is this your first Login, a phone number is not valid!","Call Agent (Additional information)",,"D-  The user has been validated and is already created in the CreditorX database; therefore, the first login has already been completed. Please verify access to the platform, and if it is not possible, proceed with a password reset. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Tammy Weaver",rosbelym@cordobalegal.com,2026-04-20,,1194307648,Android,"dont allow cust to add any number to blocked list","In queue",,"D- validar con samil por que no deja agrgar numeros bloqueados","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-766"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Lora Ojeda",Frehynner.Zambrano@cordobalegal.com,2026-04-20,,CORDOBA-1205671334,IOS,"Associated phone number is missing from external system data¨","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Beva Hamblin",Frehynner.Zambrano@cordobalegal.com,2026-04-20,,CORDOBA-1192869509,Android,"Associated phone number is missing from external system data¨","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Charles Plyer",Sebastian.Rodriguez@cordobalegal.com,2026-04-20,,1169913286,IOS,"Cx has been trying to set up the app previously but the information doesnt match","Call Agent (Additional information)",,"D- The error occurs because some of the data entered during the initial login is incorrect and does not match the data registered in FORTHCRM. The user should be guided through the process, verifying that the entered data is correct. Inform the user of their Account ID, confirm they correctly enter the last four digits of their SSN, and finally, check that the date format is correct (MM-DD-YYYY). If the data matches the FORTHCRM records, they should be able to create their user account without issue.",,Medium
+"Laura Stansell",Frehynner.Zambrano@cordobalegal.com,2026-04-20,,CORDOBA-1201931841,IOS,"""Associated phone number is missing from the external system data""
+Home Phone 478-960-8592
+Ref#1440029 - Ref#1439419 Ref#1439415","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Justin Benito",jaquino@cordobalegal.com,2026-04-18,,1201720974,IOS,"sign in it was not working, the app said he has an account already and trying the recovery method but didn't let him sign in with the recovery password","Call Agent (Additional information)",,"D- Try logging in again. If that doesn't work, reset your password. If that still doesn't work, try reinstalling the application and running both processes again.",,Medium
+"Lisa Doran",Josias.Campusano@cordobalegal.com,2026-04-17,,1204385563,Android,"The phone number is missing from external system data.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Mary Morris",richardm@cordobalegal.com,2026-04-17,,1201302498,Android,"Issue: customer cannot create the password the system does not allow the client set up the account.","Call Agent (Additional information)",,"D- Inform the user that the account has already been created, and that if they do not remember the password they can recover it. Please accompany the user in this process. Attached is a link where point 2 contains the step-by-step instructions for this process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Tammy Bean",Frehynner.Zambrano@cordobalegal.com,2026-04-17,,CORDOBA-1206349736,IOS,"Error: ""Error, associated phone number is missing from external system data. Please contact creditor XT"". ""Something went wrong"".","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Griselda Flores",Frehynner.Zambrano@cordobalegal.com,2026-04-16,,CORDOBA-1204381941,IOS,"You have already logged in the app before, please login using the user name you have selected earlier""
+-""wrong user name or password"" using temporaly password","Call Agent (Additional information)",,"D- Contact the customer and inform them that the username to enter is their Account ID (18175868910). If they do not remember their credentials, they must reset their password. Attached is a link where step 2 provides the step-by-step instructions for completing the process.
+
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Yvette Turner",richardm@cordobalegal.com,2026-04-16,,CORDOBA-1201312661,IOS,"created his account previously and does not remember the password, not allow to create a new one, many issues to setup the app.","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Maria Julia Sanchez Cruz",marisleidyd@cordobalegal.com,2026-04-18,,1193471890,Android,"The customer downloaded the Creditor X application and upon downloading and installing it, entered their social security number, user ID, and date of birth, and clicked confirm, it displayed an error message, even though the credentials were correct","Call Agent (Additional information)",,"D- The first login validation is performed using the customer’s credentials, and it is observed that the system does not allow completing the first login because it has already been done previously. Now, the customer must log in, and if they do not remember their credentials, they can proceed with password recovery. I am attaching a link where step 2 provides the step-by-step instructions to complete this process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Barry Morgan",Frehynner.Zambrano@cordobalegal.com,2026-04-21,,CORDOBA-1201733729,IOS,"After trying to retrieve password: ""we`re sorry, but it looks like there was a problem processing your request. ""
+Screenshot uploaded.","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Monique Bruner",wilid@cordobalegal.com,2026-04-21,,1196597274,IOS,"When she clicks in ""First Time Login"" and placed info to corroborate her identity, system requested a password and then it gave her a message saying that user already exists and it's not allowing her to go through. Phone's brand & Model.: iPhone 14 Plus","Call Agent (Additional information)",,"D- It has been verified that the user is already created. If the system does not allow login, please try resetting the password and, once logged in, continue with the account setup. I am attaching a link where step 2 provides the step-by-step instructions for the password reset.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Diane Peachman",luis.rojas@cordobalegal.com,2026-04-21,,CORDOBA-1205589992,IOS,"Error, cx already has an account, reset password unable to complete request.","Call Agent (Additional information)",,"D- It has been verified that the user is already created. If the system does not allow login, please try resetting the password and, once logged in, continue with the account setup. I am attaching a link where step 2 provides the step-by-step instructions for the password reset.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Samuel Fonseca",wilid@cordobalegal.com,2026-04-23,,1206461742,IOS,"cx was able to login but his carrier Verizon Wireless is not showing up on the list,, he had to select AT&T.","Call Agent (Additional information)",,"D- Inform the customer that the carrier is currently unavailable and that they should select Verizon instead.",,Medium
+"Adam Hall",Josias.Campusano@cordobalegal.com,2026-04-23,,1202320059,IOS,"Not allowing customer to do the first login.","Call Agent (Additional information)",,"D-The first login test is replicated with the client's real data and it is verified that up to the step where it requests the passwords the flow works without problem, if an error occurs afterwards please indicate at what moment.",,Medium
+"Lisa M Wilson",Frehynner.Zambrano@cordobalegal.com,2026-04-23,,CORDOBA-1181267133,Android,"Error message ""please provide a valid phone number""","Call Agent (Additional information)",,"D- We need information on which part of the application flow requests the phone number and generates this error. Also, if possible, please provide the phone number you are trying to enter.
+
+Please note that the phone number cannot contain any characters other than numbers and must be 10 digits long, excluding the +1.",,Medium
+"Rick L Conroy",Frehynner.Zambrano@cordobalegal.com,2026-04-23,,CORDOBA-1200577867,Android,"Customer Request: Cx installed creditorX and there is only one of his creditors showing up and still receiving calls from one phone number","In queue",,"D- validar con Sami por que no muestra los numeros bloqueados en la vista",,Medium
+"Mollie Garza",luis.rojas@cordobalegal.com,2026-04-21,,CORDOBA-1207424446,Android,"error assoicated phone number missing","Call Agent (Additional information)",,"D- validar, ya que en forth el phone number si esta diligenciado",,Medium
+"Howard McWilson",luis.rojas@cordobalegal.com,2026-04-02,,CORDOBA-1195356,IOS,"unable to complete set up associated phone number is missing from external user","Call Agent (Additional information)","First Login","G: El Customer ID reportado en el issue, NO EXISTE (CORDOBA-1195356)
+
+Sin embargo lo mas seguro de este error es  del ""phone_number"": null, <----- Inside ForthCRM the user doesn't have this value, its mandatory so please update it and try it again",,Medium
+"Rodolfo Camacho",luis.rojas@cordobalegal.com,2026-04-03,,CORDOBA-1197835871,IOS,"User not found","Call Agent (Additional information)",,"D- The user has been validated and is already created in the CreditorX database; therefore, the first login has already been completed. Please verify access to the platform, and if it is not possible, proceed with a password reset. I am attaching a link provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Carol V Reid",luis.rojas@cordobalegal.com,2026-04-20,,CORDOBA-120630220,IOS,"Error during the set up.","Call Agent (Additional information)",,"D- Could you provide more information regarding the error presented, as it is not very clear in which flow and what specific problem it occurs?",,Medium
+"Joannie Foster",richardm@cordobalegal.com,2026-04-22,,1197877714,IOS,"The customer cannot set up the app the option are there but she can’t set it up, she is having the issues from long time ago.","Call Agent (Additional information)",,"D- The error occurs because some of the data entered during the initial login is incorrect and does not match the data registered in FORTHCRM. The user should be guided through the process, verifying that the entered data is correct. Inform the user of their Account ID, confirm they correctly enter the last four digits of their SSN, and finally, check that the date format is correct (MM-DD-YYYY). If the data matches the FORTHCRM records, they should be able to create their user account without issue.",,Medium
+"Robert Ruma",marisleidyd@cordobalegal.com,2026-04-21,,CORDOBA-1204386110,IOS,"when cx is on the account information part and he type the user ID, last 4 of SSN and DOB it says that he already has an account created. But this is the first time that he try to Log in","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Gabriela Zamora",acabrera@cordobalegal.com,2026-04-22,,CORDOBA-1199648331,IOS,"on the part of account information, after cx introduce user ID, last 4 of SSN and DOB and clicks on confirm shows her an error message saying that the phone number is not associated.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Linda Phelps",rosbelym@cordobalegal.com,2026-04-22,,1207198402,IOS,"phone number not listed in the database","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Cory Thompson",Frehynner.Zambrano@cordobalegal.com,2026-04-22,,CORDOBA-1196610463,Android,"Associated phone number is missing from external system data¨","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Allen Earnest",Frehynner.Zambrano@cordobalegal.com,2026-04-22,,CORDOBA-1196102088,IOS,"He cannot use the ""is this your first time login?"" option, When he taps on it the app stays in the login screen. this has been previously reported.Screenshot uploaded.","Call Agent (Additional information)",,"D- Instruct the customer to validate again and try reinstalling the application. If it doesn't work, provide us with more information such as the phone version or what they have tried to mitigate the error.",,Medium
+"Marcelyn Yates",acabrera@cordobalegal.com,2026-04-21,,CORDOBA-1206462813,IOS,"cst having problems with the app > It doesnt let her verify the account with the code once she put it > it says error code > Let her know that we will scalate it > Iphone 8 > AT&T
+ let her know that we will escalate the problem with the team in charge so we can try get a resolution on it.","In queue",,"D- instalar iphone 8 en el simulator",,Medium
+"Kela Gomez",daniel.pardo@cordobalegal.com,2026-04-21,,CORDOBA-1202659663,IOS,"The client has issues to log in throught CreditorX App, it appears the error ""Oops! Something went wrong on our end. We're sorry, but it looks like there was a problem processing your request"" after she used her phone number","In queue",,"D- EN ESPERA POR LA VALIDACION DEL ERROR","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-830"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Gail Conroy",rosbelym@cordobalegal.com,2026-04-21,,1196572684,Android,"phone number missing credential","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Kristina Ramirez",robertc@cordobalegal.com,2026-04-21,,1204382956,Android,"Shows Unauthorized user when customer complete all the fields to login","Call Agent (Additional information)",,"D- The account has been validated and is correctly created. Please try recovering the password; if the issue persists, try reinstalling the application. If it still does not work, please indicate what steps the customer has taken to resolve the issue and, if possible, attach screenshots.",,Medium
+"John Greene",juan.arenas@cordobalegal.com,2026-04-29,,1205281554,IOS,"the customer called to report that there is an error on the creditor x app, stated that  on the account number not able to have letters only numbers and for the account number on the id there is on the account is said external number isn't verify","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Florastine Webster",Josias.Campusano@cordobalegal.com,2026-04-29,,1078923537,Android,"Wrong Credentials.","Call Agent (Additional information)",,"D- The error occurs because some of the data entered during the initial login is incorrect and does not match the data registered in FORTHCRM. The user should be guided through the process, verifying that the entered data is correct. Inform the user of their Account ID, confirm they correctly enter the last four digits of their SSN, and finally, check that the date format is correct (MM-DD-YYYY). If the data matches the FORTHCRM records, they should be able to create their user account without issue.",,Medium
+"Ivy Osei",Frehynner.Zambrano@cordobalegal.com,2026-04-16,,CORDOBA-1201372851,IOS,"Associated phone number is missing from the external system data","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Robert Lynd",rosbelym@cordobalegal.com,2026-05-06,,CORDOBA-1208275056,IOS,"Error He is trying to blocks calls but, he does not wants to restrict calls, its only creditors numbers, because of he would like to use his voice line.","Call Agent (Additional information)",,"D- Check with the customer which carrier they are using, to see if it could be due to the phone service.",,Medium
+"Steven Barnes",Frehynner.Zambrano@cordobalegal.com,2026-05-07,,CORDOBA-1205667515,Android,"Associated phone number is missing from external system data¨","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Daniel Clark",Frehynner.Zambrano@cordobalegal.com,2026-05-07,,CORDOBA-1197635595,IOS,"Cx tapping on ¨IS this your first login?¨ in orther to set up the account but it got frozen","In queue",,"D- en validacion","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Karen Green",Josias.Campusano@cordobalegal.com,2026-05-07,,1205896089,Android,"Wrong credentials, specifically for the phone number, even though it's matching with the one on file.","Call Agent (Additional information)",,"D- A validation was performed, and it was identified that the account has not yet been created in the CreditorX database. Please inform the customer that they must complete the first login using the Account ID, SSN, and date of birth. I am attaching a link where step 4 provides the step-by-step instructions for this flow.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Kristen R O'Brien",juan.arenas@cordobalegal.com,2026-05-07,,CORDOBA-1179549050,Android,"The client is experiencing issues logging into Creditor X. The last time she logged in was about a month ago, but now she is suddenly unable to access her account. She tries to log in but always receives an error message. She has also attempted to use the Forgot Password option, but she is not receiving the link or message to reset it.","Call Agent (Additional information)",,"D- contactar al cliente y validar nuevamente el acceso, se realizo la validacion y se evidencio que la cuenta se encuentra creada correctamente, en dado caso que no se pueda realizar el ingreso por credenciales se recomienda hacer un reseteo de contrasena, adjunto el link donde en el punto 2 se muestra el paso a paso de este proceso.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Anjail Ahmad",rosbelym@cordobalegal.com,2026-05-07,,CORDOBA-1207233836,IOS,"is not letting the customer to stop the call.","Call Agent (Additional information)",,"D- Check with the customer which carrier they are using, to see if it could be due to the phone service.",,Medium
+"Everett Dickson",acabrera@cordobalegal.com,2026-05-06,,1196357087,"IOS, Android","No private Key Error code
+1- was blocking every number, no any more after troubleshooting of reinstalled the app
+2- re-router all miss call that is not been answer to voice
+3- is not allowing the customer to listen to voice mail
+4- No private Key Error code when is try to listen the voice mail","Call Agent (Additional information)",,"D- esperar validacion de Abisai",,Medium
+"Jocelyn D Bruck",Sebastian.Rodriguez@cordobalegal.com,2026-05-06,,1204383414,Android,"""Wrong credentials"" but they`re accurate","Call Agent (Additional information)",,"D- If your credentials generate an error because they are incorrect, you can recover your password. Note that for this process, your username can be your email address or account ID. I've attached a link where step 2 provides step-by-step instructions for this process.
+
+https://hiredexperts.atlassian.net/wiki/pages/resumedraft.action?draftId=431325185",,Medium
+"Gabriela Zamora",rosbelym@cordobalegal.com,2026-05-06,,CORDOBA-1199648331,IOS,"The application is indicating to the customer that there is no registered or found account with the information she is entering.","Call Agent (Additional information)",,"D- The account has been validated and has not yet been created. Therefore, you must first complete the initial login process. Attached is a link where step 2 provides the step-by-step instructions.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Aurora Verdesoto",wilid@cordobalegal.com,2026-05-07,,1202322154,IOS,"the app creditor x doesn't recognize her credentials","Call Agent (Additional information)",,"D- The account has been validated and has not yet been created. Therefore, you must first complete the initial login process. Attached is a link where step 2 provides the step-by-step instructions.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Elizabeth Vendettoli",rosbelym@cordobalegal.com,2026-05-06,,CORDOBA-1207307563,IOS,"The customer confidently logs in and enters the information requested by the application, but it indicates that there is no account matching that information.","Call Agent (Additional information)",,"D- The account has been validated and has not yet been created. Therefore, you must first complete the initial login process. Attached is a link where step 2 provides the step-by-step instructions.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Timothy Filichia",rosbelym@cordobalegal.com,2026-05-06,,CORDOBA-1205535264,IOS,"is not letting the customer select( is this your first time login","In queue",,"D- en validacion","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Gregory Leslie",Josias.Campusano@cordobalegal.com,2026-05-06,,1208559856,Android,"Calls are still coming through.","In queue",,"D- A la espera de validacion y verificacion de numeros bloqueados","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-829"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Mariellen Velez",Josias.Campusano@cordobalegal.com,2026-05-06,,1206521418,IOS,"Wrong Credentials.","Call Agent (Additional information)",,"D- The account has been validated and has not yet been created. Therefore, you must first complete the initial login process. Attached is a link where step 2 provides the step-by-step instructions.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Lisa Touch",rosbelym@cordobalegal.com,2026-05-06,,CORDOBA-1207292264,Android,"Error  its drops,does not allow her to entering their area code number. “1800” such as any other area Code XXX-000.0000 Listed from her creditors to be blocks on th app.","Call Agent (Additional information)",,"D- The error could not be replicated. Please request more information regarding the error being displayed so we can determine its specific cause.",,Medium
+"Ana Marquez",Frehynner.Zambrano@cordobalegal.com,2026-05-05,,CORDOBA-1207205987,IOS,"¨ Associated phone number is missing from external system data","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Maria Macapagal",Sebastian.Rodriguez@cordobalegal.com,2026-05-05,,CORDOBA-1186531242,Android,"reported issue: cx set up her account with her home phone 609-661-1390 and when she enters her account she can not receive text message. it wil not let her log in with her cell phone 609-276-0950 or email either. If she tries to create a new user sends her back to log in, and if she tries to reset password would not recognize info.","Call Agent (Additional information)",,"D- To validate the first login again with the client, the currently registered number is (609) 276-0950. When performing the process, pay close attention to the entered data and the requested formats. Attached is a link where step 4 provides the step-by-step instructions for this first login process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ
+
+If the first login does not work, it is recommended to reinstall the application.",,Medium
+"Anne Zajack",Josias.Campusano@cordobalegal.com,2026-05-05,,1196719550,IOS,"It keeps telling her wrong credentials.","Call Agent (Additional information)",,"D- The account is correctly created. If you do not remember your credentials, please note that you must reset your password. Attached is a link where step-by-step instructions are provided in point 4.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Harriet Poli",Josias.Campusano@cordobalegal.com,2026-05-07,,1199693487,IOS,"""User not found"", client was asked to delete it and then download it again, still unable to log in.","Call Agent (Additional information)",,"D- It has been verified that the account has not yet been created, which is why access is not allowed. Please inform the customer that they must complete the first login. I am attaching a link where step 2 provides the step-by-step instructions to complete this process.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Margaret Estes",daniel.pardo@cordobalegal.com,2026-05-07,,CORDOBA-1206618393,Android,"Reason: Error message during password access multiple attempts and doesn't work","Call Agent (Additional information)",,"D- To indicate the error message displayed to the user when entering their password, and if necessary, to instruct them to reset their password. Attached is a link where point 4 provides step-by-step instructions for this process.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Esther Frankendeck",Sebastian.Rodriguez@cordobalegal.com,2026-05-05,,CORDOBA-1199712453,Android,"app not letting  her  block  creditor number cause app  put  number  with  wrong order  and  show error message ""mistmatch ""","Call Agent (Additional information)",,"D- Please validate with the client and have them repeat the test, entering the data correctly. If it doesn't work, please provide more information such as the number being entered and the carrier to perform a complete validation.",,Medium
+"Becky Follette",Frehynner.Zambrano@cordobalegal.com,2026-05-11,,CORDOBA-1206940344,Android,"reported issue: cx got stuck on USSD command, it gives two options: ""command 1 and command 2"" she completed num 1, the app only allows her to click on the option 2 but when she does it shows error ""abort the process"" and does not go anywhere.","Call Agent (Additional information)",,"D- Please try reinstalling the application and setting it up from scratch. If that doesn't work, please provide us with the customer's phone specifications.",,Medium
+"Lisa Blust",Josias.Campusano@cordobalegal.com,2026-05-13,AT&T,1198207050,IOS,"Client is receiving calls from creditors GS BANK USA, CITI, and US BANK.",New,,,,Medium
+"Diane Chambers",Sebastian.Rodriguez@cordobalegal.com,2026-05-12,n/a,CORDOBA-1207261483,IOS,"The system does not allow her to type in anything on the ""user ID"" box when logging in.","Call Agent (Additional information)",,"D- Inform the customer that they can reinstall the application and try again. If it doesn't work, please provide the phone's specifications and, if the customer has already tried any troubleshooting methods, please specify which ones.",,Medium
+"Johnny Charles",Frehynner.Zambrano@cordobalegal.com,2026-05-12,N/A,CORDOBA-1206510873,IOS,"Associated phone number is missing from external system data. Please contact Credit X team"".","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Miriam Jamero",Josias.Campusano@cordobalegal.com,2026-05-12,N/A,1208322991,Android,"Unable to move forward on application, once she clicks on ""allow access"" ""continue"" or any option to move forward it doesn't move on, it stays the same.","Call Agent (Additional information)",,"D- Inform the customer that they can reinstall the application and try again. If it doesn't work, please provide the phone's specifications and, if the customer has already tried any troubleshooting methods, please specify which ones.",,Medium
+"Roxana Hernandez",Frehynner.Zambrano@cordobalegal.com,2026-05-11,N/A,1208856481,IOS,"Asociated phone number is missing","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/pages/resumedraft.action?draftId=445480961&draftShareId=c98e90a3-821c-4634-8685-577f1da34786",,Medium
+"Denise Sanders",Josias.Campusano@cordobalegal.com,2026-05-11,,1211144074,IOS,"Carrier: T MOBILE
+Reported Issues: contact carrier to allow calls to be redirected.",New,,,,Medium
+"Maria Macapagal",Frehynner.Zambrano@cordobalegal.com,2026-05-01,,CORDOBA-1186531242,Android,"reported issue: cx set up her account with her home phone 609-661-1390 and when she enters her account she can not receive text message. it wil not let her log in with her cell phone 609-276-0950 or email either. If she tries to create a new user sends her back to log in, and if she tries to reset password would not recognize info.","Call Agent (Additional information)",,"D- The account has been validated and created, and the phone number ((609) 276-0950) is registered. If you need to reset your password, use the account ID (16096611390) in the username field. A link is attached with step-by-step instructions for the process in section 4.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"German Barriosnuevo",rosbelym@cordobalegal.com,2026-05-11,,CORDOBA-1212326379,IOS,"wrong credentials","Call Agent (Additional information)",,"D- The account has been validated and has not yet been created. Therefore, you must first complete the initial login process. Attached is a link where step 2 provides the step-by-step instructions.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Susan Neckles",Josias.Campusano@cordobalegal.com,2026-05-07,,1208432606,IOS,"Calls are still coming through.","In queue",,"D- en validaciones","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-829"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Donna Collins",Josias.Campusano@cordobalegal.com,2026-05-11,,1208517565,Android,"Login failed.","Call Agent (Additional information)",,"D- The account has been validated and has not yet been created. Therefore, you must first complete the initial login process. Attached is a link where step 2 provides the step-by-step instructions.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Fermin Martinez",juan.arenas@cordobalegal.com,2026-05-11,,CORDOBA-1127637749,IOS,"The customer attempted to register but did not have a Home Phone number, so we added it in Forth. After updating the information, the app still did not work and displayed the following error message: “Sorry, but it looks like there was a problem with your request.”","Call Agent (Additional information)",,"D- The account has been validated and successfully created. You must validate the login, and if you don't remember your credentials, reset your password. Please note that if the information is updated in Forth, it is very likely that it will not be updated in CreditorX.",,Medium
+"Margie Smoot",Frehynner.Zambrano@cordobalegal.com,2026-05-11,,CORDOBA-1203680652,IOS,"Issue with CreditorX, client trying to setup the account and whever she hit on ""is this your first login?"" is not taking her to the next stage to place the client information. She has tried removing the app and download it again, but still not able to register information.","In queue",,"D- en validacion","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Ernest Russell",wilid@cordobalegal.com,2026-05-08,,1131421718,IOS,"Can't get into the app. It keeps saying it can't recognize his phone number.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Pedro Simon",marisleidyd@cordobalegal.com,2026-05-08,,1210329167,Android,"When the client gets to the step that says ""Send USSD Command"", it doesn't allow them to proceed to the next step and sends them back.","Call Agent (Additional information)",,"D- Inform the client that they can reinstall the app and repeat the process; I have attached a link where step 3 contains the step-by-step instructions for doing it correctly.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Jessie Gilbert",Frehynner.Zambrano@cordobalegal.com,2026-05-08,,1205387181,IOS,"The system does not allow him to fill out the 4 digits code","Call Agent (Additional information)",,"D- If the customer cannot see the option to enter the OTP, they can be asked to reinstall the application and try the flow again; it could also be due to the phone's performance.",,Medium
+"Debra F Sharkey",Frehynner.Zambrano@cordobalegal.com,2026-05-08,,CORDOBA-1201947872,IOS,"Cx is not getting USSD comand","Call Agent (Additional information)",,"D- Attached is a link where point 2 contains the step-by-step instructions for correctly completing the process.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Betty J Pettus",Frehynner.Zambrano@cordobalegal.com,2026-05-08,,CORDOBA-1207465872,IOS,"Issue with CreditorX,, client trying to setup the account and whever she hit on ""is this your first login?"" is not taking her to the next stage to place the client information. She has tried removing the app and downloading again, but still","In queue",,"D- en validacion","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Stephanie Goode",Josias.Campusano@cordobalegal.com,2026-05-05,,1201324842,Android,"Phone Provider: T-mobile
+Issue: it is not blocking the calls.","In queue",,"D- A la espera de validacion y verificacion de numeros bloqueados","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-829"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Kenneth Milton",rosbelym@cordobalegal.com,2026-05-05,,"CORDOBA- 1208754089",Android,"Wrong User ID. or Password.","Call Agent (Additional information)",,"D- The user has been validated and is already created in the CreditorX database; therefore, the first login has already been completed. Please verify access to the platform, and if it is not possible, proceed with a password reset. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Rosana Cudney",rosbelym@cordobalegal.com,2026-04-29,,1205879199,IOS,"Not suggesting to add creditors numbers, the blocked tab does not have the add button to add creditors to blocked list.","Call Agent (Additional information)",,"D- The corresponding validations are performed on the different devices and it is evident that the indicated options are indeed present. Please inform him that he can reinstall the application and run the process again.",,Medium
+"Elcius Alexis",marisleidyd@cordobalegal.com,2026-05-01,,1208573815,IOS,"When the customer enters their ID, SSN, and date of birth, the next page shows them a blue checkmark, according to the customer. When they go back to do it again, it continues to show the same thing.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Teresa Hamme",wilid@cordobalegal.com,2026-05-04,,1201150053,Android,"error when login","Call Agent (Additional information)",Auth/Login,"D- Could you tell me specifically what error you're experiencing when logging in? If it's due to credentials, I recommend resetting your password. I've attached a link where you can find step-by-step instructions in point 2.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Jorge Molanphy",wilid@cordobalegal.com,2026-05-01,,,Android,"the cx can't log into Creditor X, when hit create a account the system doesn't respond","Call Agent (Additional information)",,"D- Inform the client that they can validate the initial login again, ensuring the entered data and format are correct. Attached is a link where step 4 provides step-by-step instructions for this process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Laura Shaw",wilid@cordobalegal.com,2026-05-01,,1196852941,IOS,"Every time she tries to login on the app is says that something went wrong and to try again later.","Call Agent (Additional information)",,"D- Instruct the client to validate by reinstalling the application and granting the necessary permissions again. If this does not work, please indicate what version of device they have and, if possible, what methods they have tried to use to resolve the issue.",,Medium
+"Janet Casey",rosbelym@cordobalegal.com,2026-05-04,,CORDOBA-1208644089,IOS,"Wrong User ID.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Caroleena Christensen",rosbelym@cordobalegal.com,2026-05-04,,CORDOBA-1206348014,IOS,"assoiated phone number is missing from external data","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Sherkeia Richardson",rosbelym@cordobalegal.com,2026-05-04,,CORDOBA-1206472012,IOS,"Wrong User ID.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Catherine Mennen",Frehynner.Zambrano@cordobalegal.com,2026-05-01,,1205838769,IOS,"Error: Associated phone number is missing from external system data","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Benjamin Harris",Josias.Campusano@cordobalegal.com,2026-05-01,,1148493031,Android,"Wrong credentials.","Call Agent (Additional information)",,"D - Contact the user and request that they reset their password again, indicating that they must enter their registered email address in the first field. See point 2 at the following link for step-by-step instructions on how to do this.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Leslie Glass",wilid@cordobalegal.com,2026-05-04,,1203607089,Android,"Cx is having issues creating her password on CreditorX, she created the password correctly but it will not allow her to continue","Call Agent (Additional information)",,"D- Please verify the password entry again, ensuring it follows the recommendations: more than 8 characters, including uppercase and lowercase letters, numbers, and special characters. If the issue persists, try reinstalling the application and let us know whether the error continues.",,Medium
+"John Jamaris",Josias.Campusano@cordobalegal.com,2026-05-01,,1210146285,Android,"Account not found.","Call Agent (Additional information)",,"D- The user has been validated and is already created in the CreditorX database; therefore, the first login has already been completed. Please verify access to the platform, and if it is not possible, proceed with a password reset. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Lavaski Drummond",marisleidyd@cordobalegal.com,2026-04-30,,1207201266,Android,"when he tried to complete the set up steps, it was not recognizing the code,(wrong code) then he UN-installed it  and installed it again, he tried it one more time, but get the message that he already has an account, then he tried again, wont work","Call Agent (Additional information)",,"D- It has been verified that the user is already created. If the system does not allow login, please try resetting the password and, once logged in, continue with the account setup. I am attaching a link where step 2 provides the step-by-step instructions for the password reset.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Sanjay Pandey",Frehynner.Zambrano@cordobalegal.com,2026-04-30,,CORDOBA-1206692811,IOS,"MiPhone number is not matching information. Contact Creditor","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"William Taylor",Frehynner.Zambrano@cordobalegal.com,2026-04-30,,CORDOBA-1203642683,IOS,"When the user tries to log in for the first time, the screen remains blank and nothing else happens.
+
+...","Call Agent (Additional information)",,"D- Instruct the customer to validate again and try reinstalling the application. If it doesn't work, provide us with more information such as the phone version or what they have tried to mitigate the error.",,Medium
+"Jerome Paul",Frehynner.Zambrano@cordobalegal.com,2026-04-29,,"Cordoda: 1203703442",IOS,"Error: Asociated phone number missing","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AYC1GQ",,Medium
+"Dazhane Thompson",Josias.Campusano@cordobalegal.com,2026-04-29,,1204883583,IOS,"Wrong credentials.","Call Agent (Additional information)","First Login","D- The error occurs because some of the data entered during the initial login is incorrect and does not match the data registered in FORTHCRM. The user should be guided through the process, verifying that the entered data is correct. Inform the user of their Account ID, confirm they correctly enter the last four digits of their SSN, and finally, check that the date format is correct (MM-DD-YYYY). If the data matches the FORTHCRM records, they should be able to create their user account without issue.
+
+https://hiredexperts.atlassian.net/wiki/x/AYC1GQ",,Medium
+"John Luikart",Josias.Campusano@cordobalegal.com,2026-04-29,,1207248380,IOS,"Account is in an inactive status.","Call Agent (Additional information)",,"D- The user has been validated and is already created in the CreditorX database; therefore, the first login has already been completed. Please verify access to the platform, and if it is not possible, proceed with a password reset. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Chrishawn Moore",rosbelym@cordobalegal.com,2026-04-29,,CORDOBA-1206516758,Android,"Wrong User ID","Call Agent (Additional information)",,"D- The error occurs because some of the data entered during the initial login is incorrect and does not match the data registered in FORTHCRM. The user should be guided through the process, verifying that the entered data is correct. Inform the user of their Account ID, confirm they correctly enter the last four digits of their SSN, and finally, check that the date format is correct (MM-DD-YYYY). If the data matches the FORTHCRM records, they should be able to create their user account without issue.",,Medium
+"Clarisa Gongora",rosbelym@cordobalegal.com,2026-05-04,,CORDOBA-1205058329,Android,"Associated phone number is missing for the external system.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"David Riley",Luis.Agramonte@cordobalegal.com,2026-05-02,,CORDOBA-1207249264,Android,"Cx mentioned that is trying to add a creditor but the app is not letting him to do so. Also mentioned that the app is not redirecting any calls.","In queue",,"D- validar con Samil",,Medium
+"Floyd Bottoms",ashleyc@cordobalegal.com,2026-05-05,,1207218599,IOS,"Cx trying to register but when is asking for the phone number that he puts it in, an error message shows up saying ""Associated phone number is missing from external system data"".","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Bill Tice SR",rosbelym@cordobalegal.com,2026-05-04,,CORDOBA-1206331390,Android,"After fill out the last 4 SSN , DOB and USER ID it show an error mssg and can not continue by creating the account","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Michael Richards",ashleyc@cordobalegal.com,2026-05-05,,1120355448,IOS,"Cx was able to login after the registration. However, the cx haven't been able to login after the first time because it says his credentials are not valid. Cx tried reset the password and an OTP email is send where he is able to reset password, but when he tries to login with the new password it says ""Password is incorrect, login failed"".","Call Agent (Additional information)",,"D- Contact the client and instruct them to repeat the password reset process. Attached is a link where point 2 contains the step-by-step instructions for the process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Kenneth Guay",juan.arenas@cordobalegal.com,2026-05-04,,CORDOBA-1207778065,IOS,"The client is unable to log in to Creditor X. Although this is his first attempt, the system repeatedly displays 'User not found' when he tries to register. He has attempted using his email, phone number, and user ID, but none of these work.","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Jean Frasnelli",Josias.Campusano@cordobalegal.com,2026-05-05,,1203616726,Android,"Error, wrong credentials.","Call Agent (Additional information)",,"D - Contact the user and request that they reset their password again, indicating that they must enter their registered email address in the first field. See point 2 at the following link for step-by-step instructions on how to do this.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"LaSheena Fisher",Josias.Campusano@cordobalegal.com,2026-05-05,,1199580865,Android,"When customer tries to enter a creditor phone number it says: Please provide a valid phone number.","Call Agent (Additional information)",,"D- Instruct the customer to perform the validation again and remember that the numbers must begin with the indicator (+1) followed by the ten digits of the number.",,Medium
+"Karen Sacks",Sebastian.Rodriguez@cordobalegal.com,2026-05-04,,CORDOBA-1197849308,IOS,"Cx got kicked out from the app and is stating he cannot loggin again even when resseting his password, is being asked to set SSD command again but the app is not running. Cx needs to use the app","Call Agent (Additional information)",,"D- Instruct the client to validate by reinstalling the application and granting the necessary permissions again. If this does not work, please indicate what version of device they have and, if possible, what methods they have tried to use to resolve the issue.",,Medium
+"Suzette Franco",Josias.Campusano@cordobalegal.com,2026-05-04,,1207312853,IOS,"Carrier: Celcom
+Carrier is not in the list.","In queue",,D-,"{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-811"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Chevelle Hall",Josias.Campusano@cordobalegal.com,2026-05-04,,1206264635,Android,"Cs not able to first log in apparently CX had created an user not able to log in...","Call Agent (Additional information)",,"D- A validation was performed, and it appears that an attempt was likely made to log in with an incorrect ID. Please verify again using this ID: 1206271999.
+Additionally, I am attaching a link where step 4 provides the step-by-step instructions for this flow.",,Medium
+"Shanna Robinson",rosbelym@cordobalegal.com,2026-05-04,,CORDOBA-1205595831,Android,"After fill out the last 4 SSN , DOB and USER ID it show an error mssg (Phone number is missing from internal system) and can not continue by creating the account","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Marsharie Boyer",Josias.Campusano@cordobalegal.com,2026-05-04,,1207317226,Android,"The customer needs to fix an issue with the app that is preventing her from logging in. She entered her information correctly, but she was still unable to log in.","Call Agent (Additional information)",,"D- After reviewing the user, it was identified that they have not yet completed the first login. Please proceed with this process and verify whether, after doing so, they are able to access the application. I am attaching a link where step 4 provides the step-by-step instructions on how to do it.",,Medium
+"Ernest Russell",Josias.Campusano@cordobalegal.com,2026-05-04,,1131421718,IOS,"Unregistered number.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Esdras Estime",marisleidyd@cordobalegal.com,2026-05-04,,1207201221,IOS,"The application does not allow the client to continue logging in after entering the user ID credentials, the last four digits of their social security number, and their date of birth.",Completed,"First Login","G: ""phone_number"": null, <----- Inside ForthCRM the user doesn't have this value, its mandatory so please update it and try it again
+
+
+""id"": ""1207201221"",
+""first_name"": ""Esdras"",
+ ""last_name"": ""Estime"",
+""phone_number"": null, <----- Inside ForthCRM the user doesn't have this value, its mandatory so please update it and try it again
+""phone_extension"": null,
+""cell_phone"": ""4079569664"",
+""cell_extension"": null,
+""social_security_number"": ""847825826"",
+""date_of_birth"": ""1989-12-30""
+
+Here is the error, also the message explains the error, check it please",,Low
+"Thomas Gedgaudas",marisleidyd@cordobalegal.com,2026-05-04,,1200410611,IOS,"No number showing in his caller I to block them, is not allow him to block numbers","In queue",,"D- en espera a la respuesta por parte de Samil",,Medium
+"Morris Higgins",Frehynner.Zambrano@cordobalegal.com,2026-05-04,,CORDOBA-1187515224,Android,"¨He got frozen at the end that he tried to sent the USSD comand¨","Call Agent (Additional information)",,"D- Please indicate what you mean by “it froze,” and at what point it happened—whether during calls from the phone or directly within CreditorX. Also, let us know what the customer has already tried, for example, restarting the application or reinstalling it.",,Medium
+"Hermenegildo Escalante",marisleidyd@cordobalegal.com,2026-05-02,,1205636441,Android,"The client reports that they have tried to log into the creditor X application but are told that they are blocked.","Call Agent (Additional information)",,"D- Contact the customer and verify access again. A validation was performed, and it was confirmed that the account is correctly created. If login is not possible due to credential issues, it is recommended to perform a password reset. I am attaching a link where step 2 shows the step-by-step instructions for this process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Carlos Rivas Martinez",marisleidyd@cordobalegal.com,2026-05-02,,1194297060,Android,"The customer indicates that they downloaded the Creditor X application and installed it on their phone, but when adding numbers, they receive an error message stating that the numbers they want to add from the creditors who call them cannot be added, has an android, The customer says that some numbers allow them to be added, but when adding 786-957-5567, it indicates that it cannot be added, saying ""invalid number, cannot be added"". (edited)","Call Agent (Additional information)",,"D- Instruct the customer to perform the validation again and remember that the numbers must begin with the indicator (+1) followed by the ten digits of the number.",,Medium
+"Rhonda Cole",marisleidyd@cordobalegal.com,2026-05-04,,1199582642,Android,"Customer called us today because she has been having some issues to Blocks calls, she is able to Log in, but the apps is giving her issues to Blocks calls From creditors, the account was reported successfully.","In queue",,"D- validar con Samil",,Medium
+"Walter Rist",Frehynner.Zambrano@cordobalegal.com,2026-05-04,,CORDOBA-1207860362,IOS,"¨Is not allowing him to set up the account the app got frozen¨","Call Agent (Additional information)",,"D- Instruct the customer to try reinstalling the application and repeating the initial login process. I've attached a link with step-by-step instructions (step 4) to help you do this correctly.
+
+If this doesn't work, please provide more information, such as the phone model and any other troubleshooting steps the customer has tried.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Peggy Brahler",Frehynner.Zambrano@cordobalegal.com,2026-05-04,,1198031480,IOS,"Error: Password or User Name are wrong","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.",,Medium
+"Richard Estrada",rosbelym@cordobalegal.com,2026-04-16,,1156822180,IOS,"Customer Name: Richard Estrada
+Date: 04/16/2026
+Cordoba ID: 1156822180
+Device: IPHONE
+Issue: created his account previously and does not remember the password, not allow to create a new one.","Call Agent (Additional information)",,"D- Instruct the client to please reset their password, assist them in the process, and attach a link where point 2 contains step-by-step instructions on how to reset the password.",,Medium
+"Evan Sakellaropoulos",Frehynner.Zambrano@cordobalegal.com,2026-04-16,,CORDOBA-1200526596,IOS,"upss there was an error processing your request","Call Agent (Additional information)",,"D- Can you provide us with more information regarding the flow where this error occurs? If so, please indicate the information being entered, if applicable, and the details of the phone used.",,Medium
+"Dallas Allen",joeym@cordobalegal.com,2025-10-27,,CORDOBA-1139104205,Android,"Client enters their Customer ID and it says it is invalid",New,,,,Medium
+"Jon Kline",jaquino@cordobalegal.com,2025-11-05,,1021611125,IOS,"Wrong credentials, information was double checked and it matched with the information in our system.",New,,,,Medium
+"Vickie Singletary",Josias.Campusano@cordobalegal.com,2025-11-06,,CORDOBA-1156716948,Android,"Wrong Credentials.",New,,,,Medium
+"Robert Carrasquillo",Josias.Campusano@cordobalegal.com,2025-11-06,,CORDOBA-1149934487,IOS,"Notification ""   it says, it has already login on the app.     ""
+Client was educate to click on  ""Password recovery ""    It says "" user not found"". 
+ "" Wrong Credentials ""    / User not found """,New,,,,Medium
+"Cori Dunn",juan.arenas@cordobalegal.com,2025-11-05,,CORDOBA-1161228741,IOS,"Cx is trying to register, but ap says that credentials are wrong. Information double checked with file info and everything matched,",New,,,,Medium
+"Debra L Renner",juan.arenas@cordobalegal.com,2025-11-05,,CORDOBA-1086611203,Android,"Cx trying to put credential for registration process, but system says they're invalid. We double checked with information we have on file and everything matched.",New,,,,Medium
+"Thomas Sanders",Josias.Campusano@cordobalegal.com,2025-11-05,,CORDOBA-1161247795,Android,"Client's getting error message ""Wrong Credentials"" after putting right information.",New,,,,Medium
+"David Martinez Salinas",jaquino@cordobalegal.com,2025-11-05,,1113864099,Android,"Wrong credentials, information was double checked and it matched with the information in our system.",New,,,,Medium
+"Jared Ricklefs",jaquino@cordobalegal.com,2025-11-05,,1161229968,IOS,"Wrong credentials, information was double checked and it matched with the information in our system.",New,,,,Medium
+"Debra Rutland",jaquino@cordobalegal.com,2025-11-05,,1156580754,Android,"Wrong credentials, information was double checked and it matched with the information in our system.",New,,,,Medium
+"Julia Muhammad",juan.arenas@cordobalegal.com,2025-11-06,,1127216941,IOS,"Customer is trying to login and when he is trying to put the last 4 of SSN, customer ID and DOB it keep saying Incorrect credentials.",New,,,,Medium
+"Mary J Larson",juan.arenas@cordobalegal.com,2025-11-05,,CORDOBA-1164000768,IOS,"System says that credentials are wrong during the registration process. Info double checked and everything matched on file.",New,,,,Medium
+"Melba Small",robertc@cordobalegal.com,2025-11-05,,1161160636,Android,"when client entered the information that are on our system is saying ( wrong credentials )",New,,,,Medium
+"Seth Metje",juan.arenas@cordobalegal.com,2025-11-05,,CORDOBA-1113278258,IOS,"when cx try to log in into CreditorX got a message indicating that phone number not in the system or registered, and the cx couldnt set it up correctly
+
+cel: 573-270-5455","In progress",,,,Medium
+"Donna Powell",robertc@cordobalegal.com,2025-11-04,,1163243650,IOS,"when client click where it says  “Is this your first login?” app did not proceed, looks like the button is not working",New,,,,Medium
+"Sean Sanchez",juan.arenas@cordobalegal.com,2025-11-04,,1148914903,IOS,"creditorX associated phone number is missing from external system data, please contact CreditorX Team","In progress",,,,Medium
+"Blessing N Olih",robertc@cordobalegal.com,2025-11-04,,1125937452,Android,"Cx indicated her carrier is Spectrum and it is not listed, Cx indicated only these 3 carriers are listed AT&T Verizon & T-mobile",New,,,,Medium
+"Mbarak Juma",juan.arenas@cordobalegal.com,2025-11-04,,1160450907,IOS,"The customer is trying to register in the app, but the app won’t allow her to enter her phone number. She’s able to enter her SSN and date of birth, but can’t complete the registration because the phone number field isn’t working.",New,,,,Medium
+"William Dauglas Greenham",Josias.Campusano@cordobalegal.com,2025-11-04,,CORDOBA-1149815154,IOS,"The phone server the customer uses does not appear in the app's options; the customer uses Spectrum, so the app does not allow them to create his account.",New,,,,Medium
+"Joshua Vanstaveren",aramirez@cordobalegal.com,2025-11-05,,1149988443,Android,"Cx is trying to login and when he is trying to put the last 4 of SSN, customer ID and DOB it keep saying Incorrect credentials.",New,,,,Medium
+"Lisa Benoit",ashleyc@cordobalegal.com,2025-11-06,,1155148260,IOS,"She tried accessing with her phone number and  email and the screen said wrong credentials.",New,,,,Medium
+"Jon Kline",jaquino@cordobalegal.com,2025-11-04,,1139899203,IOS,"Carrier is not on list ( Cricket )",New,,,,Medium
+"KARA LAWRENCE",nestorp@cordobalegal.com,2025-12-03,,CORDOBA-1161377359,IOS,"The client said the app messed up their phone, causing them to lose access to voicemail and requiring them to get a new phone and number.",New,,,,Medium
+"Ernest F Mcadams",ashleyc@cordobalegal.com,2026-03-17,,CORDOBA-1145482999,Android,"Try to guide him through the process. Gave him the ID User > Which is the Account number of Cordoba. Cst fill out the other spaces DOB SSN > Not able to continue as there is not option to follow up the set up of it > Tried to open and close the account.",Completed,"First Login","G (DOB): AGENT, please call the CST because with this data the login WORK OUT!
+1. USER ID: 1145482999
+2. SSN las 4 digits: 0649
+3. DOB: mm/dd/yyyy - 06/02/1964
+If this are RIGHT ->New Window: Set Up New Credentials
+
+If not: WRONG CREDENTIALS","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-574"",""attachment"":{},""displayAsUrl"":false}",Medium
+"John M Jones",ashleyc@cordobalegal.com,2026-03-17,,CORDOBA-1197888672,IOS,"When he clicks on ""is this your first login?"" nothing happens.",Completed,"First Login","Retry and check if its te new version, if nothing happens, ask the costumer again?",,Low
+"Esayas G Berhe",ashleyc@cordobalegal.com,2026-03-17,,CORDOBA-1181035890,Android,"The customer was in the process of setting up the Creditor X, but he was unable to find his mobile carrier on the list. We checked for the equivalent host network on the list provided, but it did not appear on it. The customer's mobile carrier is *Sprint*.",Completed,"First Login / Settings","S: Sprint carrier added","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-582"",""attachment"":{},""displayAsUrl"":false}",High
+"Velma Brown",rosbelym@cordobalegal.com,2026-03-13,,CORDOBA-1196743204,IOS,"We run the steps
+Step 1 Put in the User ID 1196743204
+Step 2 Put the Last 4 Customer social
+Step 3 Put Date of Birth Jun 03, 1947
+Step 4 Customer Get Stuck cannot click confirm
+
+We cleared cache, checked for the app to be updated and client still couldn't get pass the setting up credentials screen.",Completed,"First Login","G+R: We try to replicate this issue, filling the 3 inputs the app works FINE.",,High
+"Eric Burkhart",juan.arenas@cordobalegal.com,2026-03-13,,CORDOBA-1197846397,"IOS, Android","The client attempted to register in the app using the information requested by the system. When he entered his personal information, the app displayed a “wrong credentials” message. The agent verified the account details, and all the information on file is correct.",Completed,"First Login","Problem solved. Call the user and try this actions again.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-663"",""attachment"":{},""displayAsUrl"":false}",High
+"Eileen Caspersen",luis.rojas@cordobalegal.com,2026-03-13,,CORDOBA-1194255409,IOS,"*Appstore --* ios 26.3.1  / the customer is trying to download the app, however it does not appear in the *Appstore*. Customer have an Iphone 7",Completed,,"R+G: Compatible iOS version until… (% version mayoria usuarios?)
+
+min iOS: v15
+
+Downloaded & Installed
+• 26.2 user: 642
+• 26.3 users: 911 
+Check why he cant see the app, is he in the US?","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-595"",""attachment"":{},""displayAsUrl"":false}",Medium
+"James Schultz",robertc@cordobalegal.com,2026-03-12,,1107588679,IOS,"we can see this is your 1st log in but everything is grey out and customer is unable to select any option",Completed,"First Login","Is this account enabled? Can we have more information?",,Medium
+"Shatyra Rogers",Josias.Campusano@cordobalegal.com,2025-11-11,,1161160636,IOS,"try to log in, error 404",New,,,,Medium
+"Peyman Novel",ashleyc@cordobalegal.com,2025-11-06,,1153103449,IOS,"Wrong credentials",New,,,,Medium
+"Raymond Martinez",daniel.pardo@cordobalegal.com,2025-11-08,,CORDOBA-1159142400,Android,"CreditorX fail to log / Invalid Credentials /  T-Mobile, Most recent app version / correct credentials, ssn and date of birth",New,,,,Medium
+"Jeffery Oberbeck",juan.arenas@cordobalegal.com,2025-11-07,,1148758845,Android,"Type of error: Error wrong credentials",New,,,,Medium
+"Munir Hussien",ashleyc@cordobalegal.com,2025-11-06,,1102363717,IOS,"Customer is trying to login and when he is trying to put the last 4 of SSN, customer ID and DOB it keep saying incorrect credentials.",New,,,,Medium
+"Bert Bobadilla",Josias.Campusano@cordobalegal.com,2025-11-06,,1101077871,IOS,"Getting the credentials email.",New,,,,Medium
+"Stefanus T Benecke",ashleyc@cordobalegal.com,2025-11-06,,1115278020,IOS,"Reported Issues:  wrong credentials error",New,,,,Medium
+"Jacqueline Leto",ashleyc@cordobalegal.com,2025-11-06,,1083109624,Android,"Reported Issues: When client tried to enter as a 1st time user she put in all the information and she receive an error for wrong credentials",New,,,,Medium
+"Keith Edwards",juan.arenas@cordobalegal.com,2025-11-06,,CORDOBA-1164589142,IOS,"Reason Cx calling cause got a message from Creditor X saying
+wrong credentials.",New,,,,Medium
+"Debra Yelvington Canaday",juan.arenas@cordobalegal.com,2025-11-06,,CORDOBA-1163276548,IOS,"The system says that credentials are wrong, even after double checking that info we have in file matched with info cx gave us.",New,,,,Medium
+"Edward Mosley",Josias.Campusano@cordobalegal.com,2025-11-04,,CORDOBA-1143272437,Android,"Carrier not on the list. (Consumer Celular).",New,,,,Medium
+"Vicente Ponce",marisleidyd@cordobalegal.com,2025-11-03,,855013043,IOS,"Installed app but the carrier is no listed on the app
+His carrier is Spectrum",New,,,,Medium
+"Ramon H De La Rosa",rosbelym@cordobalegal.com,2026-03-17,,CORDOBA-1196836183,Android,"Commands stayed blank, when hitting  "" Confirmation button  ' after filling out his Cordoba ID, Last 4 of his SSN /date of birth",Completed,"First Login","S: Agent please call the customer, this bug has been already fixed.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-572"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Jose Luis Quinones Martinez",jaquino@cordobalegal.com,2025-10-29,,1162079372,IOS,"Once client tries to introduce the DOB it keeps restarting it to the first of the month. Not allowing him to switch to a different date.",New,,,,Medium
+"Claudia Toto",Josias.Campusano@cordobalegal.com,2025-10-29,,CORDOBA-1161085884,IOS,"Wrong credentials.",New,,,,Medium
+"Aretha Lanier",Josias.Campusano@cordobalegal.com,2025-10-29,,1161036984,Android,"wrong credentials.",New,,,,Medium
+"William Greene",ashleyc@cordobalegal.com,2025-10-29,,1151022432,Android,"The customer entered his User ID, last 4 of SSN and DOB, but the app says ""Invalid credentials"". We tried multiple times and verified that there were no extra spaces or characters. Asked customer to close and reopen app, but still didn't work.",New,,,,Medium
+"Crystal Messersmith",jaquino@cordobalegal.com,2025-10-29,,1039267580,IOS,"Wrong credentials",New,,,,Medium
+"Tanya Cooper",jaquino@cordobalegal.com,2025-10-29,,1095329981,Android,"Wrong credentials 2 times even though we uninstalled and reinstalled the app",New,,,,Medium
+"Malenie Trainor",Josias.Campusano@cordobalegal.com,2025-10-29,,CORDOBA-1047799889,IOS,"Wrong credentials.",New,,,,Medium
+"Melissa Grimm",jaquino@cordobalegal.com,2025-10-29,,996278407,IOS,"Client is getting wrong credentials every time she tries to set up correctly.",New,,,,Medium
+"Linda Edwards",robertc@cordobalegal.com,2025-10-29,,1139950619,IOS,"Error: Invalid credentials.
+
+Agent did guide the client into the setup process, unsuccessfully.
+
+Client was provided with the Quick Setup & App Walkthrough, followed the steps but still was not able to access.",New,,,,Medium
+"Hiram Ramirez",adonism@cordobalegal.com,2025-10-29,,CORDOBA-1145536398,IOS,"Reported Issues: When the client enters the data (SSN, ID, and date of birth), it indicates CREDENTIAL ERROR",New,,,,Medium
+"Alicia Hunt",Josias.Campusano@cordobalegal.com,2025-10-29,,CORDOBA-1129433287,IOS,"Wrong credentials error when setting up Creditor X",New,,,,Medium
+"Nadine Miller",Josias.Campusano@cordobalegal.com,2025-10-29,,CORDOBA-941351483,IOS,"When customer is trying to log in for the first time to the app, she put the ID, SSN and her DOB, she mentioned that once she types the DOB as Nov 11, 1966 it's backwards and it indicates that she is entering wrong credentials info.",New,,,,Medium
+"Jessie Reeder",adonism@cordobalegal.com,2025-10-29,,CORDOBA-1162308661,Android,"Client is trying to install creditorX on an android phone and it says something went wrong",New,,,,Medium
+"Diane Lara",nestorp@cordobalegal.com,2025-10-28,,CORDOBA-1160354594,Android,"Client gets the error 401.52 Invalid user name or password",New,,,,Medium
+"Diane Lara",nestorp@cordobalegal.com,2025-10-28,,CORDOBA-1160354594,Android,"Client reports in this ticket 1210541, that he gets an error trying to log in ERROR : Wrong Credentials, in the email he sent us are attached Screenshots of it.",New,,,,Medium
+"Lisa Voorhees",Josias.Campusano@cordobalegal.com,2025-10-27,,CORDOBA-1147450870,Android,"Wrong credentials.",New,,,,Medium
+"Henry J Carter",nestorp@cordobalegal.com,2025-10-23,,CORDOBA-899232104,Android,"Customer send this email 1205913, telling us that he gets an error message when trying to log in in CreditorX",New,,,,Medium
+"Johnnie Jordan",joeym@cordobalegal.com,2025-10-27,,CORDOBA-1144787904,Android,"Customer submits her dob and app change the date automatically and she can't have access to create the account",Completed,,,,Medium
+CORDOBA-949507106,Josias.Campusano@cordobalegal.com,2025-10-29,,"Janice Jackson",IOS,"Client Shows that there are wrong Credentials.",New,,,,Medium
+"Maria Arteaga Williams",ashleyc@cordobalegal.com,2025-10-29,,1127369054,IOS,"The customer entered his User ID, last 4 of SSN and DOB, but the app says ""Invalid credentials"". We tried multiple times and verified that there were no extra spaces or characters. Still didn't work.",New,,,,Medium
+"Patricia Trevino",jaquino@cordobalegal.com,2025-10-31,,1160546048,IOS,"Cricket Wireless is not enlisted on the provider section",New,,,,Medium
+"Susan R. Crosby",marisleidyd@cordobalegal.com,2025-10-29,,1114450925,IOS,"Credentials Error",New,,,,Medium
+"Camille Roska",robertc@cordobalegal.com,2025-10-31,,1159445333,Android,"''The associated phone number is missing from external System''",New,,,,Medium
+"Jaime R Corcho",Josias.Campusano@cordobalegal.com,2025-10-31,,CORDOBA-1110613679,IOS,"It is not allowing the customer to access the system after entering their date of birth, even though he's entering it correctly.",New,,,,Medium
+"Urbano J. Lux",Josias.Campusano@cordobalegal.com,2025-10-30,,CORDOBA-924712104,IOS,"Client was creating the password but it is not letting him even though he tried multiple times.",New,,,,Medium
+"Donald Rankins",Josias.Campusano@cordobalegal.com,2025-10-30,,1147501754,Android,"When hit confirm, it says : Associated phone numbers is missing  Steps #3.",New,,,,Medium
+"Nelson Fulgecio",marisleidyd@cordobalegal.com,2025-10-29,,1151572797,IOS,"CREDENTIAL ERROR",New,,,,Medium
+"Christopher Cotto Caraballo",marisleidyd@cordobalegal.com,2025-10-29,,953894879,Android,"He says there's an error with his credentials.",New,,,,Medium
+"Angela Fuentes",marisleidyd@cordobalegal.com,2025-10-29,,1145536398,Android,"When the client enters the data (SSN, ID, and date of birth), it indicates CREDENTIAL ERROR (confirm with the client that the data entered was correct, but the error persists)",New,,,,Medium
+"Arlines Gomez Soler",marisleidyd@cordobalegal.com,2025-10-29,,1154493921,IOS,"Associate phone number missing from external system",New,,,,Medium
+"Isabel Tarango De Jimenez",luis.rojas@cordobalegal.com,2025-10-29,,CORDOBA-1130984906,IOS,"App downloaded. (Step 1 -Didnt work-Said that credentials were incorrect. I verified with the cx several times, the Cordoba Id, SSN, and DOB)",New,,,,Medium
+"Katherine Garrett",marisleidyd@cordobalegal.com,2025-10-29,,1159445583,Android,"Error message: wrong credentials. **Uninstalled and reinstalled app, verified credentials client was using, Client ID, DOB and last 4 SSN client was using matched with our records. **",New,,,,Medium
+"Stefanus T Benecke",jaquino@cordobalegal.com,2025-10-29,,1115278020,IOS,"invalid CREDENTIALS",New,,,,Medium
+"Susan R. Crosby",jaquino@cordobalegal.com,2025-10-29,,1114450925,IOS,"Wrong credentials",New,,,,Medium
+"Daphne B Emmons",wilid@cordobalegal.com,2025-10-29,,CORDOBA-1116135409,Android,"Creditor X says wrong credential",New,,,,Medium
+"Deborah Bethea",jaquino@cordobalegal.com,2025-10-29,,951101572,IOS,"Wrong credentials",New,,,,Medium
+"Martin Gonzales",jaquino@cordobalegal.com,2025-10-29,,1133583315,Android,"Wrong credentials",New,,,,Medium
+"Pat Wilson",jaquino@cordobalegal.com,2025-10-29,,1070645756,Android,"Wrong credentials",New,,,,Medium
+"AUNDRA HAYES",robertc@cordobalegal.com,2025-10-29,,1076817430,IOS,"Invalid Credentials even though customer is inputting right info (ID number dob last 4 ssn)",New,,,,Medium
+"Angela Fuentes",marisleidyd@cordobalegal.com,2025-10-29,,1145536398,Android,"When the client enters the data (SSN, ID, and date of birth), it indicates CREDENTIAL ERROR (confirm with the client that the data entered was correct, but the error persists)",New,,,,Medium
+"Kurtis Wilson",ashleyc@cordobalegal.com,2026-03-17,,CORDOBA-1196175315,Android,"Cx app is set up, but when he open it is showing him is not activated for blocking and redirecting.","Call Agent (Additional information)",Setup,"S: We need to verify with the agent if users skip call block configuration","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-575"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Dorsie Shiflett",rosbelym@cordobalegal.com,2026-03-18,,CORDOBA-1197630817,Android,"The second page ""Account info"" its not working the client cannot press confirm in order to continuum",Completed,"First Login","S: Call the client and ask to re-validate this. Client needs to update the app to the latest version.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-572"",""attachment"":{},""displayAsUrl"":false}",Medium
+"David Nobles",Frehynner.Zambrano@cordobalegal.com,2026-04-16,,CORDOBA-1200522117,Android,"User not found","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Joannie Foster",rosbelym@cordobalegal.com,2026-04-11,,CORDOBA-1197877714,IOS,"Does not recognize user.","Call Agent (Additional information)",,"R: this user is working for me using the right data, what error message do the user see?",,Medium
+"Sharon D Lindsey",Sebastian.Rodriguez@cordobalegal.com,2026-04-13,,CORDOBA-1204822965,Android,"Unable to access to the app since cannot create a new password, error unauthorized","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Linda Black",juan.arenas@cordobalegal.com,2026-04-13,,CORDOBA-1174395253,IOS,"The customer was assisted during the registration process, but when entering the password, an error appeared saying, “There was a problem processing your request.” After uninstalling and reinstalling the app, it said the account already exists. However, when she tried to continue with the verification process, she was unable to proceed and no further options were available.","In queue",,,"{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-667"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Jacqueline Gernhard",juan.arenas@cordobalegal.com,2026-04-13,,1181189492,Android,"When trying to create a new password, an error appeared saying the account already exists. I then used the phone number as the user ID and clicked “Forgot Password,” but it still said the account already exists. When I tried using the email address, it showed a “User not found” error.","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended. PLEASE NOTE THAT THE CUSTOMER’S USERNAME IS THE ACCOUNT ID (16812875908). If this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.",,Medium
+"Nicholas Sennyk III",Josias.Campusano@cordobalegal.com,2026-04-13,,1190911376,Android,"If customer tries to access like is the first time he gets two errors, the first one is that he is not authorized and the second one appears like there is already an account active, when he tries to access log in using the phone number or email the error displayed is incorrect log in.","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Matthew S Hillis",Josias.Campusano@cordobalegal.com,2026-04-13,,1192678349,Android,"Unable to receive password set up messages.","Call Agent (Additional information)",,"D- Please try the process again. If it doesn't work, please provide more information about the error or its cause. The attached link, in step 2, contains step-by-step instructions for resetting your password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Racheal Jackson",jaquino@cordobalegal.com,2026-04-13,,1177060663,IOS,"There was a problem processing your request whenever she tries to setup a password.","In queue",,,"{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-666"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Manuel Nunez",rosbelym@cordobalegal.com,2026-04-11,,CORDOBA-1199694064,IOS,"The customer reports that they are unable to access the credit app. They have downloaded and installed it several times, but it still does not allow them to access the app.","Call Agent (Additional information)",,"R: can by explain why this client cannot access the app? i mean error message or more detailed explanation
+
+Note: i tested this account and i could access first login",,Medium
+"Jackie Willis",Sebastian.Rodriguez@cordobalegal.com,2026-04-10,,1194048221,IOS,"Cx has the numbers blocked but he keep receiving calls from the creditors","In queue",,"1. Check if the number ","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-665"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Kristof Harris",Sebastian.Rodriguez@cordobalegal.com,2026-04-13,,CORDOBA-1197583923,IOS,"Number not associated to data","Call Agent (Additional information)",,"R: phone_number is null","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-705"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Antoine Garcon",Frehynner.Zambrano@cordobalegal.com,2026-04-09,,CORDOBA-1196838865,Android,"Error ¨ assosiate phone number is missing¨","Call Agent (Additional information)","First Login / Settings","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Iliana Rodriguez",ashleyc@cordobalegal.com,2026-04-10,,CORDOBA-1197555048,Android,"On the USSD commands part she clicks but does not happen anything after that, she is not receiving anything.","Call Agent (Additional information)","First Login","S (USSD): investigation
+D- Verify the uploaded video and instruct the user to follow these steps
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Lorrie S Campbell",ashleyc@cordobalegal.com,2026-04-10,,1147738969,Android,"The app is frozen and is giving an error, it does not let her go further after putting her personal info in the app.","Call Agent (Additional information)",,"S: We need more information on this.",,Medium
+"Eric Newsome",richardm@cordobalegal.com,2026-04-09,,CORDOBA-1197752861,Android,"Issue to set up the Creditor X, cx was stuck in the option to send the USSD Command, every time they hit send command, the system sends the client to call Cordoba Cx service team instead of moving to the next step","Call Agent (Additional information)","First Login","S (USSD): ??
+Which carrier did the user select?",,Medium
+"Mohammed S Hyder",luis.rojas@cordobalegal.com,2026-04-09,,1200414235,IOS,"Cx called to report he downloaded CreditorX app but when he types in his User ID # 1200414235, date of bith and last 4 digits of SSN, an error appears and says ""Associated number in missing from external system data.",Completed,,"R: In ForthCrm the phone_number field is null, please set this value.",,Medium
+"Bobbie Condel",Josias.Campusano@cordobalegal.com,2026-04-09,,1204379536,IOS,"When cx tries to access to the app by the first time, every time she types the Cordoba ID it pop up as a phone number, cx said the error message is displayed as ""invalid phone number"", during the interaction was needed to add the phone number as a home phone and update the DOB on file, after that the app still stating ""wrong credentials""",Completed,,"R: bod was wrong in our database i fixed the data using forthcrm data. the client can try again.",,Medium
+"William Scott Stanko II",robertc@cordobalegal.com,2026-04-08,,CORDOBA-1202672987,IOS,"when client click "" “Is this your first login?"" it does not work, we deleted the app and try twice with no success","Call Agent (Additional information)",,"R: account verified and it can do first login. can be specified what specific error message does the user see",,Medium
+"Esayas G Berhe",Sebastian.Rodriguez@cordobalegal.com,2026-04-08,,CORDOBA-1181035890,Android,"When the customer is setting the app and is trying to entering the different creditors to block them it doesn't show any of them to mark. Also, in the right corner of bottom of the screen in the option ""add"" he couldn't add any creditor. 
+We finished to set up the app, however we are not sure enought that calls will block since we couldn't select any creditor there.","In queue",,"S: <@U09QXQ3UL78> a quick solution for this issue is to ask users to logout and login. The main problem is that token has expired.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-632"",""attachment"":{},""displayAsUrl"":false}",Medium
+"John David Eckenbom",Sebastian.Rodriguez@cordobalegal.com,2026-04-13,,1200816428,Android,"Cx report that at the momment to create the user the system doesn't recognize his credentials","Call Agent (Additional information)",,"D- The test was performed using the customer's information, and it allowed progress to entering the password without issue. Please perform the test again, keeping in mind that it uses the account ID and also follows the date format.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Harold Nash",Josias.Campusano@cordobalegal.com,2026-04-14,,1178815881,Android,"Customer tried to log in by the first time but got an error about his user already existing.","Call Agent (Additional information)",,"D- Inform the user that the account has already been created, and that if they do not remember the password they can recover it. Please accompany the user in this process. Attached is a link where point 2 contains the step-by-step instructions for this process.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Tena Williams",rosbelym@cordobalegal.com,2026-04-07,,"CORDOBA- 1202371747",Android,"The list of Creditor is not showing up, for her to choose it on the APP.","In queue",,"S: Under investigation - The client has creditor added (confirmed in the DB)
+D - Samil testing","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-766?atlOrigin=eyJpIjoiOTNhMjE5YTIwNjgwNGZhYjk4Y2E0NjJjNjcwZTMxM2IiLCJwIjoiaiJ9"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Maria Martinez",rosbelym@cordobalegal.com,2026-04-15,,1204502989,Android,"INVALID USER ID.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Brian Reed",Frehynner.Zambrano@cordobalegal.com,2026-04-15,,CORDOBA-1200522117,Android,"¨the phone is no attached¨","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Leah Elsbernd",Frehynner.Zambrano@cordobalegal.com,2026-04-15,,CORDOBA-1145564460,IOS,"Error: ""Error, the information does not make match with our records"". ""Something went wrong"".","Call Agent (Additional information)",,"D- Verify at what point in the workflow this error occurs, since the account has already been created correctly. If it happens during login, inform the user that they can reset their password. The attached link, in step 4, provides step-by-step instructions on how to do this.
+
+https://hiredexperts.atlassian.net/wiki/pages/resumedraft.action?draftId=445480961&draftShareId=c98e90a3-821c-4634-8685-577f1da34786",,Medium
+"Howard McWilson",rosbelym@cordobalegal.com,2026-04-15,,1195356787,IOS,"Associated phone number is missing for external system Date.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Rod Masterjohn",Josias.Campusano@cordobalegal.com,2026-04-15,,1201290384,Android,"Login Information is showing always incorrect when completing the first time login.","Call Agent (Additional information)",,"D- The account currently exists in the Creditorx database. If you are unable to log in, please guide the user through the password reset process. I have attached a link where step 2 provides step-by-step instructions on how to do this.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Luis Garcia Garcia",marisleidyd@cordobalegal.com,2026-04-15,,1201369841,Android,"The client downloaded the app, but the list of the creditors enrolled in the program did not appear for him to block them","In queue",,"D- validar con Samil",,Medium
+"Roger Young",juan.arenas@cordobalegal.com,2026-04-15,,CORDOBA-973225978,Android,"First log in section when enter password it showed up error unauthorized tried again to enter on the first log in section and it says user already exist","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.",,Medium
+"Ruben Perez",rosbelym@cordobalegal.com,2026-04-15,,1193852059,IOS,"INVALID USER","Call Agent (Additional information)",,"D- The validation is performed and it is verified that the account was created correctly. If access is denied, the password must be reset. Note that the username can be the account ID or the email address. A link with step-by-step instructions for this process is attached.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Gina Lyons",daniel.pardo@cordobalegal.com,2026-04-14,,CORDOBA-1202661904,Android,"Reported Issues: Cx tried to log in and the app but the system says phone number it’s not founded, we added the phone again and confirm it’s correct but now once cx tries to place information the app shows the spaces to fill on red and doesn’t let her continue","Call Agent (Additional information)",,"D- It has been verified that the account is correctly created in the CreditorX database. A password reset is recommended; if this does not work, please provide more information about the steps the customer has taken to try to resolve the issue. I am attaching a link where step 2 provides the step-by-step instructions to reset the password.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Arthur L Moore",rosbelym@cordobalegal.com,2026-04-14,,CORDOBA-1110821901,IOS,"Forgot password button does not works.","In queue",,,"{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-706"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Toby Kirkpatrick",juan.arenas@cordobalegal.com,2026-04-14,,CORDOBA-1171028931,IOS,"Showed error unauthorized after select the new ID, tried to unistall it and download it, tried to set phone number and cordoba-forgot password showed up error-  user not found - tried again first log in and showed up you have already log in.","Call Agent (Additional information)",,"D- hacer nuevamente la validación, con los datos correspondientes correctos, verificar que el id usado es el correcto y no es e external id.",,Medium
+"Susan Dickson",Frehynner.Zambrano@cordobalegal.com,2026-04-14,,CORDOBA-1200566935,IOS,"Cx not able to log on CreditorX since the past 3 days and it is giving her an error code
+Cx sent proof of issue by email with Ref#1435645","Call Agent (Additional information)",,"D- Instruct the customer to try reinstalling the application and repeating the initial login process.
+If this doesn't work, please provide more information, such as the phone model and any other troubleshooting steps the customer has tried.",,Medium
+"Thomas L. Kidd",juan.arenas@cordobalegal.com,2026-04-14,,CORDOBA-1199705902,IOS,"The client is unable to register in the app. When they tap on “Is this your first time logging in?”, nothing happens. The client has tried uninstalling and reinstalling the app, but the issue persists.","Call Agent (Additional information)",,"D- Please tell us the phone model and other necessary specifications, as the reinstallation did not work.",,Medium
+"Hunter Crump",daniel.pardo@cordobalegal.com,2026-04-10,,CORDOBA-1201824759,IOS,"The client has issues to log in throught CreditorX App, it appears the error ""Associated phone number is missing from external system data. Please contact CreditorX team""","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Phillip Marshall",Frehynner.Zambrano@cordobalegal.com,2026-04-14,,CORDOBA-1201365546,IOS,"Error ´You`re alredy log in in the app before´
+But when ther try to recover the password: but he got a message says `something went wrong´","Call Agent (Additional information)",,"D- Inform the user that the account has already been created, and that if they do not remember the password they can recover it. Please accompany the user in this process. Point 4 contains the step-by-step instructions on how to do it.
+
+https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
+"Deborah Andrews",Josias.Campusano@cordobalegal.com,2026-04-14,,1194674622,IOS,"The client has attempted multiple times, with assistance from several representatives, to access CreditorX without success. When she clicks “My First Log In,” the option is inactive and does not respond. She also attempted “Password Recovery,” but after entering her email, phone number, and SSN, the system shows “No user found.” She is becoming frustrated due to the ongoing access issues and is requesting assistance.","Call Agent (Additional information)",,"D- Follow the step-by-step instructions to activate your account on CreditorX.
+
+https://hiredexperts.atlassian.net/wiki/pages/resumedraft.action?draftId=445480961&draftShareId=c98e90a3-821c-4634-8685-577f1da34786",,Medium
+"Ollie Castanuela",Sebastian.Rodriguez@cordobalegal.com,2026-04-14,,CORDOBA-1197840628,IOS,"cx is trying to reset her password but the app wont recognize her phone or email","Call Agent (Additional information)",,"D- The user has not yet been created. Please guide the client through the first login process. Attached is a link where point 4 provides step-by-step instructions on how to perform the first login.
+
+https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Christopher Sewell",Josias.Campusano@cordobalegal.com,2026-04-14,,CORDOBA-1192653851,IOS,"When entering the ID the box is grey out.","Call Agent (Additional information)",,"Please give us more information (Login, First login,...? )",,Medium
+"Tamarautare Brisibe",Josias.Campusano@cordobalegal.com,2026-04-07,,1201788829,IOS,"When trying to block number it is showing a USSD COMMAND and a phone number to call.","Call Agent (Additional information)","Carrier List","Please read iOS FAQs in
+
+2-Sending USSD commands.
+
+https://hiredexperts.atlassian.net/wiki/external/MGM0MzI4NzgyMDIyNGUxNzkwZGQyMTRiOTNmYjU4NWI",,Medium
+"Caroline Weathersby",rosbelym@cordobalegal.com,2026-04-07,,CORDOBA-1147718432,IOS,"Her phone number is missing from external data, seem like her phone number needs to be added in the system.","In progress",,"R+G: The agent should add that phone number.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-668"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Paul Ingram",rosbelym@cordobalegal.com,2026-03-18,,CORDOBA-1200582712,Android,"After we set personal information the option  ""Confirm"" will not allow customer to confirm or proceed.",Completed,"First Login","S: Call the client and ask to re-validate this. Client needs to update the app to the latest version.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-572"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Nelly Fontalvo",rosbelym@cordobalegal.com,2026-03-20,,CORDOBA-1178297722,Android,"Not able to continue as there is not option to follow up the set up of it.",Completed,,"S: Call the client and ask to re-validate this. Client needs to update the app to the latest version.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-572"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Carlos Gonzalez",rosbelym@cordobalegal.com,2026-03-26,,CORDOBA-1194765420,Android,"Device: Samsung galaxy S 23
+Issue:  After providing User ID, DOB and SSN keep saying is incorrect","In queue","First Login",,"{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-659"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Elizabeth Shafer",rosbelym@cordobalegal.com,2026-03-25,,CORDOBA-1179020654,Android,"Confirm option gray out
+Samsung S-22 (","Call Agent (Additional information)",,"S: We need more description on this",,Medium
+"Anthony Martinelli",rosbelym@cordobalegal.com,2026-03-25,,CORDOBA-1202313506,IOS,"when entering the DOB, last 4 of SSN and email customer click on confirm but it don't go anywhere.
+
+Apple iPhone 16 Pro",Completed,"First Login","R+G: probably user wrong the birth of date in the wrong format. right format is MM DD YYYY
+
+Question for agent: The email is not an input for first login, check the section or check again.",,Medium
+"John Host",rosbelym@cordobalegal.com,2026-03-25,,CORDOBA-1197363752,Android,"Calendar not coming up when setting up his credentials for the first step.
+
+Galaxy S25 Ultra",Completed,"First Login","G: This inputs will never show the calendar you will have to add month, day and year one by one.",,Medium
+"Linda Essenmacher",luis.rojas@cordobalegal.com,2026-03-19,,CORDOBA-1196199821,IOS,"Cx having issues sending USSD command.",Completed,,"What is the selected Carrier and the error message?",,High
+"Esayas G Berhe",Frehynner.Zambrano@cordobalegal.com,2026-03-23,,CORDOBA-1181035890,Android,"Sprint cellphone carrier does 
+not apper",Completed,"First Login / Settings","S: Sprint added",,High
+"Norelia Arroyo",rosbelym@cordobalegal.com,2026-03-20,,CORDOBA-1196175479,Android,"The app was not allowing the Cx to confirm the information before setting up the credentials",Completed,,"S DOB: Call the client and ask to re-validate this. Client needs to update the app to the latest version.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-572"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Naomi Scott",rosbelym@cordobalegal.com,2026-03-20,,CORDOBA-1192559155,Android,"after helping the cx with the registration all information cx tried was invalid",Completed,,"S: Call the client and ask to re-validate this. Client needs to update the app to the latest version.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-572"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Linda Sorgen",Sebastian.Rodriguez@cordobalegal.com,2026-03-26,,CORDOBA-1194072624,Android,"AFTER CORRECTLY TYPING USER ID, SSN AND DATE OF BIRTH, CX REPORTS IT DOES NOT LET HER GO ANY FURTHER OR CONFIRM THE INFO.",Completed,Auth/Login,"S DOB: Call the client and ask to re-validate this. Client needs to update the app to the latest version.",,Medium
+"William R Berggren",ashleyc@cordobalegal.com,2026-03-20,,CORDOBA-1200549652,Android,"After filing out the Acct info was was not able to hit continue.",Completed,,"S: Call the client and ask to re-validate this. Client needs to update the app to the latest version.",,Medium
+"Analicia Vargas",ashleyc@cordobalegal.com,2026-03-19,,CORDOBA-1179581948,IOS,"Wrong credentials.",Completed,,"Please call the Client to check for other credentials",,Medium
+"George Dircks",ashleyc@cordobalegal.com,2026-03-19,,CORDOBA-1200710947,Android,"Unable to click confirm after entering his Cordoba id, last of the social and dob.",Completed,,"Can't duplicate this issue. Is the confirm button disabled after filling all these values?",,Medium
+"Joseph Newell",ashleyc@cordobalegal.com,2026-03-18,,CORDOBA-1171047998,IOS,"Is not letting the client add the creditors.","In queue","Blocked List","SAMIL: tarea par agregar un telefono para bloquear","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-766"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Gail Conroy",ashleyc@cordobalegal.com,2026-03-18,,CORDOBA-1196572684,Android,"After filling out the user id, ssn and birthday cx cant hit continue",Completed,,"S: Call the client and ask to re-validate this. Client needs to update the app to the latest version.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-572"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Mariza Duncan",ashleyc@cordobalegal.com,2026-03-18,,CORDOBA-1192859458,IOS,"your request has been received and been review by our staff",Completed,,"We need for information to help with this issue.",,Medium
+"Michelle Macenroe",ashleyc@cordobalegal.com,2026-03-18,,CORDOBA-1193587287,Android,"Login button not hitting/doing anything, we have uninstall and reinstall the app and nothing.","Call Agent (Additional information)",Auth/Login,,,Medium
+"Theresa Anderson",ashleyc@cordobalegal.com,2026-03-18,,CORDOBA-1187502522,Android,"The ''confirm'' button is not doing anything. She is trying to enroll.",Completed,"First Login","S: Call the client and ask to re-validate this. Client needs to update the app to the latest version.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-572"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Suzzane R Still",juan.arenas@cordobalegal.com,2026-03-26,,CORDOBA-1194043451,IOS,"The client has deleted and reinstalled the app multiple times. However, when she reaches the “Is this your first login?” screen, nothing happens and she is unable to proceed to the registration step.",Completed,"First Login","R: what is the error message that the user see?",,Medium
+"Anthony Tinsley",Sebastian.Rodriguez@cordobalegal.com,2026-03-26,,CORDOBA-1194072433,IOS,"In the ""is this your first time login?"" the customer get an
+error of ""Wrong credentials"" when entering his user ID, DOB and
+last 4 of SSN.",Completed,"First Login","R: probably the user is writting the birth of date in the wrong format.
+
+the right format is MM DD YYYY",,Medium
+"Peggy Brahler",rosbelym@cordobalegal.com,2026-04-07,,CORDOBA-1198031480,IOS,"Customer having problems to register on the creditor x app, when she goes to register and put the ID Number 1198031480, then it shows a pop incorrect ID.",Completed,,"R: data is wrong in the lead table.
+
+R: data were update in our database, please let client know that can try again.",,Medium
+"Miguel Antero",juan.arenas@cordobalegal.com,2026-03-31,,1201975663,IOS,"The client entered his phone number, but the system does not recognize the information.","Call Agent (Additional information)",,"R: what error message does the user see here ?",,Medium
+"Tiffany Frey",rosbelym@cordobalegal.com,2026-04-07,,1188199620,Android,"Username wrong ( 1188199620)","Call Agent (Additional information)",,"S: <@U09QXQ3UL78> there's no user registered with her email or phone number. Agent needs to call the client and request them to use the ""first login"" process.",,Medium
+"Arturo Martinez",rosbelym@cordobalegal.com,2026-04-07,,CORDOBA-1184296222,Android,"doesn't recognize phone number associated to the acct ( he only have 1 number )","Call Agent (Additional information)",,"S: <@U09QXQ3UL78> we need more information here. Is the unrecognized number from creditor or from Forth? User's can manually report a change from CreditorX in the ""Account"" section -> ""Report change"" button.",,Medium
+"Teika Dorethy",rosbelym@cordobalegal.com,2026-04-06,,CORDOBA-1152121128,IOS,"Confirmation of ID, Associated Phone Number is missing.","Call Agent (Additional information)",,"R: Phone number in Forth is required.",,Medium
+"Sheyla Rivera",Josias.Campusano@cordobalegal.com,2026-04-06,,1203590643,IOS,"It doesn`t allow her to set up the account.","Call Agent (Additional information)",,"R: Phone number in Forth is required.",,Medium
+"Jeffrey Wollschlager",Josias.Campusano@cordobalegal.com,2026-04-06,,1196810874,Android,"Customer mentioned that every time he tries to add a phone to be blocked on the CreditorX app it says invalid phone number, he is being unable to add any creditor yet.","In progress","Blocked List","S: Testing fix - in review","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-634"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Crimpton Singleton",daniel.pardo@cordobalegal.com,2026-04-06,,CORDOBA-1202642178,IOS,"Cx tried to log in and the app accept all his info but at the moment of get the verification sms, cx didn’t get anything. Phone number, DOB and SSN verified","Call Agent (Additional information)",,"R: in the database this user looks like hasn't completed the first login.
+
+users cannot login using OTP if this hasn't complete first login first.",,Medium
+"Elizabeth Shafer",Josias.Campusano@cordobalegal.com,2026-04-03,,1179020654,Android,"Unable to download.","Call Agent (Additional information)",,"S: We need more details on the users device specifications. Android version, mobile version.",,Medium
+"Linda Black",juan.arenas@cordobalegal.com,2026-03-31,,1174395253,IOS,"Cx has issues with Creditor X. After the cx completed verification with ID, SSN an other the system showed a error ""Associated phone is missigm from external system data, contact CreditorX""","Call Agent (Additional information)","First Login","R: It looks the phone number is required in Forth CRM.
+
+IMPORTANT: In ForthCRM there is NO PHONE NUMBER associated to this account
+
+""phone_number"": null,",,Medium
+"William Spellmon",juan.arenas@cordobalegal.com,2026-03-31,,1196834001,Android,"The customer is unable to log in to Creditor X. When attempting to enter their credentials, a “login failed” error appears, even though the credentials have been verified and match the information on file.","Call Agent (Additional information)",,"D : We checked the login, we use this data:
+• Email:michellekmac@gmail.com
+and use a this pass: 2345 and the message was ""username and password Wrong credentials"".
+
+If this is the first time the user is trying to attemp, please click in ""Is your first login? "" and continue the steps",,Medium
+"John Ragains",Sebastian.Rodriguez@cordobalegal.com,2026-03-27,,CORDOBA-1153883681,Android,"Wrong credentials on the app, confirmed and personal information correct but it's not allowing the cx to login",Completed,"First Login","Problem solved. Call the user and try this actions again.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-660"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Deloris Lynch",juan.arenas@cordobalegal.com,2026-03-30,,1196718214,IOS,"The client attempted to click the “First Time Login” button, but nothing appears on the screen. She previously reported this issue on March 21, but it was not addressed in this channel.","Call Agent (Additional information)","First Login","R: what error message does the user see? , phone_number is empty for this user.",,Medium
+"Tracy Anderson",rosbelym@cordobalegal.com,2026-03-27,,1195617851,Android,"She tried but App just goes ""ERROR CODE"" every time","Call Agent (Additional information)",,"S: Unclear error. Can't reproduce, we need more input from the agent or client",,Medium
+"Thomas T Escobar",rosbelym@cordobalegal.com,2026-03-30,,CORDOBA-1196494021,Android,"When the customer clicks on confirm, after entering the 4ssn and DOB, they get stuck on that page and cannot continue with any other steps. They have already closed the app and tried multiple times.",Completed,"First Login","S DOB: Call the client and ask to re-validate this. Client needs to update the app to the latest version.",,Medium
+"Jose Garcia",Frehynner.Zambrano@cordobalegal.com,2026-03-30,,1199451156,Android,"It doesn`t allow him to set up the account.","Call Agent (Additional information)",,"S: Unclear error. Can't reproduce, we need more input from the agent or client",,Medium
+"Aukusitino Mauia",rosbelym@cordobalegal.com,2026-03-30,,CORDOBA-589526632,IOS,"Calendar not coming up when setting up his credentials for the first step. iPHONE  17 Plus",Completed,"First Login","R: this was changed, now the user has to type the date in the format MM DD YYYY",,Medium
+"Teresa Rich",Sebastian.Rodriguez@cordobalegal.com,2026-03-27,,CORDOBA-1151648642,Android,"cx trying to reset password, but when she enters id, ssn and birth it does not go anywhere","In queue",,"S: looking at this","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-662"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Oscar Longoria",Sebastian.Rodriguez@cordobalegal.com,2026-03-27,,1199658235,Android,"Once placing credentials to confirm the ''confirm button'' is not doing anything it says Wrong Credentials.",Completed,Auth/Login,"Problem solved. Call the user and try this actions again.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-661"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Esayas G Berhe",Frehynner.Zambrano@cordobalegal.com,2026-03-27,,CORDOBA-1181035890,Android,"When the cx try to select his mobile carries the app doesn't show that option. His mobile carrier is SPRING.",Completed,Setup,"S: Sprint carrier added",,Medium
+"Linda Miller",Frehynner.Zambrano@cordobalegal.com,2026-05-13,Verizon,1209781036,IOS,"App is not letting her continue after clicking ""is this your first login?"" there`s no option to type anything after that",New,,,,Medium

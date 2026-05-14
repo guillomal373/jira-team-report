@@ -176,6 +176,36 @@ function normalizeColumnKey(header) {
   return normalizeHeader(header).toLowerCase();
 }
 
+function normalizeIdentityValue(value) {
+  return String(value ?? "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
+
+function normalizeCustomerId(value) {
+  return normalizeIdentityValue(value).replace(/^cordoba-/, "");
+}
+
+function getIssueIdentityKey(rowMap) {
+  const jiraTicket = normalizeIdentityValue(rowMap.get(JIRA_TICKET_COLUMN_NAME));
+
+  if (jiraTicket) {
+    return `jira:${jiraTicket}`;
+  }
+
+  const customerId = normalizeCustomerId(rowMap.get("Customer ID"));
+  const issueDate = normalizeIdentityValue(rowMap.get(DATE_COLUMN_NAME));
+
+  if (customerId && issueDate) {
+    return `customer-date:${customerId}||${issueDate}`;
+  }
+
+  return `details:${ISSUE_IDENTITY_COLUMN_NAMES.map((header) =>
+    normalizeIdentityValue(rowMap.get(header))
+  ).join("||")}`;
+}
+
 function isRequiredColumn(header) {
   return REQUIRED_COLUMN_NAMES.some(
     (requiredHeader) =>
@@ -661,17 +691,23 @@ function mergeDatasets(datasets) {
   }
 
   const consolidatedIssues = new Map();
+  const latestTimestamp = Math.max(
+    ...datasetsInOrder.map((dataset) => dataset.sourceTimestamp)
+  );
+  const latestIssueKeys = new Set();
 
   datasetsInOrder.forEach((dataset) => {
     dataset.rows.forEach((row) => {
       const rowMap = new Map(
         dataset.headers.map((header, columnIndex) => [header, row[columnIndex] ?? ""])
       );
-      const identityKey = ISSUE_IDENTITY_COLUMN_NAMES.map((header) =>
-        (rowMap.get(header) ?? "").trim().toLowerCase()
-      ).join("||");
+      const identityKey = getIssueIdentityKey(rowMap);
       const nextStatus = (rowMap.get(STATUS_COLUMN_NAME) ?? "").trim();
       const existingIssue = consolidatedIssues.get(identityKey);
+
+      if (dataset.sourceTimestamp === latestTimestamp) {
+        latestIssueKeys.add(identityKey);
+      }
 
       if (!existingIssue) {
         const nextRow = mergedHeaders.map((header) =>
@@ -695,7 +731,9 @@ function mergeDatasets(datasets) {
     });
   });
 
-  const mergedRows = [...consolidatedIssues.values()].map((issue) => issue.row);
+  const mergedRows = [...consolidatedIssues.entries()]
+    .filter(([identityKey]) => latestIssueKeys.has(identityKey))
+    .map(([, issue]) => issue.row);
 
   return {
     headers: mergedHeaders,
