@@ -562,18 +562,16 @@ Replace the generic loading spinner in the notifications drawer with skeleton pl
 *Deliverables*
 
 [https://github.com/cordoba-tech/cordoba-consumer-portal-frontend/pull/145|https://github.com/cordoba-tech/cordoba-consumer-portal-frontend/pull/145|smart-link] ",,Guillermo Malagón,Nicolás Díaz,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,;13/May/26 8:27 AM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;3600,,,3600,0,3600,100%,3600,0,3600,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00f9e:r,,,Sprint 13 - CX (I+F+C) CP tst,,,,,,,12/May/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,"14/May/26 11:45 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;Looks good to me, thanks!",,,,,,21978,HED-550,CP - Notifications section,Done,14/May/26 11:45 AM
-CP - Automate develop sync after production release,HED-815,25967,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Low,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,06/May/26 4:53 PM,19/May/26 3:47 PM,,,19/May/26 12:00 AM,0,ci/cd,cordobaPortal,DevOps,,"*Description*
+CP - Automate develop sync after production release,HED-815,25967,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Low,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,06/May/26 4:53 PM,19/May/26 3:49 PM,,19/May/26 3:49 PM,19/May/26 12:00 AM,0,ci/cd,cordobaPortal,DevOps,,"*Description*
 
-After a production release is published via release-please, the {{main}} branch gets ahead of {{develop}} due to the release bump commits ({{chore(main): release x.x.x}}). This caused develop to diverge from main silently, forcing manual syncs before starting new work. The goal is to automate the merge of {{main}} → {{develop}} immediately after a successful production deploy so the branches stay in sync without manual intervention.
+After a production release is published via release-please, the main branch gets ahead of develop due to the release bump commits ({{chore(main): release x.x.x}}). This caused develop to diverge from main silently, forcing manual syncs before starting new work. The goal is to automate the creation of a sync PR from main → develop immediately after a successful production release, so the process is triggered automatically but still goes through a proper review.
 
 *Acceptance Criteria*
 
-* -A GitHub Actions workflow triggers automatically after a release is published to production-
-* -The workflow merges {{main}} into {{develop}} using the GitHub App bot (cp-frontend-release-bot) to bypass branch protection-
-* -If the merge fails due to conflicts, the workflow reports the failure clearly-
-* The GitHub App has bypass permission configured on the {{develop}} branch protection rules
-* No manual {{git merge}} is required after a production release
-* Workflow has been tested end-to-end with a real release
+* -A GitHub Actions workflow triggers automatically after a release is published-
+* -The workflow creates a temporary branch ({{chore/sync-develop-{timestamp}}}) from develop, merges main into it, and opens a PR targeting develop-
+* -The GitHub App bot ({{cp-frontend-release-bot}}) is used to authenticate and create the PR, bypassing branch protection on the push step-
+* -{{workflow_dispatch}} trigger added for manual testing without requiring a real release-
 
 *Deliverables*
 
@@ -583,7 +581,7 @@ fix: sync develop workflow fails on protected branch #149: [https://github.com/c
 
 chore: sync develop with main after release #152: [https://github.com/cordoba-tech/cordoba-consumer-portal-frontend/pull/152|https://github.com/cordoba-tech/cordoba-consumer-portal-frontend/pull/152|smart-link] 
 
-!image-20260519-204546.png|width=682,alt=""image-20260519-204546.png""!",,Nicolás Díaz,,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,10800,10800,,0%,10800,10800,,,,,,,,,,,,,,,19/May/26 3:47 PM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;image-20260519-204546.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17736,,,,,,,,,{},,,,,,,,,,,,,0|i00fe2:,,,Sprint 13 - CX (I+F+C) CP tst,,,,,,,19/May/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,19564,HED-409,CP - General Section,In Progress,19/May/26 10:54 AM
+!image-20260519-204546.png|width=682,alt=""image-20260519-204546.png""!",,Nicolás Díaz,,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,;19/May/26 3:49 PM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;10800,,,10800,0,10800,100%,10800,0,10800,,,,,,,,,,,,,,19/May/26 3:47 PM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;image-20260519-204546.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17736,,,,,,,,,{},,,,,,,,,,,,,0|i00f91:,,,Sprint 13 - CX (I+F+C) CP tst,,,,,,,19/May/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,19564,HED-409,CP - General Section,Done,19/May/26 3:49 PM
 CP - Implement Lighthouse audits for performance review,HED-583,22651,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Low,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,27/Mar/26 8:43 AM,14/May/26 2:18 PM,,,14/May/26 12:00 AM,0,cordobaPortal,frontend,performance,,"*Description*
 Implement Lighthouse audits to evaluate the portal’s performance and identify improvement opportunities across key pages and flows.
 
