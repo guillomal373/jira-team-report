@@ -655,16 +655,16 @@ h3. Results
 |Access Unavailable|60 (=)|100 (=)|100 (=)|100 (+9)|
 |Server Error|60 (=)|100 (=)|100 (=)|100 (+9)|
 |Service Unavailable|60 (=)|100 (=)|100 (=)|100 (+9)|",,Nicolás Díaz,,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,;14/May/26 10:10 AM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;3600,;14/May/26 2:10 PM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;10800,,18000,0,14400,80%,18000,0,14400,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fdz:,,,Sprint 13 - CX (I+F+C) CP tst,,,,,,,13/May/26 12:00 AM,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,19564,HED-409,CP - General Section,In Progress,13/May/26 1:25 PM
-CX - AdminPanel Create 3 Users and access,HED-882,26867,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,High,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/May/26 9:26 AM,19/May/26 12:08 PM,19/May/26 12:14 PM,,,0,creditorx,kazoo,,,"[https://adminpanel.creditorx.com/login|https://adminpanel.creditorx.com/login|smart-link] 
+CX - AdminPanel Create 3 Users and access,HED-882,26867,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,High,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/May/26 9:26 AM,19/May/26 4:07 PM,19/May/26 12:14 PM,,,0,creditorx,kazoo,,,"[https://adminpanel.creditorx.com/login|https://adminpanel.creditorx.com/login|smart-link] 
 
 # Create users in adminPanel for:
 
-* [jabreu@cordobalegal.com|mailto:jabreu@cordobalegal.com]  
-Joel Martinez 
-* [almercedes@cordobalegal.com|mailto:almercedes@cordobalegal.com]
- Albelis Mercedes 
-* [angelb@cordobalegal.com|mailto:angelb@cordobalegal.com]
-Angel  Belen ",,Guillermo Malagón,,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,,,,HED-860,,,,,HED-869,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fgj:,,,Sprint 13 - CX (I+F+C) CP tst,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,,,In Progress,19/May/26 12:08 PM
+* -[jabreu@cordobalegal.com|mailto:jabreu@cordobalegal.com]  
+Joel Martinez -
+* -[almercedes@cordobalegal.com|mailto:almercedes@cordobalegal.com]
+ Albelis Mercedes -
+* -[angelb@cordobalegal.com|mailto:angelb@cordobalegal.com]
+Angel  Belen -",,Guillermo Malagón,rhiraldo,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,,,,,,,,,,,,,,,,,,HED-860,,,,,HED-869,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fgj:,,,Sprint 13 - CX (I+F+C) CP tst,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,19/May/26 4:07 PM;712020:fd36cadf-9806-42d0-93a9-02002d8431e5;[~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] credentials created and passed by DM,,,,,,,,,In Progress,19/May/26 12:08 PM
 SLACK - Delete groups in REDIS,HED-876,26829,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,14/May/26 3:02 PM,15/May/26 1:36 PM,,15/May/26 1:36 PM,,0,,,,,"groups names
 
 CAMPAIGN_DR_IMERGE_SUPERVISOR
