@@ -34,6 +34,173 @@ const DEFAULT_VISIBLE_COLUMN_NAMES = [
   DEV_TEAM_COMMENTS_COLUMN_NAME,
   JIRA_TICKET_COLUMN_NAME,
 ];
+const ISSUE_THEME_RULES = [
+  {
+    label: "Login / Registration",
+    shortLabel: "Login",
+    keywords: [
+      "login",
+      "log in",
+      "logged in",
+      "registration",
+      "register",
+      "create account",
+      "first login",
+      "access account",
+    ],
+  },
+  {
+    label: "Phone / External Data",
+    shortLabel: "Phone",
+    keywords: [
+      "phone number",
+      "associated phone",
+      "external data",
+      "external system",
+      "data base",
+      "database",
+      "not matching",
+    ],
+  },
+  {
+    label: "Credentials / Password",
+    shortLabel: "Password",
+    keywords: [
+      "password",
+      "credentials",
+      "wrong user id",
+      "user id",
+      "recover",
+      "reset",
+      "forgot",
+    ],
+  },
+  {
+    label: "DOB / Identity Validation",
+    shortLabel: "DOB",
+    keywords: [
+      "date of birth",
+      "dob",
+      "ssn",
+      "social security",
+      "personal data",
+      "identity",
+      "birth",
+    ],
+  },
+  {
+    label: "Creditors / Account Number",
+    shortLabel: "Creditors",
+    keywords: [
+      "add creditor",
+      "add creditors",
+      "account number",
+      "lendmark",
+      "valid number",
+      "add a new phone",
+    ],
+  },
+  {
+    label: "App Crash / Freeze",
+    shortLabel: "Crash",
+    keywords: [
+      "crash",
+      "freeze",
+      "frozen",
+      "blank",
+      "doesn't respond",
+      "does not respond",
+      "took her out",
+      "kicked",
+      "closed",
+    ],
+  },
+  {
+    label: "General Error Message",
+    shortLabel: "Error",
+    keywords: [
+      "error",
+      "something went wrong",
+      "try again later",
+      "invalid",
+      "not allowing",
+      "cannot continue",
+    ],
+  },
+  {
+    label: "Contacts / Device Permission",
+    shortLabel: "Contacts",
+    keywords: [
+      "contacts",
+      "permission",
+      "allow the app",
+      "ussd",
+      "access his contacts",
+    ],
+  },
+  {
+    label: "Link / Email Delivery",
+    shortLabel: "Link",
+    keywords: [
+      "link",
+      "email",
+      "receive the link",
+      "sent an email",
+      "screenshot",
+    ],
+  },
+  {
+    label: "Install / Cache / Update",
+    shortLabel: "Install",
+    keywords: [
+      "downloaded",
+      "uninstalled",
+      "installed",
+      "install",
+      "cache",
+      "update",
+      "version",
+    ],
+  },
+];
+const FALLBACK_ISSUE_THEME = {
+  label: "Other / Needs Review",
+  shortLabel: "Other",
+  keywords: [],
+};
+const THEME_STOP_WORDS = new Set([
+  "about",
+  "account",
+  "again",
+  "already",
+  "also",
+  "android",
+  "application",
+  "because",
+  "before",
+  "called",
+  "client",
+  "confirm",
+  "creditor",
+  "creditors",
+  "creditorx",
+  "customer",
+  "error",
+  "having",
+  "issue",
+  "issues",
+  "login",
+  "number",
+  "phone",
+  "reported",
+  "says",
+  "system",
+  "their",
+  "there",
+  "trying",
+  "when",
+  "with",
+]);
 
 const recordsCount = document.getElementById("records-count");
 const recordsHead = document.getElementById("records-head");
@@ -50,6 +217,15 @@ const statusPieSubtitle = document.getElementById("status-pie-subtitle");
 const timelineChart = document.getElementById("timeline-chart");
 const timelineSubtitle = document.getElementById("timeline-subtitle");
 const timelineLegend = document.getElementById("timeline-legend");
+const topicsSubtitle = document.getElementById("topics-subtitle");
+const topicsRankingTotal = document.getElementById("topics-ranking-total");
+const topicsRankingCard = document.querySelector(".topics-card--ranking");
+const topicsGroupingCard = document.querySelector(".topics-card--grouping");
+const topicsBars = document.getElementById("topics-bars");
+const topicsTopTickets = document.getElementById("topics-top-tickets");
+const topicsGroupingCoverage = document.getElementById("topics-grouping-coverage");
+const topicsGroupingMetrics = document.getElementById("topics-grouping-metrics");
+const topicsGroupingList = document.getElementById("topics-grouping-list");
 const columnsControl = document.getElementById("columns-control");
 const columnsToggle = document.getElementById("columns-toggle");
 const columnsMenu = document.getElementById("columns-menu");
@@ -62,6 +238,7 @@ let allRows = [];
 let dateSortDirection = "desc";
 let visibleColumns = new Set();
 let timelineTooltip = null;
+let selectedIssueThemeLabel = "";
 
 const STATUS_CLASS_MAP = {
   new: "status-new",
@@ -826,6 +1003,33 @@ function getJiraTicketUrl(value) {
   return "";
 }
 
+function formatJiraTicketLabel(value) {
+  const trimmed = (value ?? "").trim();
+
+  if (!trimmed) {
+    return "";
+  }
+
+  try {
+    const parsed = JSON.parse(trimmed);
+    const originalUrl = parsed?.originalUrl?.replaceAll("\\/", "/");
+
+    if (originalUrl) {
+      return originalUrl.split("/").filter(Boolean).pop() ?? "Jira Ticket";
+    }
+  } catch {
+    if (/^[A-Z]+-\d+$/i.test(trimmed)) {
+      return trimmed.toUpperCase();
+    }
+
+    if (/^https?:\/\//i.test(trimmed)) {
+      return trimmed.split("/").filter(Boolean).pop() ?? "Jira Ticket";
+    }
+  }
+
+  return trimmed;
+}
+
 function populateYearFilter(headers, rows) {
   const dateColumnIndex = headers.findIndex(
     (header) => header.trim().toLowerCase() === DATE_COLUMN_NAME.toLowerCase()
@@ -1107,6 +1311,30 @@ function getSegmentLabelColor(color) {
 
   const brightness = (rgb.red * 299 + rgb.green * 587 + rgb.blue * 114) / 1000;
   return brightness > 160 ? "#161616" : "#f6f6f6";
+}
+
+function clampColorChannel(value) {
+  return Math.max(0, Math.min(255, Math.round(value)));
+}
+
+function shiftHexColor(color, amount) {
+  const rgb = parseHexColor(color);
+
+  if (!rgb) {
+    return color;
+  }
+
+  const shifted = [rgb.red, rgb.green, rgb.blue]
+    .map((channel) => clampColorChannel(channel + amount))
+    .map((channel) => channel.toString(16).padStart(2, "0"))
+    .join("");
+
+  return `#${shifted}`;
+}
+
+function getStatusGradient(status) {
+  const color = getStatusColor(status);
+  return `linear-gradient(180deg, ${shiftHexColor(color, 42)}, ${shiftHexColor(color, -34)})`;
 }
 
 function getTimelineScale(maxObservedValue) {
@@ -1527,12 +1755,480 @@ function renderTimeline(rows, headers, scaleRows = rows) {
   });
 }
 
+function normalizeIssueText(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s/]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function keywordMatchesIssue(normalizedText, keyword) {
+  const normalizedKeyword = normalizeIssueText(keyword);
+
+  if (!normalizedKeyword) {
+    return false;
+  }
+
+  if (normalizedKeyword.includes(" ")) {
+    return normalizedText.includes(normalizedKeyword);
+  }
+
+  return new RegExp(`\\b${normalizedKeyword}\\b`, "i").test(normalizedText);
+}
+
+function getIssueTheme(issueText) {
+  const normalizedText = normalizeIssueText(issueText);
+
+  if (!normalizedText) {
+    return {
+      theme: FALLBACK_ISSUE_THEME,
+      matchedKeywords: [],
+      normalizedText,
+    };
+  }
+
+  let bestMatch = null;
+
+  for (const theme of ISSUE_THEME_RULES) {
+    const matchedKeywords = theme.keywords.filter((keyword) =>
+      keywordMatchesIssue(normalizedText, keyword)
+    );
+
+    if (matchedKeywords.length > 0) {
+      const score = matchedKeywords.reduce(
+        (sum, keyword) => sum + normalizeIssueText(keyword).length,
+        matchedKeywords.length * 10
+      );
+
+      if (!bestMatch || score > bestMatch.score) {
+        bestMatch = {
+          score,
+          theme,
+          matchedKeywords,
+        };
+      }
+    }
+  }
+
+  if (bestMatch) {
+    return {
+      theme: bestMatch.theme,
+      matchedKeywords: bestMatch.matchedKeywords,
+      normalizedText,
+    };
+  }
+
+  return {
+    theme: FALLBACK_ISSUE_THEME,
+    matchedKeywords: [],
+    normalizedText,
+  };
+}
+
+function getTopWords(textEntries, limit = 4) {
+  const counts = new Map();
+
+  textEntries.forEach((text) => {
+    normalizeIssueText(text)
+      .split(" ")
+      .filter((word) => word.length > 3 && !THEME_STOP_WORDS.has(word))
+      .forEach((word) => {
+        counts.set(word, (counts.get(word) ?? 0) + 1);
+      });
+  });
+
+  return [...counts.entries()]
+    .sort((leftEntry, rightEntry) => {
+      const countDifference = rightEntry[1] - leftEntry[1];
+
+      if (countDifference !== 0) {
+        return countDifference;
+      }
+
+      return leftEntry[0].localeCompare(rightEntry[0]);
+    })
+    .slice(0, limit)
+    .map(([word]) => word);
+}
+
+function getIssueThemeAnalysis(rows, headers) {
+  const issueColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey("Reported Issue")
+  );
+  const dateColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(DATE_COLUMN_NAME)
+  );
+  const statusColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
+  );
+  const jiraTicketColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(JIRA_TICKET_COLUMN_NAME)
+  );
+  const themes = new Map();
+  let issueTextCount = 0;
+  let automaticallyGroupedCount = 0;
+
+  if (issueColumnIndex < 0) {
+    return {
+      entries: [],
+      total: rows.length,
+      issueTextCount,
+      automaticallyGroupedCount,
+    };
+  }
+
+  rows.forEach((row) => {
+    const issueText = row[issueColumnIndex] ?? "";
+
+    if (!normalizeIssueText(issueText)) {
+      return;
+    }
+
+    issueTextCount += 1;
+    const { theme, matchedKeywords } = getIssueTheme(issueText);
+    const current = themes.get(theme.label) ?? {
+      label: theme.label,
+      shortLabel: theme.shortLabel,
+      count: 0,
+      matchedKeywords: new Map(),
+      statusCounts: new Map(),
+      texts: [],
+      tickets: [],
+      isFallback: theme.label === FALLBACK_ISSUE_THEME.label,
+    };
+    const statusValue =
+      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
+    const jiraTicketValue =
+      jiraTicketColumnIndex >= 0 ? row[jiraTicketColumnIndex] ?? "" : "";
+
+    current.count += 1;
+    current.statusCounts.set(
+      statusValue || "Unknown",
+      (current.statusCounts.get(statusValue || "Unknown") ?? 0) + 1
+    );
+    current.texts.push(issueText);
+    current.tickets.push({
+      date: dateColumnIndex >= 0 ? row[dateColumnIndex] ?? "" : "",
+      status: statusValue,
+      ticketLabel: formatJiraTicketLabel(jiraTicketValue),
+      ticketUrl: getJiraTicketUrl(jiraTicketValue),
+      issueText,
+    });
+    matchedKeywords.forEach((keyword) => {
+      current.matchedKeywords.set(
+        keyword,
+        (current.matchedKeywords.get(keyword) ?? 0) + 1
+      );
+    });
+
+    if (!current.isFallback) {
+      automaticallyGroupedCount += 1;
+    }
+
+    themes.set(theme.label, current);
+  });
+
+  const entries = [...themes.values()]
+    .map((entry) => ({
+      ...entry,
+      signals:
+        entry.matchedKeywords.size > 0
+          ? [...entry.matchedKeywords.entries()]
+              .sort((leftEntry, rightEntry) => rightEntry[1] - leftEntry[1])
+              .slice(0, 4)
+              .map(([keyword]) => keyword)
+          : getTopWords(entry.texts, 4),
+      statusEntries: getStatusEntriesByVolume(entry.statusCounts),
+    }))
+    .sort((leftEntry, rightEntry) => {
+      const countDifference = rightEntry.count - leftEntry.count;
+
+      if (countDifference !== 0) {
+        return countDifference;
+      }
+
+      return leftEntry.label.localeCompare(rightEntry.label);
+    });
+
+  return {
+    entries,
+    total: rows.length,
+    issueTextCount,
+    automaticallyGroupedCount,
+  };
+}
+
+function renderTopicInsights(rows, headers) {
+  const analysis = getIssueThemeAnalysis(rows, headers);
+  const topEntries = analysis.entries.slice(0, 10);
+  const maxCount = Math.max(1, ...topEntries.map((entry) => entry.count));
+  const coverage =
+    analysis.issueTextCount === 0
+      ? 0
+      : (analysis.automaticallyGroupedCount / analysis.issueTextCount) * 100;
+
+  topicsSubtitle.textContent = `Top 10 issue topics from reported issue text for ${describeYearSelection()}.`;
+  topicsRankingTotal.textContent = `${analysis.issueTextCount.toLocaleString("en-US")} Issues`;
+  topicsGroupingCoverage.textContent = `${coverage.toFixed(0)}% Covered`;
+  topicsBars.replaceChildren();
+  topicsTopTickets.replaceChildren();
+  topicsGroupingMetrics.replaceChildren();
+  topicsGroupingList.replaceChildren();
+
+  if (topEntries.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "topics-empty";
+    empty.textContent = "No reported issue text available for the selected range.";
+    topicsBars.appendChild(empty);
+    selectedIssueThemeLabel = "";
+    return;
+  }
+
+  const selectedEntry =
+    topEntries.find((entry) => entry.label === selectedIssueThemeLabel) ??
+    topEntries[0];
+  selectedIssueThemeLabel = selectedEntry.label;
+
+  topEntries.forEach((entry, index) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "topics-bar";
+    item.dataset.themeLabel = entry.label;
+    const statusBreakdown = entry.statusEntries
+      .map(([status, count]) => `${status}: ${count}`)
+      .join("\n");
+    item.title = `${entry.label}: ${entry.count} issue${entry.count === 1 ? "" : "s"}\n${statusBreakdown}`;
+    item.setAttribute(
+      "aria-label",
+      `Show issues for ${entry.label}, ${entry.count} issue${entry.count === 1 ? "" : "s"}`
+    );
+    item.setAttribute(
+      "aria-pressed",
+      entry.label === selectedEntry.label ? "true" : "false"
+    );
+
+    const value = document.createElement("span");
+    value.className = "topics-bar__value";
+    value.textContent = entry.count.toLocaleString("en-US");
+
+    const track = document.createElement("div");
+    track.className = "topics-bar__track";
+
+    const fill = document.createElement("span");
+    fill.className = "topics-bar__fill";
+    fill.style.height = `${Math.max(10, (entry.count / maxCount) * 100)}%`;
+    fill.style.setProperty("--bar-rank", String(index + 1));
+
+    entry.statusEntries.forEach(([status, count]) => {
+      const segment = document.createElement("span");
+      segment.className = "topics-bar__segment";
+      segment.style.height = `${(count / entry.count) * 100}%`;
+      segment.style.background = getStatusGradient(status);
+      segment.title = `${status}: ${count} issue${count === 1 ? "" : "s"}`;
+      fill.appendChild(segment);
+    });
+
+    const label = document.createElement("span");
+    label.className = "topics-bar__label";
+    label.textContent = entry.shortLabel;
+
+    track.appendChild(fill);
+    item.append(value, track, label);
+    item.addEventListener("click", () => {
+      selectedIssueThemeLabel = entry.label;
+      renderTopicInsights(rows, headers);
+    });
+    topicsBars.appendChild(item);
+  });
+
+  renderSelectedThemeTickets(selectedEntry);
+
+  const metrics = [
+    {
+      label: "Grouped",
+      value: analysis.automaticallyGroupedCount.toLocaleString("en-US"),
+      description:
+        "Issues automatically assigned to one of the defined topic groups using keyword signals from the reported issue text.",
+    },
+    {
+      label: "Review",
+      value: Math.max(
+        0,
+        analysis.issueTextCount - analysis.automaticallyGroupedCount
+      ).toLocaleString("en-US"),
+      description:
+        "Issues with reported text that did not match the current grouping rules and should be reviewed manually.",
+    },
+    {
+      label: "Themes",
+      value: analysis.entries.length.toLocaleString("en-US"),
+      description:
+        "Total topic groups currently represented in the selected data, including the manual review bucket when present.",
+    },
+  ];
+
+  metrics.forEach(({ label, value, description }) => {
+    const metric = document.createElement("div");
+    metric.className = "topics-grouping__metric";
+
+    const metricHeader = document.createElement("div");
+    metricHeader.className = "topics-grouping__metric-header";
+
+    const metricLabel = document.createElement("span");
+    metricLabel.textContent = label;
+
+    const info = document.createElement("button");
+    info.type = "button";
+    info.className = "topics-grouping__info";
+    info.setAttribute("aria-label", `${label} info`);
+    info.dataset.tooltip = description;
+    info.textContent = "i";
+
+    const metricValue = document.createElement("strong");
+    metricValue.textContent = value;
+
+    metricHeader.append(metricLabel, info);
+    metric.append(metricHeader, metricValue);
+    topicsGroupingMetrics.appendChild(metric);
+  });
+
+  topEntries.forEach((entry) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "topics-grouping__item";
+    item.setAttribute(
+      "aria-label",
+      `Show issues for ${entry.label}, ${entry.count} issue${entry.count === 1 ? "" : "s"}`
+    );
+    item.setAttribute(
+      "aria-pressed",
+      entry.label === selectedEntry.label ? "true" : "false"
+    );
+
+    const title = document.createElement("div");
+    title.className = "topics-grouping__item-title";
+
+    const label = document.createElement("strong");
+    label.textContent = entry.label;
+
+    const count = document.createElement("span");
+    count.textContent = `${entry.count} issue${entry.count === 1 ? "" : "s"}`;
+
+    const signals = document.createElement("p");
+    signals.className = "topics-grouping__signals";
+    signals.textContent =
+      entry.signals.length > 0
+        ? `Signals: ${entry.signals.join(", ")}`
+        : "Signals: manual review needed";
+
+    title.append(label, count);
+    item.append(title, signals);
+    item.addEventListener("click", () => {
+      selectedIssueThemeLabel = entry.label;
+      renderTopicInsights(rows, headers);
+    });
+    topicsGroupingList.appendChild(item);
+  });
+
+  syncTopicCardHeights();
+}
+
+function renderSelectedThemeTickets(selectedEntry) {
+  const header = document.createElement("div");
+  header.className = "topics-top-tickets__header";
+
+  const title = document.createElement("h4");
+  title.textContent = "Issues linked to selected theme";
+
+  const theme = document.createElement("span");
+  theme.textContent = `${selectedEntry.label} · ${selectedEntry.count} issue${selectedEntry.count === 1 ? "" : "s"}`;
+
+  header.append(title, theme);
+  topicsTopTickets.appendChild(header);
+
+  const ticketEntries = [...selectedEntry.tickets].sort((leftTicket, rightTicket) => {
+    const difference =
+      parseSortableDate(rightTicket.date) - parseSortableDate(leftTicket.date);
+
+    if (difference !== 0) {
+      return difference;
+    }
+
+    return (rightTicket.ticketLabel || "").localeCompare(
+      leftTicket.ticketLabel || ""
+    );
+  });
+
+  if (ticketEntries.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "topics-top-tickets__empty";
+    empty.textContent = "No issues recorded for this theme.";
+    topicsTopTickets.appendChild(empty);
+    return;
+  }
+
+  const list = document.createElement("div");
+  list.className = "topics-top-tickets__list";
+
+  ticketEntries.forEach((ticket) => {
+    const item = document.createElement("div");
+    item.className = "topics-top-tickets__item";
+
+    const link = document.createElement(ticket.ticketUrl ? "a" : "span");
+    link.className = "topics-top-tickets__link";
+    link.textContent = ticket.ticketLabel || "No Jira ticket";
+
+    if (ticket.ticketUrl) {
+      link.href = ticket.ticketUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    }
+
+    const meta = document.createElement("span");
+    meta.className = "topics-top-tickets__meta";
+    meta.textContent = [ticket.date, ticket.status].filter(Boolean).join(" · ");
+
+    const issue = document.createElement("p");
+    issue.className = "topics-top-tickets__issue";
+    issue.textContent = ticket.issueText;
+
+    item.append(link, meta, issue);
+    list.appendChild(item);
+  });
+
+  topicsTopTickets.appendChild(list);
+}
+
+function syncTopicCardHeights() {
+  if (!topicsRankingCard || !topicsGroupingCard) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    if (window.matchMedia("(max-width: 980px)").matches) {
+      topicsRankingCard.style.height = "";
+      return;
+    }
+
+    topicsRankingCard.style.height = "";
+    const groupingHeight = topicsGroupingCard.offsetHeight;
+
+    if (groupingHeight > 0) {
+      topicsRankingCard.style.height = `${groupingHeight}px`;
+    }
+  });
+}
+
 function refreshTable() {
   const yearFilteredRows = getYearFilteredRows();
   const baseFilteredRows = getFilteredRows();
   renderStatusSummary(baseFilteredRows, tableHeaders);
   renderStatusPie(baseFilteredRows, tableHeaders);
   renderTimeline(baseFilteredRows, tableHeaders, yearFilteredRows);
+  renderTopicInsights(baseFilteredRows, tableHeaders);
 
   populateStatusFilter(baseFilteredRows, tableHeaders);
   const filteredRows = getTableFilteredRows(baseFilteredRows, tableHeaders);
@@ -1748,5 +2444,7 @@ document.addEventListener("keydown", (event) => {
     closeColumnsMenu();
   }
 });
+
+window.addEventListener("resize", syncTopicCardHeights);
 
 loadCsvTable();

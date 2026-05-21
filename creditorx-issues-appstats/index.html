@@ -94,6 +94,34 @@
           ></svg>
         </div>
       </section>
+      <section class="topics-panel" aria-labelledby="topics-title">
+        <header class="topics-panel__header">
+          <div>
+            <h2 id="topics-title">Top Issue Themes</h2>
+            <p class="topics-panel__subtitle" id="topics-subtitle">
+              Top 10 issue topics from reported issue text.
+            </p>
+          </div>
+        </header>
+        <div class="topics-panel__grid">
+          <article class="topics-card topics-card--ranking" aria-labelledby="topics-ranking-title">
+            <div class="topics-card__header">
+              <h3 id="topics-ranking-title">Ranking Top 10</h3>
+              <span id="topics-ranking-total">0 Issues</span>
+            </div>
+            <div class="topics-bars" id="topics-bars"></div>
+            <div class="topics-top-tickets" id="topics-top-tickets"></div>
+          </article>
+          <article class="topics-card topics-card--grouping" aria-labelledby="topics-grouping-title">
+            <div class="topics-card__header">
+              <h3 id="topics-grouping-title">Semi-Automatic Grouping</h3>
+              <span id="topics-grouping-coverage">0% Covered</span>
+            </div>
+            <div class="topics-grouping__metrics" id="topics-grouping-metrics"></div>
+            <div class="topics-grouping__list" id="topics-grouping-list"></div>
+          </article>
+        </div>
+      </section>
       <section class="records-panel" aria-labelledby="records-title">
         <header class="records-panel__header">
           <div>
