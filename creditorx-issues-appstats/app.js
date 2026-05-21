@@ -13,6 +13,7 @@ const LAST_UPDATE_COLUMN_NAME = "Last Update";
 const REPORTED_BY_COLUMN_NAME = "Reported By";
 const JIRA_TICKET_COLUMN_NAME = "Jira ticket";
 const STATUS_COLUMN_NAME = "Status";
+const PLATFORM_COLUMN_NAME = "IOS or Android";
 const DEV_TEAM_COMMENTS_COLUMN_NAME = "Dev Team comments";
 const ISSUE_IDENTITY_COLUMN_NAMES = [
   "Customer Name",
@@ -55,6 +56,9 @@ const statusSummaryList = document.getElementById("status-summary-list");
 const statusPieChart = document.getElementById("status-pie-chart");
 const statusPieLegend = document.getElementById("status-pie-legend");
 const statusPieSubtitle = document.getElementById("status-pie-subtitle");
+const platformSubtitle = document.getElementById("platform-subtitle");
+const platformBar = document.getElementById("platform-bar");
+const platformList = document.getElementById("platform-list");
 const timelineChart = document.getElementById("timeline-chart");
 const timelineSubtitle = document.getElementById("timeline-subtitle");
 const timelineLegend = document.getElementById("timeline-legend");
@@ -114,6 +118,11 @@ const STATUS_COLOR_MAP = {
   "unresolved with cx": "#b1163d",
   "follow up": "#c38711",
   unknown: "#8b8b8b",
+};
+const PLATFORM_COLOR_MAP = {
+  Android: "#11a86a",
+  iOS: "#1aa8ee",
+  Unknown: "#696969",
 };
 
 function parseCsv(text) {
@@ -1093,6 +1102,44 @@ function getStatusCounts(rows, headers) {
   return counts;
 }
 
+function normalizePlatform(value) {
+  const normalized = String(value ?? "").trim().toLowerCase();
+
+  if (normalized.includes("android")) {
+    return "Android";
+  }
+
+  if (
+    normalized.includes("ios") ||
+    normalized.includes("iphone") ||
+    normalized.includes("ipad")
+  ) {
+    return "iOS";
+  }
+
+  return "Unknown";
+}
+
+function getPlatformCounts(rows, headers) {
+  const platformColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(PLATFORM_COLUMN_NAME)
+  );
+  const counts = new Map([
+    ["Android", 0],
+    ["iOS", 0],
+    ["Unknown", 0],
+  ]);
+
+  rows.forEach((row) => {
+    const platform = normalizePlatform(
+      platformColumnIndex >= 0 ? row[platformColumnIndex] : ""
+    );
+    counts.set(platform, (counts.get(platform) ?? 0) + 1);
+  });
+
+  return counts;
+}
+
 function getOrderedStatusEntries(counts) {
   const orderedEntries = [
     ...STATUS_SUMMARY_ORDER.filter((status) => counts.has(status)).map((status) => [
@@ -1416,6 +1463,86 @@ function renderStatusPie(rows, headers) {
 
     item.append(swatch, label, legendValue);
     statusPieLegend.appendChild(item);
+  });
+}
+
+function renderPlatformDistribution(rows, headers) {
+  platformBar.replaceChildren();
+  platformList.replaceChildren();
+
+  const counts = getPlatformCounts(rows, headers);
+  const total = rows.length;
+  const knownPlatforms = ["Android", "iOS"];
+  const knownTotal = knownPlatforms.reduce(
+    (sum, platform) => sum + (counts.get(platform) ?? 0),
+    0
+  );
+  const unknownCount = counts.get("Unknown") ?? 0;
+
+  platformSubtitle.textContent = `Android and iOS share for ${describeYearSelection()}. Unknown platform is listed separately.`;
+
+  if (total === 0) {
+    const empty = document.createElement("p");
+    empty.className = "platform-card__empty";
+    empty.textContent = "No records available for the selected range.";
+    platformList.appendChild(empty);
+    return;
+  }
+
+  knownPlatforms.forEach((platform) => {
+    const value = counts.get(platform) ?? 0;
+    const percentage = knownTotal === 0 ? 0 : (value / knownTotal) * 100;
+    const segment = document.createElement("span");
+    segment.className = "platform-card__bar-segment";
+    segment.style.setProperty("--platform-color", PLATFORM_COLOR_MAP[platform]);
+    segment.style.width = `${percentage}%`;
+    segment.title = `${platform}: ${value.toLocaleString("en-US")} issue${value === 1 ? "" : "s"} (${percentage.toFixed(1)}% of known platform records)`;
+    platformBar.appendChild(segment);
+  });
+
+  if (knownTotal === 0) {
+    const emptyBar = document.createElement("span");
+    emptyBar.className = "platform-card__bar-empty";
+    emptyBar.textContent = "No platform data";
+    platformBar.appendChild(emptyBar);
+  }
+
+  [
+    ...knownPlatforms.map((platform) => ({
+      label: platform,
+      value: counts.get(platform) ?? 0,
+      percentage: knownTotal === 0 ? 0 : ((counts.get(platform) ?? 0) / knownTotal) * 100,
+      denominatorLabel: "known",
+    })),
+    {
+      label: "Unknown",
+      value: unknownCount,
+      percentage: total === 0 ? 0 : (unknownCount / total) * 100,
+      denominatorLabel: "all",
+    },
+  ].forEach(({ label, value, percentage, denominatorLabel }) => {
+    const item = document.createElement("div");
+    item.className = "platform-card__item";
+    item.title = `${label}: ${value.toLocaleString("en-US")} issue${value === 1 ? "" : "s"} (${percentage.toFixed(1)}% of ${denominatorLabel} records)`;
+
+    const swatch = document.createElement("span");
+    swatch.className = "platform-card__swatch";
+    swatch.style.setProperty("--platform-color", PLATFORM_COLOR_MAP[label]);
+
+    const name = document.createElement("span");
+    name.className = "platform-card__label";
+    name.textContent = label;
+
+    const count = document.createElement("span");
+    count.className = "platform-card__count";
+    count.textContent = `${value.toLocaleString("en-US")} issues`;
+
+    const percent = document.createElement("strong");
+    percent.className = "platform-card__percent";
+    percent.textContent = `${percentage.toFixed(1)}%`;
+
+    item.append(swatch, name, count, percent);
+    platformList.appendChild(item);
   });
 }
 
@@ -2068,6 +2195,7 @@ function refreshTable() {
   const baseFilteredRows = getFilteredRows();
   renderStatusSummary(baseFilteredRows, tableHeaders);
   renderStatusPie(baseFilteredRows, tableHeaders);
+  renderPlatformDistribution(baseFilteredRows, tableHeaders);
   renderTimeline(baseFilteredRows, tableHeaders, yearFilteredRows);
   renderTopicInsights(baseFilteredRows, tableHeaders);
 
