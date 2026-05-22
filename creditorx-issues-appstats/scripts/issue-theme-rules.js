@@ -154,7 +154,6 @@ window.CREDITORX_ISSUE_THEME_CONFIG = {
     "having",
     "issue",
     "issues",
-    "login",
     "number",
     "phone",
     "reported",

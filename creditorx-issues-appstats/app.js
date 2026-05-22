@@ -83,6 +83,7 @@ let allRows = [];
 let dateSortDirection = "desc";
 let visibleColumns = new Set();
 let timelineTooltip = null;
+let issueTextTooltip = null;
 let selectedIssueThemeLabel = "";
 
 const STATUS_CLASS_MAP = {
@@ -436,6 +437,50 @@ function setTimelineTooltipPosition(clientX, clientY) {
 
   tooltip.style.left = `${left}px`;
   tooltip.style.top = `${top}px`;
+}
+
+function getIssueTextTooltip() {
+  if (issueTextTooltip) {
+    return issueTextTooltip;
+  }
+
+  issueTextTooltip = document.createElement("div");
+  issueTextTooltip.className = "issue-text-tooltip";
+  issueTextTooltip.hidden = true;
+  document.body.appendChild(issueTextTooltip);
+  return issueTextTooltip;
+}
+
+function hideIssueTextTooltip() {
+  const tooltip = getIssueTextTooltip();
+  tooltip.hidden = true;
+}
+
+function setIssueTextTooltipPosition(clientX, clientY) {
+  const tooltip = getIssueTextTooltip();
+  const offset = 14;
+  const { innerWidth, innerHeight } = window;
+  const { width, height } = tooltip.getBoundingClientRect();
+  let left = clientX + offset;
+  let top = clientY + offset;
+
+  if (left + width > innerWidth - 12) {
+    left = Math.max(12, clientX - width - offset);
+  }
+
+  if (top + height > innerHeight - 12) {
+    top = Math.max(12, clientY - height - offset);
+  }
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+}
+
+function showIssueTextTooltip(issueText, clientX, clientY) {
+  const tooltip = getIssueTextTooltip();
+  tooltip.textContent = issueText;
+  tooltip.hidden = false;
+  setIssueTextTooltipPosition(clientX, clientY);
 }
 
 function getTimelineTooltipText(point) {
@@ -1835,6 +1880,9 @@ function getIssueThemeAnalysis(rows, headers) {
   const jiraTicketColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(JIRA_TICKET_COLUMN_NAME)
   );
+  const devTeamCommentsColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(DEV_TEAM_COMMENTS_COLUMN_NAME)
+  );
   const themes = new Map();
   let issueTextCount = 0;
   let automaticallyGroupedCount = 0;
@@ -1871,6 +1919,10 @@ function getIssueThemeAnalysis(rows, headers) {
       statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
     const jiraTicketValue =
       jiraTicketColumnIndex >= 0 ? row[jiraTicketColumnIndex] ?? "" : "";
+    const devTeamComments =
+      devTeamCommentsColumnIndex >= 0
+        ? (row[devTeamCommentsColumnIndex] ?? "").trim()
+        : "";
 
     current.count += 1;
     current.statusCounts.set(
@@ -1884,6 +1936,7 @@ function getIssueThemeAnalysis(rows, headers) {
       ticketLabel: formatJiraTicketLabel(jiraTicketValue),
       ticketUrl: getJiraTicketUrl(jiraTicketValue),
       issueText,
+      devTeamComments,
     });
     matchedKeywords.forEach((keyword) => {
       current.matchedKeywords.set(
@@ -2163,7 +2216,25 @@ function renderSelectedThemeTickets(selectedEntry) {
     issue.className = "topics-top-tickets__issue";
     issue.textContent = ticket.issueText;
 
-    item.append(link, meta, issue);
+    const comments = document.createElement("p");
+    comments.className = "topics-top-tickets__comments";
+    comments.textContent = `Dev Team Comments: ${
+      ticket.devTeamComments || "No comments recorded"
+    }`;
+
+    item.addEventListener("mouseenter", (event) => {
+      const tooltipText = [
+        ticket.issueText,
+        `Dev Team Comments: ${ticket.devTeamComments || "No comments recorded"}`,
+      ].join("\n\n");
+      showIssueTextTooltip(tooltipText, event.clientX, event.clientY);
+    });
+    item.addEventListener("mousemove", (event) => {
+      setIssueTextTooltipPosition(event.clientX, event.clientY);
+    });
+    item.addEventListener("mouseleave", hideIssueTextTooltip);
+
+    item.append(link, meta, issue, comments);
     list.appendChild(item);
   });
 
