@@ -40,6 +40,90 @@
             <p class="subtitle">LEGENDARY CODE ARCHITECTS v1.7.0</p>
         </header>
 
+        <section class="sprint-overview is-collapsed" aria-labelledby="sprint-overview-title" data-sprint-overview>
+            <div class="sprint-overview__header">
+                <div>
+                    <div class="sprint-overview__eyebrow-row">
+                        <p class="sprint-overview__eyebrow">Sprint Overview</p>
+                        <span
+                            class="sprint-overview__retro-indicator"
+                            data-sprint-retrospective-indicator
+                            title="Sprint retrospective available"
+                            hidden
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8 4h8l4 4v12H4V4h4z"></path>
+                                <path d="M15 4v5h5"></path>
+                                <path d="M8 13h8"></path>
+                                <path d="M8 17h5"></path>
+                            </svg>
+                            <span>Retro</span>
+                        </span>
+                    </div>
+                    <h2 id="sprint-overview-title" class="sprint-overview__title" data-sprint-overview-name>Loading sprint...</h2>
+                </div>
+                <div class="sprint-overview__side">
+                    <div class="sprint-overview__dates">
+                        <div>
+                            <span>Start Date</span>
+                            <strong data-sprint-start-date>--</strong>
+                        </div>
+                        <div>
+                            <span>End Date</span>
+                            <strong data-sprint-end-date>--</strong>
+                        </div>
+                        <div>
+                            <span>Duration</span>
+                            <strong data-sprint-duration>--</strong>
+                        </div>
+                        <div>
+                            <span>Goal Met</span>
+                            <strong data-sprint-goal-met>--</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="sprint-overview__description" data-sprint-description>Loading sprint context...</p>
+            <button
+                type="button"
+                class="sprint-overview__toggle"
+                data-sprint-overview-toggle
+                aria-expanded="false"
+                aria-controls="sprint-overview-details"
+            >
+                Show details
+            </button>
+            <div class="sprint-overview__details" id="sprint-overview-details" data-sprint-overview-details hidden>
+                <a class="sprint-overview__retro" data-sprint-retrospective href="#" hidden>Open retrospective</a>
+                <div class="sprint-overview__notes">
+                    <article>
+                        <h3>Closing Summary</h3>
+                        <p data-sprint-summary>Summary will appear when the sprint data loads.</p>
+                    </article>
+                    <article>
+                        <h3>Improvements</h3>
+                        <p data-sprint-improvements>Improvement notes will appear here when available.</p>
+                    </article>
+                    <article>
+                        <h3>Key Achievements</h3>
+                        <ul class="sprint-overview__list" data-sprint-key-achievements></ul>
+                    </article>
+                    <article>
+                        <h3>Blockers &amp; Risks</h3>
+                        <ul class="sprint-overview__list" data-sprint-blockers-risks></ul>
+                    </article>
+                    <article>
+                        <h3>Scope Changes</h3>
+                        <ul class="sprint-overview__list" data-sprint-scope-changes></ul>
+                    </article>
+                    <article>
+                        <h3>Recommendations</h3>
+                        <ul class="sprint-overview__list" data-sprint-recommendations></ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- <section class="trend-section">
             <div class="trend-card">
                 <div class="trend-card-header">

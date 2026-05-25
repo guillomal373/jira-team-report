@@ -27,8 +27,7 @@ http://localhost:8080
 - `styles.css`: styles and visual theme.
 - `script.js`: data loading, aggregations, and charts.
 - `data/team.json`: members, roles, Jira aliases, and visual config.
-- `data/sprints.json`: sprint catalog and CSV path per sprint.
-- `data/sprint_story_points.json`: daily story point series by sprint.
+- `data/sprints.json`: sprint catalog, CSV path, sprint overview text, improvements, retrospective link, and daily story point series per sprint.
 - `data/sprints-csv/`: Jira CSV exports per sprint.
 
 **Expected CSV format**
@@ -42,8 +41,9 @@ The dashboard needs at least these columns (names from the Jira export):
 1. Export the sprint from Jira in CSV (ideally “Sprint Summary export”).
 2. Save the file in `data/sprints-csv/`.
 3. Add an entry in `data/sprints.json` with `name`, `period`, and `csvFile`.
-4. (Optional) Update `data/sprint_story_points.json` if you want the daily trend.
-5. If an assignee name changes in Jira, add an alias in `data/team.json` using `csvAliases`.
+4. (Optional) Add or update sprint header notes in `data/sprints.json`: `description`, `summary`, `improvements`, and `retrospectiveFile` or `retrospectiveUrl`.
+5. (Optional) Add `members[].statuses[]` in `data/sprints.json` when the sprint needs manually curated daily story point history.
+6. If an assignee name changes in Jira, add an alias in `data/team.json` using `csvAliases`.
 
 **Troubleshooting**
 - No data appears: verify the CSV column names and that the local server is running.

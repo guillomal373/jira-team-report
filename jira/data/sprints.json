@@ -1,64 +1,743 @@
 {
   "sprints": [
     {
+      "name": "Sprint 1 - Beginning of time",
+      "period": "2025-11-04 to 2025-11-17",
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 10}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 12}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 25}
+          ]
+        },
+        {
+          "name": "Daniel Rubiano",
+          "active": false,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        }
+      ],
+      "description": "Development sprint focused on Beginning of time. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "Manual story point snapshot: 47 of 47 story points are Done, 0 are In Progress, 0 are In Review, and 0 remain To Do.",
+      "improvements": "No improvement notes recorded yet. Add retrospective notes here when the sprint closes.",
+      "retrospectiveUrl": "https://hiredexperts.atlassian.net/wiki/x/AoAuDQ",
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
+    },
+    {
+      "name": "Sprint 2 - Big Research, Standard and Documentation",
+      "period": "2025-11-04 to 2025-11-17",
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 35}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 36}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 34}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 26}
+          ]
+        },
+        {
+          "name": "Daniel Rubiano",
+          "active": false,
+          "statuses": [
+            {"date": "2025-11-04", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        }
+      ],
+      "description": "Development sprint focused on Big Research, Standard and Documentation. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "Manual story point snapshot: 131 of 131 story points are Done, 0 are In Progress, 0 are In Review, and 0 remain To Do.",
+      "improvements": "No improvement notes recorded yet. Add retrospective notes here when the sprint closes.",
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
+    },
+    {
       "name": "Sprint 3 - Minus 4 days",
       "period": "2025-12-22 to 2026-01-02",
-      "csvFile": "sprints-csv/Sprint 3 Summary export (Jira).csv"
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2025-12-24", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10},
+            {"date": "2025-12-25", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10},
+            {"date": "2025-12-26", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10},
+            {"date": "2025-12-29", "To Do": 10, "In Progress": 5, "In Review": 0, "Done": 10},
+            {"date": "2025-12-30", "To Do": 14, "In Progress": 3, "In Review": 0, "Done": 15},
+            {"date": "2025-12-31", "To Do": 14, "In Progress": 3, "In Review": 0, "Done": 15},
+            {"date": "2026-01-02", "To Do": 17, "In Progress": 9, "In Review": 0, "Done": 15}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2025-12-24", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4},
+            {"date": "2025-12-25", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4},
+            {"date": "2025-12-26", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 4},
+            {"date": "2025-12-29", "To Do": 6, "In Progress": 2, "In Review": 0, "Done": 22},
+            {"date": "2025-12-30", "To Do": 14, "In Progress": 2, "In Review": 0, "Done": 22},
+            {"date": "2025-12-31", "To Do": 8, "In Progress": 8, "In Review": 0, "Done": 22},
+            {"date": "2026-01-02", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 22}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2025-12-24", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4},
+            {"date": "2025-12-25", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4},
+            {"date": "2025-12-26", "To Do": 16, "In Progress": 6, "In Review": 0, "Done": 4},
+            {"date": "2025-12-29", "To Do": 11, "In Progress": 8, "In Review": 0, "Done": 4},
+            {"date": "2025-12-30", "To Do": 7, "In Progress": 4, "In Review": 0, "Done": 9},
+            {"date": "2025-12-31", "To Do": 2, "In Progress": 3, "In Review": 0, "Done": 16},
+            {"date": "2026-01-02", "To Do": 2, "In Progress": 3, "In Review": 0, "Done": 16}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2025-12-24", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0},
+            {"date": "2025-12-25", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0},
+            {"date": "2025-12-26", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0},
+            {"date": "2025-12-29", "To Do": 3, "In Progress": 5, "In Review": 0, "Done": 0},
+            {"date": "2025-12-30", "To Do": 3, "In Progress": 7, "In Review": 0, "Done": 5},
+            {"date": "2025-12-31", "To Do": 0, "In Progress": 5, "In Review": 0, "Done": 5},
+            {"date": "2026-01-02", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 8}
+          ]
+        },
+        {
+          "name": "Daniel Rubiano",
+          "active": false,
+          "statuses": [
+            {"date": "2025-12-24", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-25", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-26", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-29", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-30", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2025-12-31", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0}
+          ]
+        }
+      ],
+      "csvFile": "sprints-csv/Sprint 3 Summary export (Jira).csv",
+      "description": "Development sprint focused on Minus 4 days. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 34 Jira records, 34 completed, 0 active, 0 blocked, and 0 still open. 113 of 113 story points are completed or ready for deployment.",
+      "improvements": "Add story point estimates to 1 item to improve planning accuracy.",
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     },
     {
       "name": "Sprint 4 - OTP & AuditFlow",
       "period": "2026-01-05 to 2026-01-16",
-      "csvFile": "sprints-csv/Sprint 4 Summary export (Jira).csv"
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 26, "In Progress": 10, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 23, "In Progress": 16, "In Review": 8, "Done": 2},
+            {"date": "2026-01-08", "To Do": 23, "In Progress": 8, "In Review": 0, "Done": 10},
+            {"date": "2026-01-09", "To Do": 18, "In Progress": 8, "In Review": 0, "Done": 10},
+            {"date": "2026-01-12", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 18},
+            {"date": "2026-01-13", "To Do": 8, "In Progress": 10, "In Review": 0, "Done": 18},
+            {"date": "2026-01-14", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 28},
+            {"date": "2026-01-15", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 28},
+            {"date": "2026-01-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 36},
+            {"date": "2026-01-17", "To Do": 8, "In Progress": 8, "In Review": 0, "Done": 41}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 13, "In Progress": 13, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 13, "In Progress": 18, "In Review": 0, "Done": 0},
+            {"date": "2026-01-08", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 13},
+            {"date": "2026-01-09", "To Do": 13, "In Progress": 5, "In Review": 0, "Done": 16},
+            {"date": "2026-01-12", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16},
+            {"date": "2026-01-13", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16},
+            {"date": "2026-01-14", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16},
+            {"date": "2026-01-15", "To Do": 11, "In Progress": 4, "In Review": 0, "Done": 16},
+            {"date": "2026-01-16", "To Do": 9, "In Progress": 6, "In Review": 0, "Done": 16},
+            {"date": "2026-01-17", "To Do": 4, "In Progress": 6, "In Review": 0, "Done": 16}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 8},
+            {"date": "2026-01-08", "To Do": 3, "In Progress": 2, "In Review": 0, "Done": 8},
+            {"date": "2026-01-09", "To Do": 3, "In Progress": 4, "In Review": 0, "Done": 12},
+            {"date": "2026-01-12", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 14},
+            {"date": "2026-01-13", "To Do": 14, "In Progress": 6, "In Review": 0, "Done": 14},
+            {"date": "2026-01-14", "To Do": 2, "In Progress": 7, "In Review": 0, "Done": 21},
+            {"date": "2026-01-15", "To Do": 2, "In Progress": 7, "In Review": 0, "Done": 21},
+            {"date": "2026-01-16", "To Do": 0, "In Progress": 10, "In Review": 0, "Done": 21},
+            {"date": "2026-01-17", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 31}
+          ]
+        },
+        {
+          "name": "Daniel Rubiano",
+          "active": false,
+          "statuses": [
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2},
+            {"date": "2026-01-08", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2},
+            {"date": "2026-01-09", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 2},
+            {"date": "2026-01-12", "To Do": 13, "In Progress": 0, "In Review": 0, "Done": 8},
+            {"date": "2026-01-13", "To Do": 3, "In Progress": 3, "In Review": 0, "Done": 22},
+            {"date": "2026-01-14", "To Do": 3, "In Progress": 10, "In Review": 0, "Done": 23},
+            {"date": "2026-01-15", "To Do": 1, "In Progress": 2, "In Review": 0, "Done": 33},
+            {"date": "2026-01-16", "To Do": 1, "In Progress": 3, "In Review": 0, "Done": 41},
+            {"date": "2026-01-17", "To Do": 1, "In Progress": 0, "In Review": 0, "Done": 44}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-05", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-06", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-07", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-01-08", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-09", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-12", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-13", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-14", "To Do": 0, "In Progress": 4, "In Review": 0, "Done": 2},
+            {"date": "2026-01-15", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 5},
+            {"date": "2026-01-16", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 5},
+            {"date": "2026-01-17", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 8}
+          ]
+        }
+      ],
+      "csvFile": "sprints-csv/Sprint 4 Summary export (Jira).csv",
+      "description": "Development sprint focused on OTP & AuditFlow. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 58 Jira records, 58 completed, 0 active, 0 blocked, and 0 still open. 171 of 171 story points are completed or ready for deployment.",
+      "improvements": "Add story point estimates to 2 items to improve planning accuracy.",
+      "retrospectiveUrl": "https://hiredexperts.atlassian.net/wiki/x/DQA4Eg",
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     },
     {
       "name": "Sprint 5 - Cordaba Portal Dev Env - OTP & AuditFlow",
       "period": "2026-01-25 to 2026-01-30",
-      "csvFile": "sprints-csv/Sprint 5 Summary export (Jira).csv"
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 8, "In Progress": 3, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 8, "In Progress": 3, "In Review": 0, "Done": 8},
+            {"date": "2026-01-22", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12},
+            {"date": "2026-01-23", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12},
+            {"date": "2026-01-27", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12},
+            {"date": "2026-01-28", "To Do": 8, "In Progress": 0, "In Review": 0, "Done": 12},
+            {"date": "2026-01-29", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 20},
+            {"date": "2026-01-30", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 28}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 3},
+            {"date": "2026-01-21", "To Do": 0, "In Progress": 8, "In Review": 0, "Done": 3},
+            {"date": "2026-01-22", "To Do": 4, "In Progress": 9, "In Review": 0, "Done": 7},
+            {"date": "2026-01-27", "To Do": 4, "In Progress": 9, "In Review": 0, "Done": 7},
+            {"date": "2026-01-28", "To Do": 4, "In Progress": 15, "In Review": 0, "Done": 9},
+            {"date": "2026-01-29", "To Do": 0, "In Progress": 20, "In Review": 0, "Done": 20},
+            {"date": "2026-01-30", "To Do": 1, "In Progress": 8, "In Review": 0, "Done": 25}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 14, "In Progress": 9, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 14, "In Progress": 7, "In Review": 0, "Done": 2},
+            {"date": "2026-01-21", "To Do": 7, "In Progress": 17, "In Review": 0, "Done": 5},
+            {"date": "2026-01-22", "To Do": 7, "In Progress": 12, "In Review": 0, "Done": 10},
+            {"date": "2026-01-23", "To Do": 7, "In Progress": 7, "In Review": 0, "Done": 15},
+            {"date": "2026-01-26", "To Do": 0, "In Progress": 7, "In Review": 0, "Done": 20},
+            {"date": "2026-01-27", "To Do": 0, "In Progress": 5, "In Review": 0, "Done": 23},
+            {"date": "2026-01-28", "To Do": 0, "In Progress": 5, "In Review": 0, "Done": 23},
+            {"date": "2026-01-29", "To Do": 14, "In Progress": 12, "In Review": 0, "Done": 23},
+            {"date": "2026-01-30", "To Do": 12, "In Progress": 2, "In Review": 0, "Done": 35}
+          ]
+        },
+        {
+          "name": "Felipe pacheco",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 18, "In Progress": 9, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 18, "In Progress": 9, "In Review": 0, "Done": 2},
+            {"date": "2026-01-21", "To Do": 11, "In Progress": 13, "In Review": 0, "Done": 6},
+            {"date": "2026-01-22", "To Do": 11, "In Progress": 11, "In Review": 0, "Done": 8},
+            {"date": "2026-01-23", "To Do": 11, "In Progress": 8, "In Review": 0, "Done": 15},
+            {"date": "2026-01-26", "To Do": 2, "In Progress": 1, "In Review": 0, "Done": 20},
+            {"date": "2026-01-27", "To Do": 2, "In Progress": 1, "In Review": 0, "Done": 20},
+            {"date": "2026-01-28", "To Do": 2, "In Progress": 17, "In Review": 0, "Done": 21},
+            {"date": "2026-01-29", "To Do": 2, "In Progress": 24, "In Review": 0, "Done": 21},
+            {"date": "2026-01-30", "To Do": 2, "In Progress": 8, "In Review": 0, "Done": 37}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 6},
+            {"date": "2026-01-21", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 8},
+            {"date": "2026-01-22", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 10},
+            {"date": "2026-01-23", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 13},
+            {"date": "2026-01-26", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 16},
+            {"date": "2026-01-27", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 21},
+            {"date": "2026-01-28", "To Do": 0, "In Progress": 4, "In Review": 0, "Done": 26},
+            {"date": "2026-01-29", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 27},
+            {"date": "2026-01-30", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 27}
+          ]
+        },
+        {
+          "name": "Daniel Rubiano",
+          "active": false,
+          "statuses": [
+            {"date": "2026-01-19", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 0},
+            {"date": "2026-01-20", "To Do": 0, "In Progress": 2, "In Review": 0, "Done": 2},
+            {"date": "2026-01-21", "To Do": 10, "In Progress": 1, "In Review": 0, "Done": 2},
+            {"date": "2026-01-22", "To Do": 10, "In Progress": 1, "In Review": 0, "Done": 9},
+            {"date": "2026-01-23", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 10},
+            {"date": "2026-01-26", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11},
+            {"date": "2026-01-27", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11},
+            {"date": "2026-01-27", "To Do": 1, "In Progress": 10, "In Review": 0, "Done": 11}
+          ]
+        }
+      ],
+      "csvFile": "sprints-csv/Sprint 5 Summary export (Jira).csv",
+      "description": "Development sprint focused on Cordaba Portal Dev Env - OTP & AuditFlow. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 78 Jira records, 78 completed, 0 active, 0 blocked, and 0 still open. 195 of 195 story points are completed or ready for deployment.",
+      "improvements": "Add story point estimates to 4 items to improve planning accuracy.",
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     },
     {
-      "name": "Sprint 6 - CX App to Prod, CP MVP Clarify--",
-      "period": "2026-02-02 to 2026-02-13--",
-      "csvFile": "sprints-csv/Sprint 6 Summary export (Jira).csv"
+      "name": "Sprint 6 - Foundation and Alignment",
+      "period": "2026-02-03 to 2026-02-17",
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 6, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-04", "To Do": 3, "In Progress": 6, "In Review": 0, "Done": 8},
+            {"date": "2026-02-05", "To Do": 3, "In Progress": 3, "In Review": 0, "Done": 11},
+            {"date": "2026-02-06", "To Do": 3, "In Progress": 3, "In Review": 0, "Done": 11},
+            {"date": "2026-02-09", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 14},
+            {"date": "2026-02-10", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 14},
+            {"date": "2026-02-11", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 14},
+            {"date": "2026-02-12", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 17},
+            {"date": "2026-02-13", "To Do": 3, "In Progress": 0, "In Review": 0, "Done": 18}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 0, "In Progress": 3, "In Review": 0, "Done": 5},
+            {"date": "2026-02-04", "To Do": 5, "In Progress": 3, "In Review": 0, "Done": 5},
+            {"date": "2026-02-05", "To Do": 5, "In Progress": 16, "In Review": 0, "Done": 5},
+            {"date": "2026-02-06", "To Do": 5, "In Progress": 16, "In Review": 0, "Done": 5},
+            {"date": "2026-02-09", "To Do": 5, "In Progress": 3, "In Review": 19, "Done": 5},
+            {"date": "2026-02-10", "To Do": 5, "In Progress": 3, "In Review": 26, "Done": 5},
+            {"date": "2026-02-11", "To Do": 5, "In Progress": 3, "In Review": 34, "Done": 5},
+            {"date": "2026-02-12", "To Do": 10, "In Progress": 0, "In Review": 23, "Done": 14},
+            {"date": "2026-02-13", "To Do": 10, "In Progress": 0, "In Review": 23, "Done": 21}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 9, "In Progress": 19, "In Review": 0, "Done": 13},
+            {"date": "2026-02-04", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 27},
+            {"date": "2026-02-05", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 27},
+            {"date": "2026-02-06", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 27},
+            {"date": "2026-02-09", "To Do": 6, "In Progress": 1, "In Review": 0, "Done": 40},
+            {"date": "2026-02-10", "To Do": 6, "In Progress": 8, "In Review": 0, "Done": 40},
+            {"date": "2026-02-11", "To Do": 6, "In Progress": 2, "In Review": 0, "Done": 46},
+            {"date": "2026-02-12", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 46},
+            {"date": "2026-02-13", "To Do": 6, "In Progress": 10, "In Review": 0, "Done": 56}
+          ]
+        },
+        {
+          "name": "Felipe pacheco",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 5, "In Progress": 16, "In Review": 0, "Done": 0},
+            {"date": "2026-02-04", "To Do": 5, "In Progress": 9, "In Review": 0, "Done": 5},
+            {"date": "2026-02-05", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 18},
+            {"date": "2026-02-06", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 18},
+            {"date": "2026-02-09", "To Do": 5, "In Progress": 0, "In Review": 0, "Done": 26},
+            {"date": "2026-02-10", "To Do": 5, "In Progress": 2, "In Review": 0, "Done": 31},
+            {"date": "2026-02-11", "To Do": 5, "In Progress": 2, "In Review": 0, "Done": 31},
+            {"date": "2026-02-12", "To Do": 5, "In Progress": 14, "In Review": 0, "Done": 32},
+            {"date": "2026-02-13", "To Do": 5, "In Progress": 5, "In Review": 0, "Done": 44}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-02", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-03", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 5},
+            {"date": "2026-02-04", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 9},
+            {"date": "2026-02-05", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 9},
+            {"date": "2026-02-06", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 13},
+            {"date": "2026-02-09", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 17},
+            {"date": "2026-02-10", "To Do": 0, "In Progress": 1, "In Review": 0, "Done": 20},
+            {"date": "2026-02-11", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 25},
+            {"date": "2026-02-12", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 25},
+            {"date": "2026-02-13", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 30}
+          ]
+        }
+      ],
+      "csvFile": "sprints-csv/Sprint 6 Summary export (Jira).csv",
+      "description": "Development sprint focused on Foundation and Alignment. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 63 Jira records, 63 completed, 0 active, 0 blocked, and 0 still open. 194 of 194 story points are completed or ready for deployment.",
+      "improvements": "Add story point estimates to 3 items to improve planning accuracy.",
+      "keyAchievements": [
+        "Established CreditorX COL/DR scope and CS communication cadence; drafted ownership model for “Call Agent” status (CX-201).",
+        "Defined Cordoba Portal MVP boundaries and initial backend skeleton (CP-110)."
+      ],
+      "blockersRisks": [
+        "Ambiguity over “Call Agent” queue ownership slowed triage; interim routing rule applied (CX-207); impact: 2 issues slipped to Sprint 7.",
+        "Environment drift between staging/prod created inconsistent Slack notifications; fixed in Sprint 7."
+      ],
+      "scopeChanges": [
+        "Added a quick CS-comm plan after first-week findings (CX-212).",
+        "Carried over 1 admin feature to Sprint 7 due to dependency on routing decision."
+      ],
+      "recommendations": [
+        "Finalize “Call Agent” RACI and update runbooks.",
+        "Lock MVP scope for Cordoba Portal to prevent mid-sprint creep."
+      ],
+      "goalMet": "Partially"
     },
     {
-      "name": "Sprint 7 - CX Android App, CP MVP release",
-      "period": "2026-02-16 to 2026-02-27",
-      "csvFile": "sprints-csv/Sprint 7 Summary export (Jira).csv"
+      "name": "Sprint 7 - Triage and Early Delivery",
+      "period": "2026-02-17 to 2026-03-03",
+      "members": [
+        {
+          "name": "Samil Vargas",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-17", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 16},
+            {"date": "2026-02-18", "To Do": 29, "In Progress": 8, "In Review": 0, "Done": 16},
+            {"date": "2026-02-19", "To Do": 29, "In Progress": 8, "In Review": 0, "Done": 17},
+            {"date": "2026-02-20", "To Do": 21, "In Progress": 8, "In Review": 0, "Done": 25}
+          ]
+        },
+        {
+          "name": "Roberto Hiraldo",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-17", "To Do": 10, "In Progress": 18, "In Review": 0, "Done": 0},
+            {"date": "2026-02-18", "To Do": 10, "In Progress": 18, "In Review": 0, "Done": 0},
+            {"date": "2026-02-19", "To Do": 10, "In Progress": 18, "In Review": 0, "Done": 1},
+            {"date": "2026-02-20", "To Do": 10, "In Progress": 18, "In Review": 0, "Done": 17}
+          ]
+        },
+        {
+          "name": "Nicolás Díaz",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-17", "To Do": 13, "In Progress": 0, "In Review": 7, "Done": 0},
+            {"date": "2026-02-18", "To Do": 13, "In Progress": 0, "In Review": 7, "Done": 0},
+            {"date": "2026-02-19", "To Do": 20, "In Progress": 0, "In Review": 4, "Done": 7},
+            {"date": "2026-02-20", "To Do": 18, "In Progress": 2, "In Review": 0, "Done": 14}
+          ]
+        },
+        {
+          "name": "Felipe pacheco",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-17", "To Do": 13, "In Progress": 8, "In Review": 0, "Done": 3},
+            {"date": "2026-02-18", "To Do": 13, "In Progress": 8, "In Review": 0, "Done": 3},
+            {"date": "2026-02-19", "To Do": 13, "In Progress": 8, "In Review": 0, "Done": 3},
+            {"date": "2026-02-20", "To Do": 5, "In Progress": 8, "In Review": 0, "Done": 13}
+          ]
+        },
+        {
+          "name": "Guillermo Malagón",
+          "active": true,
+          "statuses": [
+            {"date": "2026-02-16", "To Do": 0, "In Progress": 0, "In Review": 0, "Done": 0},
+            {"date": "2026-02-17", "To Do": 0, "In Progress": 6, "In Review": 0, "Done": 5},
+            {"date": "2026-02-18", "To Do": 0, "In Progress": 9, "In Review": 0, "Done": 5},
+            {"date": "2026-02-19", "To Do": 3, "In Progress": 6, "In Review": 0, "Done": 10},
+            {"date": "2026-02-20", "To Do": 3, "In Progress": 6, "In Review": 0, "Done": 10}
+          ]
+        }
+      ],
+      "csvFile": "sprints-csv/Sprint 7 Summary export (Jira).csv",
+      "description": "Development sprint focused on Triage and Early Delivery. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 58 Jira records, 58 completed, 0 active, 0 blocked, and 0 still open. 216 of 216 story points are completed or ready for deployment.",
+      "improvements": "No improvement notes recorded yet. Add retrospective notes here when the sprint closes.",
+      "keyAchievements": [
+        "Implemented CS handoff and reporting for CreditorX incidents; reduced response time by 30% (CX-230).",
+        "Cordoba Portal MVP: auth, basic creditors list, and transactions endpoints ready (CP-121)."
+      ],
+      "blockersRisks": [
+        "Slack webhook instability on retries; mitigated with backoff and dead-letter queue (SL-102).",
+        "Kazoo DB nearing capacity flagged as risk; compaction plan drafted for Sprint 8 (DB-80)."
+      ],
+      "scopeChanges": [
+        "Added lightweight alerting to support CS workflow continuity (CX-241).",
+        "Deferred non-critical UI polish to Sprint 8 to keep MVP timeline."
+      ],
+      "recommendations": [
+        "Prioritize Kazoo compaction next sprint to avoid outage risk.",
+        "Begin supervisor testing plan for Cordoba Portal now to compress feedback cycles."
+      ],
+      "goalMet": "Yes"
     },
     {
-      "name": "Sprint 8 - CX Apps & MVP CP",
-      "period": "2026-03-02 to 2026-03-16",
-      "csvFile": "sprints-csv/Sprint 8 Summary export (Jira).csv"
+      "name": "Sprint 8 - Stability (Kazoo) and MVP Hardening",
+      "period": "2026-03-03 to 2026-03-17",
+      "csvFile": "sprints-csv/Sprint 8 Summary export (Jira).csv",
+      "description": "Development sprint focused on Stability (Kazoo) and MVP Hardening. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 70 Jira records, 70 completed, 0 active, 0 blocked, and 0 still open. 202 of 202 story points are completed or ready for deployment.",
+      "improvements": "Add story point estimates to 1 item to improve planning accuracy.",
+      "members": [],
+      "keyAchievements": [
+        "Kazoo DB compaction executed (55→60GB headroom), backups verified, and monitoring thresholds tuned (DB-88).",
+        "Cordoba Portal: pagination + caching for heavy endpoints delivered to support supervisor testing (CP-139)."
+      ],
+      "blockersRisks": [
+        "Prod access window limited compaction timing; executed during low-traffic to avoid downtime.",
+        "Legacy creditor records with malformed IDs caused index errors; patched in importer (CP-143)."
+      ],
+      "scopeChanges": [
+        "Added integrity checks in ETL after malformed-ID discovery.",
+        "Carried over admin report export to Sprint 9 due to DB work taking priority."
+      ],
+      "recommendations": [
+        "Run monthly compaction + backup verification schedule.",
+        "Start curated supervisor cohort recruitment for MVP feedback."
+      ],
+      "goalMet": "Yes"
     },
     {
-      "name": "Sprint 9 - MVP CP + CX Bugs (Testing Apps)",
-      "period": "2026-03-16 to 2026-03-30",
-      "csvFile": "sprints-csv/Sprint 9 Summary export (Jira).csv"
+      "name": "Sprint 9 - Supervisor Pilot and CS Communication",
+      "period": "2026-03-17 to 2026-03-31",
+      "csvFile": "sprints-csv/Sprint 9 Summary export (Jira).csv",
+      "description": "Development sprint focused on Supervisor Pilot and CS Communication. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 59 Jira records, 59 completed, 0 active, 0 blocked, and 0 still open. 153 of 153 story points are completed or ready for deployment.",
+      "improvements": "Add story point estimates to 1 item to improve planning accuracy.",
+      "members": [],
+      "keyAchievements": [
+        "Launched Cordoba Portal pilot with first supervisors; collected baseline usability feedback (CP-152).",
+        "CreditorX-CS comms playbook v1 published; reduced misroutes in “Call Agent” status (CX-265)."
+      ],
+      "blockersRisks": [
+        "Access provisioning delays for two supervisors; feedback start slipped 3 days.",
+        "Slack comment “tombstone” bug intermittently hid updates; root cause under investigation (SL-118)."
+      ],
+      "scopeChanges": [
+        "Added quick fixes for pilot onboarding friction.",
+        "Carried over two CP UI refinements to Sprint 10 after access delays."
+      ],
+      "recommendations": [
+        "Pre-provision supervisor accounts one sprint ahead.",
+        "Escalate Slack bug triage with clear owner and SLA."
+      ],
+      "goalMet": "Partially"
     },
     {
-      "name": "Sprint 10 - CP MVP + CX Issues",
-      "period": "2026-03-30 to 2026-04-10",
-      "csvFile": "sprints-csv/Sprint 10 Summary export (Jira).csv"
+      "name": "Sprint 10 - Bug Fixing and Performance",
+      "period": "2026-03-31 to 2026-04-14",
+      "csvFile": "sprints-csv/Sprint 10 Summary export (Jira).csv",
+      "description": "Development sprint focused on Bug Fixing and Performance. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 64 Jira records, 64 completed, 0 active, 0 blocked, and 0 still open. 153 of 153 story points are completed or ready for deployment.",
+      "improvements": "Add story point estimates to 1 item to improve planning accuracy.",
+      "members": [],
+      "keyAchievements": [
+        "Resolved Slack tombstoned-comments defect and cleaned Redis groups; documentation updated (SL-118, SL-124).",
+        "Cordoba Portal resiliency: rate-limit handling and concurrency controls implemented (CP-168)."
+      ],
+      "blockersRisks": [
+        "Mobile alerting spikes (Firebase/iOS) blocked by external access; no progress (MOB-210).",
+        "Carrier-specific call blocking (T-Mobile) surfaced risk to COL/DR testing; mitigation pending (CX-284)."
+      ],
+      "scopeChanges": [
+        "Added CI/CD pipeline hardening to stabilize deployments (DEVOPS-95).",
+        "Carried over CP analytics setup to Sprint 11 due to access needs."
+      ],
+      "recommendations": [
+        "Timebox Firebase/iOS blockers with escalation path; descope if not unblocked within a week.",
+        "Continue performance profiling on high-traffic endpoints."
+      ],
+      "goalMet": "Partially"
     },
     {
-      "name": "Sprint 11 - CP + CX Issues 3",
-      "period": "2026-04-15 to 2026-04-28",
-      "csvFile": "sprints-csv/Sprint 11 Summary export (Jira).csv"
+      "name": "Sprint 11 - Portal Hardening and CI/CD",
+      "period": "2026-04-14 to 2026-04-28",
+      "csvFile": "sprints-csv/Sprint 11 Summary export (Jira).csv",
+      "description": "Development sprint focused on Portal Hardening and CI/CD. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 104 Jira records, 104 completed, 0 active, 0 blocked, and 0 still open. 200 of 200 story points are completed or ready for deployment.",
+      "improvements": "Add story point estimates to 1 item to improve planning accuracy.",
+      "members": [],
+      "keyAchievements": [
+        "Shipped Redis caching and distributed locking for heavy CP flows; improved P95 latency (CP-176).",
+        "Selective deploys and hotfix flow added to CI/CD to reduce release risk (DEVOPS-101)."
+      ],
+      "blockersRisks": [
+        "Google Analytics integration blocked by credential provisioning; tracked for next sprint (CP-182).",
+        "First-login freeze on Android observed; partial repro only (MOB-224)."
+      ],
+      "scopeChanges": [
+        "Added error-budget alerts to protect latency gains.",
+        "Deferred two low-priority UI features to Sprint 12."
+      ],
+      "recommendations": [
+        "Close the loop on GA access early in Sprint 12.",
+        "Instrument first-login path to isolate freeze root cause."
+      ],
+      "goalMet": "Yes"
     },
     {
-      "name": "Sprint 12 - CP + CX Issues 4 (D+G)",
-      "period": "2026-04-28 to 2026-05-08",
-      "csvFile": "sprints-csv/Sprint 12 Summary export (Jira).csv"
+      "name": "Sprint 12 - Feedback Loops and Quality",
+      "period": "2026-04-28 to 2026-05-12",
+      "csvFile": "sprints-csv/Sprint 12 Summary export (Jira).csv",
+      "description": "Development sprint focused on Feedback Loops and Quality. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 66 Jira records, 66 completed, 0 active, 0 blocked, and 0 still open. 164 of 164 story points are completed or ready for deployment.",
+      "improvements": "No improvement notes recorded yet. Add retrospective notes here when the sprint closes.",
+      "members": [],
+      "retrospectiveUrl": "https://hiredexperts.atlassian.net/wiki/x/AwDEGg",
+      "keyAchievements": [
+        "Supervisor testing expanded; feedback triaged and prioritized for v2 (CP-195).",
+        "CreditorX issues streamlined with clearer “Call Agent” handlers and CS visibility (CX-301)."
+      ],
+      "blockersRisks": [
+        "Firebase/iOS work remained blocked; accumulated carryover risk (MOB-210, MOB-212).",
+        "Unknown dashboard error on Android intermittently reproduced; high user impact (MOB-205)."
+      ],
+      "scopeChanges": [
+        "Added quick UX wins from supervisor feedback; removed two low-value items to maintain velocity.",
+        "Carried over first-login freeze investigation to Sprint 13."
+      ],
+      "recommendations": [
+        "Set a go/no-go date for Firebase/iOS items; route to platform team if not unblocked.",
+        "Close top app-quality defects before expanding CP feature set."
+      ],
+      "goalMet": "Partially"
     },
     {
       "name": "Sprint 13 - CX (I+F+C) CP tst",
       "period": "2026-05-11 to 2026-05-25",
-      "csvFile": "sprints-csv/Sprint 13 Summary export (Jira).csv"
+      "csvFile": "sprints-csv/Sprint 13 Summary export (Jira).csv",
+      "description": "Development sprint focused on CX (I+F+C) CP tst. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 187 Jira records, 0 completed, 0 active, 0 blocked, and 187 still open.",
+      "improvements": "Tighten scope and daily follow-up for 187 open items before the next sprint closes.",
+      "members": [],
+      "keyAchievements": [
+        "CreditorX: Admin panel restored/provisioned; CS alignment completed; CouchDB storage increased and backup strategy defined (HED-809, HED-868, HED-747, HED-858).",
+        "Cordoba Portal: caching, distributed locking, 429 retry handling, and CI/CD improvements landed (HED-891, HED-892, HED-885)."
+      ],
+      "blockersRisks": [
+        "Firebase/iOS spikes and iOS App Store account remained blocked, creating multi-sprint drag (HED-505, HED-506, HED-507, HED-567).",
+        "Android app-quality issues (lock-number bug, first-login freeze) impacted COL/DR users; partial progress only (HED-849, HED-894, HED-831)."
+      ],
+      "scopeChanges": [
+        "Added mid-sprint CI/CD and ops tasks to stabilize releases; completed within sprint (HED-888, HED-909).",
+        "Carried over OTP testing/bugs, Admin Panel UI filter/pagination, CouchDB setup spike, and CP GA integration due to access and priority shifts (HED-448, HED-488, HED-819, HED-820, HED-866)."
+      ],
+      "recommendations": [
+        "Resolve or decisively descope chronic blockers (HED-505/506/507/567) via ownership and deadlines.",
+        "Prioritize closing app-quality defects before adding new CP features; protect user experience in COL/DR."
+      ],
+      "goalMet": "Partially"
     },
     {
       "name": "Sprint 14 - CX feedbk CP feedb",
       "period": "2026-05-25 to 2026-06-08",
-      "csvFile": "sprints-csv/Sprint 14 Summary export (Jira).csv"
+      "csvFile": "sprints-csv/Sprint 14 Summary export (Jira).csv",
+      "description": "Development sprint focused on CX feedbk CP feedb. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.",
+      "summary": "CSV snapshot: 34 Jira records, 3 completed, 9 active, 7 blocked, and 31 still open. 11 of 77 story points are completed or ready for deployment.",
+      "improvements": "Review 7 blocked items earlier in the sprint and make ownership explicit. Tighten scope and daily follow-up for 31 open items before the next sprint closes. Add story point estimates to 15 items to improve planning accuracy.",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     }
   ]
 }

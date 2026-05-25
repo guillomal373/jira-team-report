@@ -50,6 +50,7 @@ let labelMapByAssigneeTotal = new Map();
 let isCurrentLabelsReady = false;
 let isTotalLabelsReady = false;
 let memberVelocityRequestId = 0;
+let sprintOverviewRequestId = 0;
 const csvTableState = {
     header: [],
     rows: [],
@@ -821,20 +822,280 @@ loadTeam().then(() => {
     loadSprintTrends();
 });
 
+function setSprintOverviewText(selector, value) {
+    const node = document.querySelector(selector);
+    if (node) node.textContent = value || '--';
+}
+
+function parseSprintPeriod(period = '') {
+    const [startRaw = '', endRaw = ''] = String(period || '').split(/\s+to\s+/i);
+    const clean = value => String(value || '').trim().replace(/-+$/, '');
+    const start = clean(startRaw);
+    const end = clean(endRaw);
+    return { start, end };
+}
+
+function parseIsoDate(value = '') {
+    const match = String(value || '').trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return null;
+    const date = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+    return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function formatSprintDate(value = '') {
+    const date = parseIsoDate(value);
+    if (!date) return value || '--';
+    return new Intl.DateTimeFormat('en-US', {
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric'
+    }).format(date);
+}
+
+function getSprintDurationLabel(start = '', end = '') {
+    const startDate = parseIsoDate(start);
+    const endDate = parseIsoDate(end);
+    if (!startDate || !endDate) return '10 work days';
+    if (endDate < startDate) return '10 work days';
+
+    let workDays = 0;
+    const current = new Date(startDate);
+    while (current <= endDate) {
+        const day = current.getDay();
+        if (day !== 0 && day !== 6) {
+            workDays += 1;
+        }
+        current.setDate(current.getDate() + 1);
+    }
+
+    return `${workDays} work day${workDays === 1 ? '' : 's'}`;
+}
+
+function normalizeSprintNote(value) {
+    if (Array.isArray(value)) {
+        return value.filter(Boolean).join(' ');
+    }
+    return String(value || '').trim();
+}
+
+function normalizeSprintNoteList(value) {
+    if (Array.isArray(value)) {
+        return value.map(item => String(item || '').trim()).filter(Boolean);
+    }
+
+    const text = String(value || '').trim();
+    return text ? [text] : [];
+}
+
+function setSprintOverviewList(selector, items = []) {
+    const node = document.querySelector(selector);
+    if (!node) return;
+
+    const normalizedItems = normalizeSprintNoteList(items);
+    node.replaceChildren();
+
+    if (!normalizedItems.length) {
+        const item = document.createElement('li');
+        item.textContent = 'No notes recorded yet.';
+        node.appendChild(item);
+        return;
+    }
+
+    normalizedItems.forEach(text => {
+        const item = document.createElement('li');
+        item.textContent = text;
+        node.appendChild(item);
+    });
+}
+
+function getSprintFallbackDescription(metaEntry = {}) {
+    const name = metaEntry?.name || 'Selected sprint';
+    const focus = name.replace(/^Sprint\s*\d+\s*[-·:]?\s*/i, '').trim();
+    return focus
+        ? `Development sprint focused on ${focus}. This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.`
+        : 'This view summarizes the delivery window, Jira activity, outcomes, and follow-up improvements for the team.';
+}
+
+function getSprintRetrospectiveHref(metaEntry = {}) {
+    const retrospective = metaEntry.retrospective || {};
+    const value = metaEntry.retrospectiveUrl
+        || metaEntry.retrospectiveFile
+        || retrospective.url
+        || retrospective.file
+        || '';
+    const href = String(value || '').trim();
+    if (!href) return '';
+    if (/^(https?:)?\/\//i.test(href) || href.startsWith('./') || href.startsWith('../')) {
+        return href;
+    }
+    return `./data/${href}`;
+}
+
+function isValidRetrospectiveUrl(value = '') {
+    const href = String(value || '').trim();
+    if (!href) return false;
+    if (/^(https?:)?\/\//i.test(href)) {
+        try {
+            new URL(href.startsWith('//') ? `https:${href}` : href);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+    return href.startsWith('./') || href.startsWith('../') || !/[\s<>]/.test(href);
+}
+
+function summarizeSprintCsv(rows = []) {
+    if (!rows.length) return '';
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const dataRows = rows.slice(1);
+    const statusIndex = getStatusIndex(header);
+    const pointsIndex = getStoryPointIndex(header);
+    const total = dataRows.length;
+    let completed = 0;
+    let blocked = 0;
+    let active = 0;
+    let totalPoints = 0;
+    let completedPoints = 0;
+
+    dataRows.forEach(row => {
+        const status = statusIndex >= 0 ? String(row[statusIndex] || '').trim() : '';
+        const statusKey = normalizeStatusKey(status);
+        const points = pointsIndex >= 0 ? Number(row[pointsIndex]) || 0 : 0;
+        totalPoints += points;
+        if (isCompletedStatus(status)) {
+            completed += 1;
+            completedPoints += points;
+        } else if (statusKey.includes('block')) {
+            blocked += 1;
+        } else if (statusKey.includes('progress') || statusKey.includes('review')) {
+            active += 1;
+        }
+    });
+
+    const remaining = Math.max(total - completed, 0);
+    const pointLabel = totalPoints > 0
+        ? ` ${completedPoints} of ${totalPoints} story points are completed or ready for deployment.`
+        : '';
+    return `CSV snapshot: ${total} Jira records, ${completed} completed, ${active} active, ${blocked} blocked, and ${remaining} still open.${pointLabel}`;
+}
+
+function summarizeSprintImprovements(rows = []) {
+    if (!rows.length) return '';
+    const header = rows[0].map(cell => String(cell || '').trim());
+    const dataRows = rows.slice(1);
+    const statusIndex = getStatusIndex(header);
+    const pointsIndex = getStoryPointIndex(header);
+    let blocked = 0;
+    let open = 0;
+    let missingEstimate = 0;
+
+    dataRows.forEach(row => {
+        const status = statusIndex >= 0 ? String(row[statusIndex] || '').trim() : '';
+        const statusKey = normalizeStatusKey(status);
+        if (!isCompletedStatus(status)) open += 1;
+        if (statusKey.includes('block')) blocked += 1;
+        if (pointsIndex >= 0 && !(Number(row[pointsIndex]) > 0)) missingEstimate += 1;
+    });
+
+    const notes = [];
+    if (blocked > 0) {
+        notes.push(`Review ${blocked} blocked item${blocked === 1 ? '' : 's'} earlier in the sprint and make ownership explicit.`);
+    }
+    if (open > 0) {
+        notes.push(`Tighten scope and daily follow-up for ${open} open item${open === 1 ? '' : 's'} before the next sprint closes.`);
+    }
+    if (missingEstimate > 0) {
+        notes.push(`Add story point estimates to ${missingEstimate} item${missingEstimate === 1 ? '' : 's'} to improve planning accuracy.`);
+    }
+
+    return notes.join(' ');
+}
+
+function updateSprintOverview(metaEntry = {}, sprint = null, csvRows = []) {
+    const { start, end } = parseSprintPeriod(metaEntry.period || '');
+    const name = metaEntry.name || sprint?.name || 'Selected Sprint';
+    const description = normalizeSprintNote(metaEntry.description)
+        || normalizeSprintNote(sprint?.description)
+        || getSprintFallbackDescription(metaEntry);
+    const summary = normalizeSprintNote(metaEntry.summary)
+        || normalizeSprintNote(metaEntry.finalSummary)
+        || normalizeSprintNote(sprint?.summary)
+        || summarizeSprintCsv(csvRows)
+        || 'Sprint outcome summary will appear here once Jira data or retrospective notes are available.';
+    const improvements = normalizeSprintNote(metaEntry.improvements)
+        || normalizeSprintNote(metaEntry.improvementNotes)
+        || normalizeSprintNote(sprint?.improvements)
+        || summarizeSprintImprovements(csvRows)
+        || 'No improvement notes recorded yet. Add improvements or a retrospective link in data/sprints.json for this sprint.';
+    const retrospectiveLink = document.querySelector('[data-sprint-retrospective]');
+    const retrospectiveIndicator = document.querySelector('[data-sprint-retrospective-indicator]');
+    const retrospectiveHref = getSprintRetrospectiveHref(metaEntry);
+    const hasValidRetrospective = isValidRetrospectiveUrl(retrospectiveHref);
+
+    setSprintOverviewText('[data-sprint-overview-name]', name);
+    setSprintOverviewText('[data-sprint-description]', description);
+    setSprintOverviewText('[data-sprint-start-date]', formatSprintDate(start));
+    setSprintOverviewText('[data-sprint-end-date]', formatSprintDate(end));
+    setSprintOverviewText('[data-sprint-duration]', getSprintDurationLabel(start, end));
+    setSprintOverviewText('[data-sprint-goal-met]', metaEntry.goalMet || sprint?.goalMet || '--');
+    setSprintOverviewText('[data-sprint-summary]', summary);
+    setSprintOverviewText('[data-sprint-improvements]', improvements);
+    setSprintOverviewList('[data-sprint-key-achievements]', metaEntry.keyAchievements || sprint?.keyAchievements);
+    setSprintOverviewList('[data-sprint-blockers-risks]', metaEntry.blockersRisks || sprint?.blockersRisks);
+    setSprintOverviewList('[data-sprint-scope-changes]', metaEntry.scopeChanges || sprint?.scopeChanges);
+    setSprintOverviewList('[data-sprint-recommendations]', metaEntry.recommendations || sprint?.recommendations);
+
+    if (retrospectiveLink) {
+        if (hasValidRetrospective) {
+            retrospectiveLink.href = retrospectiveHref;
+            retrospectiveLink.hidden = false;
+        } else {
+            retrospectiveLink.hidden = true;
+            retrospectiveLink.removeAttribute('href');
+        }
+    }
+
+    if (retrospectiveIndicator) {
+        retrospectiveIndicator.hidden = !hasValidRetrospective;
+    }
+}
+
+function setSprintOverviewExpanded(isExpanded) {
+    const overview = document.querySelector('[data-sprint-overview]');
+    const toggle = document.querySelector('[data-sprint-overview-toggle]');
+    const details = document.querySelector('[data-sprint-overview-details]');
+    if (!overview || !toggle || !details) return;
+
+    overview.classList.toggle('is-collapsed', !isExpanded);
+    details.hidden = !isExpanded;
+    toggle.setAttribute('aria-expanded', String(isExpanded));
+    toggle.textContent = isExpanded ? 'Hide details' : 'Show details';
+}
+
+function bindSprintOverviewToggle() {
+    const toggle = document.querySelector('[data-sprint-overview-toggle]');
+    if (!toggle || toggle.dataset.bound) return;
+
+    toggle.addEventListener('click', () => {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        setSprintOverviewExpanded(!isExpanded);
+    });
+    toggle.dataset.bound = 'true';
+    setSprintOverviewExpanded(false);
+}
+
 async function loadSprintTrends() {
     const selectEl = document.getElementById('globalSprintSelect');
     const chartCanvas = document.getElementById('sprintTrendChart');
     if (!selectEl || !chartCanvas) return;
+    bindSprintOverviewToggle();
 
     try {
-        const [metaResponse, dataResponse] = await Promise.all([
-            fetch('./data/sprints.json'),
-            fetch('./data/sprint_story_points.json')
-        ]);
+        const metaResponse = await fetch('./data/sprints.json');
         const metaData = metaResponse.ok ? await metaResponse.json() : {};
-        const data = dataResponse.ok ? await dataResponse.json() : {};
         const sprintMeta = metaData.sprints || [];
-        const sprints = data.sprints || [];
+        const sprints = sprintMeta;
         if (!sprintMeta.length) {
             console.error('No sprint metadata found in sprints.json');
             return;
@@ -858,8 +1119,10 @@ async function loadSprintTrends() {
         };
 
         const render = async () => {
+            const requestId = ++sprintOverviewRequestId;
             const idx = Number(selectEl.value) || 0;
             const { metaEntry, sprint } = resolveSprintData(idx);
+            updateSprintOverview(metaEntry, sprint);
             updateMetricsForSprint(sprint);
             updateStatusOverview(sprint);
             updateWorkloadForSprint(sprint);
@@ -867,13 +1130,22 @@ async function loadSprintTrends() {
             await updateMemberVelocityForSprint(sprint, metaEntry, teamCache);
             if (metaEntry?.csvFile) {
                 const csvPath = `./data/${metaEntry.csvFile}`;
+                loadCsvRows(csvPath)
+                    .then(rows => {
+                        if (requestId === sprintOverviewRequestId) {
+                            updateSprintOverview(metaEntry, sprint, rows);
+                        }
+                    })
+                    .catch(error => {
+                        console.warn('Unable to load CSV for sprint overview:', csvPath, error);
+                    });
                 loadCsvTable(csvPath);
                 loadCsvMemberTrendForSprint(csvPath, teamCache);
                 loadCsvStoryPointMatrixForSprint(csvPath, teamCache);
             } else {
-                loadCsvTable();
-                loadCsvMemberTrendForSprint();
-                loadCsvStoryPointMatrixForSprint(undefined, teamCache);
+                loadCsvTable(null);
+                loadCsvMemberTrendForSprint(null, teamCache);
+                loadCsvStoryPointMatrixForSprint(null, teamCache);
             }
         };
 
@@ -1571,6 +1843,10 @@ async function loadCsvStatusSummaryForAllSprints(sprintMeta = [], teamMembers = 
 async function loadCsvMemberTrendForSprint(csvPathOverride, teamMembers = []) {
     const chartCanvas = document.getElementById('memberTrendChart');
     if (!chartCanvas) return;
+    if (csvPathOverride === null) {
+        renderMemberChart(chartCanvas, [], []);
+        return;
+    }
 
     try {
         const csvPath = csvPathOverride || './data/sprints-csv/Sprint Summary export (Jira).csv';
@@ -1995,6 +2271,22 @@ async function loadCsvTable(csvPathOverride) {
     if (!table) return;
 
     if (messageEl) messageEl.textContent = 'Loading CSV...';
+    if (csvPathOverride === null) {
+        csvTableState.header = [];
+        csvTableState.rows = [];
+        csvTableState.assigneeIndex = -1;
+        csvTableState.assigneeAliases = new Map();
+        csvTableState.statusIndex = -1;
+        renderCsvTable(table, [], []);
+        if (countEl) countEl.textContent = '0';
+        if (filterEl) filterEl.innerHTML = '<option value="all">All</option>';
+        if (statusEl) statusEl.innerHTML = '<option value="all">All</option>';
+        if (messageEl) {
+            messageEl.style.display = 'block';
+            messageEl.textContent = 'No CSV export configured for this sprint.';
+        }
+        return;
+    }
 
     try {
         const csvPath = csvPathOverride || './data/sprints-csv/Sprint Summary export (Jira).csv';
@@ -2095,6 +2387,15 @@ async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = [
     if (!table) return;
 
     if (messageEl) messageEl.textContent = 'Loading matrix...';
+    if (csvPathOverride === null) {
+        renderStoryPointMatrix(table, [], []);
+        if (countEl) countEl.textContent = '0';
+        if (messageEl) {
+            messageEl.style.display = 'block';
+            messageEl.textContent = 'No CSV export configured for this sprint.';
+        }
+        return;
+    }
 
     try {
         const csvPath = csvPathOverride || './data/sprints-csv/Sprint Summary export (Jira).csv';
