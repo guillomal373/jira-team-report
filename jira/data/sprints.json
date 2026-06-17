@@ -738,6 +738,19 @@
       "blockersRisks": [],
       "scopeChanges": [],
       "recommendations": []
+    },
+    {
+      "name": "Sprint 15 - CX fbk CP fbk 2",
+      "period": "2026-06-08 to 2026-06-22",
+      "csvFile": "sprints-csv/Sprint 15 Summary export (Jira).csv",
+      "description": "",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     }
   ]
 }

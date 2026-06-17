@@ -1102,14 +1102,20 @@ function renderStatusSummary(rows, headers) {
       })),
   ];
 
-  summaryItems.forEach(({ label, value, className }) => {
+  summaryItems.forEach(({ label, value, className }, index) => {
+    if (index % 3 === 0) {
+      const group = document.createElement("div");
+      group.className = "status-summary__group";
+      statusSummaryList.appendChild(group);
+    }
+
     const item = document.createElement("article");
     item.className = `status-summary__item ${className}`;
     item.title = label;
 
     const title = document.createElement("span");
     title.className = "status-summary__label";
-    title.textContent = formatSummaryLabel(label);
+    title.textContent = label;
     title.title = label;
 
     const count = document.createElement("strong");
@@ -1117,18 +1123,8 @@ function renderStatusSummary(rows, headers) {
     count.textContent = value.toLocaleString("en-US");
 
     item.append(title, count);
-    statusSummaryList.appendChild(item);
+    statusSummaryList.lastElementChild.appendChild(item);
   });
-}
-
-function formatSummaryLabel(label) {
-  const words = label.trim().split(/\s+/);
-
-  if (words.length <= 2) {
-    return label;
-  }
-
-  return `${words.slice(0, 2).join(" ")}...`;
 }
 
 function getStatusCounts(rows, headers) {
