@@ -34,7 +34,6 @@
           <a class="playbook-hero__nav-link playbook-hero__nav-link--active" href="./playbook.html" aria-current="page">
             Tips, Instructions and Flow
           </a>
-          <a class="playbook-hero__nav-link" href="#issue-guide-structure">Issue Guide Structure</a>
         </nav>
       </section>
 
@@ -102,52 +101,6 @@
         </article>
       </section>
 
-      <section class="playbook-section" aria-labelledby="tips-title">
-        <header class="playbook-section__header">
-          <div>
-            <span class="playbook-section__eyebrow">Quick Tips</span>
-            <h2 id="tips-title">What To Collect Before Escalating</h2>
-          </div>
-          <p class="playbook-section__summary">
-            These inputs reduce loops between <code>Triage</code>, <code>Call Agent</code>, and <code>In progress</code>.
-          </p>
-        </header>
-        <div class="tips-grid">
-          <article class="info-card">
-            <h3>Identity and Context</h3>
-            <ul>
-              <li>Customer ID or account ID exactly as entered.</li>
-              <li>Platform and device: <code>iOS</code> or <code>Android</code>, plus phone model when relevant.</li>
-              <li>Flow stage: login, first login, blocked list, settings, carrier setup, or password reset.</li>
-            </ul>
-          </article>
-          <article class="info-card">
-            <h3>Error Evidence</h3>
-            <ul>
-              <li>Exact error message, not a paraphrase.</li>
-              <li>Screenshot or short screen recording when the issue is visual or intermittent.</li>
-              <li>Date and approximate time when the user reproduced the problem.</li>
-            </ul>
-          </article>
-          <article class="info-card">
-            <h3>Validation Checks</h3>
-            <ul>
-              <li>Confirm if the user already tried reinstalling, logging out, or resetting password.</li>
-              <li>Check whether phone number, DOB, and last 4 of SSN were validated against the expected source.</li>
-              <li>Note if the issue was reproduced internally or only reported by the customer.</li>
-            </ul>
-          </article>
-          <article class="info-card">
-            <h3>Comment Quality</h3>
-            <ul>
-              <li>Write the next action in the first sentence.</li>
-              <li>Separate facts from assumptions.</li>
-              <li>Link the Jira ticket when engineering work already exists.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
       <section class="playbook-section" aria-labelledby="instructions-title">
         <header class="playbook-section__header">
           <div>
@@ -198,220 +151,6 @@
         </div>
       </section>
 
-      <section class="playbook-section" id="issue-guide-structure" aria-labelledby="issue-guide-structure-title">
-        <header class="playbook-section__header">
-          <div>
-            <span class="playbook-section__eyebrow">Guide Structure</span>
-            <h2 id="issue-guide-structure-title">Customer Issue Categories</h2>
-          </div>
-          <p class="playbook-section__summary">
-            Tier 1 troubleshooting paths from the CPX guide, organized from broad categories into specific handling answers.
-          </p>
-        </header>
-
-        <div class="guide-structure" aria-label="CreditorX customer issue guide structure">
-          <article class="guide-category guide-category--general">
-            <div class="guide-category__header">
-              <span class="guide-category__icon" aria-hidden="true">G</span>
-              <div>
-                <span class="guide-category__label">Category</span>
-                <h3>General</h3>
-              </div>
-            </div>
-            <div class="guide-topic-list">
-              <a class="guide-topic-card" href="#tier1-general-errors">
-                <span>
-                  <strong>Errors without information</strong>
-                  <small>Ask for the flow where the error occurs, entered information if applicable, and phone details.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="guide-category guide-category--first-login">
-            <div class="guide-category__header">
-              <span class="guide-category__icon" aria-hidden="true">1</span>
-              <div>
-                <span class="guide-category__label">Category</span>
-                <h3>First Login</h3>
-              </div>
-            </div>
-            <div class="guide-topic-list">
-              <a class="guide-topic-card" href="#tier1-phone-missing">
-                <span>
-                  <strong>Associated phone number is missing</strong>
-                  <small>Update the customer's mobile phone number in ForthCRM.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-first-time">
-                <span>
-                  <strong>First time steps</strong>
-                  <small>Guide the customer through the step-by-step account activation process on CreditorX.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-account-created">
-                <span>
-                  <strong>Account already created</strong>
-                  <small>Tell the customer the account exists and help them recover the password if needed.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-invalid-account">
-                <span>
-                  <strong>Invalid credentials - Account ID (External ID)</strong>
-                  <small>Validate the correct account ID in Forth and tell the customer which ID to use.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-create-password">
-                <span>
-                  <strong>Cannot create the password</strong>
-                  <small>Verify password rules: more than 8 characters, uppercase, lowercase, numbers, and special characters. If it continues, reinstall and retest.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="guide-category guide-category--redirecting">
-            <div class="guide-category__header">
-              <span class="guide-category__icon" aria-hidden="true">R</span>
-              <div>
-                <span class="guide-category__label">Category</span>
-                <h3>Redirecting Setup</h3>
-              </div>
-            </div>
-            <div class="guide-topic-list">
-              <a class="guide-topic-card" href="#tier1-carriers-providers">
-                <span>
-                  <strong>Carriers and Providers</strong>
-                  <small>Search the customer's provider and help them select the corresponding host network carrier.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-calls-forwarding">
-                <span>
-                  <strong>Calls are not being forwarded</strong>
-                  <small>Check caller ID permission, inbound call settings, blocked numbers, suggestions, selected carrier, and USSD command completion.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-ussd-commands">
-                <span>
-                  <strong>Sending USSD commands</strong>
-                  <small>Follow the carrier code setup steps required for each customer when codes were not configured on entry.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-ussd-checkbox">
-                <span>
-                  <strong>USSD codes will not allow checkbox click</strong>
-                  <small>Capture the device version so the flow can be tested accurately; the known iPhone 14 test completed correctly.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="guide-category guide-category--login">
-            <div class="guide-category__header">
-              <span class="guide-category__icon" aria-hidden="true">L</span>
-              <div>
-                <span class="guide-category__label">Category</span>
-                <h3>Login</h3>
-              </div>
-            </div>
-            <div class="guide-topic-list">
-              <a class="guide-topic-card" href="#tier1-username">
-                <span>
-                  <strong>Does not know the username</strong>
-                  <small>Ask them to try email, account ID, and phone number. If they do not remember, validate in Forth and provide the correct credentials.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-reset-password">
-                <span>
-                  <strong>Reset password</strong>
-                  <small>Walk through password reset using the correct username, usually email or account ID, and the required date format.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-              <a class="guide-topic-card" href="#tier1-frozen-screen">
-                <span>
-                  <strong>Frozen screen or sudden close</strong>
-                  <small>Ask the customer to reinstall and repeat the initial login. If it continues, collect phone model and attempted troubleshooting.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="guide-category guide-category--logout">
-            <div class="guide-category__header">
-              <span class="guide-category__icon" aria-hidden="true">O</span>
-              <div>
-                <span class="guide-category__label">Category</span>
-                <h3>Logout</h3>
-              </div>
-            </div>
-            <div class="guide-topic-list">
-              <a class="guide-topic-card" href="#tier1-unexpected-logout">
-                <span>
-                  <strong>Unexpected logout</strong>
-                  <small>Explain that logging in on another device closes the previous session; ask them to verify no other device or person has access.</small>
-                </span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14"></path>
-                  <path d="m13 6 6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
-
       <section class="playbook-section" id="tier1-details" aria-labelledby="tier1-details-title">
         <header class="playbook-section__header">
           <div>
@@ -419,7 +158,7 @@
             <h2 id="tier1-details-title">Tier 1 Handling Details</h2>
           </div>
           <p class="playbook-section__summary">
-            Each card above lands here with the exact Tier 1 response, required checks, and next action.
+            Exact Tier 1 responses, required checks, and next actions for common CreditorX issue categories.
           </p>
         </header>
 
@@ -427,7 +166,6 @@
           <article class="detail-card" id="tier1-general-errors">
             <div class="detail-card__topline">
               <span>General</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Errors without information</h3>
             <p>Ask the customer to provide more information about the flow where the error occurs.</p>
@@ -441,7 +179,6 @@
           <article class="detail-card" id="tier1-phone-missing">
             <div class="detail-card__topline">
               <span>First Login</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Associated phone number is missing</h3>
             <p>This happens when the user does not have a mobile phone number registered in ForthCRM.</p>
@@ -455,7 +192,6 @@
           <article class="detail-card" id="tier1-first-time">
             <div class="detail-card__topline">
               <span>First Login</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>First time steps</h3>
             <p>Use this when the customer does not know how to activate the CreditorX account with Forth data.</p>
@@ -469,7 +205,6 @@
           <article class="detail-card" id="tier1-account-created">
             <div class="detail-card__topline">
               <span>First Login</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Account already created</h3>
             <p>The customer cannot complete first login because an account already exists.</p>
@@ -483,7 +218,6 @@
           <article class="detail-card" id="tier1-invalid-account">
             <div class="detail-card__topline">
               <span>First Login</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Invalid credentials - Account ID (External ID)</h3>
             <p>The related customer ID may not exist in the Forth database as entered.</p>
@@ -497,7 +231,6 @@
           <article class="detail-card" id="tier1-create-password">
             <div class="detail-card__topline">
               <span>First Login</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Cannot create the password</h3>
             <p>Verify that the password matches the required security format.</p>
@@ -511,7 +244,6 @@
           <article class="detail-card detail-card--featured" id="tier1-carriers-providers">
             <div class="detail-card__topline">
               <span>Redirecting Setup</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Carriers and Providers</h3>
             <p>If the customer uses a different mobile carrier, including an MVNO such as Cricket Wireless or Spectrum, help them select the corresponding host network carrier.</p>
@@ -526,7 +258,6 @@
           <article class="detail-card detail-card--featured" id="tier1-calls-forwarding">
             <div class="detail-card__topline">
               <span>Redirecting Setup</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Calls are not being forwarded</h3>
             <p>Complete the forwarding checklist with the customer before escalating.</p>
@@ -543,7 +274,6 @@
           <article class="detail-card detail-card--featured" id="tier1-ussd-commands">
             <div class="detail-card__topline">
               <span>Redirecting Setup</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Sending USSD commands</h3>
             <p>Use this when carrier codes were not configured when the customer entered the platform.</p>
@@ -557,7 +287,6 @@
           <article class="detail-card detail-card--featured" id="tier1-ussd-checkbox">
             <div class="detail-card__topline">
               <span>Redirecting Setup</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>USSD codes will not allow checkbox click</h3>
             <p>The known test on iPhone 14 completed correctly, so collect device-specific information for accurate testing.</p>
@@ -571,7 +300,6 @@
           <article class="detail-card" id="tier1-username">
             <div class="detail-card__topline">
               <span>Login</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Does not know the username</h3>
             <p>The username may be the email address, account ID, or phone number, depending on registration.</p>
@@ -585,7 +313,6 @@
           <article class="detail-card" id="tier1-reset-password">
             <div class="detail-card__topline">
               <span>Login</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Reset password</h3>
             <p>Use this when login fails because the customer forgot credentials.</p>
@@ -599,7 +326,6 @@
           <article class="detail-card" id="tier1-frozen-screen">
             <div class="detail-card__topline">
               <span>Login</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Frozen screen or sudden close</h3>
             <p>Start with a clean reinstall and repeat the initial login process.</p>
@@ -613,7 +339,6 @@
           <article class="detail-card" id="tier1-unexpected-logout">
             <div class="detail-card__topline">
               <span>Logout</span>
-              <a href="#issue-guide-structure">Back to Issue Structure</a>
             </div>
             <h3>Unexpected logout</h3>
             <p>An unexpected logout can happen when the same session is opened on another device.</p>
