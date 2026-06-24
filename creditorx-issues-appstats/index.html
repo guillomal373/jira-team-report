@@ -52,6 +52,12 @@
             </label>
           </div>
         </div>
+        <label class="records-filter records-filter--stacked records-filter--status" for="status-filter">
+          <span>Status</span>
+          <select id="status-filter" aria-label="Filter dashboard by status">
+            <option value="all">All</option>
+          </select>
+        </label>
       </section>
       <section class="status-overview" aria-label="Issue status overview">
         <div class="status-overview__summary">
@@ -145,12 +151,6 @@
             <p class="records-panel__subtitle" id="records-subtitle">Data loaded from CSV files in <code>data/</code>.</p>
           </div>
           <div class="records-panel__actions">
-            <label class="records-filter records-filter--table" for="status-filter">
-              <span>Status</span>
-              <select id="status-filter" aria-label="Filter table by status">
-                <option value="all">All</option>
-              </select>
-            </label>
             <div class="columns-control" id="columns-control">
               <button
                 type="button"

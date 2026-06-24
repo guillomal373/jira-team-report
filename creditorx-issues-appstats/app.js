@@ -1024,10 +1024,6 @@ function getRangeFilteredRows() {
   });
 }
 
-function getFilteredRows() {
-  return getRangeFilteredRows();
-}
-
 function populateStatusFilter(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
@@ -1064,11 +1060,9 @@ function populateStatusFilter(rows, headers) {
   statusFilter.value = statuses.includes(previousValue) ? previousValue : "all";
 }
 
-function getTableFilteredRows(rows, headers) {
-  const sortedRows = sortRowsByDate(rows, headers, dateSortDirection);
-
+function getStatusFilteredRows(rows, headers) {
   if (statusFilter.disabled || statusFilter.value === "all") {
-    return sortedRows;
+    return rows;
   }
 
   const statusColumnIndex = headers.findIndex(
@@ -1076,12 +1070,16 @@ function getTableFilteredRows(rows, headers) {
   );
 
   if (statusColumnIndex < 0) {
-    return sortedRows;
+    return rows;
   }
 
-  return sortedRows.filter(
+  return rows.filter(
     (row) => (row[statusColumnIndex] ?? "").trim() === statusFilter.value
   );
+}
+
+function getTableFilteredRows(rows, headers) {
+  return sortRowsByDate(rows, headers, dateSortDirection);
 }
 
 function renderStatusSummary(rows, headers) {
@@ -2257,14 +2255,16 @@ function syncTopicCardHeights() {
 }
 
 function refreshTable() {
-  const baseFilteredRows = getFilteredRows();
+  const rangeFilteredRows = getRangeFilteredRows();
+  populateStatusFilter(rangeFilteredRows, tableHeaders);
+
+  const baseFilteredRows = getStatusFilteredRows(rangeFilteredRows, tableHeaders);
   renderStatusSummary(baseFilteredRows, tableHeaders);
   renderStatusPie(baseFilteredRows, tableHeaders);
   renderPlatformDistribution(baseFilteredRows, tableHeaders);
   renderTimeline(baseFilteredRows, tableHeaders);
   renderTopicInsights(baseFilteredRows, tableHeaders);
 
-  populateStatusFilter(baseFilteredRows, tableHeaders);
   const filteredRows = getTableFilteredRows(baseFilteredRows, tableHeaders);
   const visibleColumnCount = Math.max(getVisibleColumnIndices(tableHeaders).length, 1);
   updateRecordCount(filteredRows);
