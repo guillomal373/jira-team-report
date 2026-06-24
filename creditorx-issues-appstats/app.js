@@ -48,9 +48,8 @@ const recordsCount = document.getElementById("records-count");
 const recordsHead = document.getElementById("records-head");
 const recordsBody = document.getElementById("records-body");
 const recordsSubtitle = document.getElementById("records-subtitle");
-const yearFilter = document.getElementById("year-filter");
-const byDateFilter = document.getElementById("by-date-filter");
-const dateFilter = document.getElementById("date-filter");
+const startDateFilter = document.getElementById("start-date-filter");
+const endDateFilter = document.getElementById("end-date-filter");
 const statusFilter = document.getElementById("status-filter");
 const statusSummaryList = document.getElementById("status-summary-list");
 const statusPieChart = document.getElementById("status-pie-chart");
@@ -550,10 +549,6 @@ function toIsoDate(date) {
   return `${year}-${month}-${day}`;
 }
 
-function getTodayIsoDate() {
-  return toIsoDate(new Date());
-}
-
 function parseIsoDate(value) {
   const trimmed = (value ?? "").trim();
   const match = trimmed.match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -925,112 +920,112 @@ function formatJiraTicketLabel(value) {
   return trimmed;
 }
 
-function populateYearFilter(headers, rows) {
-  const dateColumnIndex = headers.findIndex(
+function getDateColumnIndex(headers) {
+  return headers.findIndex(
     (header) => header.trim().toLowerCase() === DATE_COLUMN_NAME.toLowerCase()
-  );
-
-  yearFilter.replaceChildren();
-
-  const allOption = document.createElement("option");
-  allOption.value = "all";
-  allOption.textContent = "All";
-  yearFilter.appendChild(allOption);
-
-  if (dateColumnIndex < 0) {
-    yearFilter.disabled = true;
-    return;
-  }
-
-  const years = [...new Set(
-    rows
-      .map((row) => extractYear(row[dateColumnIndex]))
-      .filter(Boolean)
-  )].sort((left, right) => right.localeCompare(left));
-
-  years.forEach((year) => {
-    const option = document.createElement("option");
-    option.value = year;
-    option.textContent = year;
-    yearFilter.appendChild(option);
-  });
-
-  const currentYear = String(new Date().getFullYear());
-  yearFilter.value = years.includes(currentYear) ? currentYear : "all";
-  yearFilter.disabled = false;
-}
-
-function getYearFilteredRows() {
-  if (yearFilter.value === "all") {
-    return allRows;
-  }
-
-  const dateColumnIndex = tableHeaders.findIndex(
-    (header) => header.trim().toLowerCase() === DATE_COLUMN_NAME.toLowerCase()
-  );
-
-  if (dateColumnIndex < 0) {
-    return allRows;
-  }
-
-  return allRows.filter(
-    (row) => extractYear(row[dateColumnIndex]) === yearFilter.value
   );
 }
 
-function populateDateFilter(headers, rows) {
+function getAvailableDateRange(headers, rows) {
   const dateColumnIndex = headers.findIndex(
     (header) => header.trim().toLowerCase() === DATE_COLUMN_NAME.toLowerCase()
   );
 
   if (dateColumnIndex < 0) {
-    dateFilter.disabled = true;
-    dateFilter.value = "";
-    dateFilter.min = "";
-    dateFilter.max = "";
-    return;
+    return null;
   }
 
-  const dates = [...new Set(
-    rows
-      .map((row) => (row[dateColumnIndex] ?? "").trim())
-      .filter(Boolean)
-  )].sort((left, right) => right.localeCompare(left));
+  const dates = [
+    ...new Set(
+      rows
+        .map((row) => (row[dateColumnIndex] ?? "").trim())
+        .filter((value) => parseIsoDate(value))
+    ),
+  ].sort((left, right) => left.localeCompare(right));
 
   if (dates.length === 0) {
-    dateFilter.disabled = true;
-    dateFilter.value = "";
-    dateFilter.min = "";
-    dateFilter.max = "";
+    return null;
+  }
+
+  return {
+    min: dates[0],
+    max: dates[dates.length - 1],
+    dates,
+  };
+}
+
+function populateDateRangeFilter(headers, rows) {
+  const availableRange = getAvailableDateRange(headers, rows);
+
+  if (!availableRange) {
+    startDateFilter.disabled = true;
+    startDateFilter.value = "";
+    startDateFilter.min = "";
+    startDateFilter.max = "";
+    endDateFilter.disabled = true;
+    endDateFilter.value = "";
+    endDateFilter.min = "";
+    endDateFilter.max = "";
     return;
   }
 
-  const ascendingDates = [...dates].reverse();
-  const todayIsoDate = getTodayIsoDate();
-  dateFilter.min = ascendingDates[0];
-  dateFilter.max = ascendingDates[ascendingDates.length - 1];
-  dateFilter.value = todayIsoDate;
-  dateFilter.disabled = false;
+  const currentYear = String(new Date().getFullYear());
+  const currentYearDates = availableRange.dates.filter(
+    (dateValue) => extractYear(dateValue) === currentYear
+  );
+  const defaultStart = currentYearDates[0] ?? availableRange.min;
+  const defaultEnd =
+    currentYearDates[currentYearDates.length - 1] ?? availableRange.max;
+
+  [startDateFilter, endDateFilter].forEach((filter) => {
+    filter.min = availableRange.min;
+    filter.max = availableRange.max;
+    filter.disabled = false;
+  });
+
+  startDateFilter.value = defaultStart;
+  endDateFilter.value = defaultEnd;
+}
+
+function getSelectedDateRange() {
+  const startDate = parseIsoDate(startDateFilter.value);
+  const endDate = parseIsoDate(endDateFilter.value);
+
+  if (!startDate || !endDate) {
+    return null;
+  }
+
+  if (endDate < startDate) {
+    return {
+      startDate: endDate,
+      endDate: startDate,
+    };
+  }
+
+  return {
+    startDate,
+    endDate,
+  };
+}
+
+function getRangeFilteredRows() {
+  const selectedRange = getSelectedDateRange();
+  const dateColumnIndex = getDateColumnIndex(tableHeaders);
+
+  if (!selectedRange || dateColumnIndex < 0) {
+    return allRows;
+  }
+
+  const { startDate, endDate } = selectedRange;
+
+  return allRows.filter((row) => {
+    const parsedDate = parseIsoDate(row[dateColumnIndex] ?? "");
+    return parsedDate && parsedDate >= startDate && parsedDate <= endDate;
+  });
 }
 
 function getFilteredRows() {
-  const yearFilteredRows = getYearFilteredRows();
-
-  if (!byDateFilter.checked || dateFilter.disabled || !dateFilter.value) {
-    return yearFilteredRows;
-  }
-
-  const dateColumnIndex = tableHeaders.findIndex(
-    (header) => header.trim().toLowerCase() === DATE_COLUMN_NAME.toLowerCase()
-  );
-
-  if (dateColumnIndex < 0) {
-    return yearFilteredRows;
-  }
-
-  return yearFilteredRows.filter(
-    (row) => (row[dateColumnIndex] ?? "").trim() === dateFilter.value
-  );
+  return getRangeFilteredRows();
 }
 
 function populateStatusFilter(rows, headers) {
@@ -1287,31 +1282,36 @@ function getTimelineScale(maxObservedValue) {
   };
 }
 
-function describeYearSelection() {
-  return yearFilter.value === "all" ? "selected years" : yearFilter.value;
+function describeDateRangeSelection() {
+  const selectedRange = getSelectedDateRange();
+
+  if (!selectedRange) {
+    return "the selected range";
+  }
+
+  return `${formatCompactDate(selectedRange.startDate)} to ${formatCompactDate(selectedRange.endDate)}`;
 }
 
 function buildTimelineRange() {
-  const today = new Date();
-  const selectedYear = /^\d{4}$/.test(yearFilter.value)
-    ? Number(yearFilter.value)
-    : today.getFullYear();
+  const selectedRange = getSelectedDateRange();
 
-  const startDate = new Date(selectedYear, 2, 1);
-  const endDate = new Date(selectedYear, today.getMonth(), today.getDate());
+  if (selectedRange) {
+    return selectedRange;
+  }
 
-  if (endDate < startDate) {
+  const availableRange = getAvailableDateRange(tableHeaders, allRows);
+
+  if (availableRange) {
     return {
-      startDate,
-      endDate: new Date(startDate),
-      selectedYear,
+      startDate: parseIsoDate(availableRange.min),
+      endDate: parseIsoDate(availableRange.max),
     };
   }
 
+  const today = new Date();
   return {
-    startDate,
-    endDate,
-    selectedYear,
+    startDate: today,
+    endDate: today,
   };
 }
 
@@ -1322,7 +1322,7 @@ function getTimelineSeries(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
   );
-  const { startDate, endDate, selectedYear } = buildTimelineRange();
+  const { startDate, endDate } = buildTimelineRange();
   const series = [];
   const counts = new Map();
   const currentDate = new Date(startDate);
@@ -1380,7 +1380,6 @@ function getTimelineSeries(rows, headers) {
     orderedStatuses,
     startDate,
     endDate,
-    selectedYear,
   };
 }
 
@@ -1434,7 +1433,7 @@ function renderStatusPie(rows, headers) {
   const counts = getStatusCounts(rows, headers);
   const entries = getStatusEntriesByVolume(counts);
   const total = rows.length;
-  statusPieSubtitle.textContent = `Ticket share by current status for ${describeYearSelection()}.`;
+  statusPieSubtitle.textContent = `Ticket share by current status for ${describeDateRangeSelection()}.`;
 
   if (total === 0 || entries.length === 0) {
     const empty = document.createElement("p");
@@ -1520,7 +1519,7 @@ function renderPlatformDistribution(rows, headers) {
   );
   const unknownCount = counts.get("Unknown") ?? 0;
 
-  platformSubtitle.textContent = `Android and iOS share for ${describeYearSelection()}. Unknown platform is listed separately.`;
+  platformSubtitle.textContent = `Android and iOS share for ${describeDateRangeSelection()}. Unknown platform is listed separately.`;
 
   if (total === 0) {
     const empty = document.createElement("p");
@@ -1588,13 +1587,13 @@ function renderPlatformDistribution(rows, headers) {
 }
 
 function renderTimeline(rows, headers, scaleRows = rows) {
-  const { series, orderedStatuses, startDate, endDate, selectedYear } = getTimelineSeries(
+  const { series, orderedStatuses, startDate, endDate } = getTimelineSeries(
     rows,
     headers
   );
   const { series: scaleSeries } = getTimelineSeries(scaleRows, headers);
 
-  timelineSubtitle.textContent = `Daily issue volume by status from ${formatCompactDate(startDate)} to ${formatCompactDate(endDate)} ${selectedYear}.`;
+  timelineSubtitle.textContent = `Daily issue volume by status from ${formatCompactDate(startDate)} to ${formatCompactDate(endDate)}.`;
   timelineChart.replaceChildren();
   timelineLegend.replaceChildren();
   hideTimelineTooltip();
@@ -1987,7 +1986,7 @@ function renderTopicInsights(rows, headers) {
       ? 0
       : (analysis.automaticallyGroupedCount / analysis.issueTextCount) * 100;
 
-  topicsSubtitle.textContent = `Top 10 issue topics from reported issue text for ${describeYearSelection()}.`;
+  topicsSubtitle.textContent = `Top 10 issue topics from reported issue text for ${describeDateRangeSelection()}.`;
   topicsRankingTotal.textContent = `${analysis.issueTextCount.toLocaleString("en-US")} Issues`;
   topicsGroupingCoverage.textContent = `${coverage.toFixed(0)}% Covered`;
   topicsBars.replaceChildren();
@@ -2258,12 +2257,11 @@ function syncTopicCardHeights() {
 }
 
 function refreshTable() {
-  const yearFilteredRows = getYearFilteredRows();
   const baseFilteredRows = getFilteredRows();
   renderStatusSummary(baseFilteredRows, tableHeaders);
   renderStatusPie(baseFilteredRows, tableHeaders);
   renderPlatformDistribution(baseFilteredRows, tableHeaders);
-  renderTimeline(baseFilteredRows, tableHeaders, yearFilteredRows);
+  renderTimeline(baseFilteredRows, tableHeaders);
   renderTopicInsights(baseFilteredRows, tableHeaders);
 
   populateStatusFilter(baseFilteredRows, tableHeaders);
@@ -2279,29 +2277,27 @@ function refreshTable() {
   renderTable(tableHeaders, filteredRows);
 }
 
-function handleYearFilterChange() {
-  populateDateFilter(tableHeaders, getYearFilteredRows());
-  refreshTable();
-}
+function handleDateRangeFilterChange() {
+  const startDate = parseIsoDate(startDateFilter.value);
+  const endDate = parseIsoDate(endDateFilter.value);
 
-function handleByDateFilterChange() {
-  dateFilter.hidden = !byDateFilter.checked;
-
-  if (!dateFilter.disabled && !dateFilter.value) {
-    dateFilter.value = getTodayIsoDate();
+  if (startDate && endDate && endDate < startDate) {
+    startDateFilter.value = toIsoDate(endDate);
+    endDateFilter.value = toIsoDate(startDate);
   }
 
   refreshTable();
 }
 
-function openDatePicker() {
+function openDatePicker(event) {
+  const dateInput = event.currentTarget;
+
   if (
-    typeof dateFilter.showPicker === "function" &&
-    !dateFilter.hidden &&
-    !dateFilter.disabled
+    typeof dateInput.showPicker === "function" &&
+    !dateInput.disabled
   ) {
     try {
-      dateFilter.showPicker();
+      dateInput.showPicker();
     } catch {
       // Ignore browsers that block programmatic picker opening.
     }
@@ -2450,8 +2446,7 @@ async function loadCsvTable() {
 
     initializeVisibleColumns(headers);
     renderColumnsMenu(headers);
-    populateYearFilter(headers, rows);
-    populateDateFilter(headers, getYearFilteredRows());
+    populateDateRangeFilter(headers, rows);
     refreshTable();
   } catch (error) {
     updateRecordCount([]);
@@ -2459,12 +2454,13 @@ async function loadCsvTable() {
   }
 }
 
-yearFilter.addEventListener("change", handleYearFilterChange);
-byDateFilter.addEventListener("change", handleByDateFilterChange);
-dateFilter.addEventListener("change", refreshTable);
+startDateFilter.addEventListener("change", handleDateRangeFilterChange);
+endDateFilter.addEventListener("change", handleDateRangeFilterChange);
 statusFilter.addEventListener("change", refreshTable);
-dateFilter.addEventListener("click", openDatePicker);
-dateFilter.addEventListener("focus", openDatePicker);
+startDateFilter.addEventListener("click", openDatePicker);
+startDateFilter.addEventListener("focus", openDatePicker);
+endDateFilter.addEventListener("click", openDatePicker);
+endDateFilter.addEventListener("focus", openDatePicker);
 columnsToggle.addEventListener("click", toggleColumnsMenu);
 columnsSelectAll.addEventListener("click", showAllColumns);
 columnsReset.addEventListener("click", resetVisibleColumns);

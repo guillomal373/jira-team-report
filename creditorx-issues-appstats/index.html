@@ -28,25 +28,29 @@
           </a>
         </nav>
       </section>
-      <section class="year-filter-panel" aria-label="Current year selector">
-        <label class="records-filter records-filter--stacked" for="year-filter">
-          <span>Current Year</span>
-          <select id="year-filter" aria-label="Filter records by year">
-            <option value="all">All</option>
-          </select>
-        </label>
-        <div class="records-filter records-filter--stacked records-filter--date">
-          <label class="records-checkbox" for="by-date-filter">
-            <input id="by-date-filter" type="checkbox" />
-            <span>By Date</span>
-          </label>
-          <input
-            id="date-filter"
-            class="records-date-input"
-            type="date"
-            aria-label="Filter records by date"
-            hidden
-          />
+      <section class="date-filter-panel" aria-label="Date range selector">
+        <div class="records-filter records-filter--stacked records-filter--date-range">
+          <span>Date Range</span>
+          <div class="records-date-range">
+            <label class="records-date-field" for="start-date-filter">
+              <span>From</span>
+              <input
+                id="start-date-filter"
+                class="records-date-input"
+                type="date"
+                aria-label="Filter records from date"
+              />
+            </label>
+            <label class="records-date-field" for="end-date-filter">
+              <span>To</span>
+              <input
+                id="end-date-filter"
+                class="records-date-input"
+                type="date"
+                aria-label="Filter records to date"
+              />
+            </label>
+          </div>
         </div>
       </section>
       <section class="status-overview" aria-label="Issue status overview">
