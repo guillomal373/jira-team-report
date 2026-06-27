@@ -1,79 +1,706 @@
-Issue Type,Issue key,Issue id,Summary,Assignee,Assignee Id,Priority,Status,Custom field (Story point estimate),Time Spent,Created,Updated,Custom field (Start date),Due date,Labels,Labels,Labels,Labels,Labels,Labels,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint
-Task,HED-1101,27187,"Review the issues that, according to the client, have not been resolved.",Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,In Progress,2.0,,24/Jun/26 8:05 AM,24/Jun/26 8:06 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1099,27185,CX - Issue resolution Jun 24,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,In Progress,2.0,,23/Jun/26 12:41 PM,24/Jun/26 8:04 AM,24/Jun/26 12:00 AM,24/Jun/26 12:00 AM,creditorx,,,,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,
-Task,HED-1098,27184,"CX - Check placeholders in Recovery Password (iOS, Android)",Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,High,Done,1.0,,23/Jun/26 12:26 PM,24/Jun/26 10:31 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1097,27183,CX - Issue resolution Jun 23,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,Done,2.0,,23/Jun/26 11:47 AM,24/Jun/26 8:04 AM,23/Jun/26 12:00 AM,23/Jun/26 12:00 AM,creditorx,,,,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,
-Task,HED-1086,27170,CX - UPLOAD A VOICEMAIL TO KAZOO USING AN ENDPOINT.,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,Done,3.0,,22/Jun/26 2:39 PM,23/Jun/26 3:45 PM,,,backend,creditorx,issues,kazoo,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1076,27160,CX - Issue resolution Jun 22,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,Done,2.0,,22/Jun/26 8:09 AM,23/Jun/26 11:47 AM,22/Jun/26 12:00 AM,22/Jun/26 12:00 AM,creditorx,,,,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,
-Task,HED-1049,27101,CX - Perform testing on a real device together with Nicolas.,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,BLOCKED,3.0,,17/Jun/26 9:22 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,
-Task,HED-1009,27060,CX - Validate push notifications for verified and rejected numbers. - IOS,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,BLOCKED,5.0,,10/Jun/26 10:07 AM,22/Jun/26 10:03 AM,,,backend,creditorx,ios,php,Swift,xcode,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,
-Task,HED-938,26958,CX - SPIKE - Notifications in the app about blocked numbers. - iOS,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,BLOCKED,3.0,,27/May/26 3:18 PM,22/Jun/26 10:03 AM,,,backend,creditorx,Swift,xcode,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,
-Task,HED-829,26173,CX - DOES NOT BLOCK CALLS - T-MOBILE TESTING,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,BLOCKED,,,08/May/26 1:06 PM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 12 - CP+CX Issues (D+G),Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,
-Task,HED-1075,27159,"CX - Check placeholders in Login (iOS, Android)",Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,High,Done,1.0,,19/Jun/26 12:06 PM,24/Jun/26 10:31 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1074,27158,CX - iOS Delete the duplicated USSD codes for ...,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,IN REVIEW / QA,2.0,,19/Jun/26 11:38 AM,22/Jun/26 4:36 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1073,27157,CX - iOS Delete the duplicated USSD codes for ...,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,IN REVIEW / QA,2.0,,19/Jun/26 11:36 AM,22/Jun/26 4:36 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-899,26887,CX - 4 use cases to check,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Medium,BLOCKED,3.0,7200,21/May/26 10:56 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,
-Task,HED-1123,27209,New Sr Developer Induction,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,Done,2.0,,25/Jun/26 5:07 PM,25/Jun/26 5:07 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1122,27208,CX - Troubleshooting page and confluence,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,In Progress,,,25/Jun/26 4:35 PM,25/Jun/26 4:35 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1102,27188,CX - Issues Dashboard update and checking status,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,Done,3.0,,24/Jun/26 8:50 AM,24/Jun/26 9:43 AM,,,creditorx,management,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1085,27169,Meetings 1 on 1 - COL,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,Done,3.0,,22/Jun/26 2:09 PM,22/Jun/26 2:10 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-982,27033,CX - Checking Aren feedback,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,In Progress,1.0,,03/Jun/26 11:35 AM,22/Jun/26 10:03 AM,,,creditorx,QA,,,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,
-Task,HED-918,26938,CP - user testing form,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,Done,3.0,7200,25/May/26 10:59 AM,25/Jun/26 5:07 PM,,,,,,,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,
-Task,HED-650,23681,CX - Issue about phone number for Login / OTP,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,To Do,,,10/Apr/26 10:17 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 10 - CP MVP + CX Issues,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,
-Task,HED-506,21132,SPIKE (FIREBASE) Automate Android alerts and notifications,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,High,BLOCKED,2.0,,11/Mar/26 10:03 AM,22/Jun/26 10:03 AM,,,android,DevOps,,,,,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,
-Task,HED-505,21131,SPIKE (FIREBASE) Understand how the logs are stored and what kind of info do they use and have,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,BLOCKED,,,11/Mar/26 9:53 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,
-Story,HED-820,26036,CX - Backend: Implement pagination filter ,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,To Do,3.0,,07/May/26 11:40 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,
-Story,HED-819,26035,CX - Admin Panel UI requires to filter the creditor list,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Medium,To Do,3.0,,07/May/26 11:38 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,
-Task,HED-1111,27197,FCRM - Add this emails as CC,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,1.0,900,24/Jun/26 12:47 PM,25/Jun/26 3:21 PM,25/Jun/26 12:00 AM,25/Jun/26 12:00 AM,aws,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1091,27175,FCRM - Attach pictures of each and meeting,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,1.0,7200,22/Jun/26 4:10 PM,23/Jun/26 10:55 AM,22/Jun/26 12:00 AM,23/Jun/26 12:00 AM,documentation,forthCRM,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1120,27206,CP - Add environment indicator for non-production builds,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,In Progress,1.0,6540,25/Jun/26 12:20 PM,25/Jun/26 3:40 PM,25/Jun/26 12:00 AM,25/Jun/26 12:00 AM,android,cordobaPortal,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1119,27205,"CP - Configure local, dev, and prod environments in Cordoba Portal Android",Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,2.0,10800,25/Jun/26 12:16 PM,25/Jun/26 12:20 PM,25/Jun/26 12:00 AM,25/Jun/26 12:00 AM,android,cordobaPortal,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1118,27204,Onboarding and knowledge transfer session ,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,1.0,3600,25/Jun/26 9:53 AM,25/Jun/26 1:03 PM,24/Jun/26 12:00 AM,25/Jun/26 12:00 AM,cordobaPortal,forthCRM,meeting,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1112,27198,P2 - Progress on AWS Developer Associate course sections - EC2,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,In Progress,3.0,1500,24/Jun/26 12:49 PM,25/Jun/26 3:40 PM,22/Jun/26 12:00 AM,30/Jun/26 12:00 AM,aws,courses,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1096,27182,FCRM - Add payment status to reminder emails and update upcoming payments filter,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,2.0,8400,23/Jun/26 10:59 AM,24/Jun/26 12:16 PM,23/Jun/26 12:00 AM,23/Jun/26 12:00 AM,python,snowflake,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1082,27166,P1 - Progress on AWS Developer Associate course sections - EC2,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,3.0,18000,22/Jun/26 10:42 AM,25/Jun/26 3:44 PM,22/Jun/26 12:00 AM,25/Jun/26 12:00 AM,aws,courses,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1081,27165,CP - 3/3 - Android Feature Parity Review (D&S / LC / Support / Profile),Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,2.0,8400,22/Jun/26 10:41 AM,24/Jun/26 12:16 PM,23/Jun/26 12:00 AM,23/Jun/26 12:00 AM,android,cordobaPortal,documentation,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1080,27164,CP - 2/3 - Android Feature Parity Review (Creditors / Transactions / Tasks),Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,2.0,8400,22/Jun/26 10:40 AM,24/Jun/26 11:37 AM,23/Jun/26 12:00 AM,23/Jun/26 12:00 AM,android,cordobaPortal,documentation,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1079,27163,CP - 1/3 - Android Feature Parity Review (General / Auth / Dashboard),Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Medium,Done,2.0,9000,22/Jun/26 10:40 AM,23/Jun/26 8:11 AM,22/Jun/26 12:00 AM,22/Jun/26 12:00 AM,android,cordobaPortal,documentation,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1114,27200,CP - IOS - Implement localized error handling for iOS,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,To Do,3.0,,25/Jun/26 8:00 AM,25/Jun/26 8:01 AM,25/Jun/26 12:00 AM,26/Jun/26 12:00 AM,cordobaPortal,ios,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1110,27196,Daily and welcome to Carlos,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,Done,1.0,,24/Jun/26 11:59 AM,24/Jun/26 11:59 AM,,,meeting,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1108,27194,CP - WEB - Add password visibility toggle to login screen,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,To Do,1.0,,24/Jun/26 10:42 AM,25/Jun/26 8:06 AM,,,cordobaPortal,frontend,react,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1100,27186,CP - WEB - Add environment indicator banner,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,To Do,1.0,,24/Jun/26 7:25 AM,24/Jun/26 10:53 AM,24/Jun/26 12:00 AM,25/Jun/26 12:00 AM,cordobaPortal,frontend,ios,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1094,27180,CP - IOS - Add language switcher to unauthenticated screens,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,In Progress,2.0,14400,23/Jun/26 8:22 AM,25/Jun/26 7:58 AM,24/Jun/26 12:00 AM,25/Jun/26 12:00 AM,cordobaPortal,ios,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1093,27179,CP - IOS - Implement support physical device on Local environment  and centralize backend URLs (Refactor),Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,Done,1.0,3600,23/Jun/26 8:13 AM,24/Jun/26 12:06 PM,23/Jun/26 12:00 AM,23/Jun/26 12:00 AM,cordobaPortal,ios,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1092,27178,CP - IOS - Audit and correct keyboard types across all input fields,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,Done,1.0,7200,22/Jun/26 10:14 PM,24/Jun/26 11:24 AM,23/Jun/26 12:00 AM,24/Jun/26 12:00 AM,cordobaPortal,ios,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1090,27174,CP - IOS - Add environment indicator banner for non-production builds,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,Done,1.0,5400,22/Jun/26 3:21 PM,24/Jun/26 12:05 PM,23/Jun/26 12:00 AM,23/Jun/26 12:00 AM,cordobaPortal,ios,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1089,27173,"CP - IOS - Add Xcode schemes for each backend environment (Local, Dev, Staging, Production)",Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,Done,1.0,,22/Jun/26 3:18 PM,23/Jun/26 8:18 AM,23/Jun/26 12:00 AM,23/Jun/26 12:00 AM,cordobaPortal,ios,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1084,27168,Attend initial promotion assessment (Junior → Mid-level),Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,Done,1.0,3600,22/Jun/26 1:20 PM,24/Jun/26 12:06 PM,22/Jun/26 12:00 AM,22/Jun/26 12:00 AM,meeting,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1083,27167,CP - IOS - Sync Xcode App Version with Release Please on Release,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,Done,2.0,,22/Jun/26 11:07 AM,23/Jun/26 8:21 AM,22/Jun/26 12:00 AM,22/Jun/26 12:00 AM,ci/cd,cordobaPortal,DevOps,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1032,27084,CX - Test push notifications on physical iPhone,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,BLOCKED,1.0,,12/Jun/26 9:48 AM,22/Jun/26 10:03 AM,12/Jun/26 12:00 AM,,creditorx,xcode,,,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,
-Task,HED-965,27016,CP - Configure dev.cordobalegal.com and activate full dev environment,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,BLOCKED,1.0,3600,01/Jun/26 10:02 AM,22/Jun/26 10:03 AM,01/Jun/26 12:00 AM,,cordobaPortal,DevOps,,,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,
-Task,HED-866,26659,CP - Implement Google Analytics in Login section,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Medium,BLOCKED,5.0,,13/May/26 1:20 PM,22/Jun/26 10:03 AM,,,analytics,cordobaPortal,,,,,Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,
-Task,HED-1071,27155,CX - Android Update UI password creation tip for specials chars,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Medium,In Progress,,,19/Jun/26 9:54 AM,24/Jun/26 10:13 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Bug,HED-1011,27063,"CX - When a numbers is unblocked from the admin web interface, its still shown in the iphone suggested numbers (It shouldn't)",rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Medium,IN REVIEW / QA,2.0,,10/Jun/26 10:27 AM,24/Jun/26 10:07 AM,,,creditorx,php,Swift,,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,
-Task,HED-898,26886,CX - Checking testing form,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Medium,BLOCKED,,,21/May/26 10:51 AM,22/Jun/26 10:03 AM,,,creditorx,QA,,,,,Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,
-Task,HED-567,22315,CX - Create an account or access for the iOS App Store for Joey,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Medium,BLOCKED,1.0,,24/Mar/26 11:19 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,
-Task,HED-507,21165,SPIKE Automate iOS alerts and notifications,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,High,BLOCKED,,,11/Mar/26 10:21 AM,22/Jun/26 10:03 AM,,,android,DevOps,,,,,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,
-Task,HED-1113,27199,Slack - Deleting Redis groups,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Medium,Done,2.0,,24/Jun/26 4:56 PM,24/Jun/26 5:09 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1105,27191,Reviewing Diana changes,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Medium,Done,2.0,,24/Jun/26 9:09 AM,24/Jun/26 9:45 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1069,27153,SA - SPIKE - Research about delete channel new feature.,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Medium,To Do,8.0,,19/Jun/26 9:32 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,
-Task,HED-894,26882,CX - BUG - when user click in is first login in some device it take too long and sometimes the app get frozen,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Medium,BLOCKED,5.0,,20/May/26 4:03 PM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,
-Task,HED-1107,27193,SPIKE - CX - Backend - Database registers SSN & DOB are hasshed,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Highest,To Do,,,24/Jun/26 10:31 AM,24/Jun/26 10:33 AM,,,creditorx,php,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Bug,HED-1106,27192,CX - Backend - Database registers SSN & DOB are hasshed,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Highest,To Do,,,24/Jun/26 10:28 AM,24/Jun/26 10:34 AM,,,creditorx,php,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1095,27181,CX - iOS - Check this with Diana,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,To Do,,,23/Jun/26 10:27 AM,23/Jun/26 10:29 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1070,27154,CX - iOS Update UI password creation tip for specials chars (First Login),Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,To Do,3.0,,19/Jun/26 9:52 AM,24/Jun/26 12:06 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1064,27148,"CX - New Feature for Logging, Who verified or reject which number (latest verified, rejected)",Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,IN REVIEW / QA,3.0,,19/Jun/26 9:12 AM,24/Jun/26 12:06 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1063,27147,SPIKE - CX - Create a (webhook-endpoint) for the agents to update phoneNumber and Email,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Highest,In Progress,5.0,,19/Jun/26 9:06 AM,25/Jun/26 8:55 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-751,24939,CP - Backend / Access to Database for Issues clasification,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,To Do,,,27/Apr/26 8:33 AM,22/Jun/26 10:03 AM,,,,,,,,,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,
-Task,HED-1121,27207,DevOps Training courses,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,Done,3.0,,25/Jun/26 4:33 PM,25/Jun/26 4:34 PM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1117,27203,CX - iOS Login chat with @Diana,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,Done,2.0,,25/Jun/26 8:45 AM,25/Jun/26 8:45 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1116,27202,Ticket Creation - Weekly Time spent,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,Done,2.0,,25/Jun/26 8:34 AM,25/Jun/26 8:34 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1109,27195,Daily Standup meeting - June/24,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,Done,1.0,,24/Jun/26 10:53 AM,24/Jun/26 10:55 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1104,27190,CX - Update user's DOB and SSN,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,Done,2.0,,24/Jun/26 9:06 AM,24/Jun/26 9:55 AM,,,backend,database,research,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1103,27189,Chat with @Diana - DOB and SSN hashed values,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,Done,2.0,,24/Jun/26 9:01 AM,24/Jun/26 9:01 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Task,HED-1078,27162,Daily Standup meeting - June/22,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,Done,2.0,,22/Jun/26 9:50 AM,23/Jun/26 11:05 AM,,,,,,,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,
-Story,HED-851,26452,"CX - Document the ""Synchronize Creditors"" action (CX Admin)",Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Medium,To Do,3.0,,12/May/26 2:33 PM,22/Jun/26 10:03 AM,,,confluence,creditorx,documentation,,,,Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,
-Task,HED-1087,27171,CX - iOS - After checking of setting up the USSD Codes there should appear a checkbox,,,Medium,To Do,,,22/Jun/26 2:39 PM,24/Jun/26 10:40 AM,,,,,,,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,
-Bug,HED-488,20762,[CreditorX-Android]: OTP Bug - deleting a number in the otp field sometimes crashes the input field,,,Medium,To Do,,,03/Mar/26 9:54 AM,22/Jun/26 10:03 AM,,,android,bug,creditorx,,,,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,
-Bug,HED-477,20462,[CreditorX]: Android unknown error on dashboard screen,,,Medium,BLOCKED,,,26/Feb/26 9:28 AM,22/Jun/26 10:03 AM,,,android,bug,creditorx,,,,Sprint 7 - CX Android App - CP,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk
-Story,HED-448,19759, OTP Flow Testing QA & Validation,,,Medium,To Do,5.0,,17/Feb/26 8:13 AM,22/Jun/26 10:03 AM,,,creditorx,kotlin,,,,,Sprint 7 - CX Android App - CP,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,
+Summary,Issue key,Issue id,Issue Type,Status,Project key,Project name,Project type,Project lead,Project lead id,Project description,Priority,Resolution,Assignee,Assignee Id,Reporter,Reporter Id,Creator,Creator Id,Created,Updated,Last Viewed,Resolved,Due date,Votes,Labels,Labels,Labels,Labels,Labels,Labels,Description,Environment,Watchers,Watchers,Watchers Id,Watchers Id,Log Work,Log Work,Original estimate,Remaining Estimate,Time Spent,Work Ratio,Σ Original Estimate,Σ Remaining Estimate,Σ Time Spent,Security Level,Inward issue link (Blocks),Inward issue link (Blocks),Inward issue link (Cloners),Inward issue link (Cloners),Outward issue link (Cloners),Inward issue link (Relates),Inward issue link (Relates),Outward issue link (Relates),Attachment,Attachment,Attachment,Attachment,Attachment,Attachment,Attachment,Custom field (Atlassian Project),Custom field (Atlassian project),Custom field (Atlassian project status),Custom field (Comments),Custom field (Delivery progress),Custom field (Delivery status),Custom field (Design file),Custom field (Designs ready),Custom field (Development),Custom field (Documents),Custom field (Effort),Custom field (Goals),Custom field (Idea archived),Custom field (Idea archived on),Custom field (Idea short description),Custom field (Impact),Custom field (Insights),Custom field (Issue color),Custom field (Linked items),Custom field (Project start),Custom field (Project target),Custom field (Rank),Custom field (Roadmap),Custom field (Score),Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Sprint,Custom field (Start date),Custom field (State),Custom field (Story Points),Custom field (Story point estimate),Team Id,Team Name,Custom field (Vulnerability),Comment,Comment,Comment,Comment,Parent,Parent key,Parent summary,Status Category,Status Category Changed
+CX - Test HED-1064.,HED-1128,27214,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,26/Jun/26 10:49 AM,26/Jun/26 10:49 AM,,,,0,,,,,,,test that it meets the requested requirements,,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gjv:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,In Progress,26/Jun/26 10:49 AM
+CX - Issue resolution Jun 26,HED-1125,27211,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,26/Jun/26 8:04 AM,26/Jun/26 8:05 AM,,,26/Jun/26 12:00 AM,0,creditorx,,,,,,"Review and resolve the issues that arrive on day 1, providing a solution to the problem or escalating it to the responsible developer. Additionally, the corresponding tests must be carried out.",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,HED-1099,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbz:v,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,26/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,In Progress,26/Jun/26 8:05 AM
+CX - Issue resolution Jun 25,HED-1124,27210,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,26/Jun/26 8:04 AM,26/Jun/26 8:05 AM,,26/Jun/26 8:05 AM,25/Jun/26 12:00 AM,0,creditorx,,,,,,"Review and resolve the issues that arrive on day 1, providing a solution to the problem or escalating it to the responsible developer. Additionally, the corresponding tests must be carried out.",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,HED-1099,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gb8:i,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,25/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,26/Jun/26 8:05 AM
+"Review the issues that, according to the client, have not been resolved.",HED-1101,27187,Task,READY FOR DEPLOYMENT,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,24/Jun/26 8:05 AM,26/Jun/26 8:03 AM,,,,0,,,,,,,review the issues in unresolved status and provide a new validation and solution,,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00ggb:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,In Progress,24/Jun/26 8:05 AM
+CX - Issue resolution Jun 24,HED-1099,27185,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,23/Jun/26 12:41 PM,26/Jun/26 8:04 AM,,26/Jun/26 8:04 AM,24/Jun/26 12:00 AM,0,creditorx,,,,,,"Review and resolve the issues that arrive on day 1, providing a solution to the problem or escalating it to the responsible developer. Additionally, the corresponding tests must be carried out.",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,HED-1124,HED-1125,HED-1097,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gba:,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,24/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,26/Jun/26 8:04 AM
+"CX - Check placeholders in Recovery Password (iOS, Android)",HED-1098,27184,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,High,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,23/Jun/26 12:26 PM,24/Jun/26 10:31 AM,,24/Jun/26 10:31 AM,,0,,,,,,,,,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,HED-1075,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbc:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,Done,24/Jun/26 10:31 AM
+CX - Issue resolution Jun 23,HED-1097,27183,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,23/Jun/26 11:47 AM,24/Jun/26 8:04 AM,,24/Jun/26 8:04 AM,23/Jun/26 12:00 AM,0,creditorx,,,,,,"Review and resolve the issues that arrive on day 1, providing a solution to the problem or escalating it to the responsible developer. Additionally, the corresponding tests must be carried out.",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,HED-1099,,HED-1076,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbd:,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,23/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,24/Jun/26 8:04 AM
+CX - UPLOAD A VOICEMAIL TO KAZOO USING AN ENDPOINT.,HED-1086,27170,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,22/Jun/26 2:39 PM,23/Jun/26 3:45 PM,,23/Jun/26 3:45 PM,,0,backend,creditorx,issues,kazoo,,,"Validate how to upload a voicemail to Kazoo through the endpoint.
+
+* -Identify the endpoint for uploading voicemail-
+* -Upload the voicemail linking it to the client's account-
+* -Show evidence that the voicemail is visible in Kazoo-
+* -Show evidence that the voicemail is displayed in the application-
+* -Show evidence that the voicemail can be played in the application-
+* -Upload the step-by-step guide to access voicemail to Confluence-
+
+
+
+[https://hiredexperts.atlassian.net/wiki/x/AQAyHg|https://hiredexperts.atlassian.net/wiki/x/AQAyHg|smart-link] ",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbb:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,Done,23/Jun/26 3:45 PM
+CX - Issue resolution Jun 22,HED-1076,27160,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,22/Jun/26 8:09 AM,23/Jun/26 11:47 AM,,23/Jun/26 11:47 AM,22/Jun/26 12:00 AM,0,creditorx,,,,,,"Review and resolve the issues that arrive on day 1, providing a solution to the problem or escalating it to the responsible developer. Additionally, the corresponding tests must be carried out.",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,HED-1097,,HED-1061,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gb7:,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,22/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,23/Jun/26 11:47 AM
+CX - Perform testing on a real device together with Nicolas.,HED-1049,27101,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,17/Jun/26 9:22 AM,22/Jun/26 10:03 AM,,,,0,,,,,,,"Testing notifications on a real phone, together with Nicolas.
+A development account must be added but we are waiting for a response from Jhon",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00f8m:,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,In Progress,17/Jun/26 9:22 AM
+CX - Validate push notifications for verified and rejected numbers. - IOS,HED-1009,27060,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,10/Jun/26 10:07 AM,22/Jun/26 10:03 AM,19/Jun/26 11:58 AM,,,0,backend,creditorx,ios,php,Swift,xcode,"Validate the code to determine how to add local app notifications to notify when the added numbers are approved or rejected.
+
+First, the backend-related code must be validated, and a new feature for notification events should be created.",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00f7v:,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,"L (5) -> Characteristics:  Larger work item with multiple touchpoints.  Requires planning and careful testing. Examples: A new module, integrating an external API, partial refactoring of a component. // 1 full day",5.0,,,,,,,,,,,In Progress,10/Jun/26 10:10 AM
+CX - SPIKE - Notifications in the app about blocked numbers. - iOS,HED-938,26958,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,27/May/26 3:18 PM,22/Jun/26 10:03 AM,,,,0,backend,creditorx,Swift,xcode,,,Validate and implement notifications in the application for each time a number is verified,,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00f83:,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,In Progress,05/Jun/26 10:04 AM
+CX - DOES NOT BLOCK CALLS - T-MOBILE TESTING,HED-829,26173,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,08/May/26 1:06 PM,22/Jun/26 10:03 AM,,,,0,,,,,,,"Talk to Joey or/and John to see if we can test this use cases:
+
+# uninstall the app
+# Install the app and Send the 6 USSD Commands
+# After that call from a regular number to see if redirects or doesn't (white list phone number)
+# Add 1 test number to blocked list and check if it is redirected (black list number) ",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00f8j:,,,Sprint 12 - CP+CX Issues (D+G),Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,,,,,22787,HED-591,CX - General/Back Issues,In Progress,08/May/26 1:06 PM
+"CX - Check placeholders in Login (iOS, Android)",HED-1075,27159,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,High,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/Jun/26 12:06 PM,24/Jun/26 10:31 AM,,24/Jun/26 10:31 AM,,0,,,,,,,,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,HED-1098,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbb:i,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,Done,24/Jun/26 10:31 AM
+CX - iOS Delete the duplicated USSD codes for ...,HED-1074,27158,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/Jun/26 11:38 AM,26/Jun/26 8:03 AM,,26/Jun/26 8:03 AM,,0,,,,,,,[~accountid:712020:aa58d0f0-01dc-4b39-bab7-538a16905fea] please add the carrier and what to do,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,HED-1073,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gb8:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,26/Jun/26 8:03 AM
+CX - iOS Delete the duplicated USSD codes for ...,HED-1073,27157,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/Jun/26 11:36 AM,26/Jun/26 8:03 AM,19/Jun/26 11:38 AM,26/Jun/26 8:03 AM,,0,,,,,,,[~accountid:712020:aa58d0f0-01dc-4b39-bab7-538a16905fea] please add the carrier and what to do,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,HED-1074,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gb9:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,26/Jun/26 8:03 AM
+CX - 4 use cases to check,HED-899,26887,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,21/May/26 10:56 AM,22/Jun/26 10:03 AM,24/Jun/26 1:04 PM,,,0,,,,,,,"# bloqueo y no bloqueo *registrado
+# bloqueo y no bloqueo *NO registrado
+# Solo yo apruebo cada telefono bloqueado de mi creditor",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,"* With Roberto trying to add Guillos number
+* Creating a forthCRM user for my testing;25/May/26 9:22 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;7200",,,0,7200,,,0,7200,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00f8l:,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,In Progress,21/May/26 5:43 PM
+CP - Meeting with Paula to share the Testing documents for the portal ( 2 docs),HED-1127,27213,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,26/Jun/26 9:29 AM,26/Jun/26 9:29 AM,26/Jun/26 9:29 AM,26/Jun/26 9:29 AM,,0,,,,,,,,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gjn:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,Done,26/Jun/26 9:29 AM
+New Sr Developer Induction,HED-1123,27209,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,25/Jun/26 5:07 PM,25/Jun/26 5:07 PM,25/Jun/26 5:07 PM,25/Jun/26 5:07 PM,,0,,,,,,,,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gjf:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,25/Jun/26 5:07 PM
+CX - Troubleshooting page and confluence,HED-1122,27208,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Highest,,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,25/Jun/26 4:35 PM,26/Jun/26 9:30 AM,26/Jun/26 9:52 AM,,,0,,,,,,,"!image-20260626-143040.png|width=812,alt=""image-20260626-143040.png""!
+
+!image-20260626-143047.png|width=812,alt=""image-20260626-143047.png""!
+
+!image-20260626-143056.png|width=812,alt=""image-20260626-143056.png""!",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Creating templates from images;26/Jun/26 9:30 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;18000,,,0,18000,,,0,18000,,,,,,,,,,26/Jun/26 9:31 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;image-20260626-143040.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17902,26/Jun/26 9:30 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;image-20260626-143047.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17901,26/Jun/26 9:30 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;image-20260626-143056.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17900,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gj7:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"L (5) -> Characteristics:  Larger work item with multiple touchpoints.  Requires planning and careful testing. Examples: A new module, integrating an external API, partial refactoring of a component. // 1 full day",5.0,,,,,,,,,,,In Progress,25/Jun/26 4:35 PM
+CX - Issues Dashboard update and checking status,HED-1102,27188,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,24/Jun/26 8:50 AM,24/Jun/26 9:43 AM,24/Jun/26 8:51 AM,24/Jun/26 9:43 AM,,0,creditorx,management,,,,,,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gdd:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,Done,24/Jun/26 9:43 AM
+Meetings 1 on 1 - COL,HED-1085,27169,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,22/Jun/26 2:09 PM,22/Jun/26 2:10 PM,22/Jun/26 2:09 PM,22/Jun/26 2:09 PM,,0,,,,,,,,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gd7:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,Done,22/Jun/26 2:09 PM
+CX - Checking Aren feedback,HED-982,27033,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,03/Jun/26 11:35 AM,26/Jun/26 10:26 AM,26/Jun/26 10:25 AM,,,0,creditorx,QA,,,,,"# Check feedback
+# Generate and follow step by step QA doc",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,HED-983,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fvv:,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,In Progress,03/Jun/26 11:35 AM
+CP - user testing form,HED-918,26938,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,25/May/26 10:59 AM,25/Jun/26 5:07 PM,25/Jun/26 4:34 PM,25/Jun/26 5:07 PM,,0,,,,,,,"3 Documents and a Confluence Doc: [https://hiredexperts.atlassian.net/wiki/x/AoBoHg|https://hiredexperts.atlassian.net/wiki/x/AoBoHg|smart-link]  
+
+
+
+[^Cordoba_QA_Agent_Guide.docx]
+[^Cordoba_QA_Supervisor_Full.docx]
+[^Cordoba_QA_Developer.docx]
+
+",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,;25/May/26 11:00 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;7200,,,0,7200,,,0,7200,,,,,,,,,,25/Jun/26 4:35 PM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;Cordoba_QA_Agent_Guide.docx;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17896,25/Jun/26 4:35 PM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;Cordoba_QA_Developer.docx;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17897,25/Jun/26 4:35 PM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;Cordoba_QA_Supervisor_Full.docx;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17898,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gdg:,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,Done,25/Jun/26 5:07 PM
+CX - Issue about phone number for Login / OTP,HED-650,23681,Task,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,10/Apr/26 10:17 AM,22/Jun/26 10:03 AM,,,,0,,,,,,,"Phone Number / Cel number
+
+Ask Agents which one is the most important
+In the endpoint we will check both",,Guillermo Malagón,rhiraldo,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00eif:,,,Sprint 10 - CP MVP + CX Issues,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,28/Apr/26 11:05 AM;712020:fd36cadf-9806-42d0-93a9-02002d8431e5;[~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] i think this ticket is more for you that has communication with Agents,,,,,,,To Do,10/Apr/26 10:17 AM
+SPIKE (FIREBASE) Automate Android alerts and notifications,HED-506,21132,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,High,,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,11/Mar/26 10:03 AM,22/Jun/26 10:03 AM,,,,0,android,DevOps,,,,,"Check store, insights, etc
+
+Output:
+
+# Propose how we can monitor this app",,Guillermo Malagón,Samil Vargas,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,HED-507,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i006bl:,,,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,16/Mar/26 10:40 AM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;*Blocked*: Requires access to the Firebase dashboard. [~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] ,,,,,,,In Progress,11/Mar/26 1:22 PM
+SPIKE (FIREBASE) Understand how the logs are stored and what kind of info do they use and have,HED-505,21131,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,11/Mar/26 9:53 AM,22/Jun/26 10:03 AM,,,,0,,,,,,,"
+
+Output:
+
+# Location of logs history
+# Log Structure (metada)",,Guillermo Malagón,Samil Vargas,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i006bk:,,,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,23/Mar/26 7:27 AM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;Requires Firebase access,22/Apr/26 9:43 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;[~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] ,,,,,,In Progress,23/Mar/26 7:26 AM
+CX - Backend: Implement pagination filter ,HED-820,26036,Story,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,07/May/26 11:40 AM,22/Jun/26 10:03 AM,,,,0,,,,,,,Implement a pagination and filter for the CX Admin - getCreditorList method.,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,HED-819,HED-818,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00f7n:,,,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,To Do,07/May/26 11:40 AM
+CX - Admin Panel UI requires to filter the creditor list,HED-819,26035,Story,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,07/May/26 11:38 AM,22/Jun/26 10:03 AM,,,,0,,,,,,,"In the CX Admin Panel, we need to implement pagination to get the list of creditors filtered.",,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,HED-818,,,,,,,HED-820,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00f7f:,,,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,To Do,07/May/26 11:38 AM
+CP - Create users for Agents & Supervisors,HED-1131,27217,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,26/Jun/26 2:49 PM,26/Jun/26 3:59 PM,26/Jun/26 2:50 PM,26/Jun/26 3:59 PM,26/Jun/26 12:00 AM,0,cordobaPortal,,,,,,"CORDOBA-1191831754 Nestor Pacagaza supervisor - [r.g.johnson2012@hotmail.com|mailto:r.g.johnson2012@hotmail.com]
+CORDOBA-844427047 Laura Cortes Agente - [kmckinzie@hotmail.com|mailto:kmckinzie@hotmail.com]
+CORDOBA-955844132 Alejandro Reyes Agente - [Marymccray313@yahoo.com|mailto:Marymccray313@yahoo.com]
+CORDOBA-1195515589 - Saray Beltrán Agente - [cleath56@gmail.com|mailto:cleath56@gmail.com]
+CORDOBA-766632881 Laura Suarez agente - [jovannier83@gmail.com|mailto:jovannier83@gmail.com]",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,;26/Jun/26 3:58 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;900,;26/Jun/26 3:59 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;300,1800,600,1200,66%,1800,600,1200,,,,HED-1132,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbz:vi,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,26/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,19564,HED-409,CP - General Section,Done,26/Jun/26 3:59 PM
+FCRM - Add this emails as CC,HED-1111,27197,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,24/Jun/26 12:47 PM,26/Jun/26 11:09 AM,26/Jun/26 11:09 AM,,25/Jun/26 12:00 AM,0,aws,,,,,,"Add this emails to this reports:
+
+* Next Payments
+* Failure Payments
+
+
+Emails:
+
+* [kadie.g@westlakeoc.com|mailto:kadie.g@westlakeoc.com]
+* [a.kaur@westlakeoc.com|mailto:a.kaur@westlakeoc.com]
+* [matt@westlakeoc.com|mailto:matt@westlakeoc.com]
+* [stephanie@westlakeoc.com|mailto:stephanie@westlakeoc.com]
+* [danilo.salas@hiredexpertscol.com|mailto:danilo.salas@hiredexpertscol.com]
+* [lina.sanchez@hiredexpertscol.com|mailto:lina.sanchez@hiredexpertscol.com]
+
+
+*Deliverables*
+
+!image-20260625-200350.png|width=699,alt=""image-20260625-200350.png""!
+
+ ",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,;25/Jun/26 3:04 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;900,,1200,300,900,75%,1200,300,900,,,,,,,,,,25/Jun/26 3:03 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260625-200350.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17895,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gc0:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,25/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,"26/Jun/26 11:09 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;Now is sending the emails from CORDOBA, is this ok? ($$$)",,,,27068,HED-1016,FCRM - Affiliate and Agent emails - Payment Notifier,In Progress,26/Jun/26 11:08 AM
+FCRM - Attach pictures of each and meeting,HED-1091,27175,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,22/Jun/26 4:10 PM,23/Jun/26 10:55 AM,22/Jun/26 4:25 PM,23/Jun/26 8:37 AM,23/Jun/26 12:00 AM,0,documentation,forthCRM,,,,,"||*Email Type*||*Destination*||
+|Incoming payment (*-5, -3, today*) First 3 payments - 3 messages|Affiliate emails (cc), Assigned to, -client-
+!image-20260623-131838.png|width=325,alt=""image-20260623-131838.png""!
+!image-20260623-132919.png|width=325,alt=""image-20260623-132919.png""!
+Recent new version with status:
+!image-20260623-155513.png|width=325,alt=""image-20260623-155513.png""!|
+|Failed Payments (*+-2 days*) First 3 payments, limit payment day, 2 messages|Affiliate emails (cc), Assigned to, -client-
+!image-20260623-132454.png|width=325,alt=""image-20260623-132454.png""!
+!image-20260623-132713.png|width=325,alt=""image-20260623-132713.png""!|
+|Cancelled Account: webhook, *Real time*|Affiliate emails (cc), Assigned to
+!image-20260623-133202.png|width=325,alt=""image-20260623-133202.png""!
+Alternative template provides by Forth:
+!image-20260623-133245.png|width=325,alt=""image-20260623-133245.png""!|
+
+h3. NOTE: Right now we are sending this emails from cordoba DOMAIN, if we need to send it from Affiliates email to THE CLIENT, we can change this domain to *@* [*affiliate.com*|http://affiliate.com] *(SendGrid access).* ",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,;23/Jun/26 8:36 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;3600,;23/Jun/26 8:37 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;3600,7200,0,7200,100%,7200,0,7200,,,,,,,,,,23/Jun/26 8:25 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260623-131838.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17887,23/Jun/26 8:25 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260623-132454.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17885,23/Jun/26 8:35 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260623-132713.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17890,23/Jun/26 8:35 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260623-132919.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17891,23/Jun/26 8:35 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260623-133202.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17888,23/Jun/26 8:35 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260623-133245.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17889,23/Jun/26 10:55 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260623-155513.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17893,,,,,,,,,{},,,,,,,,,,,,,0|i00gch:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,22/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,27068,HED-1016,FCRM - Affiliate and Agent emails - Payment Notifier,Done,23/Jun/26 8:37 AM
+CX - Configure Forth webhook for customer profile updates in CreditorX,HED-1133,27219,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,26/Jun/26 3:47 PM,26/Jun/26 3:58 PM,,,26/Jun/26 12:00 AM,0,creditorx,forthCRM,webhooks,,,,"*Description*
+Configure and validate a Forth webhook to notify CreditorX whenever a customer's profile information is updated. The primary goal is to keep the customer's email address synchronized; however, Forth does not provide an event specifically for email changes. Instead, the configured webhook is triggered whenever any customer profile information is modified. The webhook payload has been configured to include the {{ContactID}} and {{Email}}, allowing the application to synchronize the customer's email when applicable.
+
+*Acceptance Criteria*
+
+* -Webhook configured to receive customer profile update events from Forth-
+* -Webhook payload includes {{ContactID}} and {{Email}}-
+
+*Deliverable*
+The *Form* webhook event was configured and validated, confirming that it is triggered whenever any customer information is updated *through Forth CRM* (such as email, phone number, or name), *not only when the email changes*. The payload was configured to include the {{ContactID}} and {{Email}}, allowing CreditorX to synchronize the customer's email when applicable. It is important to note that Forth also supports customer updates through the *API* and *Data Source* event types, but these webhooks have *not* been configured yet, as they are expected to generate additional notifications for any customer profile change and should be evaluated before being enabled.
+
+!image-20260626-204912.png|width=682,alt=""image-20260626-204912.png""!
+
+!image-20260626-204932.png|width=440,alt=""image-20260626-204932.png""!",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;26/Jun/26 3:56 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;9000,,10800,1800,9000,83%,10800,1800,9000,,,,,,,,,,26/Jun/26 3:49 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260626-204912.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17903,26/Jun/26 3:49 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;image-20260626-204932.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17904,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbz:y,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,26/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,17683,HED-302,Improve Development Tooling & Collaboration Workflow,In Progress,26/Jun/26 3:47 PM
+CP - Optimize Cordoba Portal Android build performance,HED-1126,27212,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,26/Jun/26 8:53 AM,26/Jun/26 3:46 PM,,26/Jun/26 3:46 PM,26/Jun/26 12:00 AM,0,android,cordobaPortal,github,,,,"*Description*
+Optimize the build process of Cordoba Portal Android by enabling and configuring Gradle build optimizations, primarily focusing on the Gradle Build Cache. The goal is to reduce build times, improve developer productivity, and make incremental builds more efficient.
+
+*Acceptance Criteria*
+
+* Gradle Build Cache enabled and configured
+* Build times reduced compared to the previous configuration
+* No impact on application behavior or build reliability",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;26/Jun/26 9:27 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;3600,,7200,3600,3600,50%,7200,3600,3600,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbz:w,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,26/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,27172,HED-1088,CP - ANDROID - Project Stabilization & Technical Alignment,Done,26/Jun/26 3:46 PM
+CP - Add environment indicator for non-production builds,HED-1120,27206,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,25/Jun/26 12:20 PM,26/Jun/26 9:26 AM,,26/Jun/26 9:26 AM,26/Jun/26 12:00 AM,0,android,cordobaPortal,,,,,"*Description*
+Add a visual indicator within Córdoba Portal Android to clearly identify the current environment when running in *local* or *dev*. The indicator should not be displayed in *production*, where the absence of the indicator will imply that the application is connected to the production environment.
+
+*Acceptance Criteria*
+
+* -Environment indicator displayed in local builds-
+* -Environment indicator displayed in dev builds-
+* -No environment indicator displayed in production builds-",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;25/Jun/26 12:21 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;4800,;25/Jun/26 3:38 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;1740,7200,660,6540,90%,7200,660,6540,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbz:x,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,25/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,27172,HED-1088,CP - ANDROID - Project Stabilization & Technical Alignment,Done,26/Jun/26 9:26 AM
+"CP - Configure local, dev, and prod environments in Cordoba Portal Android",HED-1119,27205,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,25/Jun/26 12:16 PM,25/Jun/26 12:20 PM,,25/Jun/26 12:20 PM,25/Jun/26 12:00 AM,0,android,cordobaPortal,,,,,"*Description*
+Configure environment management in Cordoba Portal Android to support *local*, *dev*, and *prod* backends. This will allow developers and testers to easily switch between environments, validate features against different datasets, and connect a physical Android device to a locally running backend during development.
+
+*Acceptance Criteria*
+
+* -Local, dev, and prod environments configured in the Android application-
+* -Environment-specific backend URLs and settings supported-
+* -Ability to switch between environments without code changes-
+* -Local backend accessible from a physical Android device for testing-",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;25/Jun/26 12:19 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;10800,,10800,0,10800,100%,10800,0,10800,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gc2:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,25/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,27172,HED-1088,CP - ANDROID - Project Stabilization & Technical Alignment,Done,25/Jun/26 12:20 PM
+Onboarding and knowledge transfer session ,HED-1118,27204,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,25/Jun/26 9:53 AM,25/Jun/26 1:03 PM,,25/Jun/26 9:53 AM,25/Jun/26 12:00 AM,0,cordobaPortal,forthCRM,meeting,,,,"*Description*
+Conduct an onboarding and knowledge transfer session for Carlos, the new Senior Developer, covering the main concepts, technologies, and workflows used within the team. This includes an introduction to Forth, the Cordoba Portal project, current architecture and integrations, development processes, and the team's day-to-day workflow.
+
+*Acceptance Criteria*
+
+* -Overview of Forth CRM -
+* -Cordoba Portal project architecture and objectives explained-
+* -Questions addressed and relevant project documentation shared-",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;25/Jun/26 12:15 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;3600,,3600,0,3600,100%,3600,0,3600,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gc6:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,24/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,12573,HED-29,Meetings and team management,Done,25/Jun/26 9:53 AM
+P2 - Progress on AWS Developer Associate course sections - EC2,HED-1112,27198,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,24/Jun/26 12:49 PM,25/Jun/26 3:40 PM,24/Jun/26 1:01 PM,,30/Jun/26 12:00 AM,0,aws,courses,,,,,"*Description*
+Advance in the AWS Developer Associate course by completing selected sections and tracking progress. Specify the sections covered in this task to maintain visibility of learning progress.
+
+*Acceptance Criteria*
+
+* Course sections completed and listed (e.g., Fundamentals, IAM, Compute, etc.)
+* Key concepts from completed sections understood
+* Learning progress verified through course exercises or quizzes (if applicable)
+
+*Sections Progressed*
+
+* ELASTIC COMPUTE CLOUD (EC2) BASICS",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;24/Jun/26 1:23 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;1500,,18000,16500,1500,8%,18000,16500,1500,,,,,,HED-1082,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbz:r,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,22/Jun/26 12:00 AM,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,17683,HED-302,Improve Development Tooling & Collaboration Workflow,In Progress,25/Jun/26 3:40 PM
+FCRM - Add payment status to reminder emails and update upcoming payments filter,HED-1096,27182,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,23/Jun/26 10:59 AM,24/Jun/26 12:16 PM,24/Jun/26 11:37 AM,24/Jun/26 11:48 AM,23/Jun/26 12:00 AM,0,python,snowflake,,,,,"*Description*
+Update the upcoming and failed payment email templates to include the payment *status* column. Additionally, remove the filter in the upcoming payments process that only includes payments with {{Open}} and {{Pending}} statuses, allowing all relevant upcoming payments to be evaluated and displayed.
+
+*Acceptance Criteria*
+
+* -Status column added to Upcoming Payment emails-
+* -Status column added to Failed Payment emails-
+* -Payment status displayed correctly in email content-
+* -Upcoming payments query no longer restricted to {{Open}} and {{Pending}} statuses only-",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;23/Jun/26 11:00 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;8400,,10800,2400,8400,77%,10800,2400,8400,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gcg:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,23/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,27068,HED-1016,FCRM - Affiliate and Agent emails - Payment Notifier,Done,24/Jun/26 11:48 AM
+P1 - Progress on AWS Developer Associate course sections - EC2,HED-1082,27166,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,22/Jun/26 10:42 AM,25/Jun/26 3:44 PM,,25/Jun/26 3:38 PM,25/Jun/26 12:00 AM,0,aws,courses,,,,,"*Description*
+Advance in the AWS Developer Associate course by completing selected sections and tracking progress. Specify the sections covered in this task to maintain visibility of learning progress.
+
+*Acceptance Criteria*
+
+* -Course sections completed and listed (e.g., Fundamentals, IAM, Compute, etc.)-
+* -Key concepts from completed sections understood-
+* -Learning progress verified through course exercises or quizzes (if applicable)-
+
+*Sections Progressed*
+
+* ELASTIC COMPUTE CLOUD (EC2) BASICS",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;22/Jun/26 10:44 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;8400,;24/Jun/26 12:50 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;9600,18000,0,18000,100%,18000,0,18000,,,,HED-1112,,HED-1028,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gc4:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,22/Jun/26 12:00 AM,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,17683,HED-302,Improve Development Tooling & Collaboration Workflow,Done,25/Jun/26 3:38 PM
+CP - 3/3 - Android Feature Parity Review (D&S / LC / Support / Profile),HED-1081,27165,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,22/Jun/26 10:41 AM,24/Jun/26 12:16 PM,24/Jun/26 11:35 AM,24/Jun/26 12:16 PM,23/Jun/26 12:00 AM,0,android,cordobaPortal,documentation,,,,"*Description*
+
+Using the web feature inventory as the baseline, evaluate the current state of each feature of 
+
+(D&S / LC / Support / Profile) in the Android application and populate the Mobile Feature Parity Matrix.
+
+*Acceptance Criteria*
+
+* -Every web feature evaluated against the Android app-
+* -Status assigned per feature: Done, Partial, Not Started, or Blocked-
+* -Notes added for Partial and Blocked items explaining the gap-
+
+*Deliverables*
+
+[https://hiredexpertscol-my.sharepoint.com/:x:/p/miguel_diaz/IQCY6vTw_zhuT6ABbJTHV1ukAUd0Q3PjImaLtT0-TKajM3U?e=tiLFeo|https://hiredexpertscol-my.sharepoint.com/:x:/p/miguel_diaz/IQCY6vTw_zhuT6ABbJTHV1ukAUd0Q3PjImaLtT0-TKajM3U?e=tiLFeo|smart-link]
+
+*Files*
+
+[^Mobile Feature Parity Matrix - CP.xlsx] ",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;24/Jun/26 8:02 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;8400,,10800,2400,8400,77%,10800,2400,8400,,,,,,HED-1055,,,,22/Jun/26 10:41 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;Mobile Feature Parity Matrix - CP.xlsx;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17883,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gcd:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,23/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,27172,HED-1088,CP - ANDROID - Project Stabilization & Technical Alignment,Done,24/Jun/26 12:16 PM
+CP - 2/3 - Android Feature Parity Review (Creditors / Transactions / Tasks),HED-1080,27164,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,22/Jun/26 10:40 AM,24/Jun/26 11:37 AM,,24/Jun/26 11:37 AM,23/Jun/26 12:00 AM,0,android,cordobaPortal,documentation,,,,"*Description*
+
+Using the web feature inventory as the baseline, evaluate the current state of each feature of (Creditors / Transactions / Tasks) in the Android application and populate the Mobile Feature Parity Matrix.
+
+*Acceptance Criteria*
+
+* -Every web feature evaluated against the Android app-
+* -Status assigned per feature: Done, Partial, Not Started, or Blocked-
+* -Notes added for Partial and Blocked items explaining the gap-
+
+*Deliverables*
+
+[https://hiredexpertscol-my.sharepoint.com/:x:/p/miguel_diaz/IQCY6vTw_zhuT6ABbJTHV1ukAUd0Q3PjImaLtT0-TKajM3U?e=tiLFeo|https://hiredexpertscol-my.sharepoint.com/:x:/p/miguel_diaz/IQCY6vTw_zhuT6ABbJTHV1ukAUd0Q3PjImaLtT0-TKajM3U?e=tiLFeo|smart-link]
+
+*Files*
+
+[^Mobile Feature Parity Matrix - CP.xlsx]
+
+",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;23/Jun/26 1:11 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;8400,,10800,2400,8400,77%,10800,2400,8400,,,,,,HED-1054,,,,22/Jun/26 10:40 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;Mobile Feature Parity Matrix - CP.xlsx;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17882,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gcf:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,23/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,27172,HED-1088,CP - ANDROID - Project Stabilization & Technical Alignment,Done,24/Jun/26 11:37 AM
+CP - 1/3 - Android Feature Parity Review (General / Auth / Dashboard),HED-1079,27163,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,Handersson Felipe Pacheco Espitia,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,22/Jun/26 10:40 AM,23/Jun/26 8:11 AM,,23/Jun/26 8:11 AM,22/Jun/26 12:00 AM,0,android,cordobaPortal,documentation,,,,"*Description*
+
+Using the web feature inventory as the baseline, evaluate the current state of each feature of (General / Auth / Dashboard) in the iOS application and populate the Mobile Feature Parity Matrix.
+
+*Acceptance Criteria*
+
+* -Every web feature evaluated against the Android app-
+* -Status assigned per feature: Done, Partial, Not Started, or Blocked-
+* -Notes added for Partial and Blocked items explaining the gap-
+
+*Deliverables*
+
+[https://hiredexpertscol-my.sharepoint.com/:x:/p/miguel_diaz/IQCY6vTw_zhuT6ABbJTHV1ukAUd0Q3PjImaLtT0-TKajM3U?e=tiLFeo|https://hiredexpertscol-my.sharepoint.com/:x:/p/miguel_diaz/IQCY6vTw_zhuT6ABbJTHV1ukAUd0Q3PjImaLtT0-TKajM3U?e=tiLFeo|smart-link]
+
+*Files*
+
+[^Mobile Feature Parity Matrix - CP.xlsx] ",,Handersson Felipe Pacheco Espitia,,712020:bba04ff1-46ba-4373-b0a0-5581ead637b3,,;22/Jun/26 2:51 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;7800,;22/Jun/26 2:52 PM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;1200,9000,0,9000,100%,9000,0,9000,,,,,,HED-1047,,,,22/Jun/26 10:40 AM;ug:04481c67-b159-4c65-b805-5cb6878e1ff4;Mobile Feature Parity Matrix - CP.xlsx;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17881,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gcj:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,22/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,caa835a9-2c66-48c6-9227-d59ff7286b9c,Dev,,,,,,27172,HED-1088,CP - ANDROID - Project Stabilization & Technical Alignment,Done,23/Jun/26 8:11 AM
+CX - Create users for Agents & Supervisors,HED-1132,27218,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,26/Jun/26 2:50 PM,26/Jun/26 3:49 PM,26/Jun/26 2:50 PM,26/Jun/26 3:48 PM,,0,,,,,,,"CORDOBA-706681316 Daniel Pardo supervisor
+CORDOBA-730903412   Miguel Rojas supervisor
+CORDOBA-1222251617 Sebastian Rodriguez Supervisor
+CORDOBA-1191831754 Nestor Pacagaza supervisor
+[11:14 AM] CORDOBA-844427047 Laura Cortes Agente
+CORDOBA-955844132 Alejandro Reyes Agente
+CORDOBA-1195515589 - Saray Beltrán Agente
+CORDOBA-766632881 Laura Suarez agente
+
+
+
+*Deliverables*
+
+*Supervisor: Daniel Pardo*
+Name: Lisa Augustin
+ID: 706681316
+Email: [jjzicupids@yahoo.com|mailto:jjzicupids@yahoo.com]
+Password: Pa$$1234
+SSN: 058593152
+DOB: 1975-02-26
+
+*Supervisor: Miguel Rojas*
+Name: Ramona Montoya
+ID: 730903412
+Email: [montoya_ramona@yahoo.com|mailto:montoya_ramona@yahoo.com]
+Password: Pa$$1234
+SSN: 629907829
+DOB: 1971-04-04
+
+*Supervisor: Sebastian Rodriguez*
+Name: Jessie Lemon
+ID: 1222251617
+Email: [jessielemon70@yahoo.com|mailto:jessielemon70@yahoo.com]
+Password: Pa$$1234
+SSN: 238927237
+DOB: 1956-05-12",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,HED-1131,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gck:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,Done,26/Jun/26 3:48 PM
+CP - IOS - Implement localized error handling for iOS,HED-1114,27200,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,25/Jun/26 8:00 AM,26/Jun/26 3:59 PM,,,27/Jun/26 12:00 AM,0,cordobaPortal,ios,,,,,"*Descripción:* 
+
+Error messages returned by the backend include an {{errorKey}} and a fallback {{message}}. iOS currently only displays the raw message, ignoring the key. Errors should be resolved using the app's i18n system to display them in the active language, matching the behavior already implemented in the frontend.
+
+*Acceptance Criteria:*
+
+* Error responses include {{errorKey}} and are resolved to a localized string
+* Active language (ES/EN) is respected when displaying errors
+* Falls back to the backend's default message if no translation exists for the key
+* Error args (e.g. {{{minutes}}}) are interpolated in the translated string
+
+*Deliverables*",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gg7:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,25/Jun/26 12:00 AM,,"L (5) -> Characteristics:  Larger work item with multiple touchpoints.  Requires planning and careful testing. Examples: A new module, integrating an external API, partial refactoring of a component. // 1 full day",5.0,,,,,,,,,,,In Progress,26/Jun/26 7:46 AM
+Daily and welcome to Carlos,HED-1110,27196,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,24/Jun/26 11:59 AM,24/Jun/26 11:59 AM,,24/Jun/26 11:59 AM,,0,meeting,,,,,,,,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00ghv:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,Done,24/Jun/26 11:59 AM
+CP - WEB - Add password visibility toggle to login screen,HED-1108,27194,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,24/Jun/26 10:42 AM,26/Jun/26 8:19 AM,,,26/Jun/26 12:00 AM,0,cordobaPortal,frontend,react,,,,"*Descripción:*
+
+The login screen's password field does not have a way to show/hide the password, making it hard to verify input. Add a visibility toggle button to the password field so users can switch between hidden and visible text.
+
+*Acceptance Criteria:*
+
+* -Password field has an eye icon button at the end-
+* -Tapping the icon toggles between hidden ({{password}}) and visible ({{text}}) input type-
+* -Icon changes to reflect the current state (eye / eye-off)-
+* -Toggle is disabled while the form is loading-
+
+*Deliverables*
+
+[https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/20|https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/20|smart-link] ",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gfl:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,26/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,19567,HED-411,CP - Auth Section,In Progress,26/Jun/26 7:46 AM
+CP - WEB - Add environment indicator banner,HED-1100,27186,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,24/Jun/26 7:25 AM,26/Jun/26 7:46 AM,,,25/Jun/26 12:00 AM,0,cordobaPortal,frontend,ios,,,,"*Description* 
+
+There is currently no visual way to identify which environment the frontend is pointing to during development and testing. This makes it easy to accidentally test against the wrong backend or ship a build thinking it targets production when it does not. This task adds a persistent visual banner that displays the current environment (Local, Dev, Staging) and is automatically hidden in Production builds.
+
+*Acceptance Criteria*
+
+* -A banner is visible on all screens when running in Local, Dev, or Staging environments-
+* -The banner is not rendered in Production builds-
+* -The banner displays the current environment name-
+* -No code changes are required to switch the banner — it reflects the active environment automatically-
+
+*Deliverables*
+
+[https://github.com/cordoba-tech/cordoba-consumer-portal-frontend/pull/179|https://github.com/cordoba-tech/cordoba-consumer-portal-frontend/pull/179|smart-link] ",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gfj:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,24/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,19564,HED-409,CP - General Section,In Progress,26/Jun/26 7:46 AM
+CP - IOS - Add language switcher to unauthenticated screens,HED-1094,27180,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,23/Jun/26 8:22 AM,26/Jun/26 7:46 AM,24/Jun/26 11:24 AM,,25/Jun/26 12:00 AM,0,cordobaPortal,ios,,,,,"*Description* 
+
+Users had no way to change the app language before logging in. The only language switcher available was inside the profile screen, requiring authentication first. This task adds a language switcher to all screens in the unauthenticated flow so users can select their preferred language before or during login.
+
+*Acceptance Criteria*
+
+* -A language switcher is visible on all unauthenticated screens-
+* -Changing the language updates the UI immediately without requiring a restart-
+* -The selected language persists across sessions-
+
+*Deliverables*
+
+[https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/20|https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/20|smart-link] 
+
+Language switcher added to the next screens:
+
+* Login
+* Forgot Password
+* Confirm Forgot Password
+* OTP
+* Receive OTP
+* Onboarding",,Guillermo Malagón,Nicolás Díaz,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,;25/Jun/26 7:58 AM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;14400,,10800,0,14400,133%,10800,0,14400,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gff:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,24/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,24/Jun/26 11:26 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;Please remember Video/image,,,,,,,In Progress,24/Jun/26 7:22 AM
+CP - IOS - Implement support physical device on Local environment  and centralize backend URLs (Refactor),HED-1093,27179,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,23/Jun/26 8:13 AM,24/Jun/26 12:06 PM,24/Jun/26 11:11 AM,24/Jun/26 11:21 AM,23/Jun/26 12:00 AM,0,cordobaPortal,ios,,,,,"*Description*
+Backend URLs were duplicated across {{EndPointsMoya.swift}} and {{URLServicesGQL.swift}}, each maintaining its own {{#if LOCAL / STAGING / DEBUG / else}} switch. Any URL change required updating two files. Additionally, running the Local scheme on a physical device failed because {{localhost}} resolves to the device itself, not the developer's Mac.
+This task centralizes all environment base URLs into a single source of truth and enables physical device support for the Local environment using the Mac's mDNS hostname ({{.local}}), while keeping the developer-specific hostname out of the repository.
+
+*Acceptance Criteria*
+
+* -All environment base URLs are defined in a single place — no duplication across files-
+* -Switching environments requires no code changes, only selecting the corresponding Xcode scheme-
+* -The Local scheme works on both simulator and physical device-
+* -Developer-specific configuration is not committed to the repository-
+
+*Deliverables*
+
+[https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/18|https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/18|smart-link] ",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,;24/Jun/26 12:06 PM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;3600,,3600,0,3600,100%,3600,0,3600,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gcr:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,23/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,26992,HED-941,CP - IOS - Project Stabilization & Technical Alignment,Done,24/Jun/26 11:21 AM
+CP - IOS - Audit and correct keyboard types across all input fields,HED-1092,27178,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,22/Jun/26 10:14 PM,24/Jun/26 11:24 AM,24/Jun/26 11:23 AM,24/Jun/26 11:24 AM,24/Jun/26 12:00 AM,0,cordobaPortal,ios,,,,,"*Deliverables*
+
+Do a full review of all input fields in the app to identify and fix incorrect or missing keyboard type configurations.
+
+*Acceptance Criteria*
+
+* -All input fields use the appropriate{{keyboardType}}for their content (email →{{.emailAddress}}, numeric codes →{{.numberPad}}, phone →{{.phonePad}}, text →{{.default}})-
+* -Audit covers all screens including authenticated and unauthenticated flows-
+
+*Deliverables*
+
+[https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/19|https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/19|smart-link] 
+
+Changes made:
+
+||File||Field||Before||After||
+|{{LoginView}}|Username / email|{{.default}}|{{.emailAddress}}|
+|{{SetPasswordView}}|Password (both fields)|{{.emailAddress}}|{{.default}}|
+|{{ConfirmForgotPasswordView}}|Email verification code|{{.emailAddress}}|{{.numberPad}}|
+|{{FieldView}} (Tasks)|Task note|{{.alphabet}}|{{.default}}|
+|{{FieldInputView}} (ChangeEmail)|Email|{{.default}}|{{.emailAddress}}|",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,;24/Jun/26 7:21 AM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;7200,,7200,0,7200,100%,7200,0,7200,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gcl:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,23/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,Done,24/Jun/26 11:24 AM
+CP - IOS - Add environment indicator banner for non-production builds,HED-1090,27174,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,22/Jun/26 3:21 PM,26/Jun/26 10:36 AM,24/Jun/26 11:21 AM,24/Jun/26 11:23 AM,23/Jun/26 12:00 AM,0,cordobaPortal,ios,,,,,"*Description*
+
+Currently, there is no visual indicator in the app showing which backend environment is active. This makes it easy to confuse Dev, Staging, and Local builds during testing and QA. This task adds a persistent colored banner that displays the current environment name, visible in all non-production builds.
+
+*Acceptance Criteria*
+
+* -A thin banner is displayed at the bottom of the screen in all non-production builds (Local, Dev, Staging)-
+* -The banner label and color reflect the active environment:-
+
+* Local → purple / {{LOCAL}}
+* Dev → blue / {{DEV}}
+* Staging → orange / {{STAGING}}
+
+* -The banner is completely absent in Production builds — no dead code, no hidden views — excluded at compile time via {{#if !PRODUCTION}}-
+* -The banner persists across all screens and navigation transitions-
+* -Tapping or interacting with the banner does not block touches to the underlying UI-
+
+*Deliverables*
+
+[https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/18|https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/18|smart-link] ",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,;24/Jun/26 12:05 PM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;5400,;26/Jun/26 10:36 AM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;3600,,0,9000,,,0,9000,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gcn:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,23/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,26992,HED-941,CP - IOS - Project Stabilization & Technical Alignment,Done,24/Jun/26 11:23 AM
+"CP - IOS - Add Xcode schemes for each backend environment (Local, Dev, Staging, Production)",HED-1089,27173,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,22/Jun/26 3:18 PM,26/Jun/26 10:36 AM,,23/Jun/26 8:18 AM,23/Jun/26 12:00 AM,0,cordobaPortal,ios,,,,,"*Description*
+
+Currently, the iOS app has a single default scheme that points to the development backend. Developers must manually change build configurations or hardcode URLs to test against different environments. This task creates dedicated Xcode schemes for each backend environment so developers can switch environments directly from the scheme selector in Xcode.
+
+*Acceptance Criteria*
+
+* -Dedicated shared schemes exist for Local, Dev, Staging, and Production environments-
+* -Each scheme sets the correct build configuration, activating the corresponding compilation flag ({{LOCAL}}, {{DEBUG}}, {{STAGING}}, {{PRODUCTION}}) used by {{EndPointsMoya.swift}} to resolve the backend URL-
+* -Selecting a scheme and running the app hits the correct backend-
+
+*Deliverables*
+
+[https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/18|https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/18|smart-link] ",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gd5:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,23/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,26992,HED-941,CP - IOS - Project Stabilization & Technical Alignment,Done,23/Jun/26 8:18 AM
+Attend initial promotion assessment (Junior → Mid-level),HED-1084,27168,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,22/Jun/26 1:20 PM,24/Jun/26 12:06 PM,,22/Jun/26 1:21 PM,22/Jun/26 12:00 AM,0,meeting,,,,,,"*Description*
+Participate in the initial assessment meeting with Andres and the Human Resources team as part of the promotion process from *Junior* to *Mid-level*. ",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,;24/Jun/26 12:06 PM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;3600,,,0,3600,,,0,3600,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gcz:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,22/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,Done,22/Jun/26 1:21 PM
+CP - IOS - Sync Xcode App Version with Release Please on Release,HED-1083,27167,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,22/Jun/26 11:07 AM,23/Jun/26 8:21 AM,,23/Jun/26 8:11 AM,22/Jun/26 12:00 AM,0,ci/cd,cordobaPortal,DevOps,,,,"*Description*
+
+Currently, the app version displayed in the iOS app ({{MARKETING_VERSION}} in {{project.pbxproj}}) is not connected to the Release Please pipeline and must be updated manually. This task automates the sync so that every time a new release is created, the Xcode project version is updated automatically.
+
+*Acceptance Criteria*
+
+* -{{MARKETING_VERSION}} in {{project.pbxproj}} is updated automatically when Release Please creates a new release-
+* -App version displayed in the Profile screen reflects the release version-
+* -No manual version updates required after each release-
+
+*Deliverables*
+
+[https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/13|https://github.com/cordoba-tech/cordoba-consumer-portal-ios/pull/13|smart-link] ",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gd3:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,22/Jun/26 12:00 AM,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,26992,HED-941,CP - IOS - Project Stabilization & Technical Alignment,Done,23/Jun/26 8:11 AM
+CX - Test push notifications on physical iPhone,HED-1032,27084,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,12/Jun/26 9:48 AM,22/Jun/26 10:03 AM,,,,0,creditorx,xcode,,,,,"*Description*
+Collaborate with Diana to investigate and validate how to test push notifications on a physical iPhone. Set up and run the CreditorX iOS app on the device, confirm the required configuration, and verify that push notifications are received correctly.
+
+*Acceptance Criteria*
+
+* Requirements to run CreditorX on a physical iPhone identified
+* CreditorX app installed and running on the iPhone
+* Push notification testing approach defined and executed
+* Push notification behavior validated or issues documented",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fm7:0i,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,12/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,In Progress,12/Jun/26 9:49 AM
+CP - Configure dev.cordobalegal.com and activate full dev environment,HED-965,27016,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,01/Jun/26 10:02 AM,22/Jun/26 10:03 AM,,,,0,cordobaPortal,DevOps,,,,,"*Description*
+
+The dev environment cluster is fully deployed and healthy but {{dev.cordobalegal.com}} is not publicly accessible because the domain's DNS is still managed by GoDaddy instead of Route53. The Route53 hosted zone already has all the necessary records configured.
+
+*Acceptance Criteria*
+
+* Nameservers of {{cordobalegal.com}} updated in GoDaddy to point to Route53 ({{ns-115.awsdns-14.com}}, {{ns-1313.awsdns-36.org}}, {{ns-1740.awsdns-25.co.uk}}, {{ns-867.awsdns-44.net}})
+* Frontend dev ingress updated with host {{dev.cordobalegal.com}} and TLS — PR merged to {{develop}}
+* {{dev.cordobalegal.com}} accessible via browser — frontend carga correctamente
+* Backend APIs responden en {{dev.cordobalegal.com/api/v1/...}}
+
+*Deliverables*",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,;01/Jun/26 10:11 AM;ug:50bcf24e-3767-41ce-8a3c-5d78e3e203a2;3600,,7200,3600,3600,50%,7200,3600,3600,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fm7:,,,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,01/Jun/26 12:00 AM,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,19564,HED-409,CP - General Section,In Progress,01/Jun/26 10:11 AM
+CP - Implement Google Analytics in Login section,HED-866,26659,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,Nicolás Díaz,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,13/May/26 1:20 PM,22/Jun/26 10:03 AM,,,,0,analytics,cordobaPortal,,,,,"*Description*
+Implement Google Analytics tracking in the Login section to begin evaluating how GA4 behaves within Cordoba Portal. The goal is to understand what metrics and events can be collected, explore the available analytics capabilities, and learn how to configure and use the GA4 admin panel.
+
+*Acceptance Criteria*
+
+* Google Analytics integrated in the Login section
+* Login-related events successfully tracked in GA4
+* Initial metrics and event behavior reviewed and documented
+* GA4 admin configuration explored and validated
+* Findings and potential next steps documented for future analytics implementation
+
+*Deliverables*",,Nicolás Díaz,,712020:70eb7cf2-a1d1-4b9e-9abd-a028bde7187c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fm5:,,,Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,"L (5) -> Characteristics:  Larger work item with multiple touchpoints.  Requires planning and careful testing. Examples: A new module, integrating an external API, partial refactoring of a component. // 1 full day",5.0,,,,,,,,,,,In Progress,22/May/26 9:13 AM
+CX - Android - Update UI password creation tip for specials chars,HED-1071,27155,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/Jun/26 9:54 AM,26/Jun/26 11:51 AM,26/Jun/26 10:04 AM,,,0,,,,,,,"Check which are the special chars that are enabled and show it and validate it in the UI.
+
+
+*Other possible views:*
+
+* First login
+* Password recovery (email with temporary password, and then another VIEW asking for the new pass)
+* Account / Change your password
+
+!image-20260619-145414.png|width=471,alt=""image-20260619-145414.png""!",,Guillermo Malagón,rhiraldo,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,,,,,,,,,,,,,,,HED-1070,,,,19/Jun/26 9:54 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;image-20260619-145414.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17878,,,,,,,,,,,,,,,"{pullrequest={dataType=pullrequest, state=OPEN, stateCount=1}, json={""cachedValue"":{""errors"":[],""summary"":{""pullrequest"":{""overall"":{""count"":1,""lastUpdated"":""2026-06-25T16:13:22.000-0500"",""stateCount"":1,""state"":""OPEN"",""dataType"":""pullrequest"",""open"":true},""byInstanceType"":{""GitHub"":{""count"":1,""name"":""GitHub""}}}}},""isStale"":true}}",,,,,,,,,,,,,0|i00ga3:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,26/Jun/26 11:51 AM;712020:fd36cadf-9806-42d0-93a9-02002d8431e5;[~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] this is ready for testing,,,,,,,In Progress,24/Jun/26 9:48 AM
+"CX - When a numbers is unblocked from the admin web interface, its still shown in the iphone suggested numbers (It shouldn't)",HED-1011,27063,Bug,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,10/Jun/26 10:27 AM,24/Jun/26 10:07 AM,24/Jun/26 10:05 AM,,,0,creditorx,php,Swift,,,,"AC
+
+* Full process works (Verify, unblocked)
+* The list should be refreshed depending on the status",,Guillermo Malagón,rhiraldo,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00g8n:,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,"23/Jun/26 2:06 PM;712020:fd36cadf-9806-42d0-93a9-02002d8431e5;[~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] after tracking down this bug it looks it cannot be replicated, probably it is a misunderstood issue.",24/Jun/26 10:07 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;[~accountid:712020:aa58d0f0-01dc-4b39-bab7-538a16905fea] and [~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] will test this today,,,,,,In Progress,22/Jun/26 9:21 AM
+CX - Checking testing form,HED-898,26886,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,21/May/26 10:51 AM,22/Jun/26 10:03 AM,,,,0,creditorx,QA,,,,,"URL:  [https://dianaovski.github.io/Checklist-CreditorX/|https://dianaovski.github.io/Checklist-CreditorX/|smart-link] 
+
+AC
+
+* Test & feedback",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i006bs:r,,,Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,,,,,,,,In Progress,03/Jun/26 10:18 AM
+CX - Create an account or access for the iOS App Store for Joey,HED-567,22315,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,24/Mar/26 11:19 AM,22/Jun/26 10:03 AM,,,,0,,,,,,,"[joeym@cordobalegal.com|mailto:joeym@cordobalegal.com]
+
+!2026-03-24_11-03-47-20260324-160347.png|width=624,alt=""2026-03-24_11-03-47-20260324-160347.png""!",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,HED-568,,,,,,24/Mar/26 11:20 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;2026-03-24_11-03-47-20260324-160347.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/16640,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i006bs:,,,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,In Progress,26/Mar/26 8:17 AM
+SPIKE Automate iOS alerts and notifications,HED-507,21165,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,High,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,11/Mar/26 10:21 AM,22/Jun/26 10:03 AM,,,,0,android,DevOps,,,,,"Check store, insights, etc
+
+Output:
+
+# Propose how we can monitor this app",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,HED-506,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i006bn:,,,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,16/Mar/26 10:32 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;[~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] Ask John Firebase access,,,,,,,In Progress,12/Mar/26 12:58 PM
+Slack - Deleting Redis groups,HED-1113,27199,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,24/Jun/26 4:56 PM,24/Jun/26 5:09 PM,,24/Jun/26 5:09 PM,,0,,,,,,,"Jhonnatan requested delete the following groups from redis:
+
+[CAMPAIGN_DR_AMITY|https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/groupId/e4874e75-87ee-4df3-b22a-a29f04f9dc30/menuId/]
+[CAMPAIGN_DR_AMITY_AGENTS|https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/groupId/04efb49e-5657-45bc-9c74-b00ea5c527f8/menuId/]
+[CAMPAIGN_DR_AMITY_MANAGER|https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/groupId/3985d028-ba91-49a5-ae23-016032f69619/menuId/]
+[CAMPAIGN_DR_AMITY_SUPERVISOR|https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/groupId/a9047c16-0b4c-45fe-a268-6e9ecc86d587/menuId/]
+
+[CAMPAIGN_DR_PICALLEX|https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/groupId/e51ba342-b236-4400-8adc-cad64fd1f3c8]
+[CAMPAIGN_DR_PICALLEX_AGENTS|https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/groupId/dff3ac22-5ccd-4e2f-8595-c796daa5b133]
+[CAMPAIGN_DR_PICALLEX_MANAGER|https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/groupId/d92fd35c-4df4-45fc-b27a-0f35befee42e]
+[CAMPAIGN_DR_PICALLEX_SUPERVISOR|https://entra.microsoft.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/groupId/ab0e3733-5a90-4747-baca-f2313b38032a]",,rhiraldo,,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gij:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,24/Jun/26 5:09 PM
+Reviewing Diana changes,HED-1105,27191,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,24/Jun/26 9:09 AM,24/Jun/26 9:45 AM,,24/Jun/26 9:45 AM,,0,,,,,,,,,rhiraldo,,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00ggz:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,24/Jun/26 9:45 AM
+SA - SPIKE - Research about delete channel new feature.,HED-1069,27153,Task,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,19/Jun/26 9:32 AM,22/Jun/26 10:03 AM,,,,0,,,,,,,,,rhiraldo,,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00g9n:,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,"XL (8) -> Characteristics:  High-effort, high-uncertainty task.  Touches several areas and often requires coordination.  Ideally split into smaller stories before entering a sprint. Examples: Rewriting a module, complex feature development //  2 days or m",8.0,,,,,,,,,,,To Do,19/Jun/26 9:32 AM
+CX - BUG - when user click in is first login in some device it take too long and sometimes the app get frozen,HED-894,26882,Task,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,rhiraldo,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,20/May/26 4:03 PM,22/Jun/26 10:03 AM,,,,0,,,,,,,,,Guillermo Malagón,rhiraldo,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:fd36cadf-9806-42d0-93a9-02002d8431e5,,,,,,,,,,,,,,,,,,,26/May/26 7:58 AM;ug:0cd04935-75db-4721-b765-de9e1ded8e91;image-20260526-125750.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17772,,,,,,,,,,,,,,,"{pullrequest={dataType=pullrequest, state=MERGED, stateCount=1}, json={""cachedValue"":{""errors"":[],""summary"":{""pullrequest"":{""overall"":{""count"":1,""lastUpdated"":""2026-05-25T15:46:07.000-0500"",""stateCount"":1,""state"":""MERGED"",""dataType"":""pullrequest"",""open"":false},""byInstanceType"":{""GitHub"":{""count"":1,""name"":""GitHub""}}}}},""isStale"":true}}",,,,,,,,,,,,,0|i006bs:i,,,Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,"L (5) -> Characteristics:  Larger work item with multiple touchpoints.  Requires planning and careful testing. Examples: A new module, integrating an external API, partial refactoring of a component. // 1 full day",5.0,,,,"26/May/26 7:58 AM;712020:fd36cadf-9806-42d0-93a9-02002d8431e5;[~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] i am getting this error when i try to publish in the apple store
+
+
+!image-20260526-125750.png|width=650,alt=""image-20260526-125750.png""!
+
+looks like the account holder has to approve something",05/Jun/26 10:05 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;[~accountid:712020:d12130d0-f565-4c14-8aa1-bf94b2ff133a] shared via whatsapp,,,,,,In Progress,20/May/26 4:03 PM
+SPIKE - CX - Backend - Database registers SSN & DOB are hasshed,HED-1107,27193,Task,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Highest,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,24/Jun/26 10:31 AM,26/Jun/26 10:48 AM,26/Jun/26 10:55 AM,,,0,creditorx,php,,,,,* Password recovery is broken because of this.,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,HED-1106,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gh3:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,,,,,,,,To Do,24/Jun/26 10:31 AM
+CX - Backend - Database registers SSN & DOB are hasshed,HED-1106,27192,Bug,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Highest,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,24/Jun/26 10:28 AM,24/Jun/26 10:34 AM,24/Jun/26 10:34 AM,,,0,creditorx,php,,,,,* Password recovery is broken because of this.,,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,HED-1107,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gh7:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,,,,,,,,To Do,24/Jun/26 10:28 AM
+CX - iOS - Check this with Diana,HED-1095,27181,Task,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,23/Jun/26 10:27 AM,23/Jun/26 10:29 AM,26/Jun/26 10:47 AM,,,0,,,,,,,"When all the USDD Commands are send and accepted by the user, there should appear a check (is not) before the “Proceed” Button [~accountid:712020:aa58d0f0-01dc-4b39-bab7-538a16905fea] 
+
+!image-20260623-152734.png|width=470,alt=""image-20260623-152734.png""!",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,,,,,23/Jun/26 10:29 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;image-20260623-152734.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17892,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gfn:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,,,,,,,,To Do,23/Jun/26 10:27 AM
+CX - iOS Update UI password creation tip for specials chars (First Login),HED-1070,27154,Task,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/Jun/26 9:52 AM,26/Jun/26 8:01 AM,24/Jun/26 10:09 AM,,,0,,,,,,,"Check this functionality in *First Login* - Check which are the special chars that are enabled and show it and validate it in the UI.
+
+Other possible views:
+
+* First login
+* Password recovery (email with temporary password, and then another VIEW asking for the new pass)
+* Account / Change your password
+
+!image-20260619-145414.png|width=471,alt=""image-20260619-145414.png""!
+
+The following input should also be modified as it should not be editable.
+
+!image-20260626-130056.png|width=216,alt=""image-20260626-130056.png""!",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,HED-1071,,,,,,19/Jun/26 9:54 AM;ug:19396aee-ef88-4418-9346-06b8acfed7b2;image-20260619-145414.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17877,26/Jun/26 8:01 AM;ug:19396aee-ef88-4418-9346-06b8acfed7b2;image-20260626-130056.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17899,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fc6:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,To Do,24/Jun/26 12:06 PM
+"CX - New Feature for Logging, Who verified or reject which number (latest verified, rejected)",HED-1064,27148,Task,IN REVIEW / QA,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/Jun/26 9:12 AM,24/Jun/26 12:06 PM,26/Jun/26 10:47 AM,,,0,,,,,,,"New table with this info?
+
+e.g: 
+
+* agent_id, number, creditor_id, status, update_dateTime 
+* 111, +1345343434, 23, verified, 12-12-12 12:22:22
+* 111, +1777343434, 23, rejected, 12-12-12 12:20:22
+
+
+
+cx yy – 1234. //.   agenteA rej (rejected_by).  //. agenteB verif (verified_by).  //. agenteZ (rejected_by).
+
+
+*DEV NOTES:*
+
+Two new fields have been added to the creditors_phone table to fulfill this requirement (verified_by, rejected_by).
+
+* *verified_by*: records the ID of the admin who verified the number 
+* *rejected_by*: records the ID of the admin who rejected the number
+
+For testing. Log in to the Creditor X admin panel:
+
+* STG: [https://adminpanel.dev.cbma.vvtdev.com/login|https://adminpanel.dev.cbma.vvtdev.com/login|smart-link]  →  can [~accountid:712020:aa58d0f0-01dc-4b39-bab7-538a16905fea]  access this database.
+* PRD: [https://adminpanel.creditorx.com/login|https://adminpanel.creditorx.com/login|smart-link] 
+
+Block or Reject a number → Look for the Database if the records have been updated in the databases.
+
+*NOTES*: For testing purposes, we suggest to test this changes in STG environment, since these changes are only live in STG.",,Guillermo Malagón,Samil Vargas,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"{pullrequest={dataType=pullrequest, state=MERGED, stateCount=1}, json={""cachedValue"":{""errors"":[],""summary"":{""pullrequest"":{""overall"":{""count"":1,""lastUpdated"":""2026-06-23T12:29:36.000-0500"",""stateCount"":1,""state"":""MERGED"",""dataType"":""pullrequest"",""open"":false},""byInstanceType"":{""GitHub"":{""count"":1,""name"":""GitHub""}}}}},""isStale"":true}}",,,,,,,,,,,,,0|i00g8r:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,"24/Jun/26 10:18 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;# [~accountid:712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4] please create a user in DEV for me, thx
+# Link to the confluence page where we can find Kazoo & DB Access (STG, PRD)",24/Jun/26 10:26 AM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;[~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] kazoo credentials: [https://hiredexperts.atlassian.net/wiki/spaces/crx/pages/504594437/Kazoo+MonsterUI+admin+panel+-+Credentials|https://hiredexperts.atlassian.net/wiki/spaces/crx/pages/504594437/Kazoo+MonsterUI+admin+panel+-+Credentials|smart-link] ,24/Jun/26 11:52 AM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;DB credentials: [https://hiredexperts.atlassian.net/wiki/spaces/crx/pages/509018113/CreditorX+-+Database+Credentials|https://hiredexperts.atlassian.net/wiki/spaces/crx/pages/509018113/CreditorX+-+Database+Credentials|smart-link]  [~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] ,24/Jun/26 12:06 PM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;Sent through DM: [https://cordobalegal.enterprise.slack.com/archives/D09QVQGCP27/p1782320739269209|https://cordobalegal.enterprise.slack.com/archives/D09QVQGCP27/p1782320739269209|smart-link] ,,,,In Progress,23/Jun/26 11:06 AM
+SPIKE - CX - Create a (webhook-endpoint) for the agents to update phoneNumber and Email,HED-1063,27147,Task,In Progress,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Highest,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,19/Jun/26 9:06 AM,26/Jun/26 3:50 PM,26/Jun/26 11:14 AM,,,0,,,,,,,"*DIAGNOSE THIS REQ FIRST*
+
+Sync Number and Email from ForthCRM
+
+[~accountid:712020:bba04ff1-46ba-4373-b0a0-5581ead637b3] [~accountid:712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4] 
+
+* -{color:#36b37e}Webhook from FORTHCRM when a user phoneNumber or Email is updated ----{color}{color:#36b37e}*Felipe will do it!!*{color}
+[https://hiredexperts.atlassian.net/browse/HED-1133?atlOrigin=eyJpIjoiNjBjMGQzNjk3MzI2NGRhYTkxY2Y0ZDY4NDFmZTc3ODAiLCJwIjoiaiJ9|https://hiredexperts.atlassian.net/browse/HED-1133?atlOrigin=eyJpIjoiNjBjMGQzNjk3MzI2NGRhYTkxY2Y0ZDY4NDFmZTc3ODAiLCJwIjoiaiJ9|smart-link] -
+* {color:#36b37e}How to update {color}{color:#36b37e}*email*{color}{color:#36b37e} (password recovery). - CreditorX DATABASE{color}
+* How to update phoneNumber (CreditorX DB, Kazoo BD) → New Kazoo
+** If the user changes the phone number, will he lose everything or?
+** About the voicemails, we can copy and paste to the new account inside Kazoo, CreditorX
+* *FIRST LOGIN* {color:#ff5630}*(BUG: before Feb3/2026 fields DOB, SSN are hashed)*{color}
+* {color:#36b37e}EndPoint that receives and sync info - (check with {color}[~accountid:712020:fd36cadf-9806-42d0-93a9-02002d8431e5]{color:#36b37e} what services to use from AWS) - Only email{color}
+
+
+
+*NOTE: Remember that Kazoos DB should also be updated, We should test that this doesn't broke anything*",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fcp:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"L (5) -> Characteristics:  Larger work item with multiple touchpoints.  Requires planning and careful testing. Examples: A new module, integrating an external API, partial refactoring of a component. // 1 full day",5.0,,,,,,,,,,,In Progress,24/Jun/26 12:07 PM
+CP - Backend / Access to Database for Issues clasification,HED-751,24939,Task,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,27/Apr/26 8:33 AM,22/Jun/26 10:03 AM,,,,0,,,,,,,"The idea is to have access to the DB to confirm information about the customers that already exists on our side or on FORTHCRM’s side and compare.
+
+----
+
+G: What is the process to query that DB? We need to validate before sending you the tickets.
+S: To connect to the DB, you have to create a bridge to the Bastion server, and then from the command line you create the connection to the database.
+For this, you need the .PEM file for that server
+
+* ",,Guillermo Malagón,,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,,,,,,,,,,,,,HED-752,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fcn:,,,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,,,,,22787,HED-591,CX - General/Back Issues,To Do,13/May/26 3:47 PM
+Chat with @Diana - Login bug in DEV env,HED-1130,27216,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,26/Jun/26 11:01 AM,26/Jun/26 11:01 AM,,26/Jun/26 11:01 AM,,0,,,,,,,,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbd:0i,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,26/Jun/26 11:01 AM
+Standup meeting - Jun/26,HED-1129,27215,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,26/Jun/26 11:00 AM,26/Jun/26 11:00 AM,,26/Jun/26 11:00 AM,,0,,,,,,,,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbd:1,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,26/Jun/26 11:00 AM
+DevOps Training courses,HED-1121,27207,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,25/Jun/26 4:33 PM,25/Jun/26 4:34 PM,,25/Jun/26 4:34 PM,,0,,,,,,,,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbd:2,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,,,,,,,,Done,25/Jun/26 4:34 PM
+CX - iOS Login chat with @Diana,HED-1117,27203,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,25/Jun/26 8:45 AM,25/Jun/26 8:45 AM,,25/Jun/26 8:45 AM,,0,,,,,,,,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbd:4,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,25/Jun/26 8:45 AM
+Ticket Creation - Weekly Time spent,HED-1116,27202,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,25/Jun/26 8:34 AM,25/Jun/26 8:34 AM,,25/Jun/26 8:34 AM,,0,,,,,,,,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbd:9,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,25/Jun/26 8:34 AM
+Daily Standup meeting - June/24,HED-1109,27195,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,24/Jun/26 10:53 AM,24/Jun/26 10:55 AM,,24/Jun/26 10:55 AM,,0,,,,,,,,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbd:i,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"XS (1) ->  Characteristics:  Ultra-light task with zero complexity.  No dependencies.  Minimal risk; quick win. Examples: Text adjustments, minor UI tweaks, fixing a trivial bug // Up to 1-2 hour",1.0,,,,,,,,,,,Done,24/Jun/26 10:55 AM
+CX - Update user's DOB and SSN,HED-1104,27190,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,24/Jun/26 9:06 AM,24/Jun/26 9:55 AM,,24/Jun/26 9:55 AM,,0,backend,database,research,,,,"Our users stored before 2026-feb-03 stores the dob and ssn as hashed values. After that date the backend code has been updating these values as plain text.
+
+
+Currently, our user ID: 652 can’t use the forgot password feature since the code doesn’t match when the date or ssn is introduced.
+
+
+
+*AC*:
+
+Update the SSN and DOB of the user 652.",,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbe:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,"24/Jun/26 9:19 AM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;*ssn*: eyJpdiI6InBVSWl1ZnR2YnEzay9OTlNRcW5Hcnc9PSIsInZhbHVlIjoiWFR1Tmp4T3J3c3ZXTDZyTnJCT2kyUT09IiwibWFjIjoiM2IwZTk5YmQzYTMwNzM0ODUyZjZiMmFiMTAwYWYwOTIwMjA1NGFiMDc4NzFmZTgyMWVkYTg4NDVjNDUzYjUzZCIsInRhZyI6IiJ9
+*dob*:
+eyJpdiI6IlYya2ZmRjRPSisrcUswUlFqcEh4dHc9PSIsInZhbHVlIjoia0NmQTB1d1EvY1RPNDBhcDM2SStkUT09IiwibWFjIjoiMWRlYzE4MTU0ZmI0MTRlNjQ1Njc4YTFlNWFhYjY2OWJhMjdlZmIxNjQ2YTMyMDZhNDNkY2VhMTZjNjM4MzRiZSIsInRhZyI6IiJ9
+
+*contact_id*:
+
+1179549050","24/Jun/26 9:21 AM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;*dob*: {{1974-03-07}}
+
+*ssn*: {{6167}}",,,,,,Done,24/Jun/26 9:55 AM
+Chat with @Diana - DOB and SSN hashed values,HED-1103,27189,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,24/Jun/26 9:01 AM,24/Jun/26 9:01 AM,,24/Jun/26 9:01 AM,,0,,,,,,,,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbv:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,24/Jun/26 9:01 AM
+Daily Standup meeting - June/22,HED-1078,27162,Task,Done,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,Done,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,22/Jun/26 9:50 AM,23/Jun/26 11:05 AM,,23/Jun/26 11:05 AM,,0,,,,,,,,,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gbf:,,,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",2.0,,,,,,,,,,,Done,23/Jun/26 11:05 AM
+"CX - Document the ""Synchronize Creditors"" action (CX Admin)",HED-851,26452,Story,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,12/May/26 2:33 PM,22/Jun/26 10:03 AM,,,,0,confluence,creditorx,documentation,,,,"CX - Document the ""Synchronize Creditors"" action (CX Admin)
+
+AC:
+- Create a Confluence with the documentation related to the Sync Creditors actions.",,Guillermo Malagón,Samil Vargas,712020:313307ce-3202-4da7-b5a3-adcbee32f188,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00fcj:,,,Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",3.0,,,,13/May/26 10:42 AM;712020:313307ce-3202-4da7-b5a3-adcbee32f188;Consumes FORTHAPI - for each customer creditors list,,,,,,,To Do,12/May/26 2:33 PM
+CX - iOS - After checking of setting up the USSD Codes there should appear a checkbox,HED-1087,27171,Task,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,,,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,Diana Maribel Adarme Dominguez,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,22/Jun/26 2:39 PM,24/Jun/26 10:40 AM,24/Jun/26 10:37 AM,,,0,,,,,,,"!image-20260624-154001.png|width=694,alt=""image-20260624-154001.png""!",,Diana Maribel Adarme Dominguez,,712020:aa58d0f0-01dc-4b39-bab7-538a16905fea,,,,,,,,,,,,,,,,,,,,24/Jun/26 10:40 AM;ug:0ef31130-bcb1-4b60-ad5c-e9a1b0283936;image-20260624-154001.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/17894,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00gdn:,,,Sprint 16 - CX F/I CP fbk,,,,,,,,,,,,"S (2) -> Characteristics:  Simple task with a few steps involved.  Low effort and low risk. Examples: A basic endpoint, a small component update, adding validation. // 2–3 hours ",,,,,,,,,,,,To Do,24/Jun/26 10:40 AM
+[CreditorX-Android]: OTP Bug - deleting a number in the otp field sometimes crashes the input field,HED-488,20762,Bug,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,03/Mar/26 9:54 AM,22/Jun/26 10:03 AM,,,,0,android,bug,creditorx,,,,"When selecting a box to delete or edit (in case of a mistake), it sometimes glitches and does not allow editing or adding values 
+
+Excel: [https://hiredexpertscol-my.sharepoint.com/:x:/p/handersson_pacheco/IQC9nNyhupeZQ4J1KPdz25kzAdnMhy1MNehBKDfCW0138Ls?rtime=uScAyoB43kg|https://hiredexpertscol-my.sharepoint.com/:x:/p/handersson_pacheco/IQC9nNyhupeZQ4J1KPdz25kzAdnMhy1MNehBKDfCW0138Ls?rtime=uScAyoB43kg|smart-link] 
+
+
+
+cc: [~accountid:712020:bba04ff1-46ba-4373-b0a0-5581ead637b3] , [~accountid:712020:313307ce-3202-4da7-b5a3-adcbee32f188] ",,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00dqv:,,,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,,"M (3) ->  Characteristics:  Standard development task that requires focused work.  May include 1–2 dependencies or light analysis. Examples: A simple CRUD, moderate logic, integrating a service with straightforward behavior. // Around 5 hours",,,,,,,,,,,,To Do,03/Mar/26 9:54 AM
+[CreditorX]: Android unknown error on dashboard screen,HED-477,20462,Bug,BLOCKED,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,26/Feb/26 9:28 AM,22/Jun/26 10:03 AM,,,,0,android,bug,creditorx,,,,"Currently, the Android app for CreditorX is prompting an error message when users log into their dashboard. It seems like the error is happening when the user changes to different sections.
+
+This is the error:
+
+!image-20260225-212320.png|width=570,alt=""image-20260225-212320.png""!
+
+
+
+AC:
+
+* Fix what’s causing this error to prompt. ",,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,HED-497,HED-504,,,,,,,26/Feb/26 9:28 AM;ug:0d082c3a-7274-47c5-86cd-05526dd268f7;image-20260225-212320.png;https://hiredexperts.atlassian.net/rest/api/3/attachment/content/16270,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i006bk:i,,,Sprint 7 - CX Android App - CP,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 11 - CP + CX Issu 3,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,"XL (8) -> Characteristics:  High-effort, high-uncertainty task.  Touches several areas and often requires coordination.  Ideally split into smaller stories before entering a sprint. Examples: Rewriting a module, complex feature development //  2 days or m",,,,,"06/Mar/26 1:41 PM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;The issue is due to this endpoint:
+
+URL: [http://3.139.18.35/v2/user_auth|http://3.139.18.35/v2/user_auth]
+Method: PUT
+Protocol: http/1.1
+Status: Complete
+Response: 401 Unauthorized
+SSL: No
+
+Request time: Fri Mar 06 15:30:07 AST 2026
+Response time: Fri Mar 06 15:30:07 AST 2026
+Duration: 103 ms
+
+Request size: 88 B
+Response size: 256 B
+Total size: 344 B
+
+---------- Request ----------
+
+Content-Type: application/json
+X-Auth-Token: 
+
+{
+  ""data"": {
+    ""credentials"": ""842f13f93d840ce28a91fd24cd894b9d"",
+    ""account_name"": ""18103487306""
+  }
+}
+
+---------- Response ----------
+
+Server: nginx/1.20.1
+Date: Fri, 06 Mar 2026 19:30:08 GMT
+Content-Type: application/json
+Content-Length: 256
+Connection: keep-alive
+access-control-allow-headers: content-type, depth, user-agent, x-http-method-override, x-file-size, x-requested-with, if-modified-since, x-file-name, cache-control, x-auth-token, x-kazoo-cluster-id, if-match
+access-control-allow-methods: OPTIONS, PUT
+access-control-allow-origin: *
+access-control-expose-headers: content-type, x-auth-token, x-request-id, x-kazoo-cluster-id, location, etag, etag
+access-control-max-age: 86400
+content-language: en
+vary: accept-language, accept
+x-request-id: fb037d60e8a8f7a8be2977d2bfe20ca2
+
+{
+  ""data"": {
+    ""message"": ""invalid credentials""
+  },
+  ""error"": ""401"",
+  ""message"": ""invalid_credentials"",
+  ""status"": ""error"",
+  ""timestamp"": ""2026-03-06T19:30:08Z"",
+  ""version"": ""4.3.143"",
+  ""node"": ""CAdRS24UjW_6BQNmGVUKgA"",
+  ""request_id"": ""fb037d60e8a8f7a8be2977d2bfe20ca2"",
+  ""auth_token"": """"
+}",10/Mar/26 12:30 PM;712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4;Blocked by: [https://hiredexperts.atlassian.net/browse/HED-497|https://hiredexperts.atlassian.net/browse/HED-497|smart-link] ,,,,,,In Progress,01/Apr/26 8:40 AM
+ OTP Flow Testing QA & Validation,HED-448,19759,Story,To Do,HED,Hired Experts Dev,software,Guillermo Malagón,712020:313307ce-3202-4da7-b5a3-adcbee32f188,,Medium,,,,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,Samil Vargas,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,17/Feb/26 8:13 AM,22/Jun/26 10:03 AM,,,,0,creditorx,kotlin,,,,,"Final testing and UX refinements.
+
+h3. *Scope*
+
+* Manual testing (happy path + edge cases)
+
+h3. *ACs*
+
+* No UI glitches
+* No broken flows
+* Verified against backend contract
+* Ready for release",,Samil Vargas,,712020:dac1dce4-8aa1-4b7e-8cd4-12205fb8c6e4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,{},,,,,,,,,,,,,0|i00dkf:,,,Sprint 7 - CX Android App - CP,Sprint 8 - CX Apps & MVP CP,Sprint 9 - Web MVP,Sprint 10 - CP MVP + CX Issues,Sprint 12 - CP+CX Issues (D+G),Sprint 13 - CX (I+F+C) CP tst,Sprint 14 - CX feedbk CP feedb,Sprint 15 - CX fbk CP fbk,Sprint 16 - CX F/I CP fbk,,,,"L (5) -> Characteristics:  Larger work item with multiple touchpoints.  Requires planning and careful testing. Examples: A new module, integrating an external API, partial refactoring of a component. // 1 full day",5.0,,,,,,,,,,,To Do,17/Feb/26 8:13 AM
