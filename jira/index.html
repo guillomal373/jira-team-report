@@ -222,12 +222,20 @@
                         </div>
                     </div>
                 </div>
-                <p class="matrix-empty" data-matrix-message>Loading matrix...</p>
-                <div class="matrix-table-wrap">
-                    <table id="storypoint-matrix-table" class="matrix-table">
-                        <thead></thead>
-                        <tbody></tbody>
-                    </table>
+                <div class="matrix-insights-grid">
+                    <div class="matrix-chart-panel">
+                        <p class="matrix-empty" data-matrix-message>Loading matrix...</p>
+                        <div class="trend-subtag trend-subtag--chart">Done tasks by estimate size</div>
+                        <div class="matrix-stacked-chart">
+                            <canvas id="storypointStackedChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="matrix-chart-panel">
+                        <div class="trend-subtag trend-subtag--chart">Tasks vs Avg SP / Task</div>
+                        <div class="matrix-bubble-chart">
+                            <canvas id="storypointBubbleChart"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

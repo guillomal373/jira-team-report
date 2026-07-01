@@ -36,6 +36,8 @@ let sprintMemberChart = null;
 let sprintSummaryChart = null;
 let memberSummaryChart = null;
 let sprint3SummaryChart = null;
+let storyPointStackedChart = null;
+let storyPointBubbleChart = null;
 const memberPalette = ['#c9a85c', '#4b8cff', '#6ec5ff', '#f5d469', '#ff5f56', '#7de1c3'];
 let statusChartInstance = null;
 let teamCache = [];
@@ -1346,17 +1348,212 @@ function renderStoryPointMatrix(table, header, rows) {
         return;
     }
 
-    thead.innerHTML = `<tr>${header.map((cell, idx) =>
-        `<th class="${idx === 0 ? 'matrix-sticky' : 'matrix-number'}">${escHtml(cell || `Col ${idx + 1}`)}</th>`
-    ).join('')}</tr>`;
+    thead.innerHTML = `<tr>${header.map((cell, idx) => {
+        const className = idx === 0
+            ? 'matrix-sticky'
+            : idx === 1 || idx === 2
+                ? 'matrix-number matrix-summary'
+                : 'matrix-number';
+        return `<th class="${className}">${escHtml(cell || `Col ${idx + 1}`)}</th>`;
+    }).join('')}</tr>`;
 
     tbody.innerHTML = rows.map(row =>
         `<tr>${row.map((cell, idx) => {
             if (idx === 0) return `<th class="matrix-sticky">${escHtml(cell)}</th>`;
+            if (idx === 1 || idx === 2) return `<td class="matrix-number matrix-summary">${escHtml(cell)}</td>`;
             const hot = (Number(cell) || 0) > 0 ? ' matrix-cell--hot' : '';
             return `<td class="matrix-number${hot}">${escHtml(cell)}</td>`;
         }).join('')}</tr>`
     ).join('');
+}
+
+function renderStoryPointStackedChart(canvas, stackedData = null) {
+    if (!canvas || typeof Chart === 'undefined') return;
+    if (storyPointStackedChart) {
+        storyPointStackedChart.destroy();
+        storyPointStackedChart = null;
+    }
+
+    const labels = stackedData?.labels || [];
+    const datasets = stackedData?.datasets || [];
+    if (!labels.length || !datasets.length) return;
+
+    storyPointStackedChart = new Chart(canvas, {
+        type: 'bar',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#d7d7d7',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    backgroundColor: 'rgba(26, 26, 26, 0.95)',
+                    borderColor: '#c9a85c',
+                    borderWidth: 1,
+                    titleColor: '#c9a85c',
+                    bodyColor: '#ffffff',
+                    callbacks: {
+                        label: context => {
+                            if (context.datasetIndex !== 0) return null;
+                            const memberIndex = context.dataIndex;
+                            const rows = (context.chart.data.datasets || [])
+                                .map(dataset => ({
+                                    label: dataset.label,
+                                    value: Number(dataset.data?.[memberIndex]) || 0
+                                }))
+                                .filter(row => row.value > 0);
+                            const total = rows.reduce((sum, row) => sum + row.value, 0);
+                            return [
+                                `Total tasks: ${total}`,
+                                ...rows.map(row => `${row.label}: ${row.value} tasks`)
+                            ];
+                        }
+                    }
+                }
+            },
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                    ticks: {
+                        color: '#9e9e9e',
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of tasks',
+                        color: '#c9a85c',
+                        font: { family: 'Roboto Condensed', size: 12, weight: 'bold' }
+                    },
+                    ticks: {
+                        color: '#9e9e9e',
+                        precision: 0,
+                        font: {
+                            family: 'Roboto Condensed',
+                            size: 11,
+                            weight: 'bold'
+                        }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                }
+            }
+        }
+    });
+}
+
+function renderStoryPointBubbleChart(canvas, bubbleData = []) {
+    if (!canvas || typeof Chart === 'undefined') return;
+    if (storyPointBubbleChart) {
+        storyPointBubbleChart.destroy();
+        storyPointBubbleChart = null;
+    }
+
+    const points = (bubbleData || []).filter(point => (Number(point.tasks) || 0) > 0);
+    if (!points.length) return;
+
+    const maxTasks = Math.max(...points.map(point => Number(point.tasks) || 0), 1);
+    const maxAverage = Math.max(...points.map(point => Number(point.average) || 0), 1);
+
+    storyPointBubbleChart = new Chart(canvas, {
+        type: 'bubble',
+        data: {
+            datasets: [{
+                label: 'Members',
+                data: points.map(point => ({
+                    x: point.tasks,
+                    y: point.average,
+                    r: point.radius,
+                    member: point.member,
+                    totalPoints: point.totalPoints
+                })),
+                backgroundColor: points.map(point => `${point.color}99`),
+                borderColor: points.map(point => point.color),
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(26, 26, 26, 0.95)',
+                    borderColor: '#c9a85c',
+                    borderWidth: 1,
+                    titleColor: '#c9a85c',
+                    bodyColor: '#ffffff',
+                    displayColors: false,
+                    callbacks: {
+                        title: items => items?.[0]?.raw?.member || 'Member',
+                        label: context => {
+                            const raw = context.raw || {};
+                            return [
+                                `Tasks: ${raw.x || 0}`,
+                                `Avg SP / Task: ${formatVelocityValue(raw.y || 0)}`,
+                                `Total SP: ${formatVelocityValue(raw.totalPoints || 0)}`
+                            ];
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    suggestedMax: maxTasks + 1,
+                    title: {
+                        display: true,
+                        text: 'Tasks number',
+                        color: '#c9a85c',
+                        font: { family: 'Roboto Condensed', size: 12, weight: 'bold' }
+                    },
+                    ticks: {
+                        color: '#9e9e9e',
+                        precision: 0,
+                        font: { family: 'Roboto Condensed', size: 11, weight: 'bold' }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                },
+                y: {
+                    beginAtZero: true,
+                    suggestedMax: maxAverage + 1,
+                    title: {
+                        display: true,
+                        text: 'Avg SP / Task',
+                        color: '#c9a85c',
+                        font: { family: 'Roboto Condensed', size: 12, weight: 'bold' }
+                    },
+                    ticks: {
+                        color: '#9e9e9e',
+                        font: { family: 'Roboto Condensed', size: 11, weight: 'bold' }
+                    },
+                    grid: { color: 'rgba(255,255,255,0.08)' }
+                }
+            }
+        }
+    });
 }
 
 function buildLabelMapFromCsv(rows = [], aliasMap = new Map()) {
@@ -1434,6 +1631,15 @@ function formatStoryPointDisplayLabel(rawLabel = '') {
     return `${size} (${displayValue})`;
 }
 
+function parseStoryPointValue(rawLabel = '') {
+    const label = String(rawLabel || '').trim();
+    const numericPattern = /^[0-9]+([.,][0-9]+)?$/;
+    if (!numericPattern.test(label)) return null;
+
+    const value = Number(label.replace(',', '.'));
+    return Number.isFinite(value) ? value : null;
+}
+
 function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
     if (!rows.length) return { header: [], rows: [], total: 0, reason: 'empty' };
 
@@ -1458,9 +1664,17 @@ function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
     const activeMembers = getActiveMembers(teamMembers);
     const activeNames = activeMembers.map(member => member?.name).filter(Boolean);
     const activeNameSet = new Set(activeNames);
+    const memberColorMap = new Map(
+        (teamMembers || []).map((member, idx) => [
+            member?.name,
+            member?.color || memberPalette[idx % memberPalette.length] || '#c9a85c'
+        ])
+    );
 
     const countsByMember = new Map();
     const totalsByMember = new Map();
+    const pointsByMember = new Map();
+    const estimatedTasksByMember = new Map();
     const storyPointSet = new Set();
     let total = 0;
 
@@ -1484,6 +1698,13 @@ function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
         counts.set(pointsLabel, (counts.get(pointsLabel) || 0) + 1);
         countsByMember.set(canonical, counts);
         totalsByMember.set(canonical, (totalsByMember.get(canonical) || 0) + 1);
+
+        const numericPoints = parseStoryPointValue(rawPoints);
+        if (numericPoints !== null) {
+            pointsByMember.set(canonical, (pointsByMember.get(canonical) || 0) + numericPoints);
+            estimatedTasksByMember.set(canonical, (estimatedTasksByMember.get(canonical) || 0) + 1);
+        }
+
         total += 1;
     });
 
@@ -1502,14 +1723,52 @@ function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
         return a.localeCompare(b, 'es', { sensitivity: 'base' });
     });
 
-    const matrixRows = sortedMembers.map(name => {
+    const bubbleData = [];
+    const matrixRows = sortedMembers.map((name, idx) => {
         const counts = countsByMember.get(name) || new Map();
+        const estimatedTasks = estimatedTasksByMember.get(name) || 0;
+        const totalPoints = pointsByMember.get(name) || 0;
+        const average = estimatedTasks ? totalPoints / estimatedTasks : 0;
+        const displayAverage = formatVelocityValue(average);
+        const taskCount = totalsByMember.get(name) || 0;
         const values = sortedPoints.map(point => counts.get(point) || 0);
-        return [name, ...values];
+        bubbleData.push({
+            member: name,
+            tasks: taskCount,
+            average,
+            totalPoints,
+            radius: Math.max(7, Math.min(24, 6 + Math.sqrt(totalPoints) * 1.6)),
+            color: memberColorMap.get(name) || memberPalette[idx % memberPalette.length] || '#c9a85c'
+        });
+        return [name, taskCount, displayAverage, ...values];
     });
 
     const displayPoints = sortedPoints.map(formatStoryPointDisplayLabel);
-    return { header: ['Member', ...displayPoints], rows: matrixRows, total };
+    const stackedData = {
+        labels: sortedMembers,
+        datasets: sortedPoints.map((point, idx) => {
+            const size = getStoryPointSizeLabel(point);
+            const color = size
+                ? storyPointSizeColorMap[size]
+                : memberPalette[idx % memberPalette.length] || '#9e9e9e';
+            return {
+                label: displayPoints[idx] || String(point || `Size ${idx + 1}`),
+                data: sortedMembers.map(name => countsByMember.get(name)?.get(point) || 0),
+                backgroundColor: `${color}cc`,
+                borderColor: color,
+                borderWidth: 1,
+                stack: 'story-point-size'
+            };
+        })
+    };
+
+    return {
+        header: ['Member', 'Tasks number', 'Avg SP / Task', ...displayPoints],
+        rows: matrixRows,
+        total,
+        bubbleData,
+        stackedData
+    };
 }
 
 function parseCsvDate(value = '') {
@@ -2382,13 +2641,17 @@ async function loadCsvTable(csvPathOverride) {
 
 async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = []) {
     const table = document.getElementById('storypoint-matrix-table');
+    const stackedCanvas = document.getElementById('storypointStackedChart');
+    const bubbleCanvas = document.getElementById('storypointBubbleChart');
     const messageEl = document.querySelector('[data-matrix-message]');
     const countEl = document.querySelector('[data-matrix-count]');
-    if (!table) return;
+    if (!table && !stackedCanvas && !bubbleCanvas) return;
 
     if (messageEl) messageEl.textContent = 'Loading matrix...';
     if (csvPathOverride === null) {
         renderStoryPointMatrix(table, [], []);
+        renderStoryPointStackedChart(stackedCanvas, null);
+        renderStoryPointBubbleChart(bubbleCanvas, []);
         if (countEl) countEl.textContent = '0';
         if (messageEl) {
             messageEl.style.display = 'block';
@@ -2402,6 +2665,8 @@ async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = [
         const normalizedRows = await loadCsvRows(csvPath);
         if (!normalizedRows.length) {
             renderStoryPointMatrix(table, [], []);
+            renderStoryPointStackedChart(stackedCanvas, null);
+            renderStoryPointBubbleChart(bubbleCanvas, []);
             if (messageEl) {
                 messageEl.style.display = 'block';
                 messageEl.textContent = 'No records available.';
@@ -2410,8 +2675,10 @@ async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = [
             return;
         }
 
-        const { header, rows, total, reason } = buildStoryPointMatrixFromCsvRows(normalizedRows, teamMembers);
+        const { header, rows, total, reason, bubbleData, stackedData } = buildStoryPointMatrixFromCsvRows(normalizedRows, teamMembers);
         renderStoryPointMatrix(table, header, rows);
+        renderStoryPointStackedChart(stackedCanvas, stackedData);
+        renderStoryPointBubbleChart(bubbleCanvas, bubbleData);
         if (countEl) countEl.textContent = String(total || 0);
         if (messageEl) {
             if (rows.length) {
@@ -2427,6 +2694,8 @@ async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = [
     } catch (error) {
         console.error('Error loading story point matrix:', error);
         renderStoryPointMatrix(table, [], []);
+        renderStoryPointStackedChart(stackedCanvas, null);
+        renderStoryPointBubbleChart(bubbleCanvas, []);
         if (messageEl) {
             messageEl.style.display = 'block';
             messageEl.textContent = 'Unable to load the matrix.';
