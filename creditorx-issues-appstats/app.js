@@ -38,7 +38,7 @@ const DEFAULT_VISIBLE_COLUMN_NAMES = [
 const ISSUE_THEME_CONFIG = window.CREDITORX_ISSUE_THEME_CONFIG ?? {};
 const ISSUE_THEME_RULES = ISSUE_THEME_CONFIG.rules ?? [];
 const FALLBACK_ISSUE_THEME = ISSUE_THEME_CONFIG.fallbackTheme ?? {
-  label: "Other / Needs Review",
+  label: "Other / Needs AI Review",
   shortLabel: "Other",
   keywords: [],
 };
@@ -89,6 +89,7 @@ const STATUS_CLASS_MAP = {
   new: "status-new",
   triage: "status-triage",
   "call agent (additional information)": "status-call-agent",
+  "returned - insufficient information": "status-call-agent",
   "in queue": "status-in-queue",
   "in progress": "status-in-progress",
   completed: "status-completed",
@@ -100,6 +101,7 @@ const STATUS_SUMMARY_ORDER = [
   "New",
   "Triage",
   "Call Agent (Additional information)",
+  "Returned - Insufficient Information",
   "In queue",
   "In progress",
   "Completed",
@@ -111,6 +113,7 @@ const STATUS_COLOR_MAP = {
   new: "#525252",
   triage: "#7e2ba1",
   "call agent (additional information)": "#ad7104",
+  "returned - insufficient information": "#ad7104",
   "in queue": "#0e87d7",
   "in progress": "#1aa8ee",
   completed: "#11a86a",
@@ -1984,7 +1987,7 @@ function renderTopicInsights(rows, headers) {
       ? 0
       : (analysis.automaticallyGroupedCount / analysis.issueTextCount) * 100;
 
-  topicsSubtitle.textContent = `Top 10 issue topics from reported issue text for ${describeDateRangeSelection()}.`;
+  topicsSubtitle.textContent = `AI-assisted issue clusters from reported issue text for ${describeDateRangeSelection()}.`;
   topicsRankingTotal.textContent = `${analysis.issueTextCount.toLocaleString("en-US")} Issues`;
   topicsGroupingCoverage.textContent = `${coverage.toFixed(0)}% Covered`;
   topicsBars.replaceChildren();
@@ -2062,25 +2065,25 @@ function renderTopicInsights(rows, headers) {
 
   const metrics = [
     {
-      label: "Grouped",
+      label: "AI Grouped",
       value: analysis.automaticallyGroupedCount.toLocaleString("en-US"),
       description:
-        "Issues automatically assigned to one of the defined topic groups using keyword signals from the reported issue text.",
+        "Issues assigned to one of the AI-assisted topic clusters using language signals from the reported issue text.",
     },
     {
-      label: "Review",
+      label: "AI Review",
       value: Math.max(
         0,
         analysis.issueTextCount - analysis.automaticallyGroupedCount
       ).toLocaleString("en-US"),
       description:
-        "Issues with reported text that did not match the current grouping rules and should be reviewed manually.",
+        "Issues with reported text that did not match the current AI-assisted clusters and should be reviewed.",
     },
     {
       label: "Themes",
       value: analysis.entries.length.toLocaleString("en-US"),
       description:
-        "Total topic groups currently represented in the selected data, including the manual review bucket when present.",
+        "Total AI-assisted topic clusters currently represented in the selected data, including the review bucket when present.",
     },
   ];
 
@@ -2135,8 +2138,8 @@ function renderTopicInsights(rows, headers) {
     signals.className = "topics-grouping__signals";
     signals.textContent =
       entry.signals.length > 0
-        ? `Signals: ${entry.signals.join(", ")}`
-        : "Signals: manual review needed";
+        ? `AI signals: ${entry.signals.join(", ")}`
+        : "AI signals: review needed";
 
     title.append(label, count);
     item.append(title, signals);
@@ -2155,7 +2158,7 @@ function renderSelectedThemeTickets(selectedEntry) {
   header.className = "topics-top-tickets__header";
 
   const title = document.createElement("h4");
-  title.textContent = "Issues linked to selected theme";
+  title.textContent = "Issues linked to selected AI theme";
 
   const theme = document.createElement("span");
   theme.textContent = `${selectedEntry.label} · ${selectedEntry.count} issue${selectedEntry.count === 1 ? "" : "s"}`;
