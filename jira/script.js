@@ -45,6 +45,8 @@ const memberStatusCharts = new Map();
 const excludedAverageNames = ['Guillermo Malagón'];
 const isActiveMember = (member = {}) => member?.active !== false;
 const getActiveMembers = (members = []) => (members || []).filter(isActiveMember);
+let selectedMemberNames = new Set();
+let isMemberFilterInitialized = false;
 const normalizeStatusKey = (status = '') => String(status || '').trim().replace(/\s+/g, ' ').toLowerCase();
 const isCompletedStatus = (status = '') => completedStatusKeys.has(normalizeStatusKey(status));
 let labelMapByAssigneeCurrent = new Map();
@@ -62,6 +64,79 @@ const csvTableState = {
     visibleColumns: new Set()
 };
 let explicitAssigneeAliases = new Map();
+
+function getSelectedTeamMembers(teamMembers = teamCache) {
+    const activeMembers = getActiveMembers(teamMembers);
+    if (!isMemberFilterInitialized) return activeMembers;
+    return activeMembers.filter(member => selectedMemberNames.has(member?.name));
+}
+
+function getSelectedMemberNameSet(teamMembers = teamCache) {
+    return new Set(getSelectedTeamMembers(teamMembers).map(member => member?.name).filter(Boolean));
+}
+
+function getFilteredSprintMembers(members = [], selectedNames = getSelectedMemberNameSet()) {
+    const activeMembers = getActiveMembers(members);
+    if (!selectedNames || !selectedNames.size) return [];
+    return activeMembers.filter(member => selectedNames.has(member?.name));
+}
+
+function hasNoSelectedMembers(teamMembers = []) {
+    return isMemberFilterInitialized && !getActiveMembers(teamMembers).length;
+}
+
+function buildMemberFilter(teamMembers = [], onChange = () => {}) {
+    const optionsEl = document.querySelector('[data-member-filter-options]');
+    const allButton = document.querySelector('[data-member-filter-all]');
+    const clearButton = document.querySelector('[data-member-filter-clear]');
+    if (!optionsEl) return;
+
+    const activeMembers = getActiveMembers(teamMembers);
+    if (!isMemberFilterInitialized) {
+        selectedMemberNames = new Set(activeMembers.map(member => member?.name).filter(Boolean));
+        isMemberFilterInitialized = true;
+    }
+
+    optionsEl.innerHTML = activeMembers.map(member => {
+        const name = member?.name || '';
+        const checked = selectedMemberNames.has(name) ? ' checked' : '';
+        return `
+            <label class="member-filter__option">
+                <input type="checkbox" value="${escHtml(name)}"${checked}>
+                <span>${escHtml(name)}</span>
+            </label>
+        `;
+    }).join('');
+
+    const syncSelection = () => {
+        selectedMemberNames = new Set(
+            Array.from(optionsEl.querySelectorAll('input[type="checkbox"]:checked'))
+                .map(input => input.value)
+                .filter(Boolean)
+        );
+        onChange();
+    };
+
+    optionsEl.addEventListener('change', syncSelection);
+    if (allButton && !allButton.dataset.bound) {
+        allButton.addEventListener('click', () => {
+            optionsEl.querySelectorAll('input[type="checkbox"]').forEach(input => {
+                input.checked = true;
+            });
+            syncSelection();
+        });
+        allButton.dataset.bound = 'true';
+    }
+    if (clearButton && !clearButton.dataset.bound) {
+        clearButton.addEventListener('click', () => {
+            optionsEl.querySelectorAll('input[type="checkbox"]').forEach(input => {
+                input.checked = false;
+            });
+            syncSelection();
+        });
+        clearButton.dataset.bound = 'true';
+    }
+}
 
 const trendDeltaLabelPlugin = {
     id: 'trendDeltaLabelPlugin',
@@ -1108,11 +1183,6 @@ async function loadSprintTrends() {
         selectEl.innerHTML = optionsHtml;
         selectEl.value = String(optionsSource.length - 1);
 
-        if (sprints.length) {
-            renderSprintSummaries(sprints);
-            loadSprint3SummaryChart(sprintMeta, teamCache);
-        }
-
         const resolveSprintData = (idx) => {
             const metaEntry = optionsSource[idx] || null;
             if (!metaEntry) return { metaEntry: null, sprint: null };
@@ -1124,12 +1194,16 @@ async function loadSprintTrends() {
             const requestId = ++sprintOverviewRequestId;
             const idx = Number(selectEl.value) || 0;
             const { metaEntry, sprint } = resolveSprintData(idx);
+            const filteredTeam = getSelectedTeamMembers(teamCache);
             updateSprintOverview(metaEntry, sprint);
             updateMetricsForSprint(sprint);
-            updateStatusOverview(sprint);
-            updateWorkloadForSprint(sprint);
-            updateMemberStatusesForSprint(sprint);
-            await updateMemberVelocityForSprint(sprint, metaEntry, teamCache);
+            updateStatusOverview(sprint, filteredTeam);
+            updateWorkloadForSprint(sprint, filteredTeam);
+            updateMemberStatusesForSprint(sprint, filteredTeam);
+            renderSprintSummaries(sprints, filteredTeam);
+            loadSprint3SummaryChart(sprintMeta, filteredTeam);
+            loadCsvStatusSummaryForAllSprints(sprintMeta, filteredTeam);
+            await updateMemberVelocityForSprint(sprint, metaEntry, filteredTeam);
             if (metaEntry?.csvFile) {
                 const csvPath = `./data/${metaEntry.csvFile}`;
                 loadCsvRows(csvPath)
@@ -1142,12 +1216,12 @@ async function loadSprintTrends() {
                         console.warn('Unable to load CSV for sprint overview:', csvPath, error);
                     });
                 loadCsvTable(csvPath);
-                loadCsvMemberTrendForSprint(csvPath, teamCache);
-                loadCsvStoryPointMatrixForSprint(csvPath, teamCache);
+                loadCsvMemberTrendForSprint(csvPath, filteredTeam);
+                loadCsvStoryPointMatrixForSprint(csvPath, filteredTeam);
             } else {
                 loadCsvTable(null);
-                loadCsvMemberTrendForSprint(null, teamCache);
-                loadCsvStoryPointMatrixForSprint(null, teamCache);
+                loadCsvMemberTrendForSprint(null, filteredTeam);
+                loadCsvStoryPointMatrixForSprint(null, filteredTeam);
             }
         };
 
@@ -1155,8 +1229,8 @@ async function loadSprintTrends() {
             loadAccumulatedWordClouds(sprintMeta);
         }
         updateHighestMemberVelocity(sprintMeta, teamCache);
-        loadCsvStatusSummaryForAllSprints(sprintMeta, teamCache);
 
+        buildMemberFilter(teamCache, render);
         selectEl.addEventListener('change', render);
         render();
     } catch (error) {
@@ -1642,6 +1716,7 @@ function parseStoryPointValue(rawLabel = '') {
 
 function buildStoryPointMatrixFromCsvRows(rows = [], teamMembers = []) {
     if (!rows.length) return { header: [], rows: [], total: 0, reason: 'empty' };
+    if (hasNoSelectedMembers(teamMembers)) return { header: [], rows: [], total: 0, reason: 'no-data' };
 
     const header = rows[0].map(cell => String(cell || '').trim());
     const assigneeIndex = getAssigneeIndex(header);
@@ -1831,6 +1906,7 @@ function getSprintDayCountFromCsvRows(rows = []) {
 
 function buildTrendDataFromCsvRows(rows = [], teamMembers = []) {
     if (!rows.length) return null;
+    if (hasNoSelectedMembers(teamMembers)) return null;
 
     const header = rows[0].map(cell => String(cell || '').trim());
     const headerLower = header.map(cell => cell.toLowerCase());
@@ -1912,6 +1988,7 @@ function buildTrendDataFromCsvRows(rows = [], teamMembers = []) {
 
 function buildStatusTotalsFromCsvRows(rows = [], teamMembers = []) {
     if (!rows.length) return { counts: {}, states: [] };
+    if (hasNoSelectedMembers(teamMembers)) return { counts: {}, states: [] };
 
     const header = rows[0].map(cell => String(cell || '').trim());
     const headerLower = header.map(cell => cell.toLowerCase());
@@ -1956,6 +2033,7 @@ function buildStatusTotalsFromCsvRows(rows = [], teamMembers = []) {
 
 function buildMemberDatasetsFromCsvRows(rows = [], teamMembers = []) {
     if (!rows.length) return { labels: [], datasets: [] };
+    if (hasNoSelectedMembers(teamMembers)) return { labels: [], datasets: [] };
 
     const header = rows[0].map(cell => String(cell || '').trim());
     const headerLower = header.map(cell => cell.toLowerCase());
@@ -2224,6 +2302,7 @@ function getStoryPointIndex(header = []) {
 
 function buildMemberDoneTotalsFromCsvRows(rows = [], teamMembers = []) {
     if (!rows.length) return null;
+    if (hasNoSelectedMembers(teamMembers)) return new Map();
 
     const header = rows[0].map(cell => String(cell || '').trim());
     const assigneeIndex = getAssigneeIndex(header);
@@ -2869,6 +2948,7 @@ function getStoryPointSizeLabel(rawValue = '') {
 
 function buildSprintMemberSizeDatasetsFromCsvRows(rows = [], teamMembers = []) {
     if (!rows.length) return { labels: [], datasets: [], reason: 'empty' };
+    if (hasNoSelectedMembers(teamMembers)) return { labels: [], datasets: [], reason: 'no-data' };
 
     const header = rows[0].map(cell => String(cell || '').trim());
     const assigneeIndex = getAssigneeIndex(header);
@@ -3199,14 +3279,14 @@ async function updateHighestMemberVelocity(sprintMeta = [], teamMembers = []) {
     });
 }
 
-function aggregateStatusBySprint(sprints = []) {
+function aggregateStatusBySprint(sprints = [], teamMembers = teamCache) {
     const labels = [];
     const countsBySprint = [];
     const seenStates = new Set();
 
     sprints.forEach(sprint => {
         labels.push(sprint?.name || 'Sprint');
-        const { counts } = computeSprintStatusCounts(sprint);
+        const { counts } = computeSprintStatusCounts(sprint, teamMembers);
         countsBySprint.push(counts);
         Object.keys(counts).forEach(key => seenStates.add(key));
     });
@@ -3233,10 +3313,11 @@ function aggregateStatusBySprint(sprints = []) {
     return { labels, datasets };
 }
 
-function buildMemberSummaryDatasets(sprints = []) {
+function buildMemberSummaryDatasets(sprints = [], teamMembers = teamCache) {
     const allNames = new Set();
+    const selectedNames = getSelectedMemberNameSet(teamMembers);
     sprints.forEach(sprint => {
-        getActiveMembers(sprint?.members).forEach(member => allNames.add(member.name));
+        getFilteredSprintMembers(sprint?.members, selectedNames).forEach(member => allNames.add(member.name));
     });
 
     const nameColorMap = Object.fromEntries((teamCache || []).map(m => [m.name, m.color]));
@@ -3247,7 +3328,7 @@ function buildMemberSummaryDatasets(sprints = []) {
         const totals = [];
 
         sprints.forEach(sprint => {
-            const member = getActiveMembers(sprint?.members).find(m => m.name === name);
+            const member = getFilteredSprintMembers(sprint?.members, selectedNames).find(m => m.name === name);
             const latestEntry = getLatestStatusEntry(member);
             const done = getCompletedStoryPointsFromEntry(latestEntry);
             const total = latestEntry
@@ -3435,19 +3516,21 @@ function renderMemberSummaryChart(canvas, labels, datasets) {
     });
 }
 
-function renderSprintSummaries(sprints = []) {
+function renderSprintSummaries(sprints = [], teamMembers = teamCache) {
     if (!Array.isArray(sprints) || !sprints.length) return;
-    const statusData = aggregateStatusBySprint(sprints);
-    const memberData = buildMemberSummaryDatasets(sprints);
+    const statusData = aggregateStatusBySprint(sprints, teamMembers);
+    const memberData = buildMemberSummaryDatasets(sprints, teamMembers);
     renderSprintSummaryChart(document.getElementById('sprintSummaryChart'), statusData.labels, statusData.datasets);
     renderMemberSummaryChart(document.getElementById('memberSummaryChart'), statusData.labels, memberData);
 }
 
-function computeSprintStatusCounts(sprint) {
+function computeSprintStatusCounts(sprint, teamMembers = teamCache) {
     if (!sprint) return { counts: {}, total: 0, latestDate: null };
 
     let latestDate = null;
-    getActiveMembers(sprint.members).forEach(member => {
+    const selectedNames = getSelectedMemberNameSet(teamMembers);
+    const members = getFilteredSprintMembers(sprint.members, selectedNames);
+    members.forEach(member => {
         (member.statuses || []).forEach(entry => {
             if (!entry.date) return;
             if (!latestDate || entry.date > latestDate) {
@@ -3458,7 +3541,7 @@ function computeSprintStatusCounts(sprint) {
 
     const counts = {};
     if (latestDate) {
-        getActiveMembers(sprint.members).forEach(member => {
+        members.forEach(member => {
             const entry = (member.statuses || []).find(s => s.date === latestDate);
             if (!entry) return;
             Object.keys(entry).forEach(key => {
@@ -3473,12 +3556,13 @@ function computeSprintStatusCounts(sprint) {
     return { counts, total, latestDate };
 }
 
-function computeSprintWorkload(sprint) {
-    const { latestDate } = computeSprintStatusCounts(sprint);
+function computeSprintWorkload(sprint, teamMembers = teamCache) {
+    const { latestDate } = computeSprintStatusCounts(sprint, teamMembers);
     const tasksByName = {};
     if (!latestDate) return tasksByName;
 
-    getActiveMembers(sprint.members).forEach(member => {
+    const selectedNames = getSelectedMemberNameSet(teamMembers);
+    getFilteredSprintMembers(sprint.members, selectedNames).forEach(member => {
         const entry = (member.statuses || []).find(s => s.date === latestDate);
         if (!entry) return;
         const total = Object.keys(entry).reduce((sum, key) => {
@@ -3492,9 +3576,9 @@ function computeSprintWorkload(sprint) {
     return tasksByName;
 }
 
-function updateStatusOverview(sprint) {
+function updateStatusOverview(sprint, teamMembers = teamCache) {
     if (!statusChartInstance) return;
-    const { counts, total } = computeSprintStatusCounts(sprint);
+    const { counts, total } = computeSprintStatusCounts(sprint, teamMembers);
     const order = statusOrder;
     const dataset = statusChartInstance.data.datasets?.[0];
     if (dataset) {
@@ -3511,18 +3595,22 @@ function updateStatusOverview(sprint) {
     });
 }
 
-function updateWorkloadForSprint(sprint) {
-    if (!teamCache || !teamCache.length) return;
-    const taskOverride = computeSprintWorkload(sprint);
-    renderWorkload(teamCache, taskOverride);
+function updateWorkloadForSprint(sprint, teamMembers = teamCache) {
+    if (!teamMembers || !teamMembers.length) {
+        renderWorkload([], {});
+        return;
+    }
+    const taskOverride = computeSprintWorkload(sprint, teamMembers);
+    renderWorkload(teamMembers, taskOverride);
 }
 
-function updateMemberStatusesForSprint(sprint) {
+function updateMemberStatusesForSprint(sprint, teamMembers = teamCache) {
     if (!sprint || !teamCache.length) return;
 
     // Determine latest date per sprint (reusing workload logic)
     const latestByName = {};
-    getActiveMembers(sprint.members).forEach(member => {
+    const selectedNames = getSelectedMemberNameSet(teamMembers);
+    getFilteredSprintMembers(sprint.members, selectedNames).forEach(member => {
         let latestEntry = null;
         (member.statuses || []).forEach(entry => {
             if (!entry.date) return;

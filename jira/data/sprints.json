@@ -764,6 +764,19 @@
       "blockersRisks": [],
       "scopeChanges": [],
       "recommendations": []
+    },
+    {
+      "name": "Sprint 17 - CX Launch v2",
+      "period": "2026-07-06 to 2026-07-20",
+      "csvFile": "sprints-csv/Sprint 17 Summary export (Jira).csv",
+      "description": "Creditor X - Re Launch\n- Issues - Agents page\n\nCordoba Portal\n- Check feedback and create a database to discuss with the stakeholder\n- Web conclusions about the feedbacks to implement on Mobile\n- Plan and start Mobile.\n\nFCRM\n-\n\nNEGOTIATIONS\n- Write requirements, discuss requirements with Julian, Be accept it by Sergio.",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     }
   ]
 }

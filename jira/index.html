@@ -165,9 +165,21 @@
             </div>
         </section> -->
 
-        <div class="sprint-filter">
-            <label for="globalSprintSelect">Current sprint</label>
-            <select id="globalSprintSelect"></select>
+        <div class="report-filters">
+            <label class="sprint-filter" for="globalSprintSelect">
+                <span>Current sprint</span>
+                <select id="globalSprintSelect"></select>
+            </label>
+            <div class="member-filter" aria-labelledby="member-filter-title">
+                <div class="member-filter__header">
+                    <span id="member-filter-title">Members</span>
+                    <div class="member-filter__actions">
+                        <button type="button" data-member-filter-all>All</button>
+                        <button type="button" data-member-filter-clear>Clear</button>
+                    </div>
+                </div>
+                <div class="member-filter__options" data-member-filter-options></div>
+            </div>
         </div>
 
         <!-- <section class="metrics">
