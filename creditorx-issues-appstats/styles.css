@@ -1345,6 +1345,43 @@ a.topics-top-tickets__link:focus-visible {
   text-shadow: none;
 }
 
+.topics-grouping__playbook {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(205, 170, 86, 0.18);
+  text-transform: none;
+  text-shadow: none;
+}
+
+.topics-grouping__playbook-label {
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.topics-grouping__playbook-group {
+  display: grid;
+  gap: 3px;
+}
+
+.topics-grouping__playbook-group strong {
+  font-size: 0.84rem;
+  line-height: 1.15;
+  color: #f1f1f1;
+}
+
+.topics-grouping__playbook-group span,
+.topics-grouping__playbook-empty {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--text-soft);
+}
+
 .records-filter {
   display: flex;
   align-items: center;

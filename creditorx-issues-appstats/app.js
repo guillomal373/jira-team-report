@@ -79,6 +79,10 @@ const columnsReset = document.getElementById("columns-reset");
 
 let tableHeaders = [];
 let allRows = [];
+let issueThemeHeaders = [];
+let issueThemeRows = [];
+let issueThemeSourceCount = 0;
+let issueThemeThroughDateLabel = "";
 let dateSortDirection = "desc";
 let visibleColumns = new Set();
 let timelineTooltip = null;
@@ -126,6 +130,134 @@ const PLATFORM_COLOR_MAP = {
   Android: "#11a86a",
   iOS: "#1aa8ee",
   Unknown: "#696969",
+};
+const PLAYBOOK_THEME_MATCHES = {
+  "First Login": [
+    {
+      category: "First Login",
+      articles: [
+        "First time steps",
+        "Forth's CRM phone number is a landline number",
+        "Associated phone number is missing",
+        "Account already created",
+        "Invalid credentials — Account ID (External ID)",
+        "They cannot create the password",
+      ],
+    },
+  ],
+  Login: [
+    {
+      category: "Login",
+      articles: [
+        "Does not know the username",
+        "Reset password",
+        "Update email or phone number",
+        "Frozen screen or screen that suddenly closes",
+      ],
+    },
+  ],
+  "Phone Number & External Data": [
+    {
+      category: "First Login",
+      articles: [
+        "Associated phone number is missing",
+        "Forth's CRM phone number is a landline number",
+      ],
+    },
+    {
+      category: "Login",
+      articles: ["Update email or phone number"],
+    },
+  ],
+  "Verification Code & Message Delivery": [
+    {
+      category: "First Login",
+      articles: ["First time steps"],
+    },
+    {
+      category: "Login",
+      articles: ["Reset password", "Update email or phone number"],
+    },
+  ],
+  "Identity Validation & DOB": [
+    {
+      category: "First Login",
+      articles: [
+        "First time steps",
+        "Invalid credentials — Account ID (External ID)",
+      ],
+    },
+    {
+      category: "Login",
+      articles: ["Reset password"],
+    },
+  ],
+  "USSD & Carrier Setup": [
+    {
+      category: "Redirecting Setup",
+      articles: [
+        "Carriers and Providers",
+        "Sending USSD commands",
+        "USSD codes — checkbox cannot be clicked",
+        "Calls are not being forwarded",
+      ],
+    },
+  ],
+  "Call Blocking & Creditor Numbers": [
+    {
+      category: "Redirecting Setup",
+      articles: [
+        "Verify or reject a phone number",
+        "Calls are not being forwarded",
+        "Sending USSD commands",
+      ],
+    },
+  ],
+  "App Flow, Buttons & Freezes": [
+    {
+      category: "Login",
+      articles: ["Frozen screen or screen that suddenly closes"],
+    },
+    {
+      category: "Redirecting Setup",
+      articles: ["USSD codes — checkbox cannot be clicked"],
+    },
+  ],
+  "Install, Reinstall & App Version": [
+    {
+      category: "Login",
+      articles: ["Frozen screen or screen that suddenly closes"],
+    },
+    {
+      category: "Voicemails",
+      articles: ["Can't find my voicemails", "Can't hear my voicemails"],
+    },
+    {
+      category: "General",
+      articles: ["When they indicate errors but without information"],
+    },
+  ],
+  "Contacts & Device Permissions": [
+    {
+      category: "Redirecting Setup",
+      articles: [
+        "Calls are not being forwarded",
+        "USSD codes — checkbox cannot be clicked",
+      ],
+    },
+  ],
+  "Generic Error & Missing Details": [
+    {
+      category: "General",
+      articles: ["When they indicate errors but without information"],
+    },
+  ],
+  "Other / Needs AI Review": [
+    {
+      category: "General",
+      articles: ["When they indicate errors but without information"],
+    },
+  ],
 };
 
 function parseCsv(text) {
@@ -727,7 +859,26 @@ async function loadCsvFile(fileUrl) {
   };
 }
 
-function mergeDatasets(datasets) {
+function getEndOfToday() {
+  const today = new Date();
+  today.setHours(23, 59, 59, 999);
+  return today;
+}
+
+function getDatasetsThroughToday(datasets) {
+  const endOfToday = getEndOfToday().getTime();
+
+  return datasets.filter((dataset) => {
+    if (!Number.isFinite(dataset.sourceTimestamp)) {
+      return true;
+    }
+
+    return dataset.sourceTimestamp <= endOfToday;
+  });
+}
+
+function mergeDatasets(datasets, options = {}) {
+  const { latestOnly = true } = options;
   const mergedHeaders = [];
   const seenHeaders = new Set();
 
@@ -802,7 +953,7 @@ function mergeDatasets(datasets) {
   });
 
   const mergedRows = [...consolidatedIssues.entries()]
-    .filter(([identityKey]) => latestIssueKeys.has(identityKey))
+    .filter(([identityKey]) => !latestOnly || latestIssueKeys.has(identityKey))
     .map(([, issue]) => issue.row);
 
   return {
@@ -1863,6 +2014,41 @@ function getTopWords(textEntries, limit = 4) {
     .map(([word]) => word);
 }
 
+function renderPlaybookMatches(themeLabel) {
+  const matches = PLAYBOOK_THEME_MATCHES[themeLabel] ?? [];
+  const wrapper = document.createElement("div");
+  wrapper.className = "topics-grouping__playbook";
+
+  const heading = document.createElement("span");
+  heading.className = "topics-grouping__playbook-label";
+  heading.textContent = "Playbook matches";
+  wrapper.appendChild(heading);
+
+  if (matches.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "topics-grouping__playbook-empty";
+    empty.textContent = "No playbook category mapped yet.";
+    wrapper.appendChild(empty);
+    return wrapper;
+  }
+
+  matches.forEach((match) => {
+    const group = document.createElement("div");
+    group.className = "topics-grouping__playbook-group";
+
+    const category = document.createElement("strong");
+    category.textContent = match.category;
+
+    const articles = document.createElement("span");
+    articles.textContent = match.articles.join(", ");
+
+    group.append(category, articles);
+    wrapper.appendChild(group);
+  });
+
+  return wrapper;
+}
+
 function getIssueThemeAnalysis(rows, headers) {
   const issueColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey("Reported Issue")
@@ -1900,7 +2086,18 @@ function getIssueThemeAnalysis(rows, headers) {
     }
 
     issueTextCount += 1;
-    const { theme, matchedKeywords } = getIssueTheme(issueText);
+    const statusValue =
+      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
+    const jiraTicketValue =
+      jiraTicketColumnIndex >= 0 ? row[jiraTicketColumnIndex] ?? "" : "";
+    const devTeamComments =
+      devTeamCommentsColumnIndex >= 0
+        ? (row[devTeamCommentsColumnIndex] ?? "").trim()
+        : "";
+    const classificationText = [issueText, devTeamComments]
+      .filter(Boolean)
+      .join(" ");
+    const { theme, matchedKeywords } = getIssueTheme(classificationText);
     const current = themes.get(theme.label) ?? {
       label: theme.label,
       shortLabel: theme.shortLabel,
@@ -1911,14 +2108,6 @@ function getIssueThemeAnalysis(rows, headers) {
       tickets: [],
       isFallback: theme.label === FALLBACK_ISSUE_THEME.label,
     };
-    const statusValue =
-      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
-    const jiraTicketValue =
-      jiraTicketColumnIndex >= 0 ? row[jiraTicketColumnIndex] ?? "" : "";
-    const devTeamComments =
-      devTeamCommentsColumnIndex >= 0
-        ? (row[devTeamCommentsColumnIndex] ?? "").trim()
-        : "";
 
     current.count += 1;
     current.statusCounts.set(
@@ -1987,7 +2176,12 @@ function renderTopicInsights(rows, headers) {
       ? 0
       : (analysis.automaticallyGroupedCount / analysis.issueTextCount) * 100;
 
-  topicsSubtitle.textContent = `AI-assisted issue clusters from reported issue text for ${describeDateRangeSelection()}.`;
+  const sourceLabel =
+    issueThemeSourceCount === 1 ? "1 CSV file" : `${issueThemeSourceCount} CSV files`;
+  const throughLabel = issueThemeThroughDateLabel
+    ? ` through ${issueThemeThroughDateLabel}`
+    : "";
+  topicsSubtitle.textContent = `AI-assisted issue clusters from reported issue text across ${sourceLabel}${throughLabel}.`;
   topicsRankingTotal.textContent = `${analysis.issueTextCount.toLocaleString("en-US")} Issues`;
   topicsGroupingCoverage.textContent = `${coverage.toFixed(0)}% Covered`;
   topicsBars.replaceChildren();
@@ -2140,9 +2334,10 @@ function renderTopicInsights(rows, headers) {
       entry.signals.length > 0
         ? `AI signals: ${entry.signals.join(", ")}`
         : "AI signals: review needed";
+    const playbookMatches = renderPlaybookMatches(entry.label);
 
     title.append(label, count);
-    item.append(title, signals);
+    item.append(title, signals, playbookMatches);
     item.addEventListener("click", () => {
       selectedIssueThemeLabel = entry.label;
       renderTopicInsights(rows, headers);
@@ -2266,7 +2461,7 @@ function refreshTable() {
   renderStatusPie(baseFilteredRows, tableHeaders);
   renderPlatformDistribution(baseFilteredRows, tableHeaders);
   renderTimeline(baseFilteredRows, tableHeaders);
-  renderTopicInsights(baseFilteredRows, tableHeaders);
+  renderTopicInsights(issueThemeRows, issueThemeHeaders);
 
   const filteredRows = getTableFilteredRows(baseFilteredRows, tableHeaders);
   const visibleColumnCount = Math.max(getVisibleColumnIndices(tableHeaders).length, 1);
@@ -2436,6 +2631,10 @@ async function loadCsvTable() {
       return;
     }
     const { headers, rows } = mergeDatasets(successfulDatasets);
+    const issueThemeDatasets = getDatasetsThroughToday(successfulDatasets);
+    const issueThemeDataset = mergeDatasets(issueThemeDatasets, {
+      latestOnly: false,
+    });
 
     if (rows.length === 0) {
       updateRecordCount([]);
@@ -2446,6 +2645,10 @@ async function loadCsvTable() {
     setSubtitle(successfulDatasets.length);
     tableHeaders = headers;
     allRows = rows;
+    issueThemeHeaders = issueThemeDataset.headers;
+    issueThemeRows = issueThemeDataset.rows;
+    issueThemeSourceCount = issueThemeDatasets.length;
+    issueThemeThroughDateLabel = formatCompactDate(getEndOfToday());
 
     initializeVisibleColumns(headers);
     renderColumnsMenu(headers);
