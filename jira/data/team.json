@@ -134,6 +134,25 @@
         "counts": [5, 2, 1, 4]
       },
       "active": true
+    },
+    {
+      "name": "Daniel Rodríguez",
+      "role": "Mid Full Stack Developer",
+      "hero": "joel",
+      "level": 10,
+      "color": "#3f73cf",
+      "csvAliases": ["Daniel Esteban Rodriguez Velasco"],
+      "badges": ["jira", "confluence", "claude", "dotnet"],
+      "skills": {
+        "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
+        "levels": [7, 6, 7, 6, 5],
+        "initialLevels": [2, 2, 2, 2, 2]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [5, 2, 1, 4]
+      },
+      "active": true
     }
   ]
 }
