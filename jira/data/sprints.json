@@ -777,6 +777,32 @@
       "blockersRisks": [],
       "scopeChanges": [],
       "recommendations": []
+    },
+    {
+      "name": "Sprint 18 - ...",
+      "period": "2026-07-06 to 2026-07-20",
+      "csvFile": "sprints-csv/Sprint 18 Summary export (Jira).csv",
+      "description": "",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
+    },
+    {
+      "name": "Sprint 19 CP - MVP",
+      "period": "2026-07-06 to 2026-07-20",
+      "csvFile": "sprints-csv/Sprint 19 Summary export (Jira).csv",
+      "description": "CP\n- MVP  (F+D+N)\n- PreLaunch\n\nCX\n- RUM checking, reports (S+R)\n- Tier 2, 2nd Week\n- TroubleShooting Page\n- Swift Updates (D+S)\n- First 10k Customers",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     }
   ]
 }
