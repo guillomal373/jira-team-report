@@ -70,6 +70,9 @@ const topicsTopTickets = document.getElementById("topics-top-tickets");
 const topicsGroupingCoverage = document.getElementById("topics-grouping-coverage");
 const topicsGroupingMetrics = document.getElementById("topics-grouping-metrics");
 const topicsGroupingList = document.getElementById("topics-grouping-list");
+const reportedSubtitle = document.getElementById("reported-subtitle");
+const reportedTotal = document.getElementById("reported-total");
+const reportedChart = document.getElementById("reported-chart");
 const columnsControl = document.getElementById("columns-control");
 const columnsToggle = document.getElementById("columns-toggle");
 const columnsMenu = document.getElementById("columns-menu");
@@ -98,6 +101,9 @@ const STATUS_CLASS_MAP = {
   "in progress": "status-in-progress",
   completed: "status-completed",
   "resolved with cx": "status-resolved-cx",
+  "client not answering (3 days)": "status-client-not-answering",
+  "account canceled": "status-account-canceled",
+  "app uninstalled": "status-app-uninstalled",
   "unresolved with cx": "status-unresolved-cx",
   "follow up": "status-follow-up",
 };
@@ -122,6 +128,9 @@ const STATUS_COLOR_MAP = {
   "in progress": "#1aa8ee",
   completed: "#11a86a",
   "resolved with cx": "#7ca313",
+  "client not answering (3 days)": "#5fa86f",
+  "account canceled": "#2f8f4f",
+  "app uninstalled": "#0f6f3a",
   "unresolved with cx": "#b1163d",
   "follow up": "#c38711",
   unknown: "#8b8b8b",
@@ -1328,6 +1337,51 @@ function getPlatformCounts(rows, headers) {
   return counts;
 }
 
+function getReportedByEntries(rows, headers) {
+  const reportedByColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(REPORTED_BY_COLUMN_NAME)
+  );
+  const statusColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
+  );
+  const counts = new Map();
+
+  rows.forEach((row) => {
+    const rawValue =
+      reportedByColumnIndex >= 0 ? (row[reportedByColumnIndex] ?? "").trim() : "";
+    const statusValue =
+      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
+    const status = statusValue || "Unknown";
+    const fullLabel = rawValue || "Unknown";
+    const displayLabel = formatReportedByValue(fullLabel) || "Unknown";
+    const current = counts.get(fullLabel) ?? {
+      fullLabel,
+      displayLabel,
+      count: 0,
+      statusCounts: new Map(),
+    };
+
+    current.count += 1;
+    current.statusCounts.set(status, (current.statusCounts.get(status) ?? 0) + 1);
+    counts.set(fullLabel, current);
+  });
+
+  return [...counts.values()]
+    .map((entry) => ({
+      ...entry,
+      statusEntries: getStatusEntriesByVolume(entry.statusCounts),
+    }))
+    .sort((leftEntry, rightEntry) => {
+      const countDifference = rightEntry.count - leftEntry.count;
+
+      if (countDifference !== 0) {
+        return countDifference;
+      }
+
+      return leftEntry.displayLabel.localeCompare(rightEntry.displayLabel);
+    });
+}
+
 function getOrderedStatusEntries(counts) {
   const orderedEntries = [
     ...STATUS_SUMMARY_ORDER.filter((status) => counts.has(status)).map((status) => [
@@ -1745,6 +1799,68 @@ function renderPlatformDistribution(rows, headers) {
 
     item.append(swatch, name, count, percent);
     platformList.appendChild(item);
+  });
+}
+
+function renderReportedByDistribution(rows, headers) {
+  reportedChart.replaceChildren();
+
+  const entries = getReportedByEntries(rows, headers);
+  const total = rows.length;
+  const maxCount = Math.max(1, ...entries.map((entry) => entry.count));
+
+  reportedSubtitle.textContent = `Issue volume by reporter for ${describeActiveFilterSelection()}.`;
+  reportedTotal.textContent = `${entries.length.toLocaleString("en-US")} Reporter${entries.length === 1 ? "" : "s"}`;
+  reportedChart.setAttribute(
+    "aria-label",
+    `Issue volume by reporter for ${describeActiveFilterSelection()}`
+  );
+
+  if (total === 0 || entries.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "reported-panel__empty";
+    empty.textContent = "No reporter data available for the selected filters.";
+    reportedChart.appendChild(empty);
+    return;
+  }
+
+  entries.forEach((entry, index) => {
+    const percentage = (entry.count / total) * 100;
+    const statusBreakdown = entry.statusEntries
+      .map(([status, count]) => `${status}: ${count}`)
+      .join("\n");
+    const item = document.createElement("div");
+    item.className = "reported-bar";
+    item.title = `${entry.fullLabel}: ${entry.count.toLocaleString("en-US")} issue${entry.count === 1 ? "" : "s"} (${percentage.toFixed(1)}%)\n${statusBreakdown}`;
+
+    const value = document.createElement("span");
+    value.className = "reported-bar__value";
+    value.textContent = entry.count.toLocaleString("en-US");
+
+    const track = document.createElement("div");
+    track.className = "reported-bar__track";
+
+    const fill = document.createElement("span");
+    fill.className = "reported-bar__fill";
+    fill.style.height = `${Math.max(8, (entry.count / maxCount) * 100)}%`;
+    fill.style.setProperty("--reported-rank", String(index + 1));
+
+    entry.statusEntries.forEach(([status, count]) => {
+      const segment = document.createElement("span");
+      segment.className = "reported-bar__segment";
+      segment.style.height = `${(count / entry.count) * 100}%`;
+      segment.style.background = getStatusGradient(status);
+      segment.title = `${status}: ${count} issue${count === 1 ? "" : "s"}`;
+      fill.appendChild(segment);
+    });
+
+    const label = document.createElement("span");
+    label.className = "reported-bar__label";
+    label.textContent = entry.displayLabel;
+
+    track.appendChild(fill);
+    item.append(value, track, label);
+    reportedChart.appendChild(item);
   });
 }
 
@@ -2467,6 +2583,7 @@ function refreshTable() {
   renderPlatformDistribution(baseFilteredRows, tableHeaders);
   renderTimeline(baseFilteredRows, tableHeaders);
   renderTopicInsights(baseFilteredRows, tableHeaders);
+  renderReportedByDistribution(baseFilteredRows, tableHeaders);
 
   const filteredRows = getTableFilteredRows(baseFilteredRows, tableHeaders);
   const visibleColumnCount = Math.max(getVisibleColumnIndices(tableHeaders).length, 1);
