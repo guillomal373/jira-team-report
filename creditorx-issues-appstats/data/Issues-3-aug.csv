@@ -1,5 +1,65 @@
 "Customer Name","Reported By",Date,Carrier/Provider,"Customer ID","IOS or Android","CreditorX Device","Reported Issue",Status,Module/Section,"Dev Team comments","Jira ticket",Priority
 "Lorena Martinezissu>issues",joeym@cordobalegal.com,2025-10-27,,CORDOBA-1114516608,Android,,"When the client logs into CREDITOR X and enters their date of birth (September 5, 1966), the system does not allow them to select the correct day (05); it only allows them to choose the number 04, preventing them from accessing the account.",Completed,,,,Medium
+"Evelyn Moore",julian.giraldo@cordobalegal.com,2026-06-16,"T mobile",1216028990,IOS,,"log in credentials are incorrect .
+Account is cancelld.","Account Canceled","First Login","D - The account was reviewed and it was confirmed that it has not yet been created.
+We recommend completing the First Time Login process in order to create the account and set up the corresponding login credentials.
+Please use the following information during the process:
+• Email: evmoore9@gmail.com
+• Last 4 digits of SSN: 9504
+• Date of Birth: 10-31-1957
+Please remember that the date format required by the application is *MM-DD-YYYY*.
+A link with step-by-step instructions for completing the process has been attached.
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Myroslava Fenyuk",rosbelym@cordobalegal.com,2026-06-11,verizon,CORDOBA-1200754465,IOS,"IPHONE 13","wrong credentials
+
+I was trying to reach our clients back but there was a voice mail.
+I was able to get in touch with the client, but she hang out the phone, I was trying to reach her back for a 2 attemps but there wasa ring not answered as dialed.
+
+Ring not answered as dialed.
+Ring not answered as dialed. ; lost connection meanwhile troubleshooting","Call Agent (Additional information)","First Login / Settings","D - The case was reviewed, and it was confirmed that the customer does not have an account created in CreditorX.
+Please ask the customer to complete the First Time Login process. Once this process is completed and the account has been created, they will be able to log in using their newly created credentials.
+A link with step-by-step instructions for completing the First Time Login process has been attached.
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Dawn Nanz",edgarl@cordobalegal.com,2026-06-10,AT&T,1216757613,IOS,,"Good morning, this client is having issues login in to the app, she explained she tried to log in the first time using her Home Phone number, and since she was not getting the code she tried to go back to change the number to her Cell Phone, the app did not allowed her to login after that, please assist. Thanks.
+
+RESCHEDULLED A CALLBACK AT 9:00AM
+AS ABLE TO REACH OUR CLIENTS BACK IN ORDER TO ASSIST HER WITH HER CREDITOR X APP, DUE TO THE ERROR "" LOGIN FAILURES "" BUT SHE HAS TOLD US, PLEAS REACH HER BACK AFTER 5:00PM
+
+Client has told us, please reach  her back for about 45 minutes.
+t says, already logged into the app before,please login user the username you have selected earlier “. however
+I was able to let her knows, please reset their credentials, Please go to “Password recovery “, by entering her Subscriber # 302-228-6704 or Cordoba ID + Email: dawn.nanz@gmail.com, once fit has done, a temporary password should be sent to her email, including her username + temporary password for being changed it.
+
+Its working right now, but their voice mail is not working at all.
+
+It says there is not voice mail, but she will see a list from every voice mail recorded into the database into her last version of 1.4.1 IOS. Voice mail is “grayed out “ Number 0, The whole app is not working! Creditor blocked/forwarded calls is active on a green color. Voice_mail is empty “Grayed ” ..
+
+-APP was being uninstalled
+App has been downloaded t
+App has been installed at the last version “V1.4.1 IOS.
+
+HOME PAGE :
+
+------ Voice mail 0, / ----Redirected :25
+HOME PAGE :
+
+------ Voice mail 0, / ----Redirected :25, App was being updated at the last version, v1.4.1, but it does not works at all,she has got voice mail but they are not displayed on the app.
+
+Client was educated, we are still working on it, we will get in touch once we have found a solution, case has been rotued with TR3 SUPPORT.","Unresolved with cx",,"D - The case was reviewed and the user account was removed from CreditorX.
+Please ask the customer to complete the First Time Login process again. The process should now work correctly, as the phone number has already been updated.",,Medium
+"Jeffrey Manning",edgarl@cordobalegal.com,2026-06-11,AT&T,1221441322,IOS,,"Unable to set creditor x App, We got a loop with the OTP command. It always takes him to the starting page.
+
+Account  cancelled.","Account Canceled",,"D - The issue was replicated during testing; however, the process completed successfully and the error could not be reproduced.
+Please ask the customer to reinstall the application and try the process again. If the issue persists, please provide the device model and operating system version so we can investigate further and provide a better resolution.",,Medium
+"Michael Gascon",jnunez@cordobalegal.com,2026-06-11,T-MOBILE,1204395722,IOS,,"Customer was trying to add another creditor number manually on the app but now is not letting him to log in. Mentioned that is seeing wheel spinning but nothing happens.
+
+account cancelled.","Account Canceled",,"D - The issue was reviewed and the test was replicated, but the reported error could not be reproduced.
+Please ask the customer to reinstall the application and verify whether the issue could be related to their internet connection. If the problem persists, please provide additional information such as the device model and operating system version so we can investigate further.",,Medium
+"Debra Norman",danielar@cordobalegal.com,2026-06-15,N/A,CORDOBA-1210308889,IOS,,"The client couldn't use the first-time login link","Resolved with cx","First Login","D - The issue has been resolved.
+Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
+After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
+If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
 "Vickie Burnett",jnunez@cordobalegal.com,2026-06-15,T-Mobile,CORDOBA-1211456514,IOS,,"It does not allow her to listen to the recordings of of the voicemails.
 Checked all the setting are set up as they should be.
 
@@ -53,86 +113,22 @@ USSD COMMAND 1,2 were being setup without any troubles.
 
 APP IS NOW WORKING PROPERTLY Voice mail are being recorded as well.","Resolved with cx",,"D - The issue was validated, and it was confirmed that the voicemails are registered correctly and can be played back successfully.
 If the issue persists for the customer, please provide additional information about the device, including the phone model, operating system version, and, if possible, a screenshot or screen recording of the issue so it can be investigated further.",,Medium
-"Jose Banuelos",rosbelym@cordobalegal.com,2026-06-11,AT&T,CORDOBA-1219152491,IOS,,"Please log  in with the username you have selected earlier / log in failed
-
-Ring not answered as dialed.
-Ring not answered as dialed.","Call Agent (Additional information)",,"D - The account was validated and confirmed to be created correctly.
-If the customer does not remember their credentials, we recommend performing a password reset. For reference, the registered username is *18182572208*, and the password reset email will be sent to *pepebanuelos42@gmail.com*.
-A link with step-by-step instructions for completing the password reset process has been attached.
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Myroslava Fenyuk",rosbelym@cordobalegal.com,2026-06-11,verizon,CORDOBA-1200754465,IOS,"IPHONE 13","wrong credentials
-
-I was trying to reach our clients back but there was a voice mail.
-I was able to get in touch with the client, but she hang out the phone, I was trying to reach her back for a 2 attemps but there wasa ring not answered as dialed.
-
-Ring not answered as dialed.
-Ring not answered as dialed. ; lost connection meanwhile troubleshooting","Call Agent (Additional information)","First Login / Settings","D - The case was reviewed, and it was confirmed that the customer does not have an account created in CreditorX.
-Please ask the customer to complete the First Time Login process. Once this process is completed and the account has been created, they will be able to log in using their newly created credentials.
-A link with step-by-step instructions for completing the First Time Login process has been attached.
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Dawn Nanz",edgarl@cordobalegal.com,2026-06-10,AT&T,1216757613,IOS,,"Good morning, this client is having issues login in to the app, she explained she tried to log in the first time using her Home Phone number, and since she was not getting the code she tried to go back to change the number to her Cell Phone, the app did not allowed her to login after that, please assist. Thanks.
-
-RESCHEDULLED A CALLBACK AT 9:00AM
-AS ABLE TO REACH OUR CLIENTS BACK IN ORDER TO ASSIST HER WITH HER CREDITOR X APP, DUE TO THE ERROR "" LOGIN FAILURES "" BUT SHE HAS TOLD US, PLEAS REACH HER BACK AFTER 5:00PM
-
-Client has told us, please reach  her back for about 45 minutes.
-t says, already logged into the app before,please login user the username you have selected earlier “. however
-I was able to let her knows, please reset their credentials, Please go to “Password recovery “, by entering her Subscriber # 302-228-6704 or Cordoba ID + Email: dawn.nanz@gmail.com, once fit has done, a temporary password should be sent to her email, including her username + temporary password for being changed it.
-
-Its working right now, but their voice mail is not working at all.
-
-It says there is not voice mail, but she will see a list from every voice mail recorded into the database into her last version of 1.4.1 IOS. Voice mail is “grayed out “ Number 0, The whole app is not working! Creditor blocked/forwarded calls is active on a green color. Voice_mail is empty “Grayed ” ..
-
--APP was being uninstalled
-App has been downloaded t
-App has been installed at the last version “V1.4.1 IOS.
-
-HOME PAGE :
-
------- Voice mail 0, / ----Redirected :25
-HOME PAGE :
-
------- Voice mail 0, / ----Redirected :25, App was being updated at the last version, v1.4.1, but it does not works at all,she has got voice mail but they are not displayed on the app.
-
-Client was educated, we are still working on it, we will get in touch once we have found a solution, case has been rotued with TR3 SUPPORT.","Unresolved with cx",,"D - The case was reviewed and the user account was removed from CreditorX.
-Please ask the customer to complete the First Time Login process again. The process should now work correctly, as the phone number has already been updated.",,Medium
-"Jeffrey Manning",edgarl@cordobalegal.com,2026-06-11,AT&T,1221441322,IOS,,"Unable to set creditor x App, We got a loop with the OTP command. It always takes him to the starting page.
-
-Account  cancelled.","Account Canceled",,"D - The issue was replicated during testing; however, the process completed successfully and the error could not be reproduced.
-Please ask the customer to reinstall the application and try the process again. If the issue persists, please provide the device model and operating system version so we can investigate further and provide a better resolution.",,Medium
-"Michael Gascon",jnunez@cordobalegal.com,2026-06-11,T-MOBILE,1204395722,IOS,,"Customer was trying to add another creditor number manually on the app but now is not letting him to log in. Mentioned that is seeing wheel spinning but nothing happens.
-
-account cancelled.","Account Canceled",,"D - The issue was reviewed and the test was replicated, but the reported error could not be reproduced.
-Please ask the customer to reinstall the application and verify whether the issue could be related to their internet connection. If the problem persists, please provide additional information such as the device model and operating system version so we can investigate further.",,Medium
-"Debra Norman",danielar@cordobalegal.com,2026-06-15,N/A,CORDOBA-1210308889,IOS,,"The client couldn't use the first-time login link","Resolved with cx","First Login","D - The issue has been resolved.
-Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
-After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
-If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
-"Evelyn Moore",julian.giraldo@cordobalegal.com,2026-06-16,"T mobile",1216028990,IOS,,"log in credentials are incorrect .
-Account is cancelld.","Account Canceled","First Login","D - The account was reviewed and it was confirmed that it has not yet been created.
-We recommend completing the First Time Login process in order to create the account and set up the corresponding login credentials.
-Please use the following information during the process:
-• Email: evmoore9@gmail.com
-• Last 4 digits of SSN: 9504
-• Date of Birth: 10-31-1957
-Please remember that the date format required by the application is *MM-DD-YYYY*.
-A link with step-by-step instructions for completing the process has been attached.
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Ariel Pereiro",jnunez@cordobalegal.com,2026-06-10,T-mobile,1209978120,Android,,"Each time customer log in, the application asks you to enter the provider again and the USSD command
-
-Ring not answered as dialed.
-Answered machine as dialed.","Call Agent (Additional information)",,"D - The case was reviewed, but the reported issue could not be reproduced.
-Our validation shows that this behavior occurs only when the application is reinstalled, as the app requires the complete setup process to be performed again. If the setup was already completed during the initial installation, the application should not request the carrier selection and USSD commands again unless the app has been reinstalled.
-Please verify whether the application was recently reinstalled.",,Medium
 "Linda Womack",Josias.Campusano@cordobalegal.com,2026-06-17,Verizon,1223770929,IOS,,"Client previously logged in on Creditor X before created account but not able to log in anymore we tried troubleshooting such as log in for first time and got message already has an account we tried password recovery and get user not found got notification Email sent for password recovery never gets Email.
 
 I was able to get in touch with the client who has told us, their Creditor X APP ,is currently working!","Resolved with cx",,"D - The case was reviewed and it was confirmed that the email address had been updated in FORTH, but not in CreditorX.
 Please try the password reset process again using the information already provided by the customer. For reference, the registered email address is:
 *lindawomack40@gmail.com*
 The password reset process should now work correctly.",,Medium
+"Rosalinda Rivera",danielar@cordobalegal.com,2026-06-10,N/A,CORDOBA-1208531718,IOS,,"The client does not have the First Time Login option
+
+Answered machine as dailed.
+Answered machine as dailed.","Call Agent (Additional information)",,"D - The validation was completed by replicating the test in the First Login flow, and it continues without any issues up to the password setup step.
+Please validate again using the following information:
+Account ID: 1208531718
+Last 4 digits of the SSN: 3178
+DOB: 1959-04-02
+Please remember that the application uses the following date format: MM-DD-YYYY.
+If you are still unable to complete the process, please provide more information about the data being entered and, if possible, screenshots of the steps and error message.",,Medium
 "Suriel Corrales",rosbelym@cordobalegal.com,2026-06-17,At&t,CORDOBA-1221921922,IOS,,"phone number missing from external system","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
@@ -200,26 +196,64 @@ Please refer to the attached guide and review the section *""Redirecting Setup -
 If, after completing all the steps in the checklist, the issue persists, please let us know so we can investigate it further.
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Rosalinda Rivera",danielar@cordobalegal.com,2026-06-10,N/A,CORDOBA-1208531718,IOS,,"The client does not have the First Time Login option
+"James A Faggart",Josias.Campusano@cordobalegal.com,2026-06-18,"Consumer Cellar",1216028581,Android,,"At first the client was not receiving the 4 digit code to the email nor the text message in order to set up the app. Client uninstalled the app and installed it again and when he tried to create the account, the app said that he already has an account. When he input the user name and password, there is no login button for the client to click on.
 
-Answered machine as dailed.
-Answered machine as dailed.","Call Agent (Additional information)",,"D - The validation was completed by replicating the test in the First Login flow, and it continues without any issues up to the password setup step.
+I was able to reach our clients back in order to provide such as Creditor X APP SUPPORT, relate to the following error “ At first the client was not receiving the 4 digit code “
+
+Networks: COMSUMER CELULAR
+Device: SAMSUNG GALAXY a16
+Old version of Creditor X was being removed from his phone..
+Play store library: Cordoba_Creditor X APP. Last version : V1.5.0 ANDROID. Has been downloaded.
+Creditor X APP has been installed at the last version up to date!
+
+-Messages displayed after new registrations form :
+-You have already logged into the app before “..
+-Command : Password recovery with His Cordoba ID :1216028581 Temp, password was being sent
+to his email : jagg234@gmail.com
+
+Error “ User not found “ .
+-Login Failures, enter username and password are incorrect.
+
+-Please uninstalled the app/installed.
+Temporary password : b1934a86
+
+But it does not works. Triage to review.","Unresolved with cx",Auth/Login,"D - We attempted to replicate the issue and the reported error was observed.
+Please advise the customer to reinstall the application. If the customer does not see the “Next” button to log in, they should scroll down on the screen and it should appear.
+If they are still unable to log in using their credentials, they can proceed with a password reset.
+If the issue persists after these steps, please provide the device model being used by the customer so we can further investigate.
+A link is attached with the step-by-step instructions for completing the password reset process correctly.
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Jose Banuelos",rosbelym@cordobalegal.com,2026-06-11,AT&T,CORDOBA-1219152491,IOS,,"Please log  in with the username you have selected earlier / log in failed
+
+Ring not answered as dialed.
+Ring not answered as dialed.","Call Agent (Additional information)",,"D - The account was validated and confirmed to be created correctly.
+If the customer does not remember their credentials, we recommend performing a password reset. For reference, the registered username is *18182572208*, and the password reset email will be sent to *pepebanuelos42@gmail.com*.
+A link with step-by-step instructions for completing the password reset process has been attached.
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Ariel Pereiro",jnunez@cordobalegal.com,2026-06-10,T-mobile,1209978120,Android,,"Each time customer log in, the application asks you to enter the provider again and the USSD command
+
+Ring not answered as dialed.
+Answered machine as dialed.","Call Agent (Additional information)",,"D - The case was reviewed, but the reported issue could not be reproduced.
+Our validation shows that this behavior occurs only when the application is reinstalled, as the app requires the complete setup process to be performed again. If the setup was already completed during the initial installation, the application should not request the carrier selection and USSD commands again unless the app has been reinstalled.
+Please verify whether the application was recently reinstalled.",,Medium
+"Peggy Brahler",pablo.correa@cordobalegal.com,2026-06-17,AT&T,CORDOBA-1198031480,IOS,,"no add creditors to block function in the app available, cx unable to add creditor phones and no suggested creditor appear","Account Canceled",Setup,"D - Good afternoon,
+This issue is related to the application configuration.
+Please instruct the customer to go to *Settings* and, under *Inbound Call Settings*, they must select the first two checkboxes (the last one is not required).
+Additionally, I am attaching a link where, in the section *""Redirecting Setup - Calls are not being forwarded""*, you will find several configuration steps that the customer should verify to ensure call forwarding is properly set up and working correctly.
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Linda Murphy",Josias.Campusano@cordobalegal.com,2026-06-04,AT&T,1211221112,Android,,"While trying to log for the first time, it asks her for the user ID, last 4 SSN and DOB, information input correct and still says Wrong credentials.
+
+ANSWERED MACHINE AS DIALED.
+ANSWERED MACHINE AS DIALED.","Call Agent (Additional information)","First Login","D - The validation was completed by replicating the test in the First Login flow, and it continues without any issues up to the password setup step.
 Please validate again using the following information:
-Account ID: 1208531718
-Last 4 digits of the SSN: 3178
-DOB: 1959-04-02
+Account ID: 1211221112
+Last 4 digits of the SSN: 8217
+DOB: 1966-01-23
 Please remember that the application uses the following date format: MM-DD-YYYY.
 If you are still unable to complete the process, please provide more information about the data being entered and, if possible, screenshots of the steps and error message.",,Medium
-"Deborah Hunt Gemmrig",jnunez@cordobalegal.com,2026-06-08,T-Mobile,1212168509,Android,,"Is not blocking the calls from the creditors and is only blocking normal calls from not registered numbers.
-When submitted a phone number of a creditor is says that ti is "" under review "" and does not allow to submit it twice.
-""1 814 534 2528"" this number is already under review once this is processed you will receive a specified email to your registered profile "" This happens with multiple numbers.","Call Agent (Additional information)","Carrier List","D - After validation, it was confirmed that the phone number provided is not currently in service. Therefore, it could not be verified or approved for blocking.
-If the customer believes the number is active, please provide any additional information available so we can perform further verification.",,Medium
-"Paul Massey",Catalina.Garzon@cordobalegal.com,2026-06-18,--,1208465952,IOS,,"Cx gets notification emails that he has voicemails on the app. But when he goes to the app-voicemail, there are no voicemails.
-
-Answered machine as dialed./ Answered machine as dialed.","Call Agent (Additional information)",,"D - Cx gets notification emails that he has voicemails on the app. But when he goes to the app-voicemail, there are no voicemails.",,Medium
-"Catherome A Frayer",Josias.Campusano@cordobalegal.com,2026-06-04,Verizon,1210769359,Android,,"Customer receives the 4 digits code but it is not allowing her to put the numbers, she already tried 3 times and tåhe app goes back
-
-Ring not answered as dialed","Client not answering (3 days)",,"Could you please confirm whether this is happening during the OTP Login process or at another step?Also, the 4-digit code is being received via text message, correct?Thank you.",,Medium
 "Kathleen Abbott",jnunez@cordobalegal.com,2026-06-02,Cricket,1206274788,Android,,"After completing first time login, unable to login, error coming up.
 Ring not Answered.
 
@@ -299,27 +333,19 @@ USSD command is done.
 Voice mail Recording : on!
 
 Creditor x APP is working property! Client is happy.",,Medium
-"Linda Murphy",Josias.Campusano@cordobalegal.com,2026-06-04,AT&T,1211221112,Android,,"While trying to log for the first time, it asks her for the user ID, last 4 SSN and DOB, information input correct and still says Wrong credentials.
+"Catherome A Frayer",Josias.Campusano@cordobalegal.com,2026-06-04,Verizon,1210769359,Android,,"Customer receives the 4 digits code but it is not allowing her to put the numbers, she already tried 3 times and tåhe app goes back
 
-ANSWERED MACHINE AS DIALED.
-ANSWERED MACHINE AS DIALED.","Call Agent (Additional information)","First Login","D - The validation was completed by replicating the test in the First Login flow, and it continues without any issues up to the password setup step.
-Please validate again using the following information:
-Account ID: 1211221112
-Last 4 digits of the SSN: 8217
-DOB: 1966-01-23
-Please remember that the application uses the following date format: MM-DD-YYYY.
-If you are still unable to complete the process, please provide more information about the data being entered and, if possible, screenshots of the steps and error message.",,Medium
-"Melissa Hudson",danielar@cordobalegal.com,2026-06-08,N/A,CORDOBA-1212326153,IOS,,"Customer is unable to access to the app","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+Ring not answered as dialed","Client not answering (3 days)",,"Could you please confirm whether this is happening during the OTP Login process or at another step?Also, the 4-digit code is being received via text message, correct?Thank you.",,Medium
 "Donald Perez",Josias.Campusano@cordobalegal.com,2026-06-04,T-Mobile,1208267495,IOS,,"'error performing request'' unknown error. registration failed. call forwarding unreachable. After he send USSD's commands.
 
 Answered machine as dialed.
 Answered machine as dialed.","Call Agent (Additional information)",,"D - Please verify that the customer is attempting to log in using the correct phone number registered in the account.
 Since the customer has exceeded the maximum number of OTP attempts, they should wait until the attempt limit has been reset before requesting a new verification code. Once the limit has been reset, the customer should try the *OTP Login* process again.
 If the customer still does not receive the verification code after the attempt limit has been reset, please escalate the case with the registered phone number, the approximate time of the issue, and any screenshots of the error message so we can continue the investigation.",,Medium
+"Deborah Hunt Gemmrig",jnunez@cordobalegal.com,2026-06-08,T-Mobile,1212168509,Android,,"Is not blocking the calls from the creditors and is only blocking normal calls from not registered numbers.
+When submitted a phone number of a creditor is says that ti is "" under review "" and does not allow to submit it twice.
+""1 814 534 2528"" this number is already under review once this is processed you will receive a specified email to your registered profile "" This happens with multiple numbers.","Call Agent (Additional information)","Carrier List","D - After validation, it was confirmed that the phone number provided is not currently in service. Therefore, it could not be verified or approved for blocking.
+If the customer believes the number is active, please provide any additional information available so we can perform further verification.",,Medium
 "Kevin Roberts",danielar@cordobalegal.com,2026-06-05,N/A,CORDOBA-1211210756,Android,,"The customer cannot access the app; it shows that they are not registered
 
 Ring not answers as dialed.","Call Agent (Additional information)","First Login","The validation was completed and it was confirmed that the client does not yet have an active account. For this reason, the system will not allow them to log in.
@@ -428,38 +454,22 @@ Answered machine as dialed.","Client not answering (3 days)",Setup,"D - The issu
 The issue was reviewed and tested, but the reported error could not be reproduced.
 Please ask the customer to reinstall the application and try the process again. If the issue persists, please provide the device model and operating system version being used so we can investigate further.
 A link with step-by-step instructions for this process has been attached.",,Medium
-"James A Faggart",Josias.Campusano@cordobalegal.com,2026-06-18,"Consumer Cellar",1216028581,Android,,"At first the client was not receiving the 4 digit code to the email nor the text message in order to set up the app. Client uninstalled the app and installed it again and when he tried to create the account, the app said that he already has an account. When he input the user name and password, there is no login button for the client to click on.
+"Melissa Hudson",danielar@cordobalegal.com,2026-06-08,N/A,CORDOBA-1212326153,IOS,,"Customer is unable to access to the app","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
-I was able to reach our clients back in order to provide such as Creditor X APP SUPPORT, relate to the following error “ At first the client was not receiving the 4 digit code “
-
-Networks: COMSUMER CELULAR
-Device: SAMSUNG GALAXY a16
-Old version of Creditor X was being removed from his phone..
-Play store library: Cordoba_Creditor X APP. Last version : V1.5.0 ANDROID. Has been downloaded.
-Creditor X APP has been installed at the last version up to date!
-
--Messages displayed after new registrations form :
--You have already logged into the app before “..
--Command : Password recovery with His Cordoba ID :1216028581 Temp, password was being sent
-to his email : jagg234@gmail.com
-
-Error “ User not found “ .
--Login Failures, enter username and password are incorrect.
-
--Please uninstalled the app/installed.
-Temporary password : b1934a86
-
-But it does not works. Triage to review.","Unresolved with cx",Auth/Login,"D - We attempted to replicate the issue and the reported error was observed.
-Please advise the customer to reinstall the application. If the customer does not see the “Next” button to log in, they should scroll down on the screen and it should appear.
-If they are still unable to log in using their credentials, they can proceed with a password reset.
-If the issue persists after these steps, please provide the device model being used by the customer so we can further investigate.
-A link is attached with the step-by-step instructions for completing the password reset process correctly.
+The agent must update this field inside ForthCRM
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Peggy Brahler",pablo.correa@cordobalegal.com,2026-06-17,AT&T,CORDOBA-1198031480,IOS,,"no add creditors to block function in the app available, cx unable to add creditor phones and no suggested creditor appear","Account Canceled",Setup,"D - Good afternoon,
-This issue is related to the application configuration.
-Please instruct the customer to go to *Settings* and, under *Inbound Call Settings*, they must select the first two checkboxes (the last one is not required).
-Additionally, I am attaching a link where, in the section *""Redirecting Setup - Calls are not being forwarded""*, you will find several configuration steps that the customer should verify to ensure call forwarding is properly set up and working correctly.
+"Paul Massey",Catalina.Garzon@cordobalegal.com,2026-06-18,--,1208465952,IOS,,"Cx gets notification emails that he has voicemails on the app. But when he goes to the app-voicemail, there are no voicemails.
+
+Answered machine as dialed./ Answered machine as dialed.","Call Agent (Additional information)",,"D - Cx gets notification emails that he has voicemails on the app. But when he goes to the app-voicemail, there are no voicemails.",,Medium
+"Shawna Ridgeway Winn",Esnaider.Garzon@cordobalegal.com,2026-06-19,Verizon,1205044964,Android,,"She uninstalled the creditor X app, however she wants her account to be deactivated since she has clients who call her and the voicemails are being redirected to us. That is why she wants to deactivad or delet her account from preventing this to keep happening to her voicemails. For some reason after unistalling the app it stills redirect calls/voicemails.
+
+There was an answered machine as dialed .
+
+There was a ring not answered as dialed.",Completed,Setup,"D - Good afternoon,
+Based on our understanding, the issue is simply that the customer wants to stop call forwarding. In this case, it is not necessary to delete the account.
+Please contact the customer and advise her to dial **73* using her phone application. This is a USSD command provided by her carrier that is commonly used to disable call forwarding.
+Additionally, please refer to the attached guide. In the section *""Redirecting Setup - Calls are not being forwarded""*, you will find a checklist with several steps that can help ensure call forwarding is configured correctly so that only creditor calls are redirected.
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Debby Soriano",juan.arenas@cordobalegal.com,2026-06-01,"Not provided",1210330785,Android,,"Client set up a new password, but she cannot login with it, and changing the password several times has not worked",Completed,,"D - The validation was completed and it was identified that the account has not yet been created. Therefore, the client will not be able to log in.
@@ -467,10 +477,8 @@ Please inform the client that they must complete the First Login process to acti
 
 The validation was completed and it was identified that the account has not yet been created. Therefore, the client will not be able to log in.
 Please inform the client that they must complete the First Login process to activate the account. A link with step-by-step instructions for completing this process has been provided.",,Medium
-"Lorrie Daily",Andersson.Acosta@cordobalegal.com,2026-06-26,T-Mobile,CORDOBA-1203569985,Android,,"I was guiding the customer through the setup process. After hitting the ""Is this your first login?"" option and accepting the terms and conditions, she typed in her user ID, the last 4 of SSN and DOB, but there was no confirm button to proceed. She closed the on-screen keyboard and tried to scroll down but was unable to see the confirm button.","Call Agent (Additional information)",,"D - Thank you for the information.Since the customer is using a Samsung Galaxy phone, but the exact model is unknown, could you please ask her to check the device model in **Settings > About phone** and share it with us?Additionally, if possible, please ask her to send a screenshot of the screen where the **""Confirm""** button should appear after entering the User ID, the last four digits of the SSN, and the Date of Birth. This will help us determine whether the issue is related to the device's screen resolution or another display issue.",,Medium
-"Vivian M Prater",rosbelym@cordobalegal.com,2026-06-24,AT&T,1216517083,Android,,"After set up the app and allow the app block the numbers she is still receiving calls.","Call Agent (Additional information)","Blocked List","D - se recomienda validar el link adjunto, se encuentra un punto llamado ""Redirecting Setup - Calls are not being forwarded - 6 Steps"", hay 6 pasos tipo checklist donde se ecxplica que se debe tener en cuenta para hacer bien la configuracion para que el redireccionamiento funcione. se recomienda que el agente acompane al cliente ex[licandole cada uno los pasos para que el proceso sea exitoso
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Ramiro Ruiz",Alex.Consuegra@cordobalegal.com,2026-06-26,AT&T,CORDOBA-1219234555,IOS,,"Cx cannot access to the app. Cx user ID nor phone number are being recognized by the app. Per Cx it says his number does not exist on file.","Returned - Insufficient Information",,"D - The issue is being returned because the information provided is insufficient to investigate or reproduce the reported problem.
+Please gather additional details from the customer, including the exact error message, the steps to reproduce the issue, and any relevant screenshots or screen recordings. Once the required information has been collected, please resubmit the issue for further investigation.",,Medium
 "Lacresha Dungey",Dilan.Riascos@cordobalegal.com,2026-06-24,T-Mobile,1220697675,Android,,"Client can not use app, even though, She blocked creditor calls, calls still get in.","Call Agent (Additional information)",,"D - We recommend reviewing the attached link. It contains a section titled *""Redirecting Setup - Calls are not being forwarded - 6 Steps""*, which includes a six-step checklist explaining everything that should be verified to ensure the call forwarding is configured correctly.
 We recommend that the agent assist the customer by walking them through each step of the checklist to help ensure the setup is completed successfully.
 
@@ -488,16 +496,13 @@ https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2M
 "Tyrone Townsend",Sebastian.Rodriguez@cordobalegal.com,2026-06-25,T-mobile,997208608,IOS,,"the app doesnt give the option to choose career, it only shows AT&T","Call Agent (Additional information)",Setup,"D - The verification was completed, and the reported issue could not be reproduced.
 When tapping the carrier selection field, a list of available carriers is displayed, allowing the customer to select the appropriate carrier. After the carrier is selected, the application generates the corresponding USSD commands.
 If the issue persists, please provide more information indicating exactly where in the process the error occurs.",,Medium
-"Ramiro Ruiz",Alex.Consuegra@cordobalegal.com,2026-06-26,AT&T,CORDOBA-1219234555,IOS,,"Cx cannot access to the app. Cx user ID nor phone number are being recognized by the app. Per Cx it says his number does not exist on file.","Returned - Insufficient Information",,"D - The issue is being returned because the information provided is insufficient to investigate or reproduce the reported problem.
-Please gather additional details from the customer, including the exact error message, the steps to reproduce the issue, and any relevant screenshots or screen recordings. Once the required information has been collected, please resubmit the issue for further investigation.",,Medium
-"Jeanette Vega",jnunez@cordobalegal.com,2026-06-24,Spectrum,1144834648,IOS,,"While setting up the app, when we were in the section to choose the carrier, client said it took her to the start, while trying to go back to the option ;is this your fisrt login, when placed the user id, etc, it told her that the information was already used and ask her to login since there was an account already created with the info, did not let her continue with the set up of the app, but it was not completed.","Call Agent (Additional information)","First Login / Settings","D - The account has been validated and it was confirmed that it has already been created. Please inform the customer that once the password was configured, the account became active.
-To continue with the setup process, the customer simply needs to log in using the registered credentials. After logging in, the application will automatically prompt them to configure their carrier and complete any remaining setup steps that were not fully configured previously.
-Please assist the customer throughout the process. For any questions, a link is attached where you can find step-by-step instructions for completing any of these procedures.
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Lorrie Daily",Andersson.Acosta@cordobalegal.com,2026-06-26,T-Mobile,CORDOBA-1203569985,Android,,"I was guiding the customer through the setup process. After hitting the ""Is this your first login?"" option and accepting the terms and conditions, she typed in her user ID, the last 4 of SSN and DOB, but there was no confirm button to proceed. She closed the on-screen keyboard and tried to scroll down but was unable to see the confirm button.","Call Agent (Additional information)",,"D - Thank you for the information.Since the customer is using a Samsung Galaxy phone, but the exact model is unknown, could you please ask her to check the device model in **Settings > About phone** and share it with us?Additionally, if possible, please ask her to send a screenshot of the screen where the **""Confirm""** button should appear after entering the User ID, the last four digits of the SSN, and the Date of Birth. This will help us determine whether the issue is related to the device's screen resolution or another display issue.",,Medium
 Wesley,samuel.angel@cordobalegal.com,2026-06-26,"T mobile",CORDOBA-1211141981,IOS,,"cx has already made the first log in, and to acces the app he is told to reset the password when he puts in the new password the system saids password is incorrect, cx can reset password","Call Agent (Additional information)",,"D- The account has already been activated through the *First Login* process.
 Please assist the customer in completing the password reset process once again and ensure the newly created password meets all password requirements. After the password has been successfully reset, ask the customer to log in using the newly created credentials.
 If the issue persists after completing the password reset successfully, please provide the exact error message, the time when the issue occurred, and any screenshots available so we can continue the investigation.
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Mary tidwell",rosbelym@cordobalegal.com,2026-06-24,AT&T,1211263039,IOS,,"Wrong credentials","Call Agent (Additional information)",Auth/Login,"D- The account has been validated and is active. As the reported issue appears to be related to the customer's credentials, please assist the customer in completing the password reset process. Once the password has been successfully reset, ask the customer to log in again using the updated credentials.A step-by-step guide for the password reset process is attached for reference.
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Wyatt Hiller",Julian.Hernandez@cordobalegal.com,2026-06-26,T-Mobile,CORDOBA-1208563032,Android,,"Client cannot create the user as it does not show the message ""is it your first log in?"" Client have already delete app and tried again but no resolution.
@@ -524,42 +529,30 @@ Please inform the customer of this process.",,Medium
 Please ask the customer to reinstall the application and start the setup process again. An attached link provides step-by-step instructions on how to complete the setup correctly.
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Mary tidwell",rosbelym@cordobalegal.com,2026-06-24,AT&T,1211263039,IOS,,"Wrong credentials","Call Agent (Additional information)",Auth/Login,"D- The account has been validated and is active. As the reported issue appears to be related to the customer's credentials, please assist the customer in completing the password reset process. Once the password has been successfully reset, ask the customer to log in again using the updated credentials.A step-by-step guide for the password reset process is attached for reference.
+"Adam Wissink",Laura.Corredor@cordobalegal.com,2026-06-29,verizon,CORDOBA-1221501938,IOS,,"cx enters his ID, ssn and DOB and the app shows wrong credentials, can not go any further.","Account Canceled",,"D - Please assist the customer in completing the *First Login* process.
+Verify that the customer is entering the correct *User ID*, the last four digits of the *SSN*, and the *Date of Birth* exactly as registered in the system (DOB format: *MM-DD-YYYY*).
+If the customer continues to receive the *""Wrong credentials""* message after verifying all the information, please escalate the case for further investigation, including the customer's User ID, screenshots of the error, and the time the issue occurred.
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY
+
+V- Cx cancelled",,Medium
+"Vivian M Prater",rosbelym@cordobalegal.com,2026-06-24,AT&T,1216517083,Android,,"After set up the app and allow the app block the numbers she is still receiving calls.","Call Agent (Additional information)","Blocked List","D - se recomienda validar el link adjunto, se encuentra un punto llamado ""Redirecting Setup - Calls are not being forwarded - 6 Steps"", hay 6 pasos tipo checklist donde se ecxplica que se debe tener en cuenta para hacer bien la configuracion para que el redireccionamiento funcione. se recomienda que el agente acompane al cliente ex[licandole cada uno los pasos para que el proceso sea exitoso
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Tajai Sullivan",Carlos.Solano@cordobalegal.com,2026-06-24,"T - Mobile",CORDOBA-1208876396,IOS,,"Phone number missing from the external system data
-
-Ring not  answered machine as dialed.","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Shawna Ridgeway Winn",Esnaider.Garzon@cordobalegal.com,2026-06-19,Verizon,1205044964,Android,,"She uninstalled the creditor X app, however she wants her account to be deactivated since she has clients who call her and the voicemails are being redirected to us. That is why she wants to deactivad or delet her account from preventing this to keep happening to her voicemails. For some reason after unistalling the app it stills redirect calls/voicemails.
-
-There was an answered machine as dialed .
-
-There was a ring not answered as dialed.",Completed,Setup,"D - Good afternoon,
-Based on our understanding, the issue is simply that the customer wants to stop call forwarding. In this case, it is not necessary to delete the account.
-Please contact the customer and advise her to dial **73* using her phone application. This is a USSD command provided by her carrier that is commonly used to disable call forwarding.
-Additionally, please refer to the attached guide. In the section *""Redirecting Setup - Calls are not being forwarded""*, you will find a checklist with several steps that can help ensure call forwarding is configured correctly so that only creditor calls are redirected.
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Kenneth Ridenour",rosbelym@cordobalegal.com,2026-06-22,AT&T,1215545525,Android,,"WRONG ID OR PASSWORD.
-
-Ring not answered as dialed.","Call Agent (Additional information)","First Login","D - The validation has been completed and it was found that the account has not been created yet.
-
-Please verify and proceed with the account activation process, which must be done through the **first time login**.
-
-A link is attached where you can find the step-by-step instructions for completing this process.
-
-Please note the required data for the setup:
-
-* User ID: 1215545525
-* SSN: 5880
-* DOB: 1961-08-23
+"Jeanette Vega",jnunez@cordobalegal.com,2026-06-24,Spectrum,1144834648,IOS,,"While setting up the app, when we were in the section to choose the carrier, client said it took her to the start, while trying to go back to the option ;is this your fisrt login, when placed the user id, etc, it told her that the information was already used and ask her to login since there was an account already created with the info, did not let her continue with the set up of the app, but it was not completed.","Call Agent (Additional information)","First Login / Settings","D - The account has been validated and it was confirmed that it has already been created. Please inform the customer that once the password was configured, the account became active.
+To continue with the setup process, the customer simply needs to log in using the registered credentials. After logging in, the application will automatically prompt them to configure their carrier and complete any remaining setup steps that were not fully configured previously.
+Please assist the customer throughout the process. For any questions, a link is attached where you can find step-by-step instructions for completing any of these procedures.
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Freida J Stovall",Josias.Campusano@cordobalegal.com,2026-06-19,"METRO BY TMOBILE",1215262720,Android,,"When submitting the USSD COMMAND to set up the app for the very first time, when trying to call the code, it says: call forwarding - connection problem or invalid MMI 801, adding to it, there were 3 ussd commands and it happened the same in all of them",Triage,,"D - *Pending validation of the command.*",,Medium
+"Alaina Dixon",paula.caicedo@cordobalegal.com,2026-06-22,"Consumer Cellular",1219132475,IOS,,"When cx click on Is it your first time logiin? Nothing appears, she already try it a lot of times
+
+Answered machine as dialed.
+Answered machine as dialed.
+Answered machine as dialed.","Client not answering (3 days)","First Login","D - The issue has been resolved.
+Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
+After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
+If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
 "Jaiden Cirillo",Leidy.Sanchez@cordobalegal.com,2026-06-19,T-Mobile,1221437007,Android,,"The CreditorX App shows an error message that says ``Your phone number is not associated with you account``","Resolved with cx",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
@@ -603,22 +596,31 @@ Please note the required data for the setup:
 • SSN: 1449
 • DOB: 1967-11-10
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Alaina Dixon",paula.caicedo@cordobalegal.com,2026-06-22,"Consumer Cellular",1219132475,IOS,,"When cx click on Is it your first time logiin? Nothing appears, she already try it a lot of times
+"Kenneth Ridenour",rosbelym@cordobalegal.com,2026-06-22,AT&T,1215545525,Android,,"WRONG ID OR PASSWORD.
 
-Answered machine as dialed.
-Answered machine as dialed.
-Answered machine as dialed.","Client not answering (3 days)","First Login","D - The issue has been resolved.
-Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
-After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
-If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
-"Darinka Madrugas",Angie.Novoa@cordobalegal.com,2026-06-24,AT&T,CORDOBA-1216040023,IOS,,"When the customer tries to log into the application for the first time and enters her cell phone number, the system tells her that the phone number is not associated with any account.","Resolved with cx",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+Ring not answered as dialed.","Call Agent (Additional information)","First Login","D - The validation has been completed and it was found that the account has not been created yet.
 
-The agent must update this field inside ForthCRM
+Please verify and proceed with the account activation process, which must be done through the **first time login**.
+
+A link is attached where you can find the step-by-step instructions for completing this process.
+
+Please note the required data for the setup:
+
+* User ID: 1215545525
+* SSN: 5880
+* DOB: 1961-08-23
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Javier Guerra",Leidy.Sanchez@cordobalegal.com,2026-06-22,AT&T,1215034185,IOS,,"Customer  does not receive a verification code that the crediorX request  after to put the username and password","Account Canceled","First Login","D / The account was validated, and it was confirmed that it has not been created in CreditorX yet.
 Please assist the customer in completing the *First Login* process to activate the account. Once the First Login is successfully completed, the customer will be able to sign in using the credentials they create during the activation process.
 A step-by-step guide for completing the First Login process is attached for reference.
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Tajai Sullivan",Carlos.Solano@cordobalegal.com,2026-06-24,"T - Mobile",CORDOBA-1208876396,IOS,,"Phone number missing from the external system data
+
+Ring not  answered machine as dialed.","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Tammie Smith",jaquino@cordobalegal.com,2026-06-23,T-MOBILE,1218174261,IOS,,"Login failed.","Call Agent (Additional information)",Auth/Login,"D - The account has been validated and is active. As the reported issue appears to be related to the customer's credentials, please assist the customer in completing the password reset process. Once the password has been successfully reset, ask the customer to log in again using the updated credentials.A step-by-step guide for the password reset process is attached for reference.
@@ -650,15 +652,21 @@ A link is attached where you can also find step-by-step instructions for complet
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Wyatt Hiller",jnunez@cordobalegal.com,2026-06-24,TMOBILE,1208563032,Android,,"When submitting the USSD COMMAND to set up the app for the very first time, when trying to call the code, it says: Call cannot be completed not supported calls of this type. (Client said he migrated from Boost mobile just yesterday).","Resolved with cx",,"D - *Check whether it is a porting issue. -- Confirmed with client he was using tablet, so it does not have phone option*",,Medium
+"Darinka Madrugas",Angie.Novoa@cordobalegal.com,2026-06-24,AT&T,CORDOBA-1216040023,IOS,,"When the customer tries to log into the application for the first time and enters her cell phone number, the system tells her that the phone number is not associated with any account.","Resolved with cx",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Donna Calhoon",jnunez@cordobalegal.com,2026-06-01,Verizon,1210326928,IOS,,"Unable to log in to the app due to lack of password / After attempting to long in it came in with error: wrong not found.","Call Agent (Additional information)",,"D - The validation was completed and the account is correctly created. If the client does not remember the password, they should be instructed to reset it.
 A link with the step-by-step instructions for completing this process has been provided.
 
 https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
 "Debora G Whitehead",juan.arenas@cordobalegal.com,2026-06-01,"Not provided",1209942933,Android,,"After downloading the app, it shows error ""It does not support secure connection""","In queue",,"D - *Under validation by Samil.*","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-990"",""attachment"":{},""displayAsUrl"":false}",Medium
-"Tammie Smith",jnunez@cordobalegal.com,2026-06-29,T-mobile,CORDOBA-1218174261,IOS,,"Client tried to set up the Creditor X by herself, but not done correctly, when she tries to go through the steps to set it up it will say there is an account already, but the account was not properly set up.  Is there a way we could delete her credentials from the app to then have a fresh start when it comes to setting up the app?
+"Kimberly Laws",Andersson.Acosta@cordobalegal.com,2026-06-29,Verizone,1216431237,Android,,"When the customer types in her user ID, the last 4 of the SSN, and the DOB and hits confirm, she is getting a message saying this phone number is missing from our form.","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
-Ring not answered as dialed.","Call Agent (Additional information)",Setup,"D - At this time, it is not necessary to delete the account. The account has already been created, so the customer only needs to log in to complete the remaining setup process.
-If the customer does not remember the password, they can reset it and then sign in using the new credentials.",,Medium
+The agent must update this field inside ForthCRM
+
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Thomas Sickles",Josias.Campusano@cordobalegal.com,2026-05-13,AT&T,1208514445,IOS,,"Invalid credentials once he puts his Cordoba ID.","Call Agent (Additional information)",,"D- The account has not yet been created in Creditorx. A first login test was performed using the client's credentials and ID (1208514445), and the process proceeded normally until the password was assigned. Please instruct the client to repeat the process with the correct credentials. A link is attached where, in step 2, you will find step-by-step instructions for completing the process correctly.
 
 https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
@@ -908,34 +916,21 @@ https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
 https://hiredexperts.atlassian.net/wiki/x/AYCNGg",,Medium
 "Clifford Kent",edgarl@cordobalegal.com,2026-05-21,Verizon,CORDOBA-1207474743,Android,,"Client reported getting and error message about ''Wrong information associated, specifically the DOB.","Call Agent (Additional information)","First Login","D - The error may be caused by the format being entered. The format must be MM-DD-YYYY. To verify, this is the date associated in FORTHCRM (1956-07-13). Please validate again if the process can be completed correctly.",,Medium
 "Bruce Bartsch",Josias.Campusano@cordobalegal.com,2026-05-21,"Consumer Cellular",1205622880,IOS,,"Cx escalated the situation in the past, the app is not letting the cx re-register because he already did but when he tries to access using the email/phone number it does not work; we also tried to  recover the password and it does not let him access.","Call Agent (Additional information)",,"D - The account was validated and it is correctly created. Please validate the login again; the username is the email address ([bruce.bartsch@gmail.com](mailto:bruce.bartsch@gmail.com)).If he is still unable to recover the password, please assist the client through the recovery process. If it still does not work, please indicate the specific error shown when attempting to recover the password.",,Medium
-"Adam Wissink",Laura.Corredor@cordobalegal.com,2026-06-29,verizon,CORDOBA-1221501938,IOS,,"cx enters his ID, ssn and DOB and the app shows wrong credentials, can not go any further.","Account Canceled",,"D - Please assist the customer in completing the *First Login* process.
-Verify that the customer is entering the correct *User ID*, the last four digits of the *SSN*, and the *Date of Birth* exactly as registered in the system (DOB format: *MM-DD-YYYY*).
-If the customer continues to receive the *""Wrong credentials""* message after verifying all the information, please escalate the case for further investigation, including the customer's User ID, screenshots of the error, and the time the issue occurred.
+"Tammie Smith",jnunez@cordobalegal.com,2026-06-29,T-mobile,CORDOBA-1218174261,IOS,,"Client tried to set up the Creditor X by herself, but not done correctly, when she tries to go through the steps to set it up it will say there is an account already, but the account was not properly set up.  Is there a way we could delete her credentials from the app to then have a fresh start when it comes to setting up the app?
 
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY
-
-V- Cx cancelled",,Medium
-"Kimberly Laws",Andersson.Acosta@cordobalegal.com,2026-06-29,Verizone,1216431237,Android,,"When the customer types in her user ID, the last 4 of the SSN, and the DOB and hits confirm, she is getting a message saying this phone number is missing from our form.","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Anjail Ahmad",rosbelym@cordobalegal.com,2026-05-07,,CORDOBA-1207233836,IOS,,"is not letting the customer to stop the call.","Call Agent (Additional information)",,"D- Check with the customer which carrier they are using, to see if it could be due to the phone service.",,Medium
-"William Bean",Andersson.Acosta@cordobalegal.com,2026-07-22,T-Mobile,1221432317,IOS,"iphone 12 Pro Max","The customer is unable to set up CreditorX on his phone. After hitting the “Is this your first login?” option, accepting terms, filling in his user ID, the last 4 of his SSN and DOB, and tapping confirm, he is getting a message that says ""Error: Associated phone number is missing from external form.”
-
-There was an answered machine as dialed.","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Tina Laranjo",Carlos.Solano@cordobalegal.com,2026-07-21,T-mobile,CORDOBA-1208519840,IOS,"Iphone 15","Cx downloaded the App, but it would not allow her to press any button or do any process or click on ""Is this your first login""
+Ring not answered as dialed.","Call Agent (Additional information)",Setup,"D - At this time, it is not necessary to delete the account. The account has already been created, so the customer only needs to log in to complete the remaining setup process.
+If the customer does not remember the password, they can reset it and then sign in using the new credentials.",,Medium
+"Blanca Moreno",jnunez@cordobalegal.com,2026-06-29,Verizon,CORDOBA-1221494547,IOS,,"Client tried to set up the Creditor X by herself, but not done correctly, when she tries to click on the option is this your first login, it is not responding. Uninstalled the app and installed it back and still wouldn't respond when clicking on is this your first login optiona
 
 Answered machine as dialed.
-
-Answered machine as dialed.","Client not answering (3 days)","First Login","D - The issue has been resolved.
+Ring not answered as dialed.","Client not answering (3 days)","First Login","D - The issue has been resolved.
 Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
 After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
-If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
+If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Anjail Ahmad",rosbelym@cordobalegal.com,2026-05-07,,CORDOBA-1207233836,IOS,,"is not letting the customer to stop the call.","Call Agent (Additional information)",,"D- Check with the customer which carrier they are using, to see if it could be due to the phone service.",,Medium
+"gary ward",Laura.Vargasr@cordobalegal.com,2026-07-23,sixfaire,CORDOBA-908442209,IOS,"credetians not worked","credetians not worked","Client not answering (3 days)",,"D - Please ask the customer to reset their password using the *Forgot Password* option.
+After creating a new password, the customer should try signing in again using the updated credentials.
+If the password reset process fails or the customer is still unable to log in, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
 "Michael Porter",Christian.Patarroyo@cordobalegal.com,2026-07-21,Verizon,1224545948,IOS,"Iphone 17E","Client is at the USSD command step and when he calls the number he gets a message that reads you are not allow to call this number. Client uninstall app, reinstall, try again with only the mobil network on but still got the same message.","Call Agent (Additional information)",,"D - Based on the reported behavior, this appears to be a carrier-related issue.
 Please ask the customer to contact their mobile carrier to verify why the USSD commands cannot be executed. The carrier is responsible for allowing or restricting the execution of USSD commands on the customer's line.
 Once the carrier confirms that USSD services are enabled and functioning correctly, please ask the customer to try the setup process again.",,Medium
@@ -961,7 +956,7 @@ Please ask the customer to update the application to the latest version availabl
 After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
 If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
 "Dorshon Tolliver",Carlos.Solano@cordobalegal.com,2026-07-22,"Xfinity / Verizon",CORDOBA-1229300169,Android,"Samsung Galaxy","Phone number missing from the external system data
-Answered machine as dialed.","Call Agent (Additional information)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+Answered machine as dialed.","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
 
@@ -970,15 +965,21 @@ hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 *Account ID:* *1228353369*
 Please ask the customer to use this Account ID and try the process again.
 If the issue persists, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"gary ward",Laura.Vargasr@cordobalegal.com,2026-07-23,sixfaire,CORDOBA-908442209,IOS,"credetians not worked","credetians not worked","Call Agent (Additional information)",,"D - Please ask the customer to reset their password using the *Forgot Password* option.
-After creating a new password, the customer should try signing in again using the updated credentials.
-If the password reset process fails or the customer is still unable to log in, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
-"Lori A Murray",samuel.angel@cordobalegal.com,2026-07-21,Spectrum,1216685289,IOS,"iphone 13","we did tried to log in using user id, and phone number but any of those and when she put the phone number it saids wrong credentials","Client not answering (3 days)",Auth/Login,"D - Please ask the customer to try signing in again using the following username:
-*Username:* 15183689444
-If the customer is still unable to log in, please provide the exact error message displayed, along with a screenshot or screen recording, so the issue can be investigated further.",,Medium
+"William Bean",Andersson.Acosta@cordobalegal.com,2026-07-22,T-Mobile,1221432317,IOS,"iphone 12 Pro Max","The customer is unable to set up CreditorX on his phone. After hitting the “Is this your first login?” option, accepting terms, filling in his user ID, the last 4 of his SSN and DOB, and tapping confirm, he is getting a message that says ""Error: Associated phone number is missing from external form.”
+
+There was an answered machine as dialed.","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Debra Norman",diego.giraldo@cordobalegal.com,2026-07-23,NA,1210308889,IOS,"Iphone 14","There is some part with the process after creating the password that said the account is already active and after that it shows there is an error on the plattform, please try again later.","Resolved with cx",Auth/Login,"D - The account already exists and is active.
 If the customer does not remember their login credentials, please ask them to use the *Forgot Password* option to reset their password and regain access to the account.
 If the password recovery process does not work, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
+"Carlos Feliz",Daniel.Sierra@cordobalegal.com,2026-07-21,Verizon,CORDOBA-1203636084,Android,"Motorola G Play 2026","Client was able to made the first login. Activation of the call forwarding was in red color after doing the first login steps. Allowing permissions in the cellphone settings were verifed and enabled correctly. Tried to close the app and sign up new again and the call forwarding still in red, not active.","App uninstalled","Blocked List","D - Please ask the customer to follow the *""Calls are not being forwarded - 6 Steps""* guide and complete all the troubleshooting steps.
+Once all six steps have been completed, please ask the customer to verify whether *Call Forwarding* is now active and no longer displayed in red.
+If the issue persists after completing the *""Calls are not being forwarded - 6 Steps""* guide, please provide the exact behavior, along with a screenshot or screen recording, so the issue can be investigated further.
+
+hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
 "IAN GUTLEBER",Maria.Velez@cordobalegal.com,2026-07-23,"Metro PCS",1222250185,Android,Cellphone,"Client's phone number is not listed on CreditorX app.","Call Agent (Additional information)",,"D - The account was reviewed, and it was confirmed that it has not been created yet.
 It was also identified that the *Home Phone* field is missing in Forth. This field must be completed before the customer will be able to complete the *first login* process.
 Please make sure that the *Home Phone* field is populated with a *mobile phone number*, not a landline number.
@@ -998,24 +999,25 @@ If the issue persists after updating the application, please provide the exact e
 The agent must update this field inside ForthCRM
 
 hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Carlos Feliz",Daniel.Sierra@cordobalegal.com,2026-07-21,Verizon,CORDOBA-1203636084,Android,"Motorola G Play 2026","Client was able to made the first login. Activation of the call forwarding was in red color after doing the first login steps. Allowing permissions in the cellphone settings were verifed and enabled correctly. Tried to close the app and sign up new again and the call forwarding still in red, not active.","Call Agent (Additional information)","Blocked List","D - Please ask the customer to follow the *""Calls are not being forwarded - 6 Steps""* guide and complete all the troubleshooting steps.
-Once all six steps have been completed, please ask the customer to verify whether *Call Forwarding* is now active and no longer displayed in red.
-If the issue persists after completing the *""Calls are not being forwarded - 6 Steps""* guide, please provide the exact behavior, along with a screenshot or screen recording, so the issue can be investigated further.
+"Chae Page",rromero@cordobalegal.com,2026-07-23,Spectrum,CORDOBA-1201974036,IOS,Iphone,"Client cannot access to the app after doing the registration process; tried to reset password but app does not allow it: ""error code"".","Client not answering (3 days)",,"D - Please ask the customer to update the application to the latest version available.
+After updating the app, the customer should try the *Forgot Password* process again to reset their password.
+If the issue persists after updating the application, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
+"Tina Laranjo",Carlos.Solano@cordobalegal.com,2026-07-21,T-mobile,CORDOBA-1208519840,IOS,"Iphone 15","Cx downloaded the App, but it would not allow her to press any button or do any process or click on ""Is this your first login""
 
-hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
-"Lisa Lawrence",jnunez@cordobalegal.com,2026-07-20,Spectrum,1228573199,Android,N/A,"On USSD screen the phone keep looping and no code is sent and goes back to the USSD screen.","Call Agent (Additional information)",,"D - Please ask the customer to uninstall and reinstall the application.
-After reinstalling, the customer should grant all requested permissions when prompted and complete the setup process again, including the USSD configuration.
-If the issue persists after reinstalling the application, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
-"Susan M Nickles",Saray.Beltran@cordobalegal.com,2026-07-24,"not specified",1221466129,Android,"not specified","cx already set up her creditor x account but now she is trying to log in again and said wrong credentials, she used her email to set up the app, now is not working","Call Agent (Additional information)",,"D - The account was reviewed, and it was confirmed that the correct username is:
-*Username:* *susannickles1949@gmail.com*
-If the customer is still unable to sign in using this username, the recommended next step is to reset the password using the *Forgot Password* option.
-After creating a new password, the customer should try signing in again. If the issue persists, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Lori Loomis",Angie.Novoa@cordobalegal.com,2026-07-17,"Straight Talk",1220181297,Android,"Samsung Galaxy A12","The cx reports that when she adds a new creditor number to the call blocking system, calls from those numbers continue to come through to her phone. She mentions that the app worked for three hours after she downloaded it, and then she started receiving calls from creditors again.","Call Agent (Additional information)",,"D - Please inform the customer that the creditor phone number must first be *verified through the portal* before the application can begin blocking calls from that number.
-Once the verification process is completed, the number will be marked as *Verified*, and the application will start applying the call-blocking functionality for that creditor.
-Please ask the customer to wait until the verification is completed and then test the application again.",,Medium
-"Zaskia Solis",juan.lievano@cordobalegal.com,2026-07-16,T-mobile,1219819327,IOS,"iPhone 14","When clx tries to Login an error pops up saying ""Associated phone numebr is missing from external data"" Already confirmed that the phone number on file and the phone number in the devise is the same one
+Answered machine as dialed.
 
-Ring not answered as dialed.","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+Answered machine as dialed.","Unresolved with cx","First Login","D - The issue has been resolved.
+Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
+After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
+If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
+"Lori A Murray",samuel.angel@cordobalegal.com,2026-07-21,Spectrum,1216685289,IOS,"iphone 13","we did tried to log in using user id, and phone number but any of those and when she put the phone number it saids wrong credentials","Client not answering (3 days)",Auth/Login,"D - Please ask the customer to try signing in again using the following username:
+*Username:* 15183689444
+If the customer is still unable to log in, please provide the exact error message displayed, along with a screenshot or screen recording, so the issue can be investigated further.",,Medium
+"Debra aweau",Laura.Arciniegas@cordobalegal.com,2026-07-24,"T-mobile +",CORDOBA-1217405403,Android,Samsung,"It says ""not athorized"" after placing the Client ID number","Resolved with cx",,"D - The account was reviewed, and it was confirmed that it has not been created yet.
+It was also identified that the *Home Phone* field is missing in Forth. This field must be completed before the customer will be able to complete the *first login* process.
+Please make sure that the *Home Phone* field is populated with a *mobile phone number*, not a landline number.
+Once this information has been updated in Forth, the customer should be able to complete the first login successfully.",,Medium
+"Debbie Vassell Mitchell",Catalina.Garzon@cordobalegal.com,2026-07-17,Exfinity,CORDOBA-1223774463,IOS,"Iphone 17 pro","First time login, when Cx types all the requested info as User ID, last 4 SSN and DOB gets the following message ""Associated number is missing from external system data. Please contact crediotr X team""","Client not answering (3 days)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
 
@@ -1044,16 +1046,15 @@ If the password recovery process fails or the customer is still unable to log in
 The agent must update this field inside ForthCRM
 
 hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Debbie Vassell Mitchell",Catalina.Garzon@cordobalegal.com,2026-07-17,Exfinity,CORDOBA-1223774463,IOS,"Iphone 17 pro","First time login, when Cx types all the requested info as User ID, last 4 SSN and DOB gets the following message ""Associated number is missing from external system data. Please contact crediotr X team""","Client not answering (3 days)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Lula Malone",50ca1f07ad4e4754839cf75f0dc9164bAngeles.Guerrero@cordobalegal.com,2026-07-20,n/a,1222285906,IOS,n/a,"She cannot add the number 888-638-4956 belonging to one of her creditors. After entering it the app just doesn't give her the option to go further.",Completed,,"D - The phone number has been reviewed and it is already in the *Pending Verification* status.
-Because the number is already waiting for verification, the application does not allow it to be added again. Once the verification process is completed, the customer will be able to use the verified number in the application.",,Medium
-"Muriel Mitchell Lawrence",rromero@cordobalegal.com,2026-07-17,AT&T,CORDOBA-1213663801,IOS,Iphone,"Client said that she never got the OTP login after completing the signing up","Call Agent (Additional information)",,"D - Pending OTP validation",,Medium
+"Lori Loomis",Angie.Novoa@cordobalegal.com,2026-07-17,"Straight Talk",1220181297,Android,"Samsung Galaxy A12","The cx reports that when she adds a new creditor number to the call blocking system, calls from those numbers continue to come through to her phone. She mentions that the app worked for three hours after she downloaded it, and then she started receiving calls from creditors again.","Call Agent (Additional information)",,"D - Please inform the customer that the creditor phone number must first be *verified through the portal* before the application can begin blocking calls from that number.
+Once the verification process is completed, the number will be marked as *Verified*, and the application will start applying the call-blocking functionality for that creditor.
+Please ask the customer to wait until the verification is completed and then test the application again.",,Medium
+"Muriel Mitchell Lawrence",rromero@cordobalegal.com,2026-07-17,AT&T,CORDOBA-1213663801,IOS,Iphone,"Client said that she never got the OTP login after completing the signing up","Resolved with cx",,"D - Pending OTP validation",,Medium
+"Lisa Lawrence",jnunez@cordobalegal.com,2026-07-20,Spectrum,1228573199,Android,N/A,"On USSD screen the phone keep looping and no code is sent and goes back to the USSD screen.","Call Agent (Additional information)",,"D - Please ask the customer to uninstall and reinstall the application.
+After reinstalling, the customer should grant all requested permissions when prompted and complete the setup process again, including the USSD configuration.
+If the issue persists after reinstalling the application, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
 "Kavetta Hollis",wilid@cordobalegal.com,2026-07-20,AT&T,CORDOBA-1231352324,IOS,"Iphone 16 pro max","the app is not recognizing customer's phone number.","Returned - Insufficient Information",,"D - Could you please provide more details about why the application is not recognizing the customer's phone number? What exactly happens when the customer enters the phone number? Is there a specific error message or behavior you can share?",,Medium
-"Sudie Foster",juan.gonzalez@cordobalegal.com,2026-07-20,Verizon,CORDOBA-1221487705,Android,"G fold 6","Client is not allowed to fetch the  voicemails from her doctor's office","Call Agent (Additional information)",,"D - The voicemail was reviewed, and it was confirmed that it is not available because our platform does not store or retain voicemails from this source.
+"Sudie Foster",juan.gonzalez@cordobalegal.com,2026-07-20,Verizon,CORDOBA-1221487705,Android,"G fold 6","Client is not allowed to fetch the  voicemails from her doctor's office","Account Canceled",,"D - The voicemail was reviewed, and it was confirmed that it is not available because our platform does not store or retain voicemails from this source.
 As a result, the application is unable to retrieve or play these voicemail messages.",,Medium
 "Morgan Matthews",jnunez@cordobalegal.com,2026-07-20,N/A,1207196905,Android,N/A,"Unrecognize error, sent to voicemail error, sync error, stuck at USSD codes.","Call Agent (Additional information)",,"D - Please ask the customer to follow the *""Calls are not being forwarded - 6 Steps""* guide and complete all of the troubleshooting steps.
 Once all six steps have been completed, please ask the customer to test the application again and verify whether the issue has been resolved.
@@ -1065,56 +1066,120 @@ APP IS WORKING NOW!","Resolved with cx","First Login","D - The issue has been re
 Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
 After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
 If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
-"Nancy Rosario",Jessi.Correa@cordobalegal.com,2026-07-20,AT&T,1227112756,Android,Samsung,"""Wrong credentials"" but the info is the right one","Call Agent (Additional information)",,"D - Please ask the customer to reset the password using the *Forgot Password* option.
+"Nancy Rosario",Jessi.Correa@cordobalegal.com,2026-07-20,AT&T,1227112756,Android,Samsung,"""Wrong credentials"" but the info is the right one","Client not answering (3 days)",,"D - Please ask the customer to reset the password using the *Forgot Password* option.
 After receiving the password reset email, the customer should use the *most recent temporary password* to sign in and then create a new permanent password.
 If the customer is still unable to sign in after resetting the password, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
-"Chae Page",rromero@cordobalegal.com,2026-07-23,Spectrum,CORDOBA-1201974036,IOS,Iphone,"Client cannot access to the app after doing the registration process; tried to reset password but app does not allow it: ""error code"".","Call Agent (Additional information)",,"D - Please ask the customer to update the application to the latest version available.
-After updating the app, the customer should try the *Forgot Password* process again to reset their password.
+"Lula Malone",50ca1f07ad4e4754839cf75f0dc9164bAngeles.Guerrero@cordobalegal.com,2026-07-20,n/a,1222285906,IOS,n/a,"She cannot add the number 888-638-4956 belonging to one of her creditors. After entering it the app just doesn't give her the option to go further.",Completed,,"D - The phone number has been reviewed and it is already in the *Pending Verification* status.
+Because the number is already waiting for verification, the application does not allow it to be added again. Once the verification process is completed, the customer will be able to use the verified number in the application.",,Medium
+"Susan M Nickles",Saray.Beltran@cordobalegal.com,2026-07-24,"not specified",1221466129,Android,"not specified","cx already set up her creditor x account but now she is trying to log in again and said wrong credentials, she used her email to set up the app, now is not working","Call Agent (Additional information)",,"D - The account was reviewed, and it was confirmed that the correct username is:
+*Username:* *susannickles1949@gmail.com*
+If the customer is still unable to sign in using this username, the recommended next step is to reset the password using the *Forgot Password* option.
+After creating a new password, the customer should try signing in again. If the issue persists, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
+"Elsa Bowman",jaquino@cordobalegal.com,2026-07-23,"Boost Mobile",CORDOBA-1224541527,Android,Motorola,"cx is trying to create the password and the application is Dropping her off","Call Agent (Additional information)",,"D - Please ask the customer to update the application to the latest version available.
+After updating the app, the customer should try the password creation process again.
 If the issue persists after updating the application, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
-"Debra aweau",Laura.Arciniegas@cordobalegal.com,2026-07-24,"T-mobile +",CORDOBA-1217405403,Android,Samsung,"It says ""not athorized"" after placing the Client ID number","Resolved with cx",,"D - The account was reviewed, and it was confirmed that it has not been created yet.
-It was also identified that the *Home Phone* field is missing in Forth. This field must be completed before the customer will be able to complete the *first login* process.
-Please make sure that the *Home Phone* field is populated with a *mobile phone number*, not a landline number.
-Once this information has been updated in Forth, the customer should be able to complete the first login successfully.",,Medium
-"Barry Bayles",Dana.Rojas@cordobalegal.com,2026-07-16,Verizon,CORDOBA-1219749138,Android,"Samsung Galaxy","When the cx try to access show to him the phone number is wrong.","Resolved with cx",,"D - The issue appears to be related to the customer's account information.
-Please ask the agent to verify and update the customer's information in *FORTHCRM*, ensuring that the phone number and all other required account details are correct and up to date.
-Once the information has been updated, please ask the customer to try the process again.",,Medium
-"Richard Mears",Sergio.Arias@cordobalegal.com,2026-07-29,Verizon,1231101326,Android,"doesn´t know","CX mention that he clickk in this is your first log in.  But it only request las 4 of his SSN, and date of birth. Nit the client Id.  I reported the issues.","Call Agent (Additional information)","First Login","D - Please ask the customer to update the application to the latest available version before attempting the process again.
+"Stacy Cofer",Maria.Quinones@cordobalegal.com,2026-07-16,verizon,CORDOBA-1219251795,IOS,"iphone 16","The client is not able to login, when she click on the ""is this yor fisrt time login?"" it doesn`t let her going foward, she has already tried to delete and dowload the app again but she is still not able to going foward","Unresolved with cx","First Login","D - The issue has been resolved.
+Please ask the customer to update the application to the latest version available in the App Store (v1.4.1).
+After installing version 1.4.1, the customer should complete the setup process again. The reported issue should no longer occur with this version.
+If the customer continues to experience the same behavior after updating to v1.4.1, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Christine Chavarria",Laura.Corredor@cordobalegal.com,2026-07-29,AT&T,CORDOBA-1208873200,IOS,"iphone 17","the wont let her click on ""is this your first log in"". She has the latest  version of her phone, already deleted the app and install it again
+
+Rescheduled callback at 4:00pm","Call Agent (Additional information)",,"D - Please ask the customer to update the application to the latest available version before attempting the process again.
 After the application has been updated, please retry the *First Login* process. If the issue persists after the update, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Belkis CASAS",Laura.Camargo@cordobalegal.com,2026-07-29,Verizon,"Belkis CASAS",IOS,"Iphone 12","when she is trying to register and shows this issue Associated phone number is missing from the external system data contact creditor x support","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
-"Elizabeth Corey",Christian.Patarroyo@cordobalegal.com,2026-07-29,T-Mobile,1206462423,IOS,"IPhone 16","Client was not able to block phone number with GS BANK / Apple, when adding the number manually, the client gets a messages that reads ""The block of this number has been rejected"". based on Creditor X Guide, a tier 2 escalation is required.","Call Agent (Additional information)","Blocked List","D - The phone number has already been verified in the portal.
+"Elizabeth Corey",Christian.Patarroyo@cordobalegal.com,2026-07-29,T-Mobile,1206462423,IOS,"IPhone 16","Client was not able to block phone number with GS BANK / Apple, when adding the number manually, the client gets a messages that reads ""The block of this number has been rejected"". based on Creditor X Guide, a tier 2 escalation is required.","Resolved with cx","Blocked List","D - The phone number has already been verified in the portal.
 The customer can now add the number from the application to the blocked numbers list.
 If the customer is still unable to add the number, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Clyde Johnson",Laura.Corredor@cordobalegal.com,2026-07-29,Xfinity,CORDOBA-1228588587,IOS,"iphone 17 pro","cx is trying to select ""is this your first log in"" en the app wont let him go anywhere","Call Agent (Additional information)","First Login","D - The issue has been resolved.
+"Clyde Johnson",Laura.Corredor@cordobalegal.com,2026-07-29,Xfinity,CORDOBA-1228588587,IOS,"iphone 17 pro","cx is trying to select ""is this your first log in"" en the app wont let him go anywhere","Unresolved with cx","First Login","D - The issue has been resolved.
 Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
 After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
 If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Oksana Nazarova",Catalina.Garzon@cordobalegal.com,2026-07-29,T-Mobile,CORDOBA-1226860567,Android,Samsung,"Cx was able to download and set up the app on her phone that is an iphone, but also wanted to do it on the co-aplicant's phone. Is that an option? They are using same credentials but not working. when they tried to do it with other credentials doesn't work as well.","Call Agent (Additional information)",,"D - The customer should be able to access the application on the co-applicant's device.
+"Oksana Nazarova",Catalina.Garzon@cordobalegal.com,2026-07-29,T-Mobile,CORDOBA-1226860567,Android,Samsung,"Cx was able to download and set up the app on her phone that is an iphone, but also wanted to do it on the co-aplicant's phone. Is that an option? They are using same credentials but not working. when they tried to do it with other credentials doesn't work as well.
+
+Answered machine","Call Agent (Additional information)",,"D - The customer should be able to access the application on the co-applicant's device.
 However, please note that the same account cannot be used with two active sessions at the same time. If the customer is already signed in on one device, they should sign out before attempting to sign in on another device.
 If the issue persists after signing out from the other device, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
 "Brenda Kaye-Smith",Daniel.Tauta@cordobalegal.com,2026-07-29,AT&t,CORDOBA-1227625633,IOS,Iphone,"app its no working for the client",Triage,,"waiting fore more information",,Medium
-"Christian Ball",Jorge.Lopez@cordobalegal.com,2026-07-29,AT&T,1238962848,IOS,"iphone 14","when client tried to enter his user ID which contains letters cannot do it since app just receives number","Call Agent (Additional information)","First Login","D - The account was verified and no account has been created yet.
+"Christian Ball",Jorge.Lopez@cordobalegal.com,2026-07-29,AT&T,1238962848,IOS,"iphone 14","when client tried to enter his user ID which contains letters cannot do it since app just receives number
+
+Answered machine as dialed.","Call Agent (Additional information)","First Login","D - The account was verified and no account has been created yet.
 Please ask the customer to complete the *First Login* process to create and activate the account before attempting to sign in.
 Please note that the customer's *Account ID* is *1238962848*. Make sure this information is entered correctly during the process.
 Also, please follow the step-by-step instructions provided in the link below to complete the *First Login* process.
 If the issue persists after completing the process, please provide the exact error message along with a screenshot or screen recording for further investigation.
 
 hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
-"Christine Chavarria",Laura.Corredor@cordobalegal.com,2026-07-29,AT&T,CORDOBA-1208873200,IOS,"iphone 17","the wont let her click on ""is this your first log in"". She has the latest  version of her phone, already deleted the app and install it again","Call Agent (Additional information)",,"D - Please ask the customer to update the application to the latest available version before attempting the process again.
+"Richard Mears",Sergio.Arias@cordobalegal.com,2026-07-29,Verizon,1231101326,Android,"doesn´t know","CX mention that he clickk in this is your first log in.  But it only request las 4 of his SSN, and date of birth. Nit the client Id.  I reported the issues.
+
+Answered machine as dialed.","Call Agent (Additional information)","First Login","D - Please ask the customer to update the application to the latest available version before attempting the process again.
 After the application has been updated, please retry the *First Login* process. If the issue persists after the update, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Carol Luna",Dilan.Riascos@cordobalegal.com,2026-07-29,T-Mobile,1221463920,Android,"Samsung Galaxy 23","Client is trying to log in and app does not recognize phone number","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Patricia Jones",jnunez@cordobalegal.com,2026-07-30,T-Mobile,CORDOBA-1216192330,IOS,"Iphone 16 pro max","App is not allowing her to block an specific phone number it is the 8772659912 the error she is getting when trying is: he block of this phone number has been rejected. Went through the Creditor x guide and instructed me to escalate this to the tier 2 to add this phone number. Thank you!
 
 Ring not answered as dialed
 
-r","Call Agent (Additional information)",,"D - Validate the phone number so it can be added.",,Medium
+I was trying to reach our client due to a CREDITOR X supports relate to an issue with her voice mail, whose has been redirecting all voice mail for incoming calls, even listening all recorded voice mails.
+
+
+There was an answered machine as we were trying to reach our client.
+
+
+I was able to get in touch with with the client regarding to his Creditor X APP.
+
+
+Device: T-MOBIL / iphone 17
+-Creditor X uninstalled.
+-Creditor X Installed updated at the last version : V1.4.1 IOS.”APP STORE LIBRARY”
+
+Client was educated, please Dial “ ##21# in order to disable call forwarding or even dial ##004# as well.
+
+*
+*APP HAS BEEN LAUNCHED . Call Features were being active.
+Current status: Creditor calls Blocking /forwarding. “Active “
+*USSD COMMNAD “ has been done.
+• Carrier has been setup.
+Solved!!
+
+------------------
+I was able to get in touch with The client relate to Her CREDITOR X APP, blocking numbers whose wont allow her to block a creditor GS Bank, : 8772659912, She has received a call since : at 8:49AM.
+This morning. Client has told us, she wont be able to login into the app. Due to “Invalid credentials “.
+
+Creditor DID : 18772659912 Is blocked, 07/31/2026 03:45PM “APPLE CARD” Original creditors is being locked.
+
+Client was educated, please click on password recovery, Reset password, she will recive a temporary password at : Email patriciajones6932@icloud.com
+
+Reset password is done!
+
+Client has tried to block a number on the app, but she has got a notification messages :
+"" They are not go to allowed block them out. “. like says not you are not gonna block it. It can be done on their phone app, but it wont be blocked out from her Creditor X APP.
+
+App has been updated at the last version v1.4.1 .
+
+Settings: Select do not disturb when creditors calls. active.
+Call forwarding active.
+
+“Try messages notification “
+The block of this numbers has been rejected, please contact support team, for more information .
+
+It has been blocked on Admin panel
+Creditor DID : 18772659912 Is blocked, 07/31/2026 03:45PM “APPLE CARD” Original creditors is being locked.
+
+USSD Command has been setup!
+
+Please go to block, them click on + ADD, in order to manually blocking a number, but its still the same error, when trying to add 18772659912 “ APPLE CARD ACCOUNT “
+
+8773520759 Is blocked on Their creditor X APP + ADMIN PANEL : since 03/21/2026 11:52PM
+status: blocked.
+
+Case has been working by DEV TEAM,TR3 Client was educated, once we may get a solutions we will reach her back.","Call Agent (Additional information)",,"D - Validate the phone number so it can be added.",,Medium
+"John Fellas",jnunez@cordobalegal.com,2026-07-29,"Xfinity mobile",CORDOBA-1228556543,Android,N/A,"Customer called in because Creditor X is not working is not blocking the phone call coming from the creditor, I try to verify the setting make sure the setting on the app was right
+Do not Disturb me with creditors calls was On
+Do not disturb me with collection agency call was also ON
+No update available on the app
+
+Also validate with the caller to make sure the number he receive the phone call was on the list and he say that it is on the block list but the phone keeps on getting the calls.","Resolved with cx","Blocked List","D - Please ask the customer to follow the *""Calls are not being forwarded - 6 Steps""* guide using the link provided to configure call forwarding correctly.
+After completing all six steps, please test the application again.
+If the issue still persists, please provide the phone number that the customer is trying to block so we can review it in the Cordoba administration panel and investigate further.
+
+hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
 "Paul Burchard",Luis.Agramonte@cordobalegal.com,2026-07-30,"Verizon Wireless",CORDOBA-1239902938,IOS,Iphone,"The client is still getting calls from a number he has already blocked.
 
 I was able to reach our clients relate to CREDITOR X, APP due to the following error messages
@@ -1134,36 +1199,106 @@ If the issue still persists, please provide the phone number that the customer i
 hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
 "Clinton Summitt",Diego.Reyes@cordobalegal.com,2026-07-30,"t mobile",1216657299,IOS,"iphone 17","cx app is  redirecting  all voicemails he is receiving  not  just  his creditors and the app not  let  him listen none  of  the voicemails
 
-Answered machine a dialed.","Resolved with cx",,"D - After reviewing the account, it was confirmed that the customer does not have any voicemail messages registered in the system.
+Answered machine a dialed.
+
+I was able to reach our clients in order to assist her about “CREDITOR X APP ”.
+
+Device: Iphone 13
+Network/carrier Verizon:
+App was being uninstalled
+
+App has been installed at the last version v1.4.1 IOS
+Please click on : Is this your 1sth login
+User ID : 120075-4465
+
+I was able to get in touch with Ext#99 opt 2, who assit Jesus. In order to update her
+Home 872-400-1752 Cell Phone 872-400-1752 fiels.
+
+I have lost connection with the client, so that I was trying to reach her back but there was an answered machine as dialed.
+
+I was trying to reach our clients relate to CREDITOR X, APP due to the following error messages
+“blocking of this number has been rejected “. But there was an answered machine when dialed.
+
+
+-I was able to view on the platform, a Creditor
+Blocked list : 4808804477, 5:42PM PASIC TIME. “ACHIEVE” is blocked on the core.
+
+-It has been blockec into the “Block “: sections on The Creditor X APP, from our client.
+
+• Creditor X Settings / inbound call settings Features do not disturb when collectors agency call.
+Case has been resolved.
+
+
+
+I was able to reach our clients back regarding to his Creditor X APP, whose not displayed some features and button, however blocked number is not working as well.
+
+
+Client was educated to go to :
+*Settings app.
+*Display.
+*Screen Resolution 2316 x 1080
+Settings app, tap Display Font size, and drag the slider left or right to make text smaller or larger, it has been turned on Bigger.
+
+Do not disturbed when creditors calls.
+Dot not disturb when collectors agency calls.
+
+Please go to blocks, then adding a number he wants to blocks,
+
+Important: Suggested numbers are currently out of the blocked list whose would be added too.
+
+open the Settings app, tap Display (or Accessibility), select Font size, and drag the slider left or right to make text smaller or large
+
+Add Button has been displayed on their menu screen.
+
+Solved!
+
+
+I was trying to reach our client due to a CREDITOR X supports relate to an issue with her voice mail, whose has been redirecting all voice mail for incoming calls, even listening all recorded voice mails.
+
+
+There was an answered machine as we were trying to reach our client.
+
+
+I was able to get in touch with with the client regarding to his Creditor X APP.
+
+
+Device: T-MOBIL / iphone 17
+-Creditor X uninstalled.
+-Creditor X Installed updated at the last version : V1.4.1 IOS.”APP STORE LIBRARY”
+
+Client was educated, please Dial “ ##21# in order to disable call forwarding or even dial ##004# as well.
+
+*
+*APP HAS BEEN LAUNCHED . Call Features were being active.
+Current status: Creditor calls Blocking /forwarding. “Active “
+*USSD COMMNAD “ has been done.
+• Carrier has been setup.
+Solved!!","Resolved with cx",,"D - After reviewing the account, it was confirmed that the customer does not have any voicemail messages registered in the system.
 If the customer is still experiencing issues with voicemail, please provide additional details about the behavior, along with a screenshot or screen recording if available, so we can continue the investigation.",,Medium
 ,,,,,,,,,,,,Medium
 "Olivia John",Saray.Beltran@cordobalegal.com,2026-07-31,NA,1222125203,Android,"galaxy A25 5g","she is trying to add another phone number but it says is already on file but it's not",New,,,,Medium
-"Elsa Bowman",Laura.Arciniegas@cordobalegal.com,2026-07-31,Boost,CORDOBA-1224541527,Android,Motorola,"Cx was trying to get into creditor X but the hole creen was black only showing our phone numbera",New,,,,Medium
+"Elsa Bowman",Laura.Arciniegas@cordobalegal.com,2026-07-31,Boost,CORDOBA-1224541527,Android,Motorola,"Cx was trying to get into creditor X but the hole creen was black only showing our phone numbera","Call Agent (Additional information)",,"D - Please ask the customer to update the application to the latest available version, as this issue should already be resolved in the most recent release.
+After updating the application, please verify whether the issue has been fixed.
+If the problem still persists, please provide the following information for further investigation:
+• Android version
+• Device model
+• Application version
+• A screenshot or screen recording of the issue
+",,Medium
 "Carol Sims",Saray.Beltran@cordobalegal.com,2026-08-01,Verizon,1229369482,IOS,"17 pro","cx alredy blocked some numbers but it is not working, she keep getting calls from the same numbers already listed","Call Agent (Additional information)",,"D - Please ask the customer to follow the *""Calls are not being forwarded - 6 Steps""* guide using the link provided to correctly configure call forwarding.
 It is important to complete all six steps before testing the application again.
 Once the setup has been completed, please verify whether the blocked calls are being forwarded correctly. If the issue persists after completing all six steps, please provide the exact error message along with a screenshot or screen recording for further investigation.
 
 hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
-"John Fellas",jnunez@cordobalegal.com,2026-07-29,"Xfinity mobile",CORDOBA-1228556543,Android,N/A,"Customer called in because Creditor X is not working is not blocking the phone call coming from the creditor, I try to verify the setting make sure the setting on the app was right
-Do not Disturb me with creditors calls was On
-Do not disturb me with collection agency call was also ON
-No update available on the app
+"Charles Black Sr",Laura.Viviana@cordobalegal.com,2026-08-01,"Stand up wireless",CORDOBA-1228348544,Android,"Moto G Stylus 5G","Carrier is not listed on the app: Stand up wireless","Call Agent (Additional information)",,"D - After validation, it was confirmed that *StandUp Wireless* is an MVNO that operates on the *T-Mobile* network.
+Therefore, the customer should select *T-Mobile* in the application and use the *T-Mobile USSD commands* to configure and activate call forwarding.
+If the call forwarding setup still does not work after using the T-Mobile USSD commands, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
+"Belkis CASAS",Laura.Camargo@cordobalegal.com,2026-07-29,Verizon,"Belkis CASAS",IOS,"Iphone 12","when she is trying to register and shows this issue Associated phone number is missing from the external system data contact creditor x support","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
-Also validate with the caller to make sure the number he receive the phone call was on the list and he say that it is on the block list but the phone keeps on getting the calls.","Resolved with cx","Blocked List","D - Please ask the customer to follow the *""Calls are not being forwarded - 6 Steps""* guide using the link provided to configure call forwarding correctly.
-After completing all six steps, please test the application again.
-If the issue still persists, please provide the phone number that the customer is trying to block so we can review it in the Cordoba administration panel and investigate further.
+The agent must update this field inside ForthCRM
 
 hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
-"Daud Hirsi",Mateo.Salazar@cordobalegal.com,2026-07-28,T-Mobile,CORDOBA-1220477643,IOS,"iPhone 11","CX reports the App is showing the old phone number of 517577977 as the main and actual but this number was changed before CX got enrolled in the process and the actual phone number is 612-227-9969","Call Agent (Additional information)","First Login","D - The account was verified and it does not exist yet.
-The customer must complete the *First Login* process to create and activate their account before they can sign in.
-Additionally, based on the customer's information, the phone number has been verified and is correctly updated in the system.
-If the customer encounters any issues during the *First Login* process, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Elsa Bowman",jaquino@cordobalegal.com,2026-07-23,"Boost Mobile",CORDOBA-1224541527,Android,Motorola,"cx is trying to create the password and the application is Dropping her off","Call Agent (Additional information)",,"D - Please ask the customer to update the application to the latest version available.
-After updating the app, the customer should try the password creation process again.
-If the issue persists after updating the application, please provide the exact error message along with a screenshot or screen recording so the issue can be investigated further.",,Medium
-"John Fellas",Laura.Arciniegas@cordobalegal.com,2026-07-27,"finity mobile",CORDOBA-1228556543,Android,"Galaxy samsung","error showing to cx ""Associated phone number missing from external system data""
-
-Ring not answered as dialed.","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+"Carol Luna",Dilan.Riascos@cordobalegal.com,2026-07-29,T-Mobile,1221463920,Android,"Samsung Galaxy 23","Client is trying to log in and app does not recognize phone number","Call Agent (Additional information)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
 
@@ -1173,6 +1308,9 @@ The correct username is:
 *Username:* *brojtuck@gmail.com*
 If the customer does not remember their password, please ask them to use the *Forgot Password* option to reset it. Once the password has been reset, they should try signing in again using the username above.
 If the password reset process is unsuccessful, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
+"Debra aweau",ocalderon@cordobalegal.com,2026-07-27,T-Mobile,CORDOBA-1217405403,Android,Samsung,"Unable to log in, Client got an issue while sending USSD command ""Call forwarding. Connection problem or invalid MMI code (801)"" With all the USSD commands sent","Call Agent (Additional information)",,"D - Please ask the customer to contact their mobile carrier, as indicated by the message displayed after sending the USSD command.
+Once the carrier has resolved the issue, the customer should try the process again.
+If the problem persists after contacting the carrier, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
 "Taranjit Singh",brayan.pulido@cordobalegal.com,2026-07-24,Verizon,CORDOBA-1228250482,IOS,"Iphone 16","He tried to log in in the creditor x app, after he add his ID, last four of the ssn and the DOB he clicked on confrimed but it showed him an error messege ""Associated phone number is missing"".","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
@@ -1225,13 +1363,20 @@ Please ask the customer to repeat the process using the following information:
 • *Email:* jwatson1law@gmail.com
 • *Date of Birth:* 02-24-1954
 Please ensure the customer enters the information exactly as shown above. If the issue persists after using these details, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Debra aweau",ocalderon@cordobalegal.com,2026-07-27,T-Mobile,CORDOBA-1217405403,Android,Samsung,"Unable to log in, Client got an issue while sending USSD command ""Call forwarding. Connection problem or invalid MMI code (801)"" With all the USSD commands sent","Call Agent (Additional information)",,"D - Please ask the customer to contact their mobile carrier, as indicated by the message displayed after sending the USSD command.
-Once the carrier has resolved the issue, the customer should try the process again.
-If the problem persists after contacting the carrier, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Cleveland Lewis",Mateo.Rivera@cordobalegal.com,2026-07-28,R-Mobile,CORDOBA-1220191967,Android,"Samsung S23","Client does not have the option to add creditors to block","Call Agent (Additional information)",,"D - Please ask the customer to review the device's font size and display settings. If the font or display size is set too large, it may be hiding some options on the screen.After adjusting the font or display size to the default setting, please reopen the application and verify whether the missing options are now visible.If the issue persists, please provide a screenshot of the entire screen along with the device model and iOS/Android version for further investigation.",,Medium
+"John Fellas",Laura.Arciniegas@cordobalegal.com,2026-07-27,"finity mobile",CORDOBA-1228556543,Android,"Galaxy samsung","error showing to cx ""Associated phone number missing from external system data""
+
+Ring not answered as dialed.","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Tamika Bell",Mateo.Salazar@cordobalegal.com,2026-07-27,T-Mobile,CORDOBA-1219234240,IOS,"Iphone 16+","CX claims the App shows an error when she tries to log in, shows the phone number (that is already duplicated) is not registered in the system","Call Agent (Additional information)",,"D - The account has been verified and it has not been created yet.
 Please ask the customer to complete the *First Login* process to activate and create their account.
 Once the *First Login* process has been completed successfully, the customer will be able to sign in to the application using their credentials.
+If the customer encounters any issues during the *First Login* process, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
+"Daud Hirsi",Mateo.Salazar@cordobalegal.com,2026-07-28,T-Mobile,CORDOBA-1220477643,IOS,"iPhone 11","CX reports the App is showing the old phone number of 517577977 as the main and actual but this number was changed before CX got enrolled in the process and the actual phone number is 612-227-9969","Resolved with cx","First Login","D - The account was verified and it does not exist yet.
+The customer must complete the *First Login* process to create and activate their account before they can sign in.
+Additionally, based on the customer's information, the phone number has been verified and is correctly updated in the system.
 If the customer encounters any issues during the *First Login* process, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
 "Jorge Lacayo Morales",jnunez@cordobalegal.com,2026-07-27,"Metro T-mobile",CORDOBA-1227143603,IOS,N/A,"The client is unable to create an account with us; they receive an error when trying to enter the ID and information to set it up.","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
@@ -1248,37 +1393,23 @@ The customer is unable to sign in because the account has not been created.
 Please ask the customer to complete the *First Login* process to create and activate the account. Once the *First Login* process has been completed successfully, the customer will be able to sign in using their credentials.
 If the customer encounters any issues during the *First Login* process, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
 "Blake Palmateer",Isabella.Riveros@cordobalegal.com,2026-07-28,VERIZON,CORDOBA-1229967494,IOS,"Iphone 15","Cx is having issues while creating a user on the app. It seems that once they try to click on the ""is this your first login"" the link does not go anywhere. Is there anything we can do in this case? Thanks!","In queue",,,,Medium
-"Angela Lane",Jessi.Correa@cordobalegal.com,2026-07-28,AT&T,1214806757,Android,LG,"""Wrong credentials""","Call Agent (Additional information)","First Login","D - The account was verified and it does not exist yet.
+"Angela Lane",Jessi.Correa@cordobalegal.com,2026-07-28,AT&T,1214806757,Android,LG,"""Wrong credentials""","Unresolved with cx","First Login","D - The account was verified and it does not exist yet.
 The customer is unable to sign in because the account has not been created.
 Please ask the customer to complete the *First Login* process to create and activate the account. Once the *First Login* process has been completed successfully, the customer will be able to sign in using their credentials.
 If the customer encounters any issues during the *First Login* process, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Stacy Cofer",Maria.Quinones@cordobalegal.com,2026-07-16,verizon,CORDOBA-1219251795,IOS,"iphone 16","The client is not able to login, when she click on the ""is this yor fisrt time login?"" it doesn`t let her going foward, she has already tried to delete and dowload the app again but she is still not able to going foward","Unresolved with cx","First Login","D - The issue has been resolved.
-Please ask the customer to update the application to the latest version available in the App Store (v1.4.1).
-After installing version 1.4.1, the customer should complete the setup process again. The reported issue should no longer occur with this version.
-If the customer continues to experience the same behavior after updating to v1.4.1, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
-"Patrick Dougherty",Maria.Quinones@cordobalegal.com,2026-07-16,verizon,CORDOBA-1219440512,IOS,"iphone 14","The client is not able to login, in the app doesn't have the option ""is this yor fisrt time login?"" cx has already tried to delete and dowload the app again but still not able to going foward
+"Cleveland Lewis",Mateo.Rivera@cordobalegal.com,2026-07-28,R-Mobile,CORDOBA-1220191967,Android,"Samsung S23","Client does not have the option to add creditors to block","Call Agent (Additional information)",,"D - Please ask the customer to review the device's font size and display settings. If the font or display size is set too large, it may be hiding some options on the screen.After adjusting the font or display size to the default setting, please reopen the application and verify whether the missing options are now visible.If the issue persists, please provide a screenshot of the entire screen along with the device model and iOS/Android version for further investigation.",,Medium
+"Zaskia Solis",juan.lievano@cordobalegal.com,2026-07-16,T-mobile,1219819327,IOS,"iPhone 14","When clx tries to Login an error pops up saying ""Associated phone numebr is missing from external data"" Already confirmed that the phone number on file and the phone number in the devise is the same one
 
-Resolved by agent.  APP IS CURRENTLY WORKING.","Resolved with cx","First Login","D - The issue has been resolved.
-Please ask the customer to update the application to the latest version available in the App Store (v1.4.1).
-After installing version 1.4.1, the customer should complete the setup process again. The reported issue should no longer occur with this version.
-If the customer continues to experience the same behavior after updating to v1.4.1, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
-"Blanca Moreno",jnunez@cordobalegal.com,2026-06-29,Verizon,CORDOBA-1221494547,IOS,,"Client tried to set up the Creditor X by herself, but not done correctly, when she tries to click on the option is this your first login, it is not responding. Uninstalled the app and installed it back and still wouldn't respond when clicking on is this your first login optiona
-
-Answered machine as dialed.
-Ring not answered as dialed.","Client not answering (3 days)","First Login","D - The issue has been resolved.
-Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
-After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
-If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
-"James Sheffield",Alex.Consuegra@cordobalegal.com,2026-07-06,T-Mobile,CORDOBA-1211110468,Android,"Samsung Galaxy S25","Cx reported he is being trying to log in using the first time login option for the first time but when he try he receive a message that says ""Associate phone number is missing from external system"".","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+Ring not answered as dialed.","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
 
 hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Lashelle Manuel",Saray.Beltran@cordobalegal.com,2026-07-03,AT&T,1217413243,IOS,n,"Cx cannot login, she tried with her phone number and email and said wrong credentials, then she tried with ""is this your firts login?"" and keep saying wrong credentials, please contact support team","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Barry Bayles",Dana.Rojas@cordobalegal.com,2026-07-16,Verizon,CORDOBA-1219749138,Android,"Samsung Galaxy","When the cx try to access show to him the phone number is wrong.","Resolved with cx",,"D - The issue appears to be related to the customer's account information.
+Please ask the agent to verify and update the customer's information in *FORTHCRM*, ensuring that the phone number and all other required account details are correct and up to date.
+Once the information has been updated, please ask the customer to try the process again.",,Medium
+"Myrna Graham",Sergio.Arias@cordobalegal.com,2026-06-30,AT&T,1200755883,IOS,,"she got an error ¨ Unable to continue with the call¨ At the moment that she was sending the USSD comand.",Triage,,"D - Verify if this is a carrier issue.",,Medium
+"Paula Ferron",Angie.Novoa@cordobalegal.com,2026-07-06,Cellcom,CORDOBA-1208513446,IOS,"iPhone 15 plus","The cx didn't find her provider (Cellcom) on the options that we have in the Creditor X app when she tried to sign in; the phone number is the correct one that we had on file.","Client not answering (3 days)",,"D- The customer should select *Verizon*, as both carriers use the same network.",,Medium
 "Melitza Rojas",Valentina.Rivas@cordobalegal.com,2026-07-03,AT&T,CORDOBA-1210323015,IOS,"Iphone 16","Cx is getting the ' wrong credentials' message regardless of her information being correct. Her DOB was incorrect in her account, so the info was updated and the new contract signed, and we tried again after that but the error persists.","Resolved with cx",,"D - The customer's account information has been updated successfully. Please ask the customer to complete the *First-Time Login* process again using the updated information. If the issue persists after repeating the process, further investigation will be required.",,Medium
 "Joy Capps",samuel.angel@cordobalegal.com,2026-07-03,"spectrum mobile",CORDOBA-1216704910,Android,"samsung z flip 4","cx cant hit the buttom of send ussd comand so she is not able to forward the calls to us, the option does not work","Client not answering (3 days)",,"D - The issue could not be reproduced during testing. Please ask the customer to reinstall the application and try the setup process again. If the issue persists, please provide the device model, operating system version, and, if possible, a screen recording showing the behavior when tapping the *""Send USSD Command""* button.",,Medium
 "Susan Pilloud",Saray.Beltran@cordobalegal.com,2026-07-03,AT&T,1228186757,Android,"s23 Samnsung","cx got stucked on the ussd command section, unable to find the option to send the ussd","App uninstalled",,"D - Please ask the customer to navigate to the *Settings* section of the application and select their mobile carrier under the *Carrier* field. Once the correct carrier has been selected, the application should automatically display the USSD commands required to complete the setup process.",,Medium
@@ -1286,15 +1417,22 @@ hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 Cx is stating they can not add the following phone number to top receiving calls from Bank of America: 800-536-1584. App showing ""under review"" status for more than 2 weeks. Can you please help me with this? Thanks in advance!","Resolved with cx","Blocked List","D - The validation was completed, and it was confirmed that the phone number has already been verified.
 Please ask the customer to open the *Blocked* module in the application. The phone number should now appear under *Suggestions*. The customer must add it from the *Suggestions* list to the *Blocked* list so that calls from that number will be redirected correctly.",,Medium
 "Patricia Hanson",Yessica.Vargas@cordobalegal.com,2026-07-03,verizon,1223394455,Android,Samsung,"The app is not allowing to the cx to listen any voicemail",Triage,,"en validacion",,Medium
-"Paula Ferron",Angie.Novoa@cordobalegal.com,2026-07-06,Cellcom,CORDOBA-1208513446,IOS,"iPhone 15 plus","The cx didn't find her provider (Cellcom) on the options that we have in the Creditor X app when she tried to sign in; the phone number is the correct one that we had on file.","Client not answering (3 days)",,"D- The customer should select *Verizon*, as both carriers use the same network.",,Medium
-"Lardy Manson",Laura.Arciniegas@cordobalegal.com,2026-07-02,AT&T,CORDOBA-1215852184,Android,"Galaxy S24","Cx unable to download the app","Returned - Insufficient Information",,"D - The issue is being returned because the information provided is insufficient to investigate or reproduce the reported problem.
-Please gather additional details from the customer, including the exact error message, the steps to reproduce the issue, and any relevant screenshots or screen recordings. Once the required information has been collected, please resubmit the issue for further investigation.",,Medium
+"James Sheffield",Alex.Consuegra@cordobalegal.com,2026-07-06,T-Mobile,CORDOBA-1211110468,Android,"Samsung Galaxy S25","Cx reported he is being trying to log in using the first time login option for the first time but when he try he receive a message that says ""Associate phone number is missing from external system"".","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Judy Gallant",Alejandro.Centeno@cordobalegal.com,2026-07-06,T-Mobile,CORDOBA-1222221128,IOS,"Iphone 16","Cx tried to login as first time, however, after her date of birth dont allow her to continue with the account information to login.","Client not answering (3 days)","First Login","D - Please ask the customer to complete the *First-Time Login* process again.
 On the *Account Information* screen, the customer must enter the following information exactly as it appears on file:
 1. *User ID:* 1222221128
 2. *Last 4 digits of the SSN: 0117*
 3. *Date of Birth* (using the required format displayed in the application): 12-18-1965
 After entering this information correctly, the customer should be able to continue with the account setup process. If the issue persists after verifying these details, please provide a screenshot of the error message for further investigation.",,Medium
+"Lilibeth Rosado",Josias.Campusano@cordobalegal.com,2026-07-03,AT&T,1207194058,IOS,"17 pro max","Getting an user or password incorrect, even though the password and user are correct, unable to reset it.","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Cory Thompson",Jorge.Lopez@cordobalegal.com,2026-07-06,AT&T,1196610463,Android,"Galaxy 26","Cx had an error while tried to get access to Creditor X, unable to complete sms verification,","Returned - Insufficient Information",,"D - The issue is being returned because the information provided is insufficient to investigate or reproduce the reported problem.
 Please gather additional details from the customer, including the exact error message, the steps to reproduce the issue, and any relevant screenshots or screen recordings. Once the required information has been collected, please resubmit the issue for further investigation.",,Medium
 "Nancy Gurney",Laura.Arciniegas@cordobalegal.com,2026-07-06,AT&T,CORDOBA-1216514348,IOS,"Iphone 16","Cx unable to loging because it's showing the error ""associated number missing from external form""","Client not answering (3 days)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
@@ -1321,20 +1459,28 @@ Once the password reset request is completed, the customer should use the *most 
 • The customer may be copying an extra character (such as a leading or trailing space) when entering the temporary password.
 • The password reset process may have been executed multiple times, making only the most recently generated temporary password valid.
 There are many possible explanations for this issue. To determine the root cause, it is recommended to review the application logs and the password reset implementation. Without reviewing the logs, any conclusion would be based on assumptions rather than confirmed evidence.",,Medium
-"Lilibeth Rosado",Josias.Campusano@cordobalegal.com,2026-07-03,AT&T,1207194058,IOS,"17 pro max","Getting an user or password incorrect, even though the password and user are correct, unable to reset it.","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+"Jason Herrera",Laura.Arciniegas@cordobalegal.com,2026-07-07,Verizon,CORDOBA-1223827951,IOS,"Iphone 16","Phone missing from external data","Resolved with cx",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
 
 hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Alex Ward",Abraham.Oliveros@cordobalegal.com,2026-07-02,"Google Fi",1215097010,Android,"Google Pixel 10","Customer cannot see her carrier listed in the carrier list during the app set up process","Unresolved with cx",,"D - The customer's carrier is not currently listed in the application. However, since this carrier operates on the T-Mobile network, please select *T-Mobile* during the setup process and continue with the configuration.",,Medium
-"Theodore K Brown",Saray.Beltran@cordobalegal.com,2026-07-07,T-mobile,1226767207,IOS,"IP 17","cx tried to send the ussd commands but nothing happens, it won't let him proceed",Triage,,"in validation",,Medium
-"Caroline Gibson",jnunez@cordobalegal.com,2026-07-01,Verizon,1177556410,Android,n/a,"Client tried to set up the Creditor X by herself, but not done correctly, when she tries to go throug the steps to set it up it will say there is an account already, but the account was not properly ser up.  Is there a way we could delete her credentials from the app to then have a fresh start when it comes to setting up the app?","Client not answering (3 days)","First Login","D - The account has already been created, so it is not necessary to delete it or create a new one.
-Please ask the customer to log in using the credentials associated with the account. Once logged in, the application will automatically prompt the customer to complete the remaining setup steps that were not finished during the initial configuration.
-If the customer does not remember the password, please assist them in completing the *Forgot Password* process before attempting to log in again.
-A step-by-step guide is attached for reference.
+"Lashelle Manuel",Saray.Beltran@cordobalegal.com,2026-07-03,AT&T,1217413243,IOS,n,"Cx cannot login, she tried with her phone number and email and said wrong credentials, then she tried with ""is this your firts login?"" and keep saying wrong credentials, please contact support team","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Lardy Manson",Laura.Arciniegas@cordobalegal.com,2026-07-02,AT&T,CORDOBA-1215852184,Android,"Galaxy S24","Cx unable to download the app","Returned - Insufficient Information",,"D - The issue is being returned because the information provided is insufficient to investigate or reproduce the reported problem.
+Please gather additional details from the customer, including the exact error message, the steps to reproduce the issue, and any relevant screenshots or screen recordings. Once the required information has been collected, please resubmit the issue for further investigation.",,Medium
+"Michael Shannon",Christian.Patarroyo@cordobalegal.com,2026-07-08,"Straight Talk / Verizon",1228353369,Android,"Motorola Moto G05","At the enter Providing account information, after the client enters his account information. user id, last 4 of SSN and DOB, he gets an error that reads  "" wrong credentials"" and he is not available.","Client not answering (3 days)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Jason Herrera",Yessica.Vargas@cordobalegal.com,2026-07-01,verizon,1223827951,IOS,Iphone,"At the moment cx get in the app said that his phone number is not registered","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Myrna Graham",Sergio.Arias@cordobalegal.com,2026-06-30,AT&T,1200755883,IOS,,"she got an error ¨ Unable to continue with the call¨ At the moment that she was sending the USSD comand.",Triage,,"D - Verify if this is a carrier issue.",,Medium
 "Debra Baldwin",Juan.Vicente@cordobalegal.com,2026-06-29,AT&T,CORDOBA-1204961422,Android,,"Keep receiving calls from creditors even when the phone numbers are already register on the app
 
 Answered machine as dialed.","Call Agent (Additional information)","Blocked List","D - Please review the attached guide and go through the *""Redirecting Setup – Calls are not being forwarded – 6 Steps""* checklist with the customer.
@@ -1368,14 +1514,10 @@ Mark as unresolved, until the new version is being loaded for us to run a new tr
 Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
 After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
 If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
-"Jason Herrera",Yessica.Vargas@cordobalegal.com,2026-07-01,verizon,1223827951,IOS,Iphone,"At the moment cx get in the app said that his phone number is not registered","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Dakota Decker",Angie.Novoa@cordobalegal.com,2026-07-02,AT&T,CORDOBA-1224155529,IOS,"iPhone 15","The cx called because he said when he set up his account and he put in there his phone number, the system told him that they couldn't find the phone number associated with the account. I confirmed the phone number and also the ID number that the cx is using for this process, and everything matches with the information on file.","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
+"Caroline Gibson",jnunez@cordobalegal.com,2026-07-01,Verizon,1177556410,Android,n/a,"Client tried to set up the Creditor X by herself, but not done correctly, when she tries to go throug the steps to set it up it will say there is an account already, but the account was not properly ser up.  Is there a way we could delete her credentials from the app to then have a fresh start when it comes to setting up the app?","Client not answering (3 days)","First Login","D - The account has already been created, so it is not necessary to delete it or create a new one.
+Please ask the customer to log in using the credentials associated with the account. Once logged in, the application will automatically prompt the customer to complete the remaining setup steps that were not finished during the initial configuration.
+If the customer does not remember the password, please assist them in completing the *Forgot Password* process before attempting to log in again.
+A step-by-step guide is attached for reference.
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
 "Barbara Hutson",Laura.Viviana@cordobalegal.com,2026-07-01,Xfinity,CORDOBA-1227540999,IOS,"iphone 14","Cx is not able to use the first login option, she entered her info and it was not recoginized but she can start the process again, she already tried to update the IOS, restart the phone  and is not working.
@@ -1385,6 +1527,7 @@ Answered machine as dialed.","Unresolved with cx","First Login","D - The issue h
 Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
 After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
 If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Alex Ward",Abraham.Oliveros@cordobalegal.com,2026-07-02,"Google Fi",1215097010,Android,"Google Pixel 10","Customer cannot see her carrier listed in the carrier list during the app set up process","Unresolved with cx",,"D - The customer's carrier is not currently listed in the application. However, since this carrier operates on the T-Mobile network, please select *T-Mobile* during the setup process and continue with the configuration.",,Medium
 "Stephanie J Waddell",Juan.Vicente@cordobalegal.com,2026-07-01,na,CORDOBA-1214980174,Android,"Samsung Galaxy","When client input credentials as the first  time login after buffering a pop-up came up saying : no credentials","Client not answering (3 days)","First Login","D - The account has not completed the activation process yet.
 Please assist the customer in completing the *First Login* process. Ensure that the customer enters the correct *User ID*, the last four digits of the *SSN*, and the *Date of Birth* in *MM-DD-YYYY* format.
 Once the First Login is completed successfully, the customer will be able to create a password and access the application normally.
@@ -1418,25 +1561,23 @@ If the customer continues to experience the same behavior after updating to *v1.
 The agent must update this field inside ForthCRM
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
-"Jason Herrera",Laura.Arciniegas@cordobalegal.com,2026-07-07,Verizon,CORDOBA-1223827951,IOS,"Iphone 16","Phone missing from external data","Resolved with cx",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+"Dakota Decker",Angie.Novoa@cordobalegal.com,2026-07-02,AT&T,CORDOBA-1224155529,IOS,"iPhone 15","The cx called because he said when he set up his account and he put in there his phone number, the system told him that they couldn't find the phone number associated with the account. I confirmed the phone number and also the ID number that the cx is using for this process, and everything matches with the information on file.","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 The agent must update this field inside ForthCRM
 
-hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Michael Shannon",Christian.Patarroyo@cordobalegal.com,2026-07-08,"Straight Talk / Verizon",1228353369,Android,"Motorola Moto G05","At the enter Providing account information, after the client enters his account information. user id, last 4 of SSN and DOB, he gets an error that reads  "" wrong credentials"" and he is not available.","Client not answering (3 days)","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
+"Theodore K Brown",Saray.Beltran@cordobalegal.com,2026-07-07,T-mobile,1226767207,IOS,"IP 17","cx tried to send the ussd commands but nothing happens, it won't let him proceed",Triage,,"in validation",,Medium
+"Susan Pilloud",Jorge.Lopez@cordobalegal.com,2026-07-08,AT&T,1228186757,Android,"Samsuenf s23","USSD comand
 
-The agent must update this field inside ForthCRM
+Answered machine as dialed.","App uninstalled",,"D - The issue is being returned due to insufficient information.
+Please validate the issue with the customer, gather the missing details (including the exact error message or behavior), and submit the issue again once the required information has been been collected.",,Medium
+"Patrick Dougherty",Maria.Quinones@cordobalegal.com,2026-07-16,verizon,CORDOBA-1219440512,IOS,"iphone 14","The client is not able to login, in the app doesn't have the option ""is this yor fisrt time login?"" cx has already tried to delete and dowload the app again but still not able to going foward
 
-hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Terry Clements",juan.lievano@cordobalegal.com,2026-07-16,T-Mobile,1219152160,Android,"Pixel Phone","Once we try to do the first Login teh clx fills all necessary fields and the following error pops up ""Error associated Phone number is missing"" I already confirm that the Phone number the clx has and the one on file matches","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Eileen Larocque",Daniel.Sierra@cordobalegal.com,2026-07-15,AT&T,1211673667,Android,"Samsung 803 Galaxy","1-8003882200 - Tried to add the number and it can not take the number. It says disregard number.","Resolved with cx",,"D - After validation, it was confirmed that the phone number has already been verified.
-The customer can now block the number directly from the application.
-If the customer is still unable to block the number, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Ida Samuels",Laura.Viviana@cordobalegal.com,2026-07-14,AT&T,CORDOBA-1217727383,Android,"Samsung galaxy S23 Ultra","Client was able to log in the firt time time and now is unable to do it again it shows username or password is wrong. Client is using same email we have on file to access, she sent a sent a screenshot, password recovery option is not working and when she tries the OTP login, is not working either.","In queue",,"waiting for validation, password recovery",,Medium
+Resolved by agent.  APP IS CURRENTLY WORKING.","Resolved with cx","First Login","D - The issue has been resolved.
+Please ask the customer to update the application to the latest version available in the App Store (v1.4.1).
+After installing version 1.4.1, the customer should complete the setup process again. The reported issue should no longer occur with this version.
+If the customer continues to experience the same behavior after updating to v1.4.1, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Deborah F Horne",Maria.Quinones@cordobalegal.com,2026-07-15,"spectrum mobile",CORDOBA-1224535005,Android,"Samsung Galaxy F26 Plus","Cx can't continuo when she send the USSD, it's said to contact the number but it doesn't work",Triage,,"D - Please ask the customer to contact their mobile carrier, as indicated by the message displayed after sending the USSD command.Once the carrier has resolved the issue, the customer should try the process again.If the problem persists after contacting the carrier, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
 "Gloria G Mejia",laura.suarez@cordobalegal.com,2026-07-14,"Consumer Cellular",CORDOBA-1226836599,Android,Samsung,"Cx tried to log in today but the system shows invalid user once she place Cordoba ID, phone and email. The agent confirmed the info on file and it's correct. Agent confirmed cx never has been able to get access to  the app","Resolved with cx",,"D - Please ask the customer to reset the password using the *Forgot Password* option.
 The customer should use the *most recent temporary password* received by email to sign in. After logging in successfully with the temporary password, they will be prompted to create a new permanent password.
 If the password reset email is not received or the temporary password does not work, please provide the exact error message and a screenshot so the issue can be investigated further.",,Medium
@@ -1456,14 +1597,22 @@ If the issue persists after following the *""Calls are not being forwarded - 6 S
 The agent must update this field inside ForthCRM
 
 hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Deborah F Horne",Maria.Quinones@cordobalegal.com,2026-07-15,"spectrum mobile",CORDOBA-1224535005,Android,"Samsung Galaxy F26 Plus","Cx can't continuo when she send the USSD, it's said to contact the number but it doesn't work",Triage,,"D - Please ask the customer to contact their mobile carrier, as indicated by the message displayed after sending the USSD command.Once the carrier has resolved the issue, the customer should try the process again.If the problem persists after contacting the carrier, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Mada Conway",jnunez@cordobalegal.com,2026-07-13,Verizon,1206322923,Android,N/A,"All the calls of the client go to Creditor X even the ones that are not creditors.",Triage,,"Pending validation by Roberto.",,Medium
+"Eileen Larocque",Daniel.Sierra@cordobalegal.com,2026-07-15,AT&T,1211673667,Android,"Samsung 803 Galaxy","1-8003882200 - Tried to add the number and it can not take the number. It says disregard number.","Resolved with cx",,"D - After validation, it was confirmed that the phone number has already been verified.
+The customer can now block the number directly from the application.
+If the customer is still unable to block the number, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
 "Daniel Belfontaine",Laura.Arciniegas@cordobalegal.com,2026-07-15,T-Mobile,CORDOBA-,Android,"Samsung Note 10 & Samsung 23","Cx unable to get calls at all after installing the app, the app was uninstalled but the issue persist, no calls even from the saved numbers","Call Agent (Additional information)","Blocked List","D - Please ask the customer to dial *##002#* from the phone. This will cancel any existing call forwarding configuration on the device.
 After that, the customer should open the application and execute the USSD commands again to configure call forwarding.
 As an alternative, the customer can follow the *""Calls are not being forwarded - 6 Steps""* guide to ensure the call forwarding configuration is completed correctly.
 If the issue still persists, please remind the customer that if they do not answer an incoming call, those calls may still be forwarded according to the configured call forwarding settings.
 
 hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1…",,Medium
+"Jonuel Mendoza",Maria.Quinones@cordobalegal.com,2026-07-13,T-Mobile,CORDOBA-1219181902,IOS,"iphone 15 pro","The client is not able to login, when cx click on the ""is this yor fisrt time login?"" it doesn`t let him going foward, he has already tried to delete and dowload the app again but she is still not able to going foward","Returned - Insufficient Information",,"Additional information is required to investigate this issue.
+Please provide the following details:
+• Whether the issue occurs during the *First-Time Login* process or the regular login.
+• The exact error message displayed.
+• A screenshot or screen recording of the issue, if available.
+• The phone model and operating system version.
+Once this information is provided, the issue can be investigated further.",,Medium
 "Mollie Garza",jnunez@cordobalegal.com,2026-07-15,Cricket,CORDOBA-1207424446,Android,Motorola,"She already created her account before so she can't get enrolled oncee again and she tries to recover her account it appears as account not found","Client not answering (3 days)",,"D - Please ask the customer to recover the account using the *Forgot Password* option.
 The customer should enter the registered email address or username associated with the account. Once the password reset email is received, they should use the *most recent temporary password* to sign in and then create a new permanent password.
 If the customer receives an *""Account not found""* message or is unable to complete the password recovery process, please provide the exact error message and a screenshot so the issue can be investigated further.",,Medium
@@ -1490,25 +1639,22 @@ After installing version *1.4.1*, the customer should complete the setup process
 If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
 "Bob Perrine",Saray.Beltran@cordobalegal.com,2026-07-16,Verizon,1211131037,Android,Motorola,"voicemail issue, error  ""message cannot be played now"" and then ""unexpected error""","Resolved with cx",Setup,"D - The issue was reviewed, and it was confirmed that the voicemail cannot be played because it does not contain any recorded audio.
 Since the voicemail is empty, the application is unable to play it and displays the message indicating that the audio cannot be reproduced. This behavior is expected when a voicemail has no audio content.",,Medium
-"Jonuel Mendoza",Maria.Quinones@cordobalegal.com,2026-07-13,T-Mobile,CORDOBA-1219181902,IOS,"iphone 15 pro","The client is not able to login, when cx click on the ""is this yor fisrt time login?"" it doesn`t let him going foward, he has already tried to delete and dowload the app again but she is still not able to going foward","Returned - Insufficient Information",,"Additional information is required to investigate this issue.
-Please provide the following details:
-• Whether the issue occurs during the *First-Time Login* process or the regular login.
-• The exact error message displayed.
-• A screenshot or screen recording of the issue, if available.
-• The phone model and operating system version.
-Once this information is provided, the issue can be investigated further.",,Medium
-"Larry W Langman",Josias.Campusano@cordobalegal.com,2026-07-13,"not specified",1216685689,Android,Samsung,"Client can't sign into the Creditor X, when trying to sign in client gets an error ( wrong credentials )=> We verified all the credentials and they are correct","Resolved with cx",,"D - Please ask the customer to reset the password using the *Forgot Password* option.
-Once the customer receives the temporary password by email, they should use the *most recently received temporary password* to log in and then create a new permanent password.
-If the issue persists after resetting the password, please provide the exact error message and a screenshot so the issue can be investigated further.",,Medium
-"Susan Pilloud",Jorge.Lopez@cordobalegal.com,2026-07-08,AT&T,1228186757,Android,"Samsuenf s23","USSD comand
+"Terry Clements",juan.lievano@cordobalegal.com,2026-07-16,T-Mobile,1219152160,Android,"Pixel Phone","Once we try to do the first Login teh clx fills all necessary fields and the following error pops up ""Error associated Phone number is missing"" I already confirm that the Phone number the clx has and the one on file matches","Resolved with cx","First Login","D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
-Answered machine as dialed.","App uninstalled",,"D - The issue is being returned due to insufficient information.
-Please validate the issue with the customer, gather the missing details (including the exact error message or behavior), and submit the issue again once the required information has been been collected.",,Medium
-"Terry Clements",rosbelym@cordobalegal.com,2026-07-10,T-Mobile,CORDOBA-1219152160,Android,"Google pixel","Phone number not match","Resolved with cx",,"D - The phone number associated with the account does not match the information on record.
-Please ask the agent to update the customer's phone number in *FORTHCRM* and ensure it matches the customer's current phone number. Once the information has been updated, please have the customer try the process again.",,Medium
+The agent must update this field inside ForthCRM
+
+hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Ida Samuels",Laura.Viviana@cordobalegal.com,2026-07-14,AT&T,CORDOBA-1217727383,Android,"Samsung galaxy S23 Ultra","Client was able to log in the firt time time and now is unable to do it again it shows username or password is wrong. Client is using same email we have on file to access, she sent a sent a screenshot, password recovery option is not working and when she tries the OTP login, is not working either.","In queue",,"waiting for validation, password recovery",,Medium
+"Mada Conway",jnunez@cordobalegal.com,2026-07-13,Verizon,1206322923,Android,N/A,"All the calls of the client go to Creditor X even the ones that are not creditors.",Triage,,"Pending validation by Roberto.",,Medium
 "Kenneth Wickman",Jorge.Lopez@cordobalegal.com,2026-07-08,"consumer salaire",1227124170,IOS,"ipnone 14","client stated when he entered SYNCB/CARECR	 phone number it says Phone number was declined","Resolved with cx","Blocked List","D - The validation was completed, and it was confirmed that this phone number has not been verified because it could not be confirmed as belonging to *SYNCB/CARECR*.
 This number must be reviewed by the Córdoba team before it can be approved.
 Please provide the exact phone number the customer is trying to add so it can be validated.",,Medium
+"Linda Wilburn",Sebastian.Rodriguez@cordobalegal.com,2026-07-10,AT&T,1209919121,IOS,"iphone 13","Client is trying to sign up on CreditorX, when she selects the ""is this your first time login-in"" option the screen doesn't go to the next page, We tried restarting and uninstalling and then installing again, without any progress, I sent the emails with all the information about CreditorX.io
+
+Answered machine as dialed.","Client not answering (3 days)","First Login","D - The issue has been resolved.
+Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
+After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
+If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
 "Darrell Cox",Daniel.Sierra@cordobalegal.com,2026-07-08,AT&T,1224701721,Android,"Samsung Galaxy Z4 flip phone","Client completed the first login on the app on 07/07/2026, was able to access. Then he log out. Client forgot his password and tried to recovered it, received a temporary password. When filling out with the new temp password it says incorrect/invalid credentials as he copy and paste without space. Keep getting incorrect credentials message.","In queue",,"in validation whit samil, recovery password",,Medium
 "Cheyenne Kissee Dowdell",Carlos.Solano@cordobalegal.com,2026-07-08,Verizon,CORDOBA-1219747828,Android,"Sansung Galaxy 24","Phone number missing from the external system data
 
@@ -1546,18 +1692,8 @@ hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Sherry Jones",Josias.Campusano@cordobalegal.com,2026-07-09,"Consumer Celular",1208566483,Android,N/A.,"Cannot add the creditor calls, she is having troubles with adding new creditors to the list.","Returned - Insufficient Information",,"D - The issue is being returned because the information provided is insufficient to investigate or reproduce the reported problem.
 Please gather additional details from the customer, including the exact error message, the steps to reproduce the issue, and any relevant screenshots or screen recordings. Once the required information has been collected, please resubmit the issue for further investigation.D - The issue is being returned because the information provided is insufficient to investigate or reproduce the reported problem.
 Please gather additional details from the customer, including the exact error message, the steps to reproduce the issue, and any relevant screenshots or screen recordings. Once the required information has been collected, please resubmit the issue for further investigation.",,Medium
-"Linda Wilburn",Sebastian.Rodriguez@cordobalegal.com,2026-07-10,AT&T,1209919121,IOS,"iphone 13","Client is trying to sign up on CreditorX, when she selects the ""is this your first time login-in"" option the screen doesn't go to the next page, We tried restarting and uninstalling and then installing again, without any progress, I sent the emails with all the information about CreditorX.io
-
-Answered machine as dialed.","Client not answering (3 days)","First Login","D - The issue has been resolved.
-Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
-After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
-If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
-"Gerald Corbett",Carlos.Solano@cordobalegal.com,2026-07-13,"spectrum mobile",CORDOBA-1223849883,IOS,"Iphone 13","Phone number missing from the external system data
-Ring not answered as dialed.","Resolved with cx",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
-
-The agent must update this field inside ForthCRM
-
-hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Terry Clements",rosbelym@cordobalegal.com,2026-07-10,T-Mobile,CORDOBA-1219152160,Android,"Google pixel","Phone number not match","Resolved with cx",,"D - The phone number associated with the account does not match the information on record.
+Please ask the agent to update the customer's phone number in *FORTHCRM* and ensure it matches the customer's current phone number. Once the information has been updated, please have the customer try the process again.",,Medium
 "Lorrie Daily",Laura.Arciniegas@cordobalegal.com,2026-07-10,T-mobile,CORDOBA-1203569985,Android,"Samsng Galaxy S26","Cx unable to see the ""next"" after puting SSN, DOB and Client ID, unable to continue with the login.  Cx had prev reported this issue, no response yet","Client not answering (3 days)",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
 
 ACCOUNTID:
@@ -1567,6 +1703,9 @@ DOB:
 The agent must update this field inside ForthCRM
 
 hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
+"Larry W Langman",Josias.Campusano@cordobalegal.com,2026-07-13,"not specified",1216685689,Android,Samsung,"Client can't sign into the Creditor X, when trying to sign in client gets an error ( wrong credentials )=> We verified all the credentials and they are correct","Resolved with cx",,"D - Please ask the customer to reset the password using the *Forgot Password* option.
+Once the customer receives the temporary password by email, they should use the *most recently received temporary password* to log in and then create a new permanent password.
+If the issue persists after resetting the password, please provide the exact error message and a screenshot so the issue can be investigated further.",,Medium
 "Gloria G Mejia",Juan.Vicente@cordobalegal.com,2026-07-10,"Consumer Cellular",CORDOBA-1226836599,Android,Samsung,"After adding few numbers manually , she still receiving calls from them 
 2087193265 community rewards
 8882454034 community rewards
@@ -1589,6 +1728,12 @@ Ring not answered as dialed.","Client not answering (3 days)","First Login","D -
 Please ask the customer to update the application to the latest version available in the *App Store (v1.4.1)*.
 After installing version *1.4.1*, the customer should complete the setup process again. The reported issue should no longer occur with this version.
 If the customer continues to experience the same behavior after updating to *v1.4.1*, please provide the exact error message along with a screenshot or screen recording for further investigation.","{""originalUrl"":""https:\/\/hiredexperts.atlassian.net\/browse\/HED-831"",""attachment"":{},""displayAsUrl"":false}",Medium
+"Gerald Corbett",Carlos.Solano@cordobalegal.com,2026-07-13,"spectrum mobile",CORDOBA-1223849883,IOS,"Iphone 13","Phone number missing from the external system data
+Ring not answered as dialed.","Resolved with cx",,"D- This happens because the user doesn’t have a PHONE NUMBER in FORTHCRM
+
+The agent must update this field inside ForthCRM
+
+hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Kristen R O'Brien",juan.arenas@cordobalegal.com,2026-05-07,,CORDOBA-1179549050,Android,,"The client is experiencing issues logging into Creditor X. The last time she logged in was about a month ago, but now she is suddenly unable to access her account. She tries to log in but always receives an error message. She has also attempted to use the Forgot Password option, but she is not receiving the link or message to reset it.","Resolved with cx",,"D - Please ask the customer to attempt the password reset process again. We have already made the necessary configuration changes to resolve the issue.Please find the attached link with the step-by-step instructions for completing the process.
 
 https://hiredexperts.atlassian.net/wiki/external/M2JlN2Q4NDc1ZDg5NDZiM2I2NDhlM2MyOWE0ZGJiZDY",,Medium
@@ -2414,6 +2559,9 @@ https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Rona Williams",wilid@cordobalegal.com,2026-04-21,,1196447555,Android,,"App saying that she doesn't have an account with us.","Call Agent (Additional information)",,"D- Indeed, the user does not have a registered user account in the CreditorX database. However, to create or activate this account, they can perform the ""first login,"" where entering their FORTHCRM credentials will activate the account. Please guide the user through this process. I have included a link where step 4 shows the step-by-step instructions for the first login.
 
 https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Charles Black Sr",Laura.Viviana@cordobalegal.com,2026-08-01,"Stand up wireless",CORDOBA-1228348544,Android,"Moto G Stylus 5G","Carrier is not listed on the app: Stand up wireless","Call Agent (Additional information)",,"D - After validation, it was confirmed that *StandUp Wireless* is an MVNO that operates on the *T-Mobile* network.
-Therefore, the customer should select *T-Mobile* in the application and use the *T-Mobile USSD commands* to configure and activate call forwarding.
-If the call forwarding setup still does not work after using the T-Mobile USSD commands, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
+"Patricia Hanson",Yessica.Vargas@cordobalegal.com,2026-08-03,Verizon,1223394455,Android,Samsung,"There is no way of listening to voicemail in the CreditX app.","Call Agent (Additional information)",,"D - After reviewing the account, it was confirmed that the customer has *two voicemail messages* stored in the application.
+Please advise the customer that the application includes a *date filter* for voicemail messages. The customer should use this filter, as the available voicemails are from previous months.
+Please note that:
+• One of the voicemail messages is empty.
+• The other voicemail has a duration of *24 seconds*.
+The customer should use the date filter to locate and review these messages.",,Medium

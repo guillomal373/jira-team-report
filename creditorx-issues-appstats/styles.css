@@ -1687,6 +1687,12 @@ a.topics-top-tickets__link:focus-visible {
   color: #ffb7b7;
 }
 
+@media (max-width: 1180px) {
+  .topics-panel__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 980px) {
   .portal-home {
     top: 16px;

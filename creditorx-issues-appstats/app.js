@@ -1444,6 +1444,16 @@ function describeDateRangeSelection() {
   return `${formatCompactDate(selectedRange.startDate)} to ${formatCompactDate(selectedRange.endDate)}`;
 }
 
+function describeActiveFilterSelection() {
+  const dateRangeLabel = describeDateRangeSelection();
+
+  if (statusFilter.disabled || statusFilter.value === "all") {
+    return dateRangeLabel;
+  }
+
+  return `${dateRangeLabel} with status ${statusFilter.value}`;
+}
+
 function buildTimelineRange() {
   const selectedRange = getSelectedDateRange();
 
@@ -2176,12 +2186,7 @@ function renderTopicInsights(rows, headers) {
       ? 0
       : (analysis.automaticallyGroupedCount / analysis.issueTextCount) * 100;
 
-  const sourceLabel =
-    issueThemeSourceCount === 1 ? "1 CSV file" : `${issueThemeSourceCount} CSV files`;
-  const throughLabel = issueThemeThroughDateLabel
-    ? ` through ${issueThemeThroughDateLabel}`
-    : "";
-  topicsSubtitle.textContent = `AI-assisted issue clusters from reported issue text across ${sourceLabel}${throughLabel}.`;
+  topicsSubtitle.textContent = `AI-assisted issue clusters from reported issue text for ${describeActiveFilterSelection()}.`;
   topicsRankingTotal.textContent = `${analysis.issueTextCount.toLocaleString("en-US")} Issues`;
   topicsGroupingCoverage.textContent = `${coverage.toFixed(0)}% Covered`;
   topicsBars.replaceChildren();
@@ -2461,7 +2466,7 @@ function refreshTable() {
   renderStatusPie(baseFilteredRows, tableHeaders);
   renderPlatformDistribution(baseFilteredRows, tableHeaders);
   renderTimeline(baseFilteredRows, tableHeaders);
-  renderTopicInsights(issueThemeRows, issueThemeHeaders);
+  renderTopicInsights(baseFilteredRows, tableHeaders);
 
   const filteredRows = getTableFilteredRows(baseFilteredRows, tableHeaders);
   const visibleColumnCount = Math.max(getVisibleColumnIndices(tableHeaders).length, 1);
