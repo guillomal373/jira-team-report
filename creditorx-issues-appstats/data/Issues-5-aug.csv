@@ -1,0 +1,119 @@
+"Customer Name","Reported By",Date,Carrier/Provider,"Customer ID","IOS or Android","CreditorX Device","Reported Issue",Module/Section,Status,"Tier 2 State","Tier 2 Comments","Dev Team Comments","Jira Ticket",Priority
+"Darlene Prevo",jlozano@cordobalegal.com,2026-08-06,"Simple Mobile",CORDOBA-1215990467,Android,"Samsung S21","It does not allow her to add the numbers for new creditors which are calling on the section of "" Blocked "" and  ""Add"" when she is putting in the info  it does not allow her to submit the phone numbers
+
+The client wants to see if it possible to block the numbers:
+•	First sun finance: 334 263 1081 and 334 676 3688
+•	republic finance : 334 272 0327 
+•	security finance : 334 277 4670",,,Triage,"Under investigation. We continue searching.",,,
+"Josa King",Laura.Arciniegas@cordobalegal.com,2026-08-10,AT&T,CORDOBA-1232455184,IOS,"Iphone 17","""Is this your first login"" option is not working, it happens nothing",,,"Unable to contact","I was trying to  reach our client, but there was an answered machine as dialed.",,,
+"Susan M Nickles",Laura.Cocinero@cordobalegal.com,2026-08-11,Verizon,1221466129,Android,"samsung galaxy 25","Client still receving error message about credantials not found password recovery, I gave her instrunctions left form zen desk, but still not working",,,"Unable to contact","I was trying to reach our client but there was a ring not answered as dialed.",,,
+"Deborah Bedward",Andersson.Acosta@cordobalegal.com,2026-08-11,T-Mobile,1231042804,Android,"Samsung Galaxy S25","The customer experienced issues logging in for the first time. In the section requesting the User ID, the last 4 digits of their SSN, and their Date of Birth, they repeatedly received a 'wrong credentials' error message. After validating the details, we confirmed the User ID was correct, but the last 4 digits of the SSN did not match our records. I advised the customer to send a photo of their ID to update the information. Although the system updated successfully, the same error message persisted during the next login attempt. I then advised them to uninstall and reinstall the app to clear the cache and ensure they had the latest version, but the issue remained unresolved.",,,"Unable to contact","I WAS TRYING TO REACH OUR CLIENT RELATE THE FOLLOWING ISSUE : WRONG CREDENTIALS BUT THERE WAS AN ANSWERED MACHINE AS DIALED.",,,
+,,,,,,,,,,,,,,
+"Jacquelyn Scott",Carlos.Tarazona@cordobalegal.com,2026-08-11,Verizon,1228590774,IOS,"iPhone 15","Listed numbers are still calling and the list is under review when the client adds a number.",,,,,,,
+"Brentina Varnado",jnunez@cordobalegal.com,2026-08-11,c-spire,1231280828,Android,N/A,"The carrier isn't available in the options to log in.",,,"In Progress","Contacting the client",,,
+"Murray Richards",Ronald.Lara@cordobalegal.com,2026-08-11,T-Mobile,1243826122,Android,"Samsung 15a","We were on the set up process, first time steps completed until the 4 digits code. After complete that field, we had the screen returned to the begining, client was not able to login using the password created, neither using ""is this your first login"" option.",,,,,,,
+"Thomas Percival",mateo.rojas@cordobalegal.com,2026-08-11,AT&T,1214995290,Android,"Samsung S25","The app shows an error with the phone number",,,,,,,
+"Wanda Crawford",juan.lievano@cordobalegal.com,2026-08-11,.,1239919074,IOS,"iPHONE 14","Cx trying to login and an eror ""No username found"" pops up on first login",,,,,,,
+"Johnson Randy",mateo.rojas@cordobalegal.com,2026-08-10,AT&T,"Johnson Randy",IOS,"Iphone (does not know the reference)","He tries to login for the first time but the client ID is not working",,,"In Progress","Under investigation",,,
+"Yolanda Guzman",jnunez@cordobalegal.com,2026-08-10,N/A,1228582575,IOS,"iPhone 15","When the client is trying to log in,  her app stop working after she click on "" is this you first time log in ? """,,,,,,,
+"Daniel J Haslam",rosbelym@cordobalegal.com,2026-08-10,Xfinity,CORDOBA-1220594565,IOS,N/A,"client is using the app but he's still getting phone calls from creditors",,,,,,,
+"Michael Foucault",brayan.pulido@cordobalegal.com,2026-08-10,T-Mobile,CORDOBA-1240598943,IOS,Iphone,"When the client clicks on ""Is this your first loginf"" nothing happens, he is not able to move foward",,,"Unable to contact","I was trying to reach our client, relate to the following issue:  is this your 1st login is grayed out, no functionally button.  There was an answered machine as dialed our client.",,,
+"Deborah Magos",Carlos.Solano@cordobalegal.com,2026-08-06,"T- Mobile",CORDOBA-1224539576,IOS,"Iphone 13","Phone number missing from the external system data",,,Solved,"The number in Forth CRM has been correctly updated and duplicated; the Co-applicant was guided through all the steps, and everything was configured correctly.",,,
+"Shantrice Littlejohn",Josias.Campusano@cordobalegal.com,2026-08-10,T-Mobile,1230010757,IOS,"iPhone 13","Customer is unable to create an account, is asking her for credentials she doesn't have.",,,"Unable to contact","It has been confirmed that the account has not yet been created; please follow the ""first-time login"" steps according to the Creditor X guide.",,,
+"Deborah Teall",Saray.Beltran@cordobalegal.com,2026-08-10,Verizon,1232821263,IOS,"Iphone 16","""associated phone number is missing from external system data"" whe she tried to first login",,,Solved,"When the first login cannot be generated and your receive this error alert *'Associated phone number this missing from external system data'*, it is because the user does not have a phone number registered in FORTH CRM. Please verify that cell phone and home phone are filled on forth.
+
+Client has been assisted according to the notes,  NFA.",,,
+"Lisa Finn",Josias.Campusano@cordobalegal.com,2026-08-08,"Metro PCS",1225496759,Android,"not specified","added number for Discover who's been calling client from 866-408-4070 and added the number within the app and showing under review for about a week and calls still coming through.",,,Solved,"We contacted the customer, dialed ##002# to correctly configure call forwarding, and successfully followed the six steps for call forwarding according to the Creditor X guide.",,,
+"Kathleen Rice",Juan.Yanez@cordobalegal.com,2026-08-07,"Consumer cellular",1235963649,IOS,"Iphone 11","Is not letting her log in and introduce the credentials / trubleshoothing provided.",,,"Unable to contact","I was trying to reach our client due to the following issue : Login Failures,  or Login Fail, it would be a wrong credentials, due to a mismatched records entered by the client. Client would be guide with a basic trouble shoot, into the creditor X APP,
+
+There was a voice mail recorded when tried to reach our client to bring support on Creditor X APP",,,
+"Oscar Lebron",Daniel.Sierra@cordobalegal.com,2026-08-07,Verizon,1231172439,IOS,"iPhone 17 Pro Max","Client have not selected the Carrier and aborted process to activate USSD command. You have already login - message received when trying to log in back. Active status in green color shown in creditor call forwarding. Just wanted to see if it was set up correctly the calls re-route.",,,"Unable to contact","Great!!, Int this case according to provide a certain resolution due to this matter, Please confirm us, if there is a login failures, or  Any relate messages, such as External phone number is not listed from the external system,  because of there is a missed information on forth, relate to : 347-630-6483, on forth, it must be duplicated to get this resolved, please educated the agent, to use the ""Creditor X Guide  "" .
+
+When forwarding active "" when retrieved or even dismissed  USSD COMMANDS, in order to check Check Call Forwarding Status Codes,  Our client may dial :   *#21# OR  It works for all All Forwarding / Unconditional Status:
+
+Tried to reach our client but there was an answer machine as dialed.",,,
+"Lester Cox",Maria.Quinones@cordobalegal.com,2026-08-07,"Consumer Cellular",CORDOBA-1228137448,Android,"Samsung A15","Cx block the creditors number but he still receiving calls from the creditor on the same number that cx already block",,,"Unable to contact","Please follow ""Calls are not being forwarded — 6-Step Checklist"" on Creditor x Guide.
+
+Unable to reach our client, there was an answered machine as dialed.",,,
+"Lana Shields",robertc@cordobalegal.com,2026-08-07,"T mobile",CORDOBA-1216632944,Android,"Samsung Galxy A35 - 5G","customer getting error invalid code when entering the SMS and she is doing it within the minute",,,"Unable to contact","Unable to  reach the client VML and SMS trying to reach sent. Please confirm with the client if the number in the file is not a landline, and try to log in again with her username and password.
+
+I was trying to reach our client, due to the following error : Customer getting error invalid code when entering the SMS and she is doing it within the minute, but there was an answered machine as dialed.",,,
+"Henry Chapman",Maria.Quinones@cordobalegal.com,2026-08-07,verizon,CORDOBA-1242639088,IOS,"iphone 16 pro max","cx cannot type the carrier, only show AT&T but he doesn't have that carrier, at the same time he try to go back but then it show that the phone already login but he never finish the process to login",,,Solved,"Contacted the client and recovered the password successfully. We tried putting the code are (+1) it worked. We completed the USSD command and selected the right Carrier. NFA",,,
+"Laurie Ryan",Maria.Cortes@cordobalegal.com,2026-08-06,verizon,CORDOBA-1240816022,Android,android,"creditor X app is not letting her create the password",,,"In Progress","Under investigation. Answered machine as dialed.",,,
+"Liliya Yakovenko",Saray.Beltran@cordobalegal.com,2026-08-06,T.mobile,1205665025,IOS,"Iphone 11","cx report the app is blocking all the vm she receive, not just for the blocked numbers",,,Solved,"I was able to reach our client on behalf to the following ticket” cx report the app is blocking all the vm she receive, not just for the blocked numbers
+
+Device: Iphone 11
+Network: T mobile.
+Creditor x APP has been updated at the last version.
+Please dial ##002# from the phone, in order to canceling forwarding calls. Cancel all forwarding
+Client was educated, please Dial “ ##21# in order to disable call forwarding or even dial ##004# as well.
+IMSI:/SIMCARD ON,
+Settings, tapping Apps, and selecting Default Apps on creditors X
+Voice mail recording : Turned on .
+Default app setup.
+
+ I was able  to do a test call, at the subscriber phone : 847-873-5654, it was being redirected to the voice mail after  12 seconds of ringing time attempts  5,  t the original phone instead of the  generic extension “#120 “
+
+Resolved!!",,,
+"Denise Hampton",rosbelym@cordobalegal.com,2026-08-06,"AT & T",CORDOBA-1229366826,Android,android,"Wrong User ID or Password.",,,Solved,"I was trying to reach our client, relate to the following issue:  Wrong user ID OR Password., but there was an answered machine as dialed.
+Unable to reach our client ,   it was being routed to an answered machine as dialed.
+
+I was able to reach our clients in order to assist her with her Creditor X. app due to the following issue Wrong User ID or Password.
+
+- Phone: 773-706-0220 has been duplicated on forth CRM, assisted by ext99 opt 2, who assist Mateo.
+-Carrier : AT &T
+
+-Device : Samsung galaxy A 26 Current/Upgraded OS Support: Up to Android 21 (6 major generational upgrades promised).
+
+-App was being uninstalled
+-App has been downloaded.
+-App has been updated at the last version V1.5.0 Android Via play_store library. Cordoba Legal Creditor x LLC.
+-App has been already installed.
+-Please click on “ is this your 1st time to login “ ID: 1229366826,last 4 digits of your SSN,Enter your date of birth in the requested format. MM-DD-YYYY but The command Button, “Next “ is not going any further.
+
+
+*Settings
+Tap Apps or Apps & notifications.
+Select the specific app you want to change (such as Chrome or Facebook).
+Tap Storage or Storage & cache.
+Tap Clear cache. Do not tap ""Clear data"" or ""Clear storage,"" as that will erase your saved info and sign you out.
+
+Internet is on. App has been updated at the last version V1.5.0
+API_ responses ok.. 200 ok. Non mi-smashed data on Core CRM.
+
+Clear cache Data.
+Phone has been rebooted. “Turned off/on “
+Mobil data : on.
+
+It does not go any further, when setup her date of birth, when submit.
+
+Client was educated to go :
+Adjust Font Size / Display,
+Select Font size was being setup,( text smaller ) Slider left.
+
+when setup her date of birth, Please select her username, it would be
+her Email address, or even her phone number. Them Created a new password.
+
+It must be at least 8 characters, such as : 1 lowercase, letter, 1 uppercase and 1special character.
+
+-Press /Click on “Done “ . !
+
+New password has been assigned to her account “ Press OK “. !
+Enter her 4 digit code whose has sent into her mobil phone : 773-706-0220
+
+Then Press Next!
+
+Carrier : AT&T
+USSD : DONE. Call forwarding: Active. USSD Command #1 # 2 Done!! Registration was Successfully
+
+CREDITOR CALLS BLOCKING AND FORWARDING :ACTIVE
+
+• Settings: Features do not disturb when collectors agency call.
+• Settings : Features do not disturb when creditors calls /
+* Call forwarding turned on. App has been setup as default app.
+Voice mail recording : ON.
+
+App is currently working now!!
+
+Issue has been fixed ! Client happy.",,,
+"Angel Aguilera",Julian.Pena@cordobalegal.com,2026-08-11,AT&T,CORDOBA-1227143229,IOS,"Iphone 17 pro","The client reported that they blocked multiple phone numbers, but the same number keeps trying to call them. The application informs the client that the number is still under review to be blocked. The client reported the phone number last week and it remains under review.",,,,,,,

@@ -7,7 +7,7 @@ const FALLBACK_CSV_FILES = [
   "data/Issues-7-may.csv",
   "data/Issues-8-may.csv",
 ];
-const COLUMN_PREFS_STORAGE_KEY = "creditorx-issues-visible-columns-v1";
+const COLUMN_PREFS_STORAGE_KEY = "creditorx-issues-visible-columns-v2";
 const DATE_COLUMN_NAME = "Date";
 const LAST_UPDATE_COLUMN_NAME = "Last Update";
 const REPORTED_BY_COLUMN_NAME = "Reported By";
@@ -15,6 +15,8 @@ const JIRA_TICKET_COLUMN_NAME = "Jira ticket";
 const STATUS_COLUMN_NAME = "Status";
 const PLATFORM_COLUMN_NAME = "IOS or Android";
 const DEV_TEAM_COMMENTS_COLUMN_NAME = "Dev Team comments";
+const TIER_2_COMMENTS_COLUMN_NAME = "Tier 2 Comments";
+const DEFAULT_DATE_RANGE_DAYS = 60;
 const ISSUE_IDENTITY_COLUMN_NAMES = [
   "Customer Name",
   DATE_COLUMN_NAME,
@@ -32,6 +34,7 @@ const DEFAULT_VISIBLE_COLUMN_NAMES = [
   LAST_UPDATE_COLUMN_NAME,
   "Reported Issue",
   STATUS_COLUMN_NAME,
+  TIER_2_COMMENTS_COLUMN_NAME,
   DEV_TEAM_COMMENTS_COLUMN_NAME,
   JIRA_TICKET_COLUMN_NAME,
 ];
@@ -43,6 +46,10 @@ const FALLBACK_ISSUE_THEME = ISSUE_THEME_CONFIG.fallbackTheme ?? {
   keywords: [],
 };
 const THEME_STOP_WORDS = new Set(ISSUE_THEME_CONFIG.stopWords ?? []);
+const HEADER_ALIASES = new Map([
+  ["dev team comments", DEV_TEAM_COMMENTS_COLUMN_NAME],
+  ["jira ticket", JIRA_TICKET_COLUMN_NAME],
+]);
 
 const recordsCount = document.getElementById("records-count");
 const recordsHead = document.getElementById("records-head");
@@ -96,7 +103,7 @@ const STATUS_CLASS_MAP = {
   new: "status-new",
   triage: "status-triage",
   "call agent (additional information)": "status-call-agent",
-  "returned - insufficient information": "status-call-agent",
+  "returned - insufficient information": "status-returned-insufficient",
   "in queue": "status-in-queue",
   "in progress": "status-in-progress",
   completed: "status-completed",
@@ -123,7 +130,7 @@ const STATUS_COLOR_MAP = {
   new: "#525252",
   triage: "#7e2ba1",
   "call agent (additional information)": "#ad7104",
-  "returned - insufficient information": "#ad7104",
+  "returned - insufficient information": "#c58a16",
   "in queue": "#0e87d7",
   "in progress": "#1aa8ee",
   completed: "#11a86a",
@@ -340,7 +347,8 @@ function parseCsv(text) {
 }
 
 function normalizeHeader(header) {
-  return header.trim() || "Unnamed Column";
+  const trimmedHeader = header.trim();
+  return HEADER_ALIASES.get(trimmedHeader.toLowerCase()) || trimmedHeader || "Unnamed Column";
 }
 
 function normalizeColumnKey(header) {
@@ -874,6 +882,19 @@ function getEndOfToday() {
   return today;
 }
 
+function getDefaultDateRange() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const startDate = new Date(today);
+  startDate.setDate(startDate.getDate() - DEFAULT_DATE_RANGE_DAYS);
+
+  return {
+    start: toIsoDate(startDate),
+    end: toIsoDate(today),
+  };
+}
+
 function getDatasetsThroughToday(datasets) {
   const endOfToday = getEndOfToday().getTime();
 
@@ -985,12 +1006,6 @@ function renderMessage(message, columnCount = 1, isError = false) {
   cell.textContent = message;
   row.appendChild(cell);
   recordsBody.appendChild(row);
-}
-
-function extractYear(dateValue) {
-  const trimmed = (dateValue ?? "").trim();
-  const match = trimmed.match(/^(\d{4})/);
-  return match ? match[1] : "";
 }
 
 function parseSortableDate(dateValue) {
@@ -1132,22 +1147,16 @@ function populateDateRangeFilter(headers, rows) {
     return;
   }
 
-  const currentYear = String(new Date().getFullYear());
-  const currentYearDates = availableRange.dates.filter(
-    (dateValue) => extractYear(dateValue) === currentYear
-  );
-  const defaultStart = currentYearDates[0] ?? availableRange.min;
-  const defaultEnd =
-    currentYearDates[currentYearDates.length - 1] ?? availableRange.max;
+  const defaultRange = getDefaultDateRange();
 
   [startDateFilter, endDateFilter].forEach((filter) => {
     filter.min = availableRange.min;
-    filter.max = availableRange.max;
+    filter.max = defaultRange.end;
     filter.disabled = false;
   });
 
-  startDateFilter.value = defaultStart;
-  endDateFilter.value = defaultEnd;
+  startDateFilter.value = defaultRange.start;
+  endDateFilter.value = defaultRange.end;
 }
 
 function getSelectedDateRange() {
@@ -2191,6 +2200,9 @@ function getIssueThemeAnalysis(rows, headers) {
   const devTeamCommentsColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(DEV_TEAM_COMMENTS_COLUMN_NAME)
   );
+  const tier2CommentsColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(TIER_2_COMMENTS_COLUMN_NAME)
+  );
   const themes = new Map();
   let issueTextCount = 0;
   let automaticallyGroupedCount = 0;
@@ -2220,7 +2232,11 @@ function getIssueThemeAnalysis(rows, headers) {
       devTeamCommentsColumnIndex >= 0
         ? (row[devTeamCommentsColumnIndex] ?? "").trim()
         : "";
-    const classificationText = [issueText, devTeamComments]
+    const tier2Comments =
+      tier2CommentsColumnIndex >= 0
+        ? (row[tier2CommentsColumnIndex] ?? "").trim()
+        : "";
+    const classificationText = [issueText, tier2Comments, devTeamComments]
       .filter(Boolean)
       .join(" ");
     const { theme, matchedKeywords } = getIssueTheme(classificationText);
@@ -2247,6 +2263,7 @@ function getIssueThemeAnalysis(rows, headers) {
       ticketLabel: formatJiraTicketLabel(jiraTicketValue),
       ticketUrl: getJiraTicketUrl(jiraTicketValue),
       issueText,
+      tier2Comments,
       devTeamComments,
     });
     matchedKeywords.forEach((keyword) => {
@@ -2530,13 +2547,15 @@ function renderSelectedThemeTickets(selectedEntry) {
 
     const comments = document.createElement("p");
     comments.className = "topics-top-tickets__comments";
-    comments.textContent = `Dev Team Comments: ${
-      ticket.devTeamComments || "No comments recorded"
-    }`;
+    comments.textContent = [
+      `Tier 2 Comments: ${ticket.tier2Comments || "No comments recorded"}`,
+      `Dev Team Comments: ${ticket.devTeamComments || "No comments recorded"}`,
+    ].join(" · ");
 
     item.addEventListener("mouseenter", (event) => {
       const tooltipText = [
         ticket.issueText,
+        `Tier 2 Comments: ${ticket.tier2Comments || "No comments recorded"}`,
         `Dev Team Comments: ${ticket.devTeamComments || "No comments recorded"}`,
       ].join("\n\n");
       showIssueTextTooltip(tooltipText, event.clientX, event.clientY);

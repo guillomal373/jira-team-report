@@ -1787,6 +1787,11 @@ a.topics-top-tickets__link:focus-visible {
   --status-accent: #ad7104;
 }
 
+.status-returned-insufficient {
+  --row-color: rgba(197, 138, 22, 0.24);
+  --status-accent: #c58a16;
+}
+
 .status-in-queue {
   --row-color: rgba(0, 89, 139, 0.24);
   --status-accent: #0e87d7;
