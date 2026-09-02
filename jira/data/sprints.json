@@ -779,7 +779,7 @@
       "recommendations": []
     },
     {
-      "name": "Sprint 18 - ...",
+      "name": "Sprint 18 - CX Re Launch",
       "period": "2026-07-06 to 2026-07-20",
       "csvFile": "sprints-csv/Sprint 18 Summary export (Jira).csv",
       "description": "",
@@ -796,6 +796,19 @@
       "period": "2026-07-06 to 2026-07-20",
       "csvFile": "sprints-csv/Sprint 19 Summary export (Jira).csv",
       "description": "CP\n- MVP  (F+D+N)\n- PreLaunch\n\nCX\n- RUM checking, reports (S+R)\n- Tier 2, 2nd Week\n- TroubleShooting Page\n- Swift Updates (D+S)\n- First 10k Customers",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
+    },
+    {
+      "name": "Sprint 20 CP - CX",
+      "period": "2026-08-24 to 2026-09-07",
+      "csvFile": "sprints-csv/Sprint 20 Summary export (Jira).csv",
+      "description": "CP/n- MVP Check & feedback/n- Creditors Charts / Summary/nCX/n- RUM reports (S+R)/n- Tier 2 Report/n- Swift Updates (D+S)/n- 10k+ Customers",
       "summary": "",
       "improvements": "",
       "members": [],
