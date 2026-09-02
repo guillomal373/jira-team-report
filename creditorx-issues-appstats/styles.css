@@ -692,6 +692,23 @@ p {
   letter-spacing: 0.02em;
 }
 
+.timeline-panel__legend-item--event {
+  border-style: dashed;
+}
+
+.timeline-panel__legend-swatch--event {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  line-height: 1;
+  background: var(--legend-color, #cdaa56);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
 .timeline-panel__chart-wrap {
   margin-top: 16px;
   overflow-x: auto;
@@ -859,6 +876,36 @@ p {
 .timeline-baseline {
   stroke: rgba(255, 255, 255, 0.14);
   stroke-width: 1;
+}
+
+.timeline-event-line {
+  stroke-width: 1.6;
+  stroke-dasharray: 4 3;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.timeline-event-dot {
+  stroke: rgba(18, 18, 18, 0.9);
+  stroke-width: 1.5;
+  cursor: default;
+}
+
+.timeline-event-icon {
+  font-size: 10px;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.timeline-event-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-anchor: middle;
+  letter-spacing: 0.02em;
+  paint-order: stroke;
+  stroke: rgba(18, 18, 18, 0.85);
+  stroke-width: 2px;
 }
 
 .topics-panel {
@@ -1783,13 +1830,13 @@ a.topics-top-tickets__link:focus-visible {
 }
 
 .status-call-agent {
-  --row-color: rgba(138, 86, 0, 0.24);
-  --status-accent: #ad7104;
+  --row-color: rgba(70, 70, 70, 0.24);
+  --status-accent: #6e6e6e;
 }
 
 .status-returned-insufficient {
-  --row-color: rgba(197, 138, 22, 0.24);
-  --status-accent: #c58a16;
+  --row-color: rgba(90, 90, 90, 0.24);
+  --status-accent: #8f8f8f;
 }
 
 .status-in-queue {
@@ -1835,6 +1882,21 @@ a.topics-top-tickets__link:focus-visible {
 .status-follow-up {
   --row-color: rgba(125, 84, 0, 0.24);
   --status-accent: #c38711;
+}
+
+.status-solved {
+  --row-color: rgba(0, 104, 62, 0.22);
+  --status-accent: #11a86a;
+}
+
+.status-unable-to-contact {
+  --row-color: rgba(120, 90, 20, 0.22);
+  --status-accent: #d9a441;
+}
+
+.status-dev {
+  --row-color: rgba(20, 60, 120, 0.24);
+  --status-accent: #3a6fd9;
 }
 
 .records-table__empty td {

@@ -13,6 +13,7 @@ const LAST_UPDATE_COLUMN_NAME = "Last Update";
 const REPORTED_BY_COLUMN_NAME = "Reported By";
 const JIRA_TICKET_COLUMN_NAME = "Jira ticket";
 const STATUS_COLUMN_NAME = "Status";
+const TIER_2_STATE_COLUMN_NAME = "Tier 2 State";
 const PLATFORM_COLUMN_NAME = "IOS or Android";
 const DEV_TEAM_COMMENTS_COLUMN_NAME = "Dev Team comments";
 const TIER_2_COMMENTS_COLUMN_NAME = "Tier 2 Comments";
@@ -46,6 +47,22 @@ const FALLBACK_ISSUE_THEME = ISSUE_THEME_CONFIG.fallbackTheme ?? {
   keywords: [],
 };
 const THEME_STOP_WORDS = new Set(ISSUE_THEME_CONFIG.stopWords ?? []);
+const TIMELINE_EVENTS = window.CREDITORX_TIMELINE_EVENTS ?? [];
+// Bitten-apple Apple logo silhouette (viewBox 0 0 384 512), used instead of
+// an emoji so the iOS release marker reads as the real logo, in white.
+const APPLE_LOGO_PATH_D =
+  "M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z";
+const APPLE_LOGO_SVG_MARKUP = `<svg viewBox="0 0 384 512" width="10" height="13" aria-hidden="true"><path fill="#ffffff" d="${APPLE_LOGO_PATH_D}"/></svg>`;
+// Android robot (bugdroid) mascot, redrawn from the official AOSP asset
+// (Wikimedia Commons "Android_robot.svg", viewBox -147 -70 294 345), used
+// instead of an emoji so the Android release marker shows the real logo,
+// in white.
+const ANDROID_LOGO_SVG_MARKUP = `<svg viewBox="-147 -70 294 345" width="12" height="14" aria-hidden="true"><g fill="#ffffff"><ellipse cx="0" cy="41" rx="91" ry="84"/><rect x="-91" y="20" width="182" height="182" rx="22"/><rect x="14" y="-86" width="13" height="86" rx="6.5" transform="rotate(29)"/><rect x="14" y="-86" width="13" height="86" rx="6.5" transform="scale(-1,1) rotate(29)"/><rect x="-143" y="41" width="48" height="133" rx="24"/><rect x="95" y="41" width="48" height="133" rx="24"/><rect x="-58" y="138" width="48" height="133" rx="24"/><rect x="10" y="138" width="48" height="133" rx="24"/></g></svg>`;
+// Bullhorn/megaphone silhouette (viewBox 0 0 512 512), used for the
+// marketing campaign marker, in white.
+const MEGAPHONE_PATH_D =
+  "M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75l-8.7 0-32 0-96 0c-35.3 0-64 28.7-64 64l0 96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-128 8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-147.6c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4L480 32zm-64 76.7L416 240l0 131.3C357.2 317.8 280.5 288 200.7 288l-8.7 0 0-96 8.7 0c79.8 0 156.5-29.8 215.3-83.3z";
+const MEGAPHONE_SVG_MARKUP = `<svg viewBox="0 0 512 512" width="12" height="12" aria-hidden="true"><path fill="#ffffff" d="${MEGAPHONE_PATH_D}"/></svg>`;
 const HEADER_ALIASES = new Map([
   ["dev team comments", DEV_TEAM_COMMENTS_COLUMN_NAME],
   ["jira ticket", JIRA_TICKET_COLUMN_NAME],
@@ -113,24 +130,29 @@ const STATUS_CLASS_MAP = {
   "app uninstalled": "status-app-uninstalled",
   "unresolved with cx": "status-unresolved-cx",
   "follow up": "status-follow-up",
+  solved: "status-solved",
+  "unable to contact": "status-unable-to-contact",
+  dev: "status-dev",
 };
 const STATUS_SUMMARY_ORDER = [
   "New",
   "Triage",
   "Call Agent (Additional information)",
   "Returned - Insufficient Information",
-  "In queue",
-  "In progress",
-  "Completed",
-  "Resolved with cx",
+  "In Progress",
+  "Dev",
+  "Unable to contact",
+  "Solved",
   "Unresolved with cx",
+  "Account Canceled",
+  "App uninstalled",
   "Follow up",
 ];
 const STATUS_COLOR_MAP = {
   new: "#525252",
   triage: "#7e2ba1",
-  "call agent (additional information)": "#ad7104",
-  "returned - insufficient information": "#c58a16",
+  "call agent (additional information)": "#6e6e6e",
+  "returned - insufficient information": "#8f8f8f",
   "in queue": "#0e87d7",
   "in progress": "#1aa8ee",
   completed: "#11a86a",
@@ -140,8 +162,62 @@ const STATUS_COLOR_MAP = {
   "app uninstalled": "#0f6f3a",
   "unresolved with cx": "#b1163d",
   "follow up": "#c38711",
+  solved: "#11a86a",
+  "unable to contact": "#d9a441",
+  dev: "#3a6fd9",
   unknown: "#8b8b8b",
 };
+
+// Consolidates the raw "Status"/"Tier 2 State" values into the Tier 2-style
+// buckets used for charts/summaries/filters. Blank counts as "New". Values
+// not listed here (e.g. "Returned - Insufficient Information") pass through
+// unchanged. Includes self-mappings for files where the column already
+// stores the consolidated bucket name (e.g. "Solved", "Unable to contact").
+const STATUS_TIER2_EQUIVALENTS = {
+  "": "New",
+  new: "New",
+  triage: "Triage",
+  "in progress": "In Progress",
+  "in queue": "In Progress",
+  completed: "Solved",
+  "resolved with cx": "Solved",
+  solved: "Solved",
+  "client not answering (3 days)": "Unable to contact",
+  "unable to contact": "Unable to contact",
+  "call agent (additional information)": "Call Agent (Additional information)",
+  "account canceled": "Account Canceled",
+  "unresolved with cx": "Unresolved with cx",
+  "app uninstalled": "App uninstalled",
+  dev: "Dev",
+};
+
+function normalizeStatusForCharts(rawStatus) {
+  const trimmed = String(rawStatus ?? "").trim();
+  return STATUS_TIER2_EQUIVALENTS[trimmed.toLowerCase()] ?? trimmed;
+}
+
+function getTier2StateColumnIndex(headers) {
+  return headers.findIndex(
+    (header) =>
+      normalizeColumnKey(header) === normalizeColumnKey(TIER_2_STATE_COLUMN_NAME)
+  );
+}
+
+// "Tier 2 State" is the source of truth for status when a row has it;
+// "Status" is used as a fallback when Tier 2 State is blank (older exports
+// only populate "Status").
+function getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex) {
+  const tier2Value =
+    tier2StateColumnIndex >= 0
+      ? (row[tier2StateColumnIndex] ?? "").trim()
+      : "";
+
+  if (tier2Value) {
+    return tier2Value;
+  }
+
+  return statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
+}
 const PLATFORM_COLOR_MAP = {
   Android: "#11a86a",
   iOS: "#1aa8ee",
@@ -1200,6 +1276,7 @@ function populateStatusFilter(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
   );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
   const previousValue = statusFilter.value || "all";
 
   statusFilter.replaceChildren();
@@ -1209,17 +1286,21 @@ function populateStatusFilter(rows, headers) {
   allOption.textContent = "All";
   statusFilter.appendChild(allOption);
 
-  if (statusColumnIndex < 0) {
+  if (statusColumnIndex < 0 && tier2StateColumnIndex < 0) {
     statusFilter.disabled = true;
     statusFilter.value = "all";
     return;
   }
 
   const statuses = [...new Set(
-    rows
-      .map((row) => (row[statusColumnIndex] ?? "").trim())
-      .filter(Boolean)
-  )].sort((left, right) => left.localeCompare(right));
+    rows.map((row) =>
+      normalizeStatusForCharts(
+        getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex)
+      )
+    )
+  )]
+    .filter(Boolean)
+    .sort((left, right) => left.localeCompare(right));
 
   statuses.forEach((status) => {
     const option = document.createElement("option");
@@ -1240,13 +1321,17 @@ function getStatusFilteredRows(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
   );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
 
-  if (statusColumnIndex < 0) {
+  if (statusColumnIndex < 0 && tier2StateColumnIndex < 0) {
     return rows;
   }
 
   return rows.filter(
-    (row) => (row[statusColumnIndex] ?? "").trim() === statusFilter.value
+    (row) =>
+      normalizeStatusForCharts(
+        getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex)
+      ) === statusFilter.value
   );
 }
 
@@ -1296,12 +1381,12 @@ function getStatusCounts(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
   );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
   const counts = new Map();
 
   rows.forEach((row) => {
-    const rawStatus =
-      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
-    const status = rawStatus || "Unknown";
+    const rawStatus = getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex);
+    const status = normalizeStatusForCharts(rawStatus) || "Unknown";
     counts.set(status, (counts.get(status) ?? 0) + 1);
   });
 
@@ -1353,14 +1438,14 @@ function getReportedByEntries(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
   );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
   const counts = new Map();
 
   rows.forEach((row) => {
     const rawValue =
       reportedByColumnIndex >= 0 ? (row[reportedByColumnIndex] ?? "").trim() : "";
-    const statusValue =
-      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
-    const status = statusValue || "Unknown";
+    const statusValue = getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex);
+    const status = normalizeStatusForCharts(statusValue) || "Unknown";
     const fullLabel = rawValue || "Unknown";
     const displayLabel = formatReportedByValue(fullLabel) || "Unknown";
     const current = counts.get(fullLabel) ?? {
@@ -1547,6 +1632,7 @@ function getTimelineSeries(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
   );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
   const { startDate, endDate } = buildTimelineRange();
   const series = [];
   const counts = new Map();
@@ -1565,9 +1651,8 @@ function getTimelineSeries(rows, headers) {
     }
 
     const isoDate = toIsoDate(parsedDate);
-    const rawStatus =
-      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
-    const status = rawStatus || "Unknown";
+    const rawStatus = getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex);
+    const status = normalizeStatusForCharts(rawStatus) || "Unknown";
     const dateCounts = counts.get(isoDate) ?? new Map();
     dateCounts.set(status, (dateCounts.get(status) ?? 0) + 1);
     counts.set(isoDate, dateCounts);
@@ -1885,15 +1970,22 @@ function renderTimeline(rows, headers, scaleRows = rows) {
   timelineLegend.replaceChildren();
   hideTimelineTooltip();
 
+  const visibleEvents = TIMELINE_EVENTS.filter((event) =>
+    series.some((point) => point.isoDate === event.date)
+  );
+  const topBand = 16;
+  const eventBandHeight = visibleEvents.length > 0 ? 34 : 0;
+
   const width = Math.max(960, series.length * 22);
-  const height = 320;
-  const margin = { top: 16, right: 22, bottom: 40, left: 46 };
+  const height = 320 + eventBandHeight;
+  const margin = { top: topBand + eventBandHeight, right: 22, bottom: 40, left: 46 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
   const observedMaxValue = Math.max(0, ...scaleSeries.map((point) => point.total));
   const { axisMax, tickStep, tickCount } = getTimelineScale(observedMaxValue);
 
   timelineChart.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  timelineChart.style.height = `${height}px`;
 
   orderedStatuses.forEach((status) => {
     const item = document.createElement("div");
@@ -1910,6 +2002,33 @@ function renderTimeline(rows, headers, scaleRows = rows) {
     item.append(swatch, label);
     timelineLegend.appendChild(item);
   });
+
+  [...new Map(visibleEvents.map((event) => [event.label, event])).values()].forEach(
+    (event) => {
+      const item = document.createElement("div");
+      item.className = "timeline-panel__legend-item timeline-panel__legend-item--event";
+
+      const swatch = document.createElement("span");
+      swatch.className = "timeline-panel__legend-swatch timeline-panel__legend-swatch--event";
+      swatch.style.setProperty("--legend-color", event.color);
+      if (event.icon === "apple") {
+        swatch.innerHTML = APPLE_LOGO_SVG_MARKUP;
+      } else if (event.icon === "android") {
+        swatch.innerHTML = ANDROID_LOGO_SVG_MARKUP;
+      } else if (event.icon === "megaphone") {
+        swatch.innerHTML = MEGAPHONE_SVG_MARKUP;
+      } else {
+        swatch.textContent = event.icon;
+      }
+
+      const label = document.createElement("span");
+      label.className = "timeline-panel__legend-label";
+      label.textContent = event.label;
+
+      item.append(swatch, label);
+      timelineLegend.appendChild(item);
+    }
+  );
 
   for (let tick = 0; tick <= tickCount; tick += 1) {
     const value = tickStep * tick;
@@ -2046,6 +2165,122 @@ function renderTimeline(rows, headers, scaleRows = rows) {
       });
       label.textContent = point.label;
       timelineChart.appendChild(label);
+    }
+  });
+
+  visibleEvents.forEach((event) => {
+    const index = series.findIndex((point) => point.isoDate === event.date);
+
+    if (index < 0) {
+      return;
+    }
+
+    const eventX = margin.left + index * slotWidth + slotWidth / 2;
+    const dotY = topBand + eventBandHeight / 2;
+    const eventDate = parseIsoDate(event.date);
+    const tooltipText = `${event.label} — ${eventDate ? formatCompactDate(eventDate) : event.date}`;
+
+    const line = createSvgElement("line", {
+      x1: eventX,
+      y1: dotY,
+      x2: eventX,
+      y2: margin.top + innerHeight,
+      stroke: event.color,
+      class: "timeline-event-line",
+    });
+    timelineChart.appendChild(line);
+
+    const label = createSvgElement("text", {
+      x: eventX,
+      y: dotY - 13,
+      fill: event.color,
+      class: "timeline-event-label",
+    });
+    label.textContent = event.label;
+    timelineChart.appendChild(label);
+
+    const dot = createSvgElement("circle", {
+      cx: eventX,
+      cy: dotY,
+      r: 9,
+      fill: event.color,
+      class: "timeline-event-dot",
+    });
+    const dotTitle = createSvgElement("title");
+    dotTitle.textContent = tooltipText;
+    dot.appendChild(dotTitle);
+    timelineChart.appendChild(dot);
+
+    if (event.icon === "apple") {
+      const iconHeight = 12;
+      const iconWidth = iconHeight * (384 / 512);
+      const scale = iconHeight / 512;
+      const iconGroup = createSvgElement("g", {
+        transform: `translate(${eventX - iconWidth / 2}, ${dotY - iconHeight / 2}) scale(${scale})`,
+        class: "timeline-event-icon",
+      });
+      const iconPath = createSvgElement("path", {
+        d: APPLE_LOGO_PATH_D,
+        fill: "#ffffff",
+      });
+      iconGroup.appendChild(iconPath);
+      timelineChart.appendChild(iconGroup);
+    } else if (event.icon === "android") {
+      const iconHeight = 13;
+      const scale = iconHeight / 345;
+      const viewBoxCenterY = -70 + 345 / 2;
+      const iconGroup = createSvgElement("g", {
+        transform: `translate(${eventX}, ${dotY}) scale(${scale}) translate(0, ${-viewBoxCenterY})`,
+        fill: "#ffffff",
+        class: "timeline-event-icon",
+      });
+      const shapes = [
+        createSvgElement("ellipse", { cx: 0, cy: 41, rx: 91, ry: 84 }),
+        createSvgElement("rect", { x: -91, y: 20, width: 182, height: 182, rx: 22 }),
+        createSvgElement("rect", {
+          x: 14,
+          y: -86,
+          width: 13,
+          height: 86,
+          rx: 6.5,
+          transform: "rotate(29)",
+        }),
+        createSvgElement("rect", {
+          x: 14,
+          y: -86,
+          width: 13,
+          height: 86,
+          rx: 6.5,
+          transform: "scale(-1,1) rotate(29)",
+        }),
+        createSvgElement("rect", { x: -143, y: 41, width: 48, height: 133, rx: 24 }),
+        createSvgElement("rect", { x: 95, y: 41, width: 48, height: 133, rx: 24 }),
+        createSvgElement("rect", { x: -58, y: 138, width: 48, height: 133, rx: 24 }),
+        createSvgElement("rect", { x: 10, y: 138, width: 48, height: 133, rx: 24 }),
+      ];
+      shapes.forEach((shape) => iconGroup.appendChild(shape));
+      timelineChart.appendChild(iconGroup);
+    } else if (event.icon === "megaphone") {
+      const iconSize = 12;
+      const scale = iconSize / 512;
+      const iconGroup = createSvgElement("g", {
+        transform: `translate(${eventX - iconSize / 2}, ${dotY - iconSize / 2}) scale(${scale})`,
+        class: "timeline-event-icon",
+      });
+      const iconPath = createSvgElement("path", {
+        d: MEGAPHONE_PATH_D,
+        fill: "#ffffff",
+      });
+      iconGroup.appendChild(iconPath);
+      timelineChart.appendChild(iconGroup);
+    } else {
+      const icon = createSvgElement("text", {
+        x: eventX,
+        y: dotY + 3.5,
+        class: "timeline-event-icon",
+      });
+      icon.textContent = event.icon;
+      timelineChart.appendChild(icon);
     }
   });
 }
@@ -2194,6 +2429,7 @@ function getIssueThemeAnalysis(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
   );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
   const jiraTicketColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(JIRA_TICKET_COLUMN_NAME)
   );
@@ -2224,8 +2460,7 @@ function getIssueThemeAnalysis(rows, headers) {
     }
 
     issueTextCount += 1;
-    const statusValue =
-      statusColumnIndex >= 0 ? (row[statusColumnIndex] ?? "").trim() : "";
+    const statusValue = getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex);
     const jiraTicketValue =
       jiraTicketColumnIndex >= 0 ? row[jiraTicketColumnIndex] ?? "" : "";
     const devTeamComments =
@@ -2251,10 +2486,11 @@ function getIssueThemeAnalysis(rows, headers) {
       isFallback: theme.label === FALLBACK_ISSUE_THEME.label,
     };
 
+    const normalizedStatus = normalizeStatusForCharts(statusValue) || "Unknown";
     current.count += 1;
     current.statusCounts.set(
-      statusValue || "Unknown",
-      (current.statusCounts.get(statusValue || "Unknown") ?? 0) + 1
+      normalizedStatus,
+      (current.statusCounts.get(normalizedStatus) ?? 0) + 1
     );
     current.texts.push(issueText);
     current.tickets.push({
@@ -2649,6 +2885,7 @@ function renderTable(headers, rows) {
   const statusColumnIndex = headers.findIndex(
     (header) => header.trim().toLowerCase() === STATUS_COLUMN_NAME.toLowerCase()
   );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
 
   visibleColumnIndices.forEach(({ header }) => {
     const cell = document.createElement("th");
@@ -2696,10 +2933,12 @@ function renderTable(headers, rows) {
 
   rows.forEach((rowData) => {
     const row = document.createElement("tr");
-    const statusValue =
-      statusColumnIndex >= 0 ? (rowData[statusColumnIndex] ?? "").trim() : "";
+    const statusValue = getEffectiveRawStatus(rowData, statusColumnIndex, tier2StateColumnIndex);
+    const normalizedStatusValue = normalizeStatusForCharts(statusValue);
     const statusClass =
-      STATUS_CLASS_MAP[statusValue.toLowerCase()] ?? "status-default";
+      STATUS_CLASS_MAP[statusValue.toLowerCase()] ??
+      STATUS_CLASS_MAP[normalizedStatusValue.toLowerCase()] ??
+      "status-default";
 
     row.classList.add("records-table__row", statusClass);
 
@@ -2771,7 +3010,9 @@ async function loadCsvTable() {
       renderMessage("No CSV data could be loaded from the data folder.");
       return;
     }
-    const { headers, rows } = mergeDatasets(successfulDatasets);
+    const { headers, rows } = mergeDatasets(successfulDatasets, {
+      latestOnly: false,
+    });
     const issueThemeDatasets = getDatasetsThroughToday(successfulDatasets);
     const issueThemeDataset = mergeDatasets(issueThemeDatasets, {
       latestOnly: false,
