@@ -17,13 +17,13 @@ window.CREDITORX_TIMELINE_EVENTS = [
     color: "#0a84ff",
   },
   {
-    date: "2026-08-16",
+    date: "2026-08-31",
     icon: "android",
-    label: "Android release",
+    label: "Android v1.9.3 9:01am",
     color: "#34c759",
   },
   {
-    date: "2026-09-01",
+    date: "2026-08-28",
     icon: "megaphone",
     label: "Marketing campaign",
     color: "#ff375f",
