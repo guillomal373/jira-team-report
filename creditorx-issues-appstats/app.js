@@ -17,6 +17,7 @@ const TIER_2_STATE_COLUMN_NAME = "Tier 2 State";
 const PLATFORM_COLUMN_NAME = "IOS or Android";
 const DEV_TEAM_COMMENTS_COLUMN_NAME = "Dev Team comments";
 const TIER_2_COMMENTS_COLUMN_NAME = "Tier 2 Comments";
+const MODULE_COLUMN_NAME = "Module/Section";
 const DEFAULT_DATE_RANGE_DAYS = 60;
 const ISSUE_IDENTITY_COLUMN_NAMES = [
   "Customer Name",
@@ -39,6 +40,14 @@ const DEFAULT_VISIBLE_COLUMN_NAMES = [
   TIER_2_COMMENTS_COLUMN_NAME,
   DEV_TEAM_COMMENTS_COLUMN_NAME,
   JIRA_TICKET_COLUMN_NAME,
+];
+const ISSUE_SEARCH_COLUMN_NAMES = [
+  PLATFORM_COLUMN_NAME,
+  "CreditorX Device",
+  "Reported Issue",
+  TIER_2_STATE_COLUMN_NAME,
+  TIER_2_COMMENTS_COLUMN_NAME,
+  DEV_TEAM_COMMENTS_COLUMN_NAME,
 ];
 const ISSUE_THEME_CONFIG = window.CREDITORX_ISSUE_THEME_CONFIG ?? {};
 const ISSUE_THEME_RULES = ISSUE_THEME_CONFIG.rules ?? [];
@@ -75,7 +84,22 @@ const recordsBody = document.getElementById("records-body");
 const recordsSubtitle = document.getElementById("records-subtitle");
 const startDateFilter = document.getElementById("start-date-filter");
 const endDateFilter = document.getElementById("end-date-filter");
-const statusFilter = document.getElementById("status-filter");
+const statusFilterToggle = document.getElementById("status-filter-toggle");
+const statusFilterToggleLabel = document.getElementById("status-filter-toggle-label");
+const statusFilterMenu = document.getElementById("status-filter-menu");
+const statusFilterAllCheckbox = document.getElementById("status-filter-all");
+const statusFilterOptionsContainer = document.getElementById("status-filter-options");
+const moduleFilterToggle = document.getElementById("module-filter-toggle");
+const moduleFilterToggleLabel = document.getElementById("module-filter-toggle-label");
+const moduleFilterMenu = document.getElementById("module-filter-menu");
+const moduleFilterAllCheckbox = document.getElementById("module-filter-all");
+const moduleFilterOptionsContainer = document.getElementById("module-filter-options");
+const statusCoverageToggle = document.getElementById("status-coverage-toggle");
+const tier2CoverageToggle = document.getElementById("tier2-coverage-toggle");
+const engelOwnerToggle = document.getElementById("engel-owner-toggle");
+const odanaOwnerToggle = document.getElementById("odana-owner-toggle");
+const dianaOwnerToggle = document.getElementById("diana-owner-toggle");
+const issueSearchFilter = document.getElementById("issue-search-filter");
 const statusSummaryList = document.getElementById("status-summary-list");
 const statusPieChart = document.getElementById("status-pie-chart");
 const statusPieLegend = document.getElementById("status-pie-legend");
@@ -83,6 +107,9 @@ const statusPieSubtitle = document.getElementById("status-pie-subtitle");
 const platformSubtitle = document.getElementById("platform-subtitle");
 const platformBar = document.getElementById("platform-bar");
 const platformList = document.getElementById("platform-list");
+const tier2OwnerSubtitle = document.getElementById("tier2-owner-subtitle");
+const tier2OwnerBar = document.getElementById("tier2-owner-bar");
+const tier2OwnerList = document.getElementById("tier2-owner-list");
 const timelineChart = document.getElementById("timeline-chart");
 const timelineSubtitle = document.getElementById("timeline-subtitle");
 const timelineLegend = document.getElementById("timeline-legend");
@@ -165,7 +192,7 @@ const STATUS_COLOR_MAP = {
   "follow up": "#c38711",
   solved: "#11a86a",
   "unable to contact": "#d9a441",
-  dev: "#3a6fd9",
+  dev: "#ff3b30",
   unknown: "#8b8b8b",
 };
 
@@ -224,6 +251,24 @@ const PLATFORM_COLOR_MAP = {
   iOS: "#1aa8ee",
   Unknown: "#696969",
 };
+const TIER_2_OWNER_COLOR_MAP = {
+  Engel: "#1aa8ee",
+  Odana: "#11a86a",
+  Diana: "#b06fe0",
+  "E+O": "#cdaa56",
+  "E+D": "#3fc7c7",
+  "O+D": "#e08f3f",
+  "E+O+D": "#e0473f",
+  "No match": "#696969",
+};
+// Notes in "Tier 2 Comments" and/or "Dev Team comments" (Dev Team Comments
+// is the older column that served the same purpose before Tier 2 Comments
+// existed) are tagged with "O:" (Odana), "E:" (Engel), or "D-"/"D -"
+// (Diana). Markers must start a line or follow whitespace so we don't match
+// the letters mid-word.
+const TIER_2_OWNER_MARKER_O = /(?:^|\n|\s)O:/;
+const TIER_2_OWNER_MARKER_E = /(?:^|\n|\s)E:/;
+const TIER_2_OWNER_MARKER_D = /(?:^|\n|\s)D\s?-/;
 const PLAYBOOK_THEME_MATCHES = {
   "First Login": [
     {
@@ -1273,25 +1318,47 @@ function getRangeFilteredRows() {
   });
 }
 
+let selectedStatuses = new Set();
+let statusFilterDisabled = false;
+
+function syncStatusFilterAllCheckbox() {
+  statusFilterAllCheckbox.checked = selectedStatuses.size === 0;
+}
+
+function updateStatusFilterToggleLabel() {
+  if (selectedStatuses.size === 0) {
+    statusFilterToggleLabel.textContent = "All";
+  } else if (selectedStatuses.size === 1) {
+    statusFilterToggleLabel.textContent = [...selectedStatuses][0];
+  } else {
+    statusFilterToggleLabel.textContent = `${selectedStatuses.size} selected`;
+  }
+}
+
+function closeStatusFilterMenu() {
+  statusFilterMenu.hidden = true;
+  statusFilterToggle.setAttribute("aria-expanded", "false");
+}
+
 function populateStatusFilter(rows, headers) {
   const statusColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
   );
   const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
-  const previousValue = statusFilter.value || "all";
 
-  statusFilter.replaceChildren();
-
-  const allOption = document.createElement("option");
-  allOption.value = "all";
-  allOption.textContent = "All";
-  statusFilter.appendChild(allOption);
+  statusFilterOptionsContainer.replaceChildren();
 
   if (statusColumnIndex < 0 && tier2StateColumnIndex < 0) {
-    statusFilter.disabled = true;
-    statusFilter.value = "all";
+    statusFilterDisabled = true;
+    statusFilterToggle.disabled = true;
+    selectedStatuses.clear();
+    syncStatusFilterAllCheckbox();
+    updateStatusFilterToggleLabel();
     return;
   }
+
+  statusFilterDisabled = false;
+  statusFilterToggle.disabled = false;
 
   const statuses = [...new Set(
     rows.map((row) =>
@@ -1303,19 +1370,119 @@ function populateStatusFilter(rows, headers) {
     .filter(Boolean)
     .sort((left, right) => left.localeCompare(right));
 
-  statuses.forEach((status) => {
-    const option = document.createElement("option");
-    option.value = status;
-    option.textContent = status;
-    statusFilter.appendChild(option);
+  const availableStatuses = new Set(statuses);
+  [...selectedStatuses].forEach((status) => {
+    if (!availableStatuses.has(status)) {
+      selectedStatuses.delete(status);
+    }
   });
 
-  statusFilter.disabled = false;
-  statusFilter.value = statuses.includes(previousValue) ? previousValue : "all";
+  statuses.forEach((status) => {
+    const label = document.createElement("label");
+    label.className = "status-multiselect__option";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = status;
+    checkbox.checked = selectedStatuses.has(status);
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        selectedStatuses.add(status);
+      } else {
+        selectedStatuses.delete(status);
+      }
+      syncStatusFilterAllCheckbox();
+      updateStatusFilterToggleLabel();
+      refreshTable();
+    });
+
+    const text = document.createElement("span");
+    text.textContent = status;
+
+    label.append(checkbox, text);
+    statusFilterOptionsContainer.appendChild(label);
+  });
+
+  syncStatusFilterAllCheckbox();
+  updateStatusFilterToggleLabel();
+}
+
+// Each toggle, when on, accepts issues that have that column filled in
+// (independent of what value it holds). Active toggles combine with OR —
+// e.g. with both on, an issue passes if EITHER column has data, not only
+// when both do. With both off, the OR is vacuous and nothing passes.
+function getCoverageFilteredRows(rows, headers) {
+  const requireStatus = statusCoverageToggle.checked;
+  const requireTier2State = tier2CoverageToggle.checked;
+
+  const statusColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
+  );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
+
+  return rows.filter((row) => {
+    const hasStatus = statusColumnIndex >= 0 && Boolean((row[statusColumnIndex] ?? "").trim());
+    const hasTier2State = tier2StateColumnIndex >= 0 && Boolean((row[tier2StateColumnIndex] ?? "").trim());
+
+    return (requireStatus && hasStatus) || (requireTier2State && hasTier2State);
+  });
+}
+
+// Each toggle, when on, accepts issues where that person's marker ("E:" for
+// Engel, "O:" for Odana) appears in Tier 2 Comments. Combines with OR, so
+// an "E+O" issue matches when EITHER toggle is on. With both off, the OR
+// is vacuous and nothing passes — same convention as Tracking Data.
+function getTier2OwnerFilteredRows(rows, headers) {
+  const includeEngel = engelOwnerToggle.checked;
+  const includeOdana = odanaOwnerToggle.checked;
+  const includeDiana = dianaOwnerToggle.checked;
+
+  const { tier2CommentsColumnIndex, devTeamCommentsColumnIndex } = getTier2OwnerColumnIndices(headers);
+
+  return rows.filter((row) => {
+    const { hasEngel, hasOdana, hasDiana } = getTier2OwnerMarkers(
+      row,
+      tier2CommentsColumnIndex,
+      devTeamCommentsColumnIndex
+    );
+
+    return (
+      (includeEngel && hasEngel) ||
+      (includeOdana && hasOdana) ||
+      (includeDiana && hasDiana)
+    );
+  });
+}
+
+// Exact (case-insensitive) substring match against ISSUE_SEARCH_COLUMN_NAMES
+// — no fuzzy matching or tokenization. A row matches if the term appears in
+// ANY of those columns.
+function getIssueSearchFilteredRows(rows, headers) {
+  const searchTerm = issueSearchFilter.value.trim().toLowerCase();
+
+  if (!searchTerm) {
+    return rows;
+  }
+
+  const searchColumnIndices = ISSUE_SEARCH_COLUMN_NAMES.map((columnName) =>
+    headers.findIndex(
+      (header) => normalizeColumnKey(header) === normalizeColumnKey(columnName)
+    )
+  ).filter((columnIndex) => columnIndex >= 0);
+
+  if (searchColumnIndices.length === 0) {
+    return rows;
+  }
+
+  return rows.filter((row) =>
+    searchColumnIndices.some((columnIndex) =>
+      (row[columnIndex] ?? "").toLowerCase().includes(searchTerm)
+    )
+  );
 }
 
 function getStatusFilteredRows(rows, headers) {
-  if (statusFilter.disabled || statusFilter.value === "all") {
+  if (statusFilterDisabled || selectedStatuses.size === 0) {
     return rows;
   }
 
@@ -1328,12 +1495,116 @@ function getStatusFilteredRows(rows, headers) {
     return rows;
   }
 
-  return rows.filter(
-    (row) =>
+  return rows.filter((row) =>
+    selectedStatuses.has(
       normalizeStatusForCharts(
         getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex)
-      ) === statusFilter.value
+      )
+    )
   );
+}
+
+let selectedModules = new Set();
+let moduleFilterDisabled = false;
+
+function syncModuleFilterAllCheckbox() {
+  moduleFilterAllCheckbox.checked = selectedModules.size === 0;
+}
+
+function updateModuleFilterToggleLabel() {
+  if (selectedModules.size === 0) {
+    moduleFilterToggleLabel.textContent = "All";
+  } else if (selectedModules.size === 1) {
+    moduleFilterToggleLabel.textContent = [...selectedModules][0];
+  } else {
+    moduleFilterToggleLabel.textContent = `${selectedModules.size} selected`;
+  }
+}
+
+function closeModuleFilterMenu() {
+  moduleFilterMenu.hidden = true;
+  moduleFilterToggle.setAttribute("aria-expanded", "false");
+}
+
+// Options are derived live from whatever Module/Section values exist in the
+// currently loaded data, so new module names showing up in future CSV
+// exports appear here automatically — no code changes needed.
+function populateModuleFilter(rows, headers) {
+  const moduleColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(MODULE_COLUMN_NAME)
+  );
+
+  moduleFilterOptionsContainer.replaceChildren();
+
+  if (moduleColumnIndex < 0) {
+    moduleFilterDisabled = true;
+    moduleFilterToggle.disabled = true;
+    selectedModules.clear();
+    syncModuleFilterAllCheckbox();
+    updateModuleFilterToggleLabel();
+    return;
+  }
+
+  moduleFilterDisabled = false;
+  moduleFilterToggle.disabled = false;
+
+  const modules = [...new Set(
+    rows.map((row) => (row[moduleColumnIndex] ?? "").trim())
+  )]
+    .filter(Boolean)
+    .sort((left, right) => left.localeCompare(right));
+
+  const availableModules = new Set(modules);
+  [...selectedModules].forEach((moduleName) => {
+    if (!availableModules.has(moduleName)) {
+      selectedModules.delete(moduleName);
+    }
+  });
+
+  modules.forEach((moduleName) => {
+    const label = document.createElement("label");
+    label.className = "status-multiselect__option";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = moduleName;
+    checkbox.checked = selectedModules.has(moduleName);
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        selectedModules.add(moduleName);
+      } else {
+        selectedModules.delete(moduleName);
+      }
+      syncModuleFilterAllCheckbox();
+      updateModuleFilterToggleLabel();
+      refreshTable();
+    });
+
+    const text = document.createElement("span");
+    text.textContent = moduleName;
+
+    label.append(checkbox, text);
+    moduleFilterOptionsContainer.appendChild(label);
+  });
+
+  syncModuleFilterAllCheckbox();
+  updateModuleFilterToggleLabel();
+}
+
+function getModuleFilteredRows(rows, headers) {
+  if (moduleFilterDisabled || selectedModules.size === 0) {
+    return rows;
+  }
+
+  const moduleColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(MODULE_COLUMN_NAME)
+  );
+
+  if (moduleColumnIndex < 0) {
+    return rows;
+  }
+
+  return rows.filter((row) => selectedModules.has((row[moduleColumnIndex] ?? "").trim()));
 }
 
 function getTableFilteredRows(rows, headers) {
@@ -1427,6 +1698,77 @@ function getPlatformCounts(rows, headers) {
       platformColumnIndex >= 0 ? row[platformColumnIndex] : ""
     );
     counts.set(platform, (counts.get(platform) ?? 0) + 1);
+  });
+
+  return counts;
+}
+
+// Classifies each issue by who answered it, based on the "O:"/"E:" markers
+// left in its Tier 2 Comments. Both present on the same issue -> "E+O";
+// neither present (or the column is empty) -> "No match".
+function getTier2OwnerColumnIndices(headers) {
+  return {
+    tier2CommentsColumnIndex: headers.findIndex(
+      (header) => normalizeColumnKey(header) === normalizeColumnKey(TIER_2_COMMENTS_COLUMN_NAME)
+    ),
+    devTeamCommentsColumnIndex: headers.findIndex(
+      (header) => normalizeColumnKey(header) === normalizeColumnKey(DEV_TEAM_COMMENTS_COLUMN_NAME)
+    ),
+  };
+}
+
+function getTier2OwnerMarkers(row, tier2CommentsColumnIndex, devTeamCommentsColumnIndex) {
+  const tier2Comments =
+    tier2CommentsColumnIndex >= 0 ? row[tier2CommentsColumnIndex] ?? "" : "";
+  const devTeamComments =
+    devTeamCommentsColumnIndex >= 0 ? row[devTeamCommentsColumnIndex] ?? "" : "";
+  const combinedText = `${tier2Comments}\n${devTeamComments}`;
+
+  return {
+    hasEngel: TIER_2_OWNER_MARKER_E.test(combinedText),
+    hasOdana: TIER_2_OWNER_MARKER_O.test(combinedText),
+    hasDiana: TIER_2_OWNER_MARKER_D.test(combinedText),
+  };
+}
+
+function getTier2OwnerCounts(rows, headers) {
+  const { tier2CommentsColumnIndex, devTeamCommentsColumnIndex } = getTier2OwnerColumnIndices(headers);
+  const counts = new Map([
+    ["Engel", 0],
+    ["Odana", 0],
+    ["Diana", 0],
+    ["E+O", 0],
+    ["E+D", 0],
+    ["O+D", 0],
+    ["E+O+D", 0],
+    ["No match", 0],
+  ]);
+
+  rows.forEach((row) => {
+    const { hasEngel, hasOdana, hasDiana } = getTier2OwnerMarkers(
+      row,
+      tier2CommentsColumnIndex,
+      devTeamCommentsColumnIndex
+    );
+
+    let owner = "No match";
+    if (hasEngel && hasOdana && hasDiana) {
+      owner = "E+O+D";
+    } else if (hasOdana && hasDiana) {
+      owner = "O+D";
+    } else if (hasEngel && hasDiana) {
+      owner = "E+D";
+    } else if (hasEngel && hasOdana) {
+      owner = "E+O";
+    } else if (hasDiana) {
+      owner = "Diana";
+    } else if (hasOdana) {
+      owner = "Odana";
+    } else if (hasEngel) {
+      owner = "Engel";
+    }
+
+    counts.set(owner, (counts.get(owner) ?? 0) + 1);
   });
 
   return counts;
@@ -1595,12 +1937,43 @@ function describeDateRangeSelection() {
 
 function describeActiveFilterSelection() {
   const dateRangeLabel = describeDateRangeSelection();
+  const parts = [dateRangeLabel];
 
-  if (statusFilter.disabled || statusFilter.value === "all") {
-    return dateRangeLabel;
+  if (!statusFilterDisabled && selectedStatuses.size > 0) {
+    const statusLabel = [...selectedStatuses].sort((left, right) => left.localeCompare(right)).join(", ");
+    parts.push(`with status ${statusLabel}`);
   }
 
-  return `${dateRangeLabel} with status ${statusFilter.value}`;
+  if (!moduleFilterDisabled && selectedModules.size > 0) {
+    const moduleLabel = [...selectedModules].sort((left, right) => left.localeCompare(right)).join(", ");
+    parts.push(`module ${moduleLabel}`);
+  }
+
+  const requiredColumns = [
+    statusCoverageToggle.checked ? "Status" : null,
+    tier2CoverageToggle.checked ? "Tier 2 Status" : null,
+  ].filter(Boolean);
+
+  if (requiredColumns.length > 0) {
+    parts.push(`${requiredColumns.join(" or ")} filled`);
+  }
+
+  const owners = [
+    engelOwnerToggle.checked ? "Engel" : null,
+    odanaOwnerToggle.checked ? "Odana" : null,
+    dianaOwnerToggle.checked ? "Diana" : null,
+  ].filter(Boolean);
+
+  if (owners.length > 0 && owners.length < 3) {
+    parts.push(`answered by ${owners.join(" or ")}`);
+  }
+
+  const searchTerm = issueSearchFilter.value.trim();
+  if (searchTerm) {
+    parts.push(`matching "${searchTerm}"`);
+  }
+
+  return parts.join(", ");
 }
 
 function buildTimelineRange() {
@@ -1894,6 +2267,90 @@ function renderPlatformDistribution(rows, headers) {
 
     item.append(swatch, name, count, percent);
     platformList.appendChild(item);
+  });
+}
+
+function renderTier2OwnerDistribution(rows, headers) {
+  tier2OwnerBar.replaceChildren();
+  tier2OwnerList.replaceChildren();
+
+  const counts = getTier2OwnerCounts(rows, headers);
+  const total = rows.length;
+  const knownOwners = ["Diana", "Engel", "Odana", "E+O", "E+D", "O+D", "E+O+D"];
+  const knownTotal = knownOwners.reduce(
+    (sum, owner) => sum + (counts.get(owner) ?? 0),
+    0
+  );
+  const noMatchCount = counts.get("No match") ?? 0;
+
+  tier2OwnerSubtitle.textContent = `Who answered each issue for ${describeDateRangeSelection()}, from Tier 2 Comments and Dev Team Comments. Issues with no "O:"/"E:"/"D-" marker are listed separately.`;
+
+  if (total === 0) {
+    const empty = document.createElement("p");
+    empty.className = "platform-card__empty";
+    empty.textContent = "No records available for the selected range.";
+    tier2OwnerList.appendChild(empty);
+    return;
+  }
+
+  knownOwners
+    .filter((owner) => (counts.get(owner) ?? 0) > 0)
+    .forEach((owner) => {
+      const value = counts.get(owner) ?? 0;
+      const percentage = knownTotal === 0 ? 0 : (value / knownTotal) * 100;
+      const segment = document.createElement("span");
+      segment.className = "platform-card__bar-segment";
+      segment.style.setProperty("--platform-color", TIER_2_OWNER_COLOR_MAP[owner]);
+      segment.style.width = `${percentage}%`;
+      segment.title = `${owner}: ${value.toLocaleString("en-US")} issue${value === 1 ? "" : "s"} (${percentage.toFixed(1)}% of matched records)`;
+      tier2OwnerBar.appendChild(segment);
+    });
+
+  if (knownTotal === 0) {
+    const emptyBar = document.createElement("span");
+    emptyBar.className = "platform-card__bar-empty";
+    emptyBar.textContent = "No Tier 2 owner data";
+    tier2OwnerBar.appendChild(emptyBar);
+  }
+
+  [
+    ...knownOwners.map((owner) => ({
+      label: owner,
+      value: counts.get(owner) ?? 0,
+      percentage: knownTotal === 0 ? 0 : ((counts.get(owner) ?? 0) / knownTotal) * 100,
+      denominatorLabel: "matched",
+    })),
+    {
+      label: "No match",
+      value: noMatchCount,
+      percentage: total === 0 ? 0 : (noMatchCount / total) * 100,
+      denominatorLabel: "all",
+    },
+  ]
+    .filter(({ value }) => value > 0)
+    .forEach(({ label, value, percentage, denominatorLabel }) => {
+    const item = document.createElement("div");
+    item.className = "platform-card__item";
+    item.title = `${label}: ${value.toLocaleString("en-US")} issue${value === 1 ? "" : "s"} (${percentage.toFixed(1)}% of ${denominatorLabel} records)`;
+
+    const swatch = document.createElement("span");
+    swatch.className = "platform-card__swatch";
+    swatch.style.setProperty("--platform-color", TIER_2_OWNER_COLOR_MAP[label]);
+
+    const name = document.createElement("span");
+    name.className = "platform-card__label";
+    name.textContent = label;
+
+    const count = document.createElement("span");
+    count.className = "platform-card__count";
+    count.textContent = `${value.toLocaleString("en-US")} issues`;
+
+    const percent = document.createElement("strong");
+    percent.className = "platform-card__percent";
+    percent.textContent = `${percentage.toFixed(1)}%`;
+
+    item.append(swatch, name, count, percent);
+    tier2OwnerList.appendChild(item);
   });
 }
 
@@ -2831,12 +3288,19 @@ function syncTopicCardHeights() {
 
 function refreshTable() {
   const rangeFilteredRows = getRangeFilteredRows();
-  populateStatusFilter(rangeFilteredRows, tableHeaders);
+  const coverageFilteredRows = getCoverageFilteredRows(rangeFilteredRows, tableHeaders);
+  const ownerFilteredRows = getTier2OwnerFilteredRows(coverageFilteredRows, tableHeaders);
+  const searchFilteredRows = getIssueSearchFilteredRows(ownerFilteredRows, tableHeaders);
+  populateStatusFilter(searchFilteredRows, tableHeaders);
 
-  const baseFilteredRows = getStatusFilteredRows(rangeFilteredRows, tableHeaders);
+  const statusFilteredRows = getStatusFilteredRows(searchFilteredRows, tableHeaders);
+  populateModuleFilter(statusFilteredRows, tableHeaders);
+
+  const baseFilteredRows = getModuleFilteredRows(statusFilteredRows, tableHeaders);
   renderStatusSummary(baseFilteredRows, tableHeaders);
   renderStatusPie(baseFilteredRows, tableHeaders);
   renderPlatformDistribution(baseFilteredRows, tableHeaders);
+  renderTier2OwnerDistribution(baseFilteredRows, tableHeaders);
   renderTimeline(baseFilteredRows, tableHeaders);
   renderTopicInsights(baseFilteredRows, tableHeaders);
   renderReportedByDistribution(baseFilteredRows, tableHeaders);
@@ -3045,7 +3509,94 @@ async function loadCsvTable() {
 
 startDateFilter.addEventListener("change", handleDateRangeFilterChange);
 endDateFilter.addEventListener("change", handleDateRangeFilterChange);
-statusFilter.addEventListener("change", refreshTable);
+statusCoverageToggle.addEventListener("change", refreshTable);
+tier2CoverageToggle.addEventListener("change", refreshTable);
+engelOwnerToggle.addEventListener("change", refreshTable);
+odanaOwnerToggle.addEventListener("change", refreshTable);
+dianaOwnerToggle.addEventListener("change", refreshTable);
+
+let issueSearchDebounceTimer = null;
+issueSearchFilter.addEventListener("input", () => {
+  clearTimeout(issueSearchDebounceTimer);
+  issueSearchDebounceTimer = setTimeout(refreshTable, 250);
+});
+
+statusFilterToggle.addEventListener("click", () => {
+  if (statusFilterToggle.disabled) {
+    return;
+  }
+
+  const isOpen = !statusFilterMenu.hidden;
+  statusFilterMenu.hidden = isOpen;
+  statusFilterToggle.setAttribute("aria-expanded", String(!isOpen));
+});
+
+document.addEventListener("click", (event) => {
+  if (!statusFilterMenu.hidden && !event.target.closest("#status-multiselect")) {
+    closeStatusFilterMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !statusFilterMenu.hidden) {
+    closeStatusFilterMenu();
+  }
+});
+
+statusFilterAllCheckbox.addEventListener("change", () => {
+  if (!statusFilterAllCheckbox.checked) {
+    statusFilterAllCheckbox.checked = true;
+    return;
+  }
+
+  selectedStatuses.clear();
+  statusFilterOptionsContainer
+    .querySelectorAll("input[type=checkbox]")
+    .forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  updateStatusFilterToggleLabel();
+  refreshTable();
+});
+
+moduleFilterToggle.addEventListener("click", () => {
+  if (moduleFilterToggle.disabled) {
+    return;
+  }
+
+  const isOpen = !moduleFilterMenu.hidden;
+  moduleFilterMenu.hidden = isOpen;
+  moduleFilterToggle.setAttribute("aria-expanded", String(!isOpen));
+});
+
+document.addEventListener("click", (event) => {
+  if (!moduleFilterMenu.hidden && !event.target.closest("#module-multiselect")) {
+    closeModuleFilterMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !moduleFilterMenu.hidden) {
+    closeModuleFilterMenu();
+  }
+});
+
+moduleFilterAllCheckbox.addEventListener("change", () => {
+  if (!moduleFilterAllCheckbox.checked) {
+    moduleFilterAllCheckbox.checked = true;
+    return;
+  }
+
+  selectedModules.clear();
+  moduleFilterOptionsContainer
+    .querySelectorAll("input[type=checkbox]")
+    .forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  updateModuleFilterToggleLabel();
+  refreshTable();
+});
+
 startDateFilter.addEventListener("click", openDatePicker);
 startDateFilter.addEventListener("focus", openDatePicker);
 endDateFilter.addEventListener("click", openDatePicker);

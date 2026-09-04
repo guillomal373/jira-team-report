@@ -52,11 +52,96 @@
             </label>
           </div>
         </div>
-        <label class="records-filter records-filter--stacked records-filter--status" for="status-filter">
+        <div class="records-filter records-filter--stacked records-filter--status">
           <span>Status</span>
-          <select id="status-filter" aria-label="Filter dashboard by status">
-            <option value="all">All</option>
-          </select>
+          <div class="status-multiselect" id="status-multiselect">
+            <button
+              type="button"
+              id="status-filter-toggle"
+              class="status-multiselect__toggle"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+            >
+              <span id="status-filter-toggle-label" class="status-multiselect__toggle-label">All</span>
+              <span class="status-multiselect__chevron" aria-hidden="true">▾</span>
+            </button>
+            <div id="status-filter-menu" class="status-multiselect__menu" role="listbox" hidden>
+              <label class="status-multiselect__option status-multiselect__option--all">
+                <input type="checkbox" id="status-filter-all" checked />
+                <span>All</span>
+              </label>
+              <div class="status-multiselect__divider"></div>
+              <div id="status-filter-options" class="status-multiselect__options"></div>
+            </div>
+          </div>
+        </div>
+        <div class="records-filter records-filter--stacked records-filter--status">
+          <span>Module/Section</span>
+          <div class="status-multiselect" id="module-multiselect">
+            <button
+              type="button"
+              id="module-filter-toggle"
+              class="status-multiselect__toggle"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+            >
+              <span id="module-filter-toggle-label" class="status-multiselect__toggle-label">All</span>
+              <span class="status-multiselect__chevron" aria-hidden="true">▾</span>
+            </button>
+            <div id="module-filter-menu" class="status-multiselect__menu" role="listbox" hidden>
+              <label class="status-multiselect__option status-multiselect__option--all">
+                <input type="checkbox" id="module-filter-all" checked />
+                <span>All</span>
+              </label>
+              <div class="status-multiselect__divider"></div>
+              <div id="module-filter-options" class="status-multiselect__options"></div>
+            </div>
+          </div>
+        </div>
+        <div class="records-filter records-filter--stacked records-filter--status">
+          <span>Tracking Data</span>
+          <div class="coverage-toggles">
+            <label class="coverage-toggle">
+              <input type="checkbox" id="status-coverage-toggle" />
+              <span class="coverage-toggle__track"><span class="coverage-toggle__thumb"></span></span>
+              <span class="coverage-toggle__label">Status</span>
+            </label>
+            <label class="coverage-toggle">
+              <input type="checkbox" id="tier2-coverage-toggle" checked />
+              <span class="coverage-toggle__track"><span class="coverage-toggle__thumb"></span></span>
+              <span class="coverage-toggle__label">Tier 2 Status</span>
+            </label>
+          </div>
+        </div>
+        <div class="records-filter records-filter--stacked records-filter--status">
+          <span>Tier 2 Owner</span>
+          <div class="coverage-toggles">
+            <label class="coverage-toggle">
+              <input type="checkbox" id="engel-owner-toggle" checked />
+              <span class="coverage-toggle__track"><span class="coverage-toggle__thumb"></span></span>
+              <span class="coverage-toggle__label">Engel</span>
+            </label>
+            <label class="coverage-toggle">
+              <input type="checkbox" id="odana-owner-toggle" checked />
+              <span class="coverage-toggle__track"><span class="coverage-toggle__thumb"></span></span>
+              <span class="coverage-toggle__label">Odana</span>
+            </label>
+            <label class="coverage-toggle">
+              <input type="checkbox" id="diana-owner-toggle" checked />
+              <span class="coverage-toggle__track"><span class="coverage-toggle__thumb"></span></span>
+              <span class="coverage-toggle__label">Diana</span>
+            </label>
+          </div>
+        </div>
+        <label class="records-filter records-filter--stacked records-filter--search" for="issue-search-filter">
+          <span>Search Issue Text</span>
+          <input
+            type="text"
+            id="issue-search-filter"
+            class="records-search-input"
+            placeholder="Type an exact term..."
+            aria-label="Search reported issue text"
+          />
         </label>
       </section>
       <section class="status-overview" aria-label="Issue status overview">
@@ -93,6 +178,16 @@
             </div>
             <div class="platform-card__bar" id="platform-bar" aria-label="Android and iOS issue share"></div>
             <div class="platform-card__list" id="platform-list"></div>
+          </div>
+          <div class="platform-card">
+            <div class="platform-card__header">
+              <h2 id="tier2-owner-title">Tier 2 Response Owner</h2>
+              <p class="platform-card__subtitle" id="tier2-owner-subtitle">
+                Who answered each issue, from Tier 2 Comments.
+              </p>
+            </div>
+            <div class="platform-card__bar" id="tier2-owner-bar" aria-label="Engel, Odana and E+O share"></div>
+            <div class="platform-card__list" id="tier2-owner-list"></div>
           </div>
         </div>
       </section>
