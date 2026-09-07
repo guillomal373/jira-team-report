@@ -1,0 +1,1650 @@
+"Customer Name","Reported By",Date,Carrier/Provider,"Customer ID","IOS or Android","CreditorX Device","Reported Issue",Module/Section,Status,"Tier 2 State","Tier 2 Comments","Dev Team Comments","Jira Ticket",Priority
+"Darlene Prevo",jlozano@cordobalegal.com,2026-08-14,"Simple Mobile",CORDOBA-1215990467,Android,"Samsung S21","It does not allow her to add the numbers for new creditors which are calling on the section of "" Blocked "" and  ""Add"" when she is putting in the info  it does not allow her to submit the phone numbers
+
+The client wants to see if it possible to block the numbers:
+•	First sun finance: 334 263 1081 and 334 676 3688
+•	republic finance : 334 272 0327
+•	security finance : 334 277 4670. *""Nothing happens when the click submit""*","Blocked List",,"Client not answering (3 days)","O:Under investigation. We continue searching.
+O: Unable to reach the client VM full.
+E:follow up
+E:follow up,unable to reach our client.
+E: STILL FOLLOW UP, Ring not answered as dialed.
+O:Unable to reach after 3 attempts.",,,
+"Linda Carroll",mateo.rojas@cordobalegal.com,2026-08-28,AT&T,1239216992,IOS,Iphone,"The app is showing an error with the phone number, it says that is not registered, her phone number is the same that is on file. *""Phone number missing from the external system data""*","First Login",,"Client not answering (3 days)","E: I was able to reach our client,in order to assist her relate to an error  database on forth ""Not registered  phone number"" .
+ 318-364-7450 has been added on forth ( *Home Phone, cell phone) fields,* Contact Updated (Form) executed Trigger ID: 188 .   Creditor X email was being sent to the client in order to download our last version :  1.4.1  FOR  IOS.
+
+Client has told us, please reach her back within  10 minutes..
+
+E: I was trying to reach our client but there was an answered machine as dialed.
+
+E:    I was trying to reach our client but there was an answered machine as dialed",,,
+"John Siderakis",Jessi.Correa@cordobalegal.com,2026-08-28,"T- mobile",1227677511,Android,"Samsung S24","Creditor X would not open at all. It`s crashing out everytime. Before that happened he was able to use it however he wasn`t getting any voicemail not even for his contacts. ""*Voicemail recording""*",Setup,,"Client not answering (3 days)","E: Client has told us, when it open, it closed immediately, cache was being cleared, nothing happen. Messages “ Something went wrong “;.
+
+-App has been uninstalled (Old version )
+-Creditor X APP, (Android) has been updated at the last New version 1.9.1
+-Asking him for username and password.
+• Username : 17027481738
+• Password recovery “
+• Retype password field Does not work, its on green but does not allow him to retype a password.
+• Password recovery method has done, sent via email at: jsiderakis@gmail.com, tem password done!, Tried to setup a new password, and confirmed a new password, at minium 8 characters! It has done!
+
+Something went wrong with the creditor APP, close because of this app has a bug
+
+Stll follow up.
+
+O: Unable to reach the client after 3 attempts.",,,
+"James Paiva",Maria.Cortes@cordobalegal.com,2026-08-27,AT&T,CORDOBA-1244736101,Android,"Samsung S24 ultra","cx is reporting that every number is getting under review when try to add it and keeps getting phone calls from the creditors. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Account Canceled","E:E:Thanks for sharing us the issue,  I will  reach our client in order to find out whats seems to be the problem relate to the Creditor X APP based on Android. We have launched a new version of this app, Its is important for our client, downloading a new version of Creditor X
+
+E: I was trying to reach our due to the following error “Still receiving calls from creditors, Getting “is getting under review when try to add it ” when adding a number on the app..
+
+Ring not answered as dialed.",,,
+"James Paiva",Juan.Yanez@cordobalegal.com,2026-08-28,AT&T,CORDOBA-1244736101,Android,"Samsumg S24 ultra","“Still receving calls from creditors, Getting “is getting under review when try to add it ” when adding a number on the app *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Account Canceled","O: Unable to reach the client, VML.
+O: Unable to reach the client, VML.",,,
+"Robert Sannan",Julian.Hernandez@cordobalegal.com,2026-08-28,Verizon,CORDOBA-1210324176,Android,"Samsung S24","CreditorX blocked her sister number and other people (not creditors phones). This situation is including the voicemails left by 3rd parties that are not creditors and he would like to hear the messages, and it is including CLG VML *** 209-688-8983 is her sister please remove from the list of creditors. *""All the calls blocked, including the list of contacts""*","Blocked List",,"In Progress","E: I was able to reach our client back but there was an answered machine as dialed.
+
+O: Unable to reach you, VML. (second attempt)",,,
+"Huyen Tran",Laura.Arciniegas@cordobalegal.com,2026-08-28,AT&T,CORDOBA-1240906418,IOS,"Iphone 15 pro max","""Wrong credentials"" confirmed user ID, DOB and SSN and all information correct in our end but still showing wrong credentials message","First Login",,"Client not answering (3 days)","O: Unable to reach the client, VML.
+
+E: I was able to reach our client but she wont be able to talk with us right now.
+
+O: unable to reach the client after 3 attempts",,,
+"Pamela Bridges",Leidy.Sanchez@cordobalegal.com,2026-08-28,Verizon,1239117018,IOS,"Iphone 16","Password and Username are incorrect  and he is using the correct info",Auth/Login,,"Resolved with cx","E: I was able to reach our client back relate to the following issue ""Password and Username are incorrect and he is using the correct info."".     Device: IOS,    Iphone  16 .
+
+
+I was able to reach our client back on behalf to the following issue ; Password and Username are incorrect and he is using the correct info.
+
+-Open the app.
+-Tap Password recovery. “ User not found “.
+-Tap, is this your 1th login “ Grayed out button “
+-App has been uninstalled “Old version ”.
+-App has been updated at the last version V1.4.2 IOS
+• Messages “ You have already login on this app “
+• Tap password recovery “ Enter “ 316-214-1908
+• Password recovery done!
+• Setup a new password /confirm new password at least 8 charactersd, 1 oper case letter/lowercase letter
+• -New password has been assigned to his account.
+• Creditor calls blocking /forwarding Active.
+• Setting/Carrier: Verizon USSD Command #1 #2 “IT must be turned on a green color ” Succeed!  
+/Settings: Features do not disturb when collectors agency call. Done! *
+-/Settings : Features do not disturb when creditors calls / Done
+/HOME: Call forwarding/blocking: active.. (Green color).
+
+App is currently working now!",,,
+"Laura Mann",santiago.yate@cordobalegal.com,2026-08-28,AT&T,1237967177,IOS,Iphone14,"She keeps receiving calls from the numbers that were already blocked. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","E: I was trying to reach our client on behalf to the following issue :   She keeps receiving calls from the numbers that were already blocked.
+
+There was an answered machine as dialed.
+
+O: unable to reach the client, VML.",,,
+"Peter Martinez",Alejandra.Montana@cordobalegal.com,2026-08-28,"T- mobile",1244738227,IOS,"iphone 13","When the cx tries to click ''in this your first login'' nothing happen. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: I was trying to reach our client but there was an answered machine as dialed.
+
+E: I was able to reach our client back but he has told us, he is currently working right now, please reach him back at :   Pacific time 6:15AM      currently PDT, UTC-7) is 9:15 AM   ET
+
+* Verification Code: Date of birth /last 4 of his SSN.
+* If no verification code, Was Full Name and last 4 of SSN verified (Yes or No):YES
+* Reason for CB:
+* Resolution Provided:
+
+I was able to reach our client back in order to assist him with a “1th login ” grayed out button.
+
+-Creditor X old version was being uninstalled.
+-Creditor X last version has been installed.
+-Standard Text Size : Settings /Display & Brightness.Tap Text Size.Drag.
+Phone has been restarted/rebooted.
+
+I was trying to reach our client but there was an answered machine as dialed.",,,
+"Alfredo Gonzales",Diego.Reyes@cordobalegal.com,2026-08-28,AT&T,1234263918,IOS,"iphone  15","password process  not working  client  try  to  follow  step  by step  but  app not  show  pop-up or  next  step  after  request  reset  password  and  app not  provide any other  options
+
+Password_recovery",Auth/Login,,"Client not answering (3 days)","E: Ring not answered as dailed.
+O: Unable to reach the client, VML.",,,
+"Dwayne Young",Daniel.Velasquez@cordobalegal.com,2026-08-28,"T- Mobile",1240913206,IOS,"Iphone 15","Cx have problems trying to login to the app (creditor x) because the application said that is not the correct information",Auth/Login,,"Resolved with cx","O: unable to reach the client, VML.
+E: Ring not answered as dialed.
+E:I was able to reach our client in order to assist with his creditor X APP, relate issue “Cx have problems trying to login to the app (creditor x) because the application said that is not the correct information” .
+
+-Creditor X last version was being (uninstalled).
+-Creditor X new version has been downloaded, released : v1.4.7 IOS.
+- Launched on Iphone 15
+• Acep (Privacy concern)
+• USER_ID: 1240913206
+• Last 4 of his SSN / Date o birth confirm ) but there is a messages
+• whose says : “you have already logged in before “
+• Click on : Recovery password “ Did not work at all by entering his ID,email or his phone number 6822480892 “ User not found.
+• Reset of contact number fields was being done on forth.
+• Open Settings and go to General.
+• Tap iPhone Storage./
+• Offload App
+• Creditor X.
+• Creditor x clearing cache is done. WIFI :ON.
+• Recovery Username: dwayneyoung52@yahoo.com, A temporay password was being sent by email at dwayneyoung52@yahoo.com,
+Client has confirmed us, he has got their temporary password, therefore if there is any issues relate with the app, he will make a phone call to us.
+
+App was being setup / Client has told us, he will setup their USSD Command later on, however I have sent an email about how to setup all features relate to call forwarding and blocks number on a quick video references.
+
+Solved!",,,
+"Deborah Bedward",Esnaider.Garzon@cordobalegal.com,2026-08-29,T-Mobile,CORDOBA-1231042804,Android,"samsumg galaxy S25","When she tries to open the app it closes because there is a bug, she said thta her OS is up to date and also the app version is the last one she sent screenshots and the ref # to find the email es #1623285. *""Something went wrong with creditor X""*",Setup,,"Client not answering (3 days)","O: First attempt to download the latest version for Android: 1.9.3. VML.
+
+O: Second attempt to download the latest version for Android: 1.9.3. VML.
+
+O: Unable to reach the client after 3 attempts.",,,
+"Carol Sigillo",rromero@cordobalegal.com,2026-08-29,N/A,CORDOBA-1248778709,IOS,Iphone,"When the customer presses the part that says ""Is this your first login"" it does not allow them to proceed.","First Login",,"Resolved with cx","E: I was trying to reach our client due to the following issue"" When the customer presses the part that says ""Is this your first login"" it does not allow them to proceed.""  But there was an answered machine as dialed.
+
+E: I was able to reach our client, in order to assist her with a ""1sth login"" Creditor X APP, Client has told us, she was able to download our new updated version of creditor X  For IOS. It has been working properly now!
+
+Solved! Our client has been logged into the app.",,,
+"Peter Martinez",Josias.Campusano@cordobalegal.com,2026-08-31,T-Mobile,1244738227,IOS,"Iphone 13","Creditor X isn't letting him press on the ""first time signing in"" button. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: I was trying to reach our client, in order to provide an effective solution due to  ""1th login ""  button, but there was an answered machine as dialed.
+
+E: I was trying to reach our client but there was an answered machine as dialed...
+
+E: I was trying to reach our client but there was an answered machine as dialed.",,,
+"VIKKI PARKER",Leidy.Pineda@cordobalegal.com,2026-08-31,T-Mobile,1244811652,Android,Samsung,"Cx is having issues for login as the first time. *"" Is this your first login section unresponsive""*","First Login",,"Resolved with cx","O: Resolution:
+-We first confirmed that the latest vs for Android was installed: 1.9.3
+-We followed the first log in steps successfully.
+-When the client was choosing her username, the ""Proceed"" button didn't appear; we checked the phone settings, reduced the font size, and the button appeared.
+
+- Once the client was able to log in, we went to to settings and confirmed that everything was configured properly:
+*Do not disturb me with creditors calls.
+*Do not disturb me with collection agency calls.
+*Push notifications.
+*VM recording.
+
+--Resolved with the client--",,,
+"Jude Rodriguez",robertc@cordobalegal.com,2026-08-31,"Metro by T- mobile",CORDOBA-1231149825,IOS,"Iphone 12","Client state she is being charge. Client state the App store is asking her to attach her card or wallet to it.",Setup,,"Resolved with cx","E: Thanks! I would be more than glad to reach our clients, on behalf to the following issue ""  Client state the App store is asking her to attach her card or wallet to it. "".
+
+Our clients may need to sign in into his APPLE ID, just for authentication purposes,  then Cancel it, but into his profile ID, there must be configured,  even his Country location : USA . Simply follow these steps on his  iPhone to update your payment method: Open Settings > Apple Account, after setup, please Restart your device.
+
+Creditor X, email has been sent to the client.   Provide education to the client  to setup,",,,
+"Dartha Sosh",robertc@cordobalegal.com,2026-08-31,"Consummer Cellular /AT&T",CORDOBA-1244720654,IOS,"Iphone 16 E","not getting te option for is this your first login? / already uninstall and install the app again but nothing.*"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: There was answered machine as dialed.
+E: There was answered machine as dialed.
+O: Unable to reach the client, VML.",,,
+"David Cano",Isabella.Riveros@cordobalegal.com,2026-08-31,T-mobile,CORDOBA-1242637739,Android,"S25 Ultra","Hi team, cx is having issues opening the app, they have deleted the app and installed it again, but the app shuts dow due to a ""bug"". Can you please help us with this matter? Thanks! *""Something went wrong with creditor X""*",Setup,,"Resolved with cx","O: Resolution:
+-We first cleared the cash and then went to the play store to get the update for Android: 1.9.3. Once we did that the error: ""Something went wrong with creditor X"" didn't appear
+
+-We followed the remaining steps successfully.
+
+- Once the client was able to log in, we went to to settings and confirmed that everything was configured properly:
+*Do not disturb me with creditors calls.
+*Do not disturb me with collection agency calls.
+*Push notifications.
+*VM recording.
+
+-- Resolved with the client --",,,
+"vilinda eubank",rosbelym@cordobalegal.com,2026-08-31,"Metro pcs",1235661719,Android,LG,"Wrong credentials","First Login",,"Resolved with cx","O: First attempt to download the latest version for Android: 1.9.3. VML.",,,
+"William Arthur",Valentina.Lavelez@cordobalegal.com,2026-08-31,Verizon,1220276790,Android,"Samsung A16","customer is having issues accesing on the Creditor X app, the app is requesting him a password and he doesnt know it, customer didnt have the option to reset the password
+
+Password_recovery",Auth/Login,,"Client not answering (3 days)","O:  First attempt to download the latest version for Android: 1.9.3. VML.
+
+E: Answered machine as dialed.
+O: Cx busy. Callback scheduled (9/1/23) 3pm
+E: Client  not answering after 3 attempts.  9/4/2026s",,,
+"Albert Vasquez",mateo.rojas@cordobalegal.com,2026-08-28,T-Mobile,1223836084,Android,"Samsung Galaxy A14 5G","Cx already login for the first time but the last 3 days the app is not working for him to access, it is blocking the calls but he can not access to check the info",Auth/Login,,"Client not answering (3 days)","O: Cx busy, call back scheduled
+O: Unable to reach the client, VML.
+O: Unable to reach the client after 3 attempts.
+E: Nobody has answered after 3 attempts.,",,,
+"Maria Corona",Valentina.Rivas@cordobalegal.com,2026-08-28,AT&T,CORDOBA-1220759536,IOS,"Iphone 13","Cx is creating the passwrod and the app keeps telling her the passwords don't match. I advised using a very simple password to make sure it was not a spelling problem and it still said passwords don't match.",Auth/Login,,"Resolved with cx","O:  Resolution:
+- We first confirmed that  the client had the latest vs installed for iOS: 1.4.8
+- We followed the first log ins steps successfully.
+- Once the client was able to log in, we went to to settings and confirmed that everything was configured properly:
+*Do not disturb me with creditors calls.
+*Do not disturb me with collection agency calls.
+*Push notifications.
+*VM recording.
+
+--Resolved with the client--",,,
+"John Siderakis",Monica.Munar@cordobalegal.com,2026-08-31,TMOBILE,1227677511,Android,"SAMSUNG GALAXY S24 ULTRA","Creditor X would not open at all. It`s crashing out everytime. Before that happened he was able to use it however he wasn`t getting any voicemail not even for his contacts. *""Something went wrong with creditor X""*",Setup,,"Unresolved with cx","O: Resolution:
+-To resolve the issue of the client not receiving voicemails from his contacts, we reconfigured call forwarding by entering ##002#.
+
+- We obtained the latest Android version: 1.9.3. Once we did that the error: ""Something went wrong with creditor X"" didn't appear
+- We opened the app and completed the USSD command successfully.
+- The client had to leave, so we scheduled a call. We still need to verify that the VM is running correctly and check the app configuration.
+
+
+O: Unable to reach the client, VML.
+
+
+O: Unable to reach the client, VML.",,,
+"Israel Perez Herrera",andres.quiroz@cordobalegal.com,2026-08-26,"T mobile",CORDOBA-1237432514,Android,unspecified,"Hello team, this client is trying to login but whenever he puts his carrier an error pops up. Could you please review it? client sent us screenshoots of it.","Carrier List",,"Client not answering (3 days)","O: Unable to complete the process, Callback scheduled
+O: Unable To reach the client, VML.",,,
+"Jeri Layman",andres.quiroz@cordobalegal.com,2026-08-25,"Consumer Cellular",CORDOBA-1246819904,IOS,"Iphone 6","Cx tried to login but an error message popped up. She will send us the screenshot of this error. Thanks","First Login",,"Client not answering (3 days)","O: Unable to reach the client, VML.
+E: Ring not answered as dialed.
+O: Unable to reach the client, VML.",,,
+"Peter Argyris",Saray.Beltran@cordobalegal.com,2026-08-25,AT&T,1232452590,IOS,"iph 17 pro max","assosciated number missing from external data","First Login",,"Client not answering (3 days)","O: I'll be more than glad to assist you with this issue. When the first login cannot be generated and we receive this error alert: *""Associated phone number is missing from external system data""*, it is because the user does not have the Work phone or Cell Phone section filled on FORTH CRM.
+
+O: Unable to reach the client, VML.
+
+*For future reference:*
+TS on creditor X Guide: http://172.30.1.31:3000/article.html?id=phone-number-missing
+
+E: I was trying to reach our client but there was an answered machine as dialed.
+
+E: I was trying to reach our client but there was an answered machine as dialed.",,,
+"Kendrick levi",rosbelym@cordobalegal.com,2026-08-25,T-MOBILE,1245119459,IOS,"Iphone 16 pro max","Keep getting phone calls from creditors after adding it manually 573-449-5250. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Resolved with cx","E:I was able to reach our client on behalf to the following issue: “Keep getting phone calls from creditors after adding it manually 573-449-5250”.He has received a call at 3:43PM 8/25/2026
+
+As client provide us the info:Incoming call Date : 8/25/2026 at 7:40AM :Creditor: CHECK N Go. It has been blocked since : 3:34pm 8/25/2026 phone number type: Original creditor. Subscriber: 15734495250 . Client was educated about it. We did receive a request for a blocking number, as he had sent it via Creditor X, authorized by our database for being blocked, its done!
+
+App version : V1.4.1 IOS.
+Carrier: T-MOBILE
+
+/Settings: Features do not disturb when collectors agency call. Done! *
+-/Settings : Features do not disturb when creditors calls / Done
+/HOME: Call forwarding/blocking: active.. (Green color).
+
+Solved!",,,
+"Troy Baumann",robertc@cordobalegal.com,2026-08-25,Verizon,CORDOBA-1237270727,IOS,"Iphone 16","Is this your first login "" can't go further than that, This customer is very upset , he has not been able to set up the Creditor X app on this phone and he has called and tried many times since the beginning of August , Cx is threatening on canceling if nothing get done. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: I was trying to reach our client but there was an answered machine as dialed.
+
+O: Unable to reach the client, VML.",,,
+"Bouazza Kostali",Laura.Arciniegas@cordobalegal.com,2026-08-25,T-mobile,CORDOBA-1244486176,IOS,"Iphone 17","""associated phone number missing from external data"" phone number confirmed and it was a cellphone not a land line","First Login",,"Client not answering (3 days)","O: I'll be more than glad to assist you with this issue. When the first login cannot be generated and we receive this error alert: *""Associated phone number is missing from external system data""*, it is because the user does not have the Work phone or Cell Phone section filled on FORTH CRM.
+
+O: Unable to reach the client, VML.
+O: Callback scheduled 8/28/26.
+
+*For future reference:*
+TS on creditor X Guide: http://172.30.1.31:3000/article.html?id=phone-number-missing",,,
+"Booker Washington",Alex.Consuegra@cordobalegal.com,2026-08-26,Spectrum,CORDOBA-1235940660,Android,Samsung,"The app is telling the Cx that he has received 4 VM but it is not letting him to hear them. *""Voicemail recording""*",Setup,,Dev,"E:I was trying to reach our client on behalf to the following issue “ The app is telling the Cx that he has received 4 VM but it is not letting him to hear them.” but there was an answered machine as dialed.
+
+E:  I was able to reach our client on behalf to the following issue “
+when he has received 4 VM but it is not letting him to hear them, error: NOT PRIVET KEY ""0036,.
+
+Last Creditor version v1.6.2 updated (Most recent version)
+Phone has been rebooted.    We are internally working about this issue
+E: App settings
+Creditor X “ Clear app storage /Cache.
+Password recovery
+Voice recording : on.
+
+This messages cant be play now, "" voice mail corrupted. "" when tap any available messages.
+This messages cant be play now, voice mail corrupted.
+
+E:Latest version. 1.9.3
+WIFI : ON ./DATA USAGE ON (Balance conections)
+App has been close/open.
+
+Messages “Messages “ voice mail corrupted. “ ” Routed with T3. DEV
+
+
+E:I was able to reach our clients on behalf to assist him about the following issue “ The app is telling the Cx that he has received 4 VM but it is not letting him to hear them “.
+
+CREDITOR X Latest version. 1.9.3
+WIFI : ON ./DATA USAGE ON (Balance conections)
+App has been close/open.
+
+Messages “Messages “ voice mail corrupted. “ ” Routed with T3.
+
+Galaxy S25 /Spectrum.
+
+Follow up.",,,
+test,Guillermo.Malagon@hiredexpertscol.com,2026-08-26,test,test,Android,test,"test test test",,,,,,,
+"Samone Tessmer",Josias.Campusano@cordobalegal.com,2026-08-26,T-MOBILE,1231408490,Android,"SAMSUMG GALAXY A35","Creditor X not blocking this #855-425-8155 (TODAY CASH). *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","O: Unable to reach the client, VML.
+O: Unable to reach the client, VML.",,,
+"Joanna Staley",Jorge.Lopez@cordobalegal.com,2026-08-26,"T mobile",1230757130,IOS,"17 pro max","client's phone number is not registered in external system. *""Phone number missing from the external system data""*","First Login",,"Resolved with cx","O: I'll be more than glad to assist you with this issue. When the first login cannot be generated and we receive this error alert: *""Associated phone number is missing from external system data""*, it is because the user does not have the Work phone or Cell Phone section filled on FORTH'S CRM.
+
+*For future reference:*
+TS on creditor X Guide: http://172.30.1.31:3000/article.html?id=phone-number-missing
+
+Resolution:
+- Home Phone section filled on Forth's CRM In order to resolve ""Associated phone number is missing"" error.
+- We first confirmed that the last Version was installed iOS: V1.4.7
+- We followed the first log in steps successfully.
+
+- Settings configured:
+*Do not disturb me with creditor calls.
+*Do not disturb me with collection agency calls.
+*Push Notifications.
+*VM recording.
+
+Call for warding active and 6 of the USSD Commands sent!!
+Resolved with the client!!",,,
+"Jared Haiola",Andres.Guerrero@cordobalegal.com,2026-08-28,T-Mobile,1228077004,Android,"Google Pixel 10 pro","It was an update on the app and after that when he opens the app, the app it closes directly. *""Something went wrong with creditor X""*",Setup,,"Client not answering (3 days)","O: Unable to reach the client, VML.
+E: I was trying to reach our client but there was ring not answered as dialed. We were trying to reach our clients since 8/28/206 but nobody has answered .",,,
+"Robert Graham",robertc@cordobalegal.com,2026-08-27,AT&T,CORDOBA-1227095248,IOS,"Iphone 15","when doing the recovery password the credentials are not working  ( the temporary password not working)",Auth/Login,,"Resolved with cx","O: Resolution:
+-We first Confirmed that the client had installed the last Vs for iOS iOS: 1.4.7.
+-I asked him to try the password recovery option again, once he received the email the temporary password worked. He created his new password successfully.
+
+- Once the client was able to log in, we went to to settings and confirmed that everything was configured properly:
+*Do not disturb me with creditors calls.
+*Do not disturb me with collection agency calls.
+*Push notifications.
+*VM recording.
+
+--Resolved with the client--",,,
+"Betty Clark",304a91de81b644f6aab52b022db63f5dLaura.Cocinero@cordobalegal.com,2026-08-27,"T mobile",1227723275,IOS,Iphone,"client said is saying phone number is not matching with external information, she sent an screenshot. *""Phone number missing from the external system data""*","First Login",,"Resolved with cx","E: I was able to reach our client on behalf to the following error: Phone number is not matching with the external system.
+
+-Contact fiels ( Home phone, cellphone) has been reset, Phone323-806-1033 added as duplicated numbers. Trigger ID: 188
+
+-App has been uninstalled old version
+-New creditor X APP, has been installed at the last version App store. V1.4.1.2 */ Done! Link was being resent it. https://apps.apple.com/us/app/creditorx/id6742861945 Donwloaded/installed.
+• Click on, “ this is your 1st time to login “
+• User ID: 1227723275
+• Create a new password.   
+• New password has been setup.  
+• Privacy and policy accept. 
+• Select your carrier : T_mobil.
+• Send USSD COMMAND #1- 2#  Done!   Registration succeed, 
+• Did you completed USSD COMMAND : YES. 
+• Voice mail recording : ON. 
+•  Enable blocking :YES
+1. PUSH NOTITICACION: ON. 
+2. Voice mail :  available for just their last 3 months. 
+3. Blocked /add to manually adding a number for being blocked, even she will add all suggested numbers in to the black list sections located on blocked.. 
+I have sent some article a  quick references about Creditor X.
+
+Solved!",,,
+"AUSTIN HOFFNER",andres.quiroz@cordobalegal.com,2026-08-27,"T Mobile",CORDOBA-1227875544,Android,"Samsung  25 ultra","client unable to login, an error pops up. He sent the sc already. Thanks","First Login",,"Client not answering (3 days)","O: Unable to reach the client, VML.
+E: Ring not answered as dialed.",,,
+"Jennifer Harris",Alejandro.Centeno@cordobalegal.com,2026-08-27,T-mobile,CORDOBA-1236271419,IOS,"Iphone 15","Is not allowing cx to click on is this your first login?. *"" Is this your first login section unresponsive""*","First Login",,Dev,"O: Unable to reach the client, VML.
+E:  There was an answered machine as dialed.
+E: I was able to reach our client, in order to assist her, with a 1sth login  grayed out button, but nothing happen,   Last version of Creditor X  iOS: *V1.4.7 was being installeed,  nothing happends.  Data usage turned on, Switched back to Wifi . Nothing happen.*
+*Still follow up.* ",,,
+"Sheryl A Billingsley",Alejandra.Montana@cordobalegal.com,2026-08-27,T-Mobile,CORDOBA-1230005773,IOS,"Iphone mini 13","the carrier didnt appear.","Carrier List",,"Client not answering (3 days)","O: Unable to reach the client, VML
+E: I was trying to reach our client due to the following issue : Carrier did not appear.
+E:There was an answered machine as dialed.",,,
+"Michael Taylor",Mateo.Salazar@cordobalegal.com,2026-08-27,Verizon,CORDOBA-1239216678,Android,"google pro ten","CX is having an error to do the OTP Log In
+SS uploaded
+
+Password_recovery",Auth/Login,,"Client not answering (3 days)","O: Resolution:
+- We first confirmed the the latest vs Was installed.
+- Followed the first log in steps.
+- When introducing all the formation showed Authentication unauthorized.
+-We confirmed all the information and tried again, still showing the same issue.
+
+E: I was able to  reach our client on behalf to the following issue :  Authentication unauthorized,, but he has told us, please reach him back for about  1 hours,
+
+E:This will be considering  something relate to Session  expired, with internal token,    Follow up .
+
+E: Client has told us, please reach him back on Monday because of he wont be able to talk with us right now.
+
+E: I was able to reach our client, relate to : An  error to do the OTP Log In,   But there was a ring not answered as dialed.
+E: Ring not answered as dialed.",,,
+"Laura Mann",304a91de81b644f6aab52b022db63f5dLaura.Cocinero@cordobalegal.com,2026-08-27,AT&T,1237967177,IOS,"Iphone 14","client said numbers added manually say under review.*""Number showing under review""*","Blocked List",,"Client not answering (3 days)","O: unable to reach the client, VML.
+E: I was trying to reach our client but there was a ring not answered as dialed.",,,
+"Carla Poisel",Monica.Munar@cordobalegal.com,2026-08-27,Cricket,1211114181,Android,"Moto G power 2022","The customer try to login and change the password, she had the message that the changes were made but when she try to login and click next nothing happens, we delete and download the app and she keeps having the same issue.
+
+Password_recovery",Auth/Login,,"In Progress","O: Resolution:
+-We first confirmed the latest vs for Android was installed: 1.9.1
+
+- When trying with the password recover it sent her to create a new password without asking any kind of information as usual (email, username, etc).
+I asked her to opened it back and still the same. As a test, I asked her to create a new password that met all the requirements; once that was done, the client tried to proceed, but the button remained unresponsive.
+
+- We also checked her inbox to confirm if an email was sent to her, nothing received.
+
+**Under investigation**
+
+E: I was able to reach our client on behalf to the following error: Wont change the password, Client was educated,. Go to password recovery, Please reboot the phone.
+
+ Still working under follow up.
+
+
+*---- 8/31/26 ----*
+
+O: Resolution:
+-The client deleted the app and reinstalled it to get the latest Android version: 1.9.3.
+
+-When the client opened the app and asked her to create a new password.
+
+-As a possible resolution for this error, we went to the settings and cleared the cache for Creditor X. We closed and reopened the app, but the same error occurred: ""Create a new password"".
+
+- I asked her to restart her cellphone. I called her back, authenticated her identity before proceeding with the call. We opened it the app again and still the same.
+
+-As a test, I asked her to create a new password that met all the requirements; once that was done, the client tried to proceed, but the button remained unresponsive.
+
+-- Under investigation--
+
+
+E:I was able to reach our client on behalf to the following issue : The customer try to login and change the password, she had the message that the changes were made but when she try to login and click next nothing happens, we delete and download the app and she keeps having the same issue.
+Creditor X Device
+
+Creditor X, last version Android: 1.9.3 has been downloaded via google_play.
+Creditor X, has been installed.
+Launched.
+Click on, is this your 1th time to log in . There is an error to load the app library
+
+I have already setup a new email, Redirected link on forth.
+
+Link: play.google.com/store/apps/details?hl=en_US&…
+
+E: Client has told us, please reach her back at 1:00pm 9/1/2026 Because of she is currently into a doctors appointments.
+
+E: Settings
+Display size and text.
+Font size.
+Smaller
+
+Its only displaying, Password requirements. 2 fields only..
+
+E: I was able to reach our client on behalf to the following issue “ The customer try to login and change the password, she had the message that the changes were made but when she try to login and click next nothing happens, we delete and download the app and she keeps having the same issue.”
+
+Settings
+Display size and text.
+Font size.
+Smaller
+Kill process on creditor X.
+App has been uninstalled.
+Creditor X APP has been installed once again last version 1.9.3
+Phone has been restarted.
+Apps (or Apps & notifications
+See all apps
+Tap Storage & cache “Both of them were being cleared”.
+Notifications/
+-Creditor x has been launched.
+• Password recovery !
+• Username : cpoisel64@hotmail.com + temp password routed to the email address on file : cpoisel64@hotmail.com to for login purposes.
+• Go to username/ password *(Temp password ). Done!
+
+The system is being requested an User ID, last 4 digits of SSN / Date of birth. Before setting a new password, but it gave it to her a following error
+
+“ you have already on the app before. ” This is an internal code sentences error.
+
+User ID, last 4 digits of SSN, Date of birth.
+
+-Error ” you have already on the app before. “
+
+App has been reinstalled, “cache “ .
+
+Reinstalled the app, clearing cache “” but nothing happends. Routed to DEV, TR3, For testing purposes, there is a line whose not matching, when ""try/catch "" JASON or even requesting a query, bethen, authentications get matched, but its staying saying
+” you have already on the app before. “.
+
+*9/4/26 -------------------------------------------*
+O: The password recovery issue has been resolve by the Dev team. Unable to reach the client (1st attempt).
+
+E: Status, switched out to : Pending, for us to  perform a second attempts on  9/5/2026,.because of  our client was being reached today.",,,
+"John Kearney",Daniel.Velasquez@cordobalegal.com,2026-08-28,Verizon,1240924263,Android,"Samsung pro X","Cx continue receiving calls from all the creditors and he is no able to added in the application (Creditor x). *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"App uninstalled","O: The client decided he's okay handling the calls. I offered to help, but he said he will try next week and let us know if he gets an issue.",,,
+"David Sagraves",jnunez@cordobalegal.com,2026-08-31,T-Mobile,"CORDOBA-1239624622 / CORDOBA-1239624625 (Co-Applicant)",IOS,"iPhone mini 13 (Applicant) / iPhone 13 Pro Max (Co-Applicant)","Client and her wife (who is the Co-Applicant) are trying to create his Creditor X account but when they try to create it they're phone numbers are switched, on applicant's cellphone it shows co-applicant's phone number and the same is happening on co-applicant's phone number that it shows applicant's phone number...","First Login",,"Client not answering (3 days)","E: I was trying to reach our client(Applicant ) in order  to  setup their creditor X APP,   But there was an answered machine as dialed.
+
+O: Unable to reach the client, VML.
+
+E: Ring not answered as dialed. Old tickets  from 8/31/2026",,,
+"Donna Destiso",Josias.Campusano@cordobalegal.com,2026-08-31,"Consumer Cellular",1192881429,Android,"Samsung Galaxy A15","The app says ""Wrong Credentials"". When setting it up. The client enters her DOB and SSN, and got the error. Confirmed client has the right info. *"" Wrong credentials""*","First Login",,"Client not answering (3 days)","O: Unable to reach the client, VM.
+O: Unable to reach the client, VML.
+E: Client did not answered since a last attemps made by the last support, on *Aug 31 ‘26  -   Sep 4 ‘26* ",,,
+"Kaylyn Baake",Laura.Arciniegas@cordobalegal.com,2026-08-24,Espectrum,CORDOBA-1229961233,Android,"Samsung S21","cx is having the error of ""Associated phone missing from external data ""","First Login",,"Client not answering (3 days)","O: I'll be more than glad to assist you with this issue. When the first login cannot be generated and we receive this error alert: *""Associated phone number is missing from external system data""*, it is because the user does not have the Work phone or Cell Phone section filled on FORTH CRM.
+
+O: Unable to reach the client, VML.
+
+E: Ring not answered as dialed.
+
+*For future reference:*
+TS on creditor X Guide: http://172.30.1.31:3000/article.html?id=phone-number-missing",,,
+"Idell E Beddoe",robertc@cordobalegal.com,2026-09-04,"T- Mobile",CORDOBA-1228592841,IOS,"Iphone 17","the app stay spinning while doing the set up process , also ready re-install the app , closed and re open and stays the same",Auth/Login,,"In Progress","*----- 9/4/26 -----*
+O: Callback scheduled for Sept 8th.",,,
+"CINDY MEHDY",rosbelym@cordobalegal.com,2026-09-03,verizon,1239172749,"IOS, Android","Customer does not know","wrong credentials","First Login",,"In Progress","O: Unable to reach the client, VML.
+E: I was trying to reach our client but there was an answered machine as dialed.",,,
+"Christopher Sewell",Sergio.Arias@cordobalegal.com,2026-09-03,Verizon,1192653851,IOS,"Iphone 12","Cx has been trying to update he´s new password  and he keeps geeting the error that is not correct. Even when he reviewed that it was the same on the two boxes.",Setup,,"In Progress","O: unable to reach the client, VML.
+E: Ring not answered as dialed. 9/4/2026 2th attempts to reach.",,,
+"Richard Correa",Carlos.Solano@cordobalegal.com,2026-09-03,AT&T,CORDOBA-1241009590,Android,"Samsung Galaxy A16 5G","Associeated Phone number not in system","First Login",,"Resolved with cx","O: I'll be more than glad to assist you with this issue. When the first login cannot be generated and we receive this error alert: ""*Associated phone number this missing from external system data""*, it is because the user does not have the Work phone or Cell Phone section filled on  FORTH CRM.
+
+*For future reference:*
+TS on creditor X Guide: http://172.30.1.31:3000/article.html?id=phone-number-missing
+
+Resolved with the client:
+The customer said they had already accessed the application; I offered to help verify that everything was working, but the customer kept insisting that everything was fine, NFA.",,,
+"Troy Baumann",Catalina.Garzon@cordobalegal.com,2026-09-03,Verizon,1237270727,IOS,"Iphone 16","Credentials are not working 
+As soon as he clicks ""is this your first login"" nothing happens. Link is broken.","First Login",,"Client not answering (3 days)","E: I was trying to reach our clients, but there was an answered machine as dialed..
+E: I was trying to reach our client on behalf to fix a 1st login issue, but nobody has answered the phone, We have made in total 3 attemps.",,,
+"David Sagraves",Saray.Beltran@cordobalegal.com,2026-09-03,T-mobile,1239624622,IOS,"13 mini- 14 pro max","His phone number appears on his wife's app as her phone and vice versa, they cannot fix it",Auth/Login,,"In Progress","E: There was an answered machine as dialed, Tickets has been displayed as duplicated,  by 2 different supervisor.
+
+New tickets has created since 9/2/2026",,,
+"Deanna Robancho",Laura.Camargo@cordobalegal.com,2026-09-03,"Metro mobile",1193030838,Android,"Motorola G6","when she try to register with her information DOB and all the steps for registration shows as invalid information","First Login",,"In Progress","*----- 9/4/26 -----*
+O: Unable to reach the client, VML.",,,
+"David Bartula",Daniel.Velasquez@cordobalegal.com,2026-09-04,Xfinity,1240930894,IOS,"Iphone 16","Cx is not able to set up the account one more time because he lose the information. Cx wanted to created a new account in the app.",Auth/Login,,"Resolved with cx","E: I was able to reach our client in order to assist him about setup his Creditor X APP,  by  configure a password recovery method, last version updated  iOS: *V1.4.8.  Logged out, Password recovery, username : 603-540-7015 + temp **** Has been sent to his email,  Account has been setup.* ",,,
+"Jennie Thigpen",Valentina.Lavelez@cordobalegal.com,2026-09-04,verizon,CORDOBA-1247125058,Android,"Motorola Moto G (2026)","customer contacted us to report that she is unable to use the creditorx app because it appears a message that says that the app is not available in her region (georgia)",Setup,,Dev,"O: I verified with the customer that the phone's region was set to the United States; it was indeed set to the United States. However, when attempting to download the app, a message still appears stating that it is not available for Georgia.",,,
+"Kimberly Williams",samuel.angel@cordobalegal.com,2026-09-04,AT&T,CORDOBA-1248676110,IOS,"IPHONE 17 PRO","CX CANT block numbers from creditors system saids number not found","Blocked List","Returned - Insufficient Information","Call Agent (Additional information)","E: Returned tickets, we may need to get such as an accurate information, whose phone number our clients is trying to block for us to double check into our database;  Agent may need to reach our client to ask at the clients such as a certain information relate to the CREDITOR X APP.",,,
+"Monica Mclean",santiago.yate@cordobalegal.com,2026-09-02,Xfinity,1249494775,IOS,"Iphone 17","The User ID or password dont work when trying to have access.",Auth/Login,,"Resolved with cx","O: Resolution:
+-iOS: V1.4.8  has been installed.
+-We followed the steps for the first login without any issues.
+-Client logged in successfully, settings configured and call forwarding showing active and green ✔",,,
+"Sandra Maldonado Toruno",Valentina.Rivas@cordobalegal.com,2026-09-04,T-Mobile,CORDOBA-1228596955,Android,"samsung s26","Error: the phone number associated is missing from external system data please contact creditor X team","First Login","Returned - Insufficient Information","Call Agent (Additional information)","E: Tickets has returned, agent may need to get in touch with the client in order to performing a basic trouble shoot.",,,
+"Debra Laughon",Andres.Guerrero@cordobalegal.com,2026-09-04,T-Mobile,CORDOBA-1246106727,IOS,"Iphone SE","Cx tries to click in the part of is this your first login? but states that without a password is not letting her tap in.","First Login",,Dev,"*----- 9/4/26 -----*
+O: Unable to reach the client, VML.
+E: I was able to reach our client relate to the following issue “When cx clicks or taps on 'Is this your first login?' nothing happens,
+
+
+
+General > About, software updated, app care, region : USA.
+-Settings / select Safari
+-Scroll down and tap Clear History and Website Data.
+-WIFI: ON switched on : mobil data usage.
+--IOS_ Version: 18.7.8 ()
+--Tap General, then tap Software Update. “ may need to be updated at “ to the last version 26.1 wont be updated meanwhile she is talking on the phone.
+• I was able to reach her back for about 10 minutes once she has already update the phone.
+• IOS version has been updated at the lasted version 26
+• Creditor X iOS: V1.4.8 downloaded.
+App has been launched
+• General./ iPhone Storage.
+• Scroll down and select the app
+• Tap Offload App, then confirm by tapping Offload App
+• Tap Reinstall App
+
+Settings : Tap Display & Brightness./text size
+Drag the slider to the left to make the text smaller.
+
+A video was being recorded, to be sent at : support@cordobalegal.com for us to double check internally.
+I have already made an escalation with DEV. To get them resolved.
+Client was educated we will reach her back as soon as we may get a solution.
+Email confirmation #1630958",,,
+"Henry Nguyen",Alejandra.Montana@cordobalegal.com,2026-09-04,"Spectrum mobile",1240850114,IOS,"Iphone 12","the cx cant have access to the app",Auth/Login,,"In Progress","*----- 9/4/26/ -----*
+O: Unable to reach the client, VML.",,,
+"Rosana Ushinahua Saavedra",Diego.Gonzalez@cordobalegal.com,2026-09-04,AT&T,CORDOBA-1238980541,IOS,"Iphone 16 Pro Max","The customer cannot add her id when she wants to complete the first register","First Login",,"In Progress","*----- 9/4/26 -----*                                 O: Cx busy callback for tomorrow",,,
+"Lenny Jones",Alejandra.Montana@cordobalegal.com,2026-09-04,Verizon,1227116175,Android,"Google phone","The app is not blocking the calls","Blocked List",,"In Progress","*----- 9/4/26 -----*
+O: Callback at 11pm (GMT-7)",,,
+"Patsy Andrade",robertc@cordobalegal.com,2026-09-04,Verizon,CORDOBA-1228586954,IOS,"Iphone 15","App is not letting the customer to click on first time login or introduce login info such as Username and password.","First Login",,"In Progress","*----- 9/4/26 -----*
+O:Unable to reach the client, VML.",,,
+"Steven Dennison",rosbelym@cordobalegal.com,2026-09-04,"metro pcs",1236339530,Android,"androip motorola","wrong credentials","First Login",,New,,,,
+"Karla G Grindstaff",Abraham.Oliveros@cordobalegal.com,2026-09-01,T-Mobile,1236455790,Android,"Samsung Galaxy A16","Customer is not able to check the box confirming she sent the three USSD commands. Screenshot available.",Setup,,New,,,,
+"Christina Fazzini",robertc@cordobalegal.com,2026-09-04,AT&T,CORDOBA-1240818565,IOS,"Iphone 15","App is not letting the customer to click on first time login or introduce login info such as Username and password. And the phone number from SYNCB/ASHHOM - 800-292-7508 is not letting her adding it to the App.","Blocked List",,New,,,,
+"Rhoda Hayward",Alejandra.Montana@cordobalegal.com,2026-09-03,T-MOBILE,CORDOBA-1228102233,Android,"SAMSUNG A","The cx said the phone number is wrong","First Login","Returned - Insufficient Information","Call Agent (Additional information)","O: Callback at 6pm
+
+E: Not relevant information according to the tickets. It has been returned  9/4/2026",,,
+"Linda Guidry",rosbelym@cordobalegal.com,2026-09-02,verizon,1228151149,IOS,"iphone 14","wrong credentials","First Login",,"Resolved with cx","O : The client confirmed she was able to log in; I verified that all settings were correctly configured and that call forwarding was active. Resolved with the client.",,,
+"Julie Ungood",andres.quiroz@cordobalegal.com,2026-08-31,Verizon,CORDOBA-1240474735,IOS,16,"cx tried to hit on the new user option or forgot password but nothing happen.
+Password_recovery",Auth/Login,,"Client not answering (3 days)","E: I was trying to reach our client but there was an answered machine as dialed.
+
+O: Unable to reach the client, VML.
+
+O: Unable to reach the client after 3 attempts.",,,
+"Gloria Barreto",Valentina.Rivas@cordobalegal.com,2026-09-01,AT&T,CORDOBA-1211217640,IOS,"iPhone 15","When cx tried to add numbers to the block list the app freezes when she clicks on submit. *""Nothing happens when the click submit""*","Blocked List",,"In Progress","O: unable to reach the client, VML.
+E: There was an answerred machine as dialed.",,,
+"Dwayne Young",Monica.Munar@cordobalegal.com,2026-08-31,TMOBILE,1240913206,IOS,"IPhone 15","When the customer is trying to login he has an error message saying that the username and the password are wrong, he tried with email, phone number and cordoba ID but he keeps receiving the same error, he could login just once but is not working anymore","First Login",,"Resolved with cx","E: Client has told us, please reach him back at  4:00PM.
+
+E: I was able to reach our client in order to assist with his creditor X APP, relate issue “Cx have problems trying to login to the app (creditor x) because the application said that is not the correct information” .
+
+-Creditor X last version was being (uninstalled).
+-Creditor X new version has been downloaded, released : v1.4.1 IOS.
+- Launched on Iphone 15
+Acep (Privacy concern)
+USER_ID: 1240913206
+Last 4 of his SSN / Date o birth confirm ) but there is a messages
+whose says : “you have already logged in before “
+Click on : Recovery password “ Did not work at all by entering his ID,email or his phone number 6822480892 “ User not found.
+Reset of contact number fields was being done on forth.
+Open Settings and go to General.
+Tap iPhone Storage./
+Offload App
+Creditor X.
+Creditor x clearing cache is done. WIFI :ON.
+Recovery Username: dwayneyoung52@yahoo.com, A temporay password was being sent by email at dwayneyoung52@yahoo.com,
+Client has confirmed us, he has got their temporary password, therefore if there is any issues relate with the app, he will make a phone call to us.
+
+App was being setup / Client has told us, he will setup their USSD Command later on, however I have sent an email about how to setup all features relate to call forwarding and blocks number on a quick video references.",,,
+"Jonathan Doleman",Alejandra.Montana@cordobalegal.com,2026-08-31,at&t,CORDOBA-1244619910,IOS,"iphone 13","the cx cant login","First Login",,"Client not answering (3 days)","E: Ring not answered as dialed.
+O: Unable to reach the client, VML.",,,
+"Alena Inchausti",Esteban.Castillo@cordobalegal.com,2026-08-31,T-Mobile,1232465704,IOS,"X pro 16","The client is trying to setup the app for the first time but when she tries to enter the User ID, the bex is just unavailable and the cx is unable to enter anything, it is only happening with the UserID, she´s able to enter her SSN and DOB info. *""Unable to move forward (Font size Issue)""*",Setup,,"Account Canceled","E: I was trying to reach our client but there was an answered machine as dialed.
+
+E: Client has told us, she wont be able to be stayed on the phone right now, please reach her back at :  1:00PM 9/1/2026",,,
+"Patricia Conner",jnunez@cordobalegal.com,2026-08-31,"Straight talk",CORDOBA-1202689707,Android,"Samsung galaxy A16","When trying to update is giving her an error it says error failed, she has been able to update it previously but now is not working, also client stated that when adding creditor's numbers is taking weeks under review and they are never added or rejected. *""Number showing under review""*","Blocked List",,"Client not answering (3 days)","O: Unable to reach the client, VML.
+
+E:I was trying to reach our client but there was an answered machine as dialed.
+
+O: Unable to reach the client, VML.",,,
+"Larry Rick arthur",rosbelym@cordobalegal.com,2026-08-31,cricket,1246813822,IOS,"iphone se","wrong credential issues","First Login",,"Client not answering (3 days)","O:Unable to reach the client, VML.
+
+E:I was able to reach our client, relate the following issue ""Wrong credentials"",  but there was an an answered machine as dialed.  I have already made 2 attempt but nobody has answered, routed to an an answered machine as dialed.
+
+O: Unable to reach the client, VML",,,
+"Eva Abarca",laura.suarez@cordobalegal.com,2026-08-31,T-Mobile,CORDOBA-1233760781,IOS,"Iphone Pro max (client unable to inform which Iphone it is)","Client was trying to logging for the first time but the app shows that the credentials are invalid, we tried with Customer ID and External ID but didn't work","First Login",,"Client not answering (3 days)","E: I was trying to reach our client on behalf to the following issue ""Client was trying to logging for the first time but the app shows that the credentials are invalid, we tried with Customer ID and External ID but didn't work
+*CreditorX Device*
+Iphone Pro max (client unable to inform which Iphone it is)"" But there was an answered machine as dialed.
+
+O: Unable to reach the client, VML.
+O: Unable to reach the client after 3 attempts.
+E: Tickets has been closed, client did not answered the phone since 3 attemps.",,,
+"Kristen Petersen",andres.quiroz@cordobalegal.com,2026-08-31,"patriot mobile",CORDOBA-1249318170,Android,"Samsung Galaxy (unspecified model)","Hello team, this client is trying to set up her creditor x app but it doesn't allow her to complete the process since patriot mobile is not listed in the dropdown. Could you please review it?","Carrier List",,"Resolved with cx","O: Resolution:
+- We obtained the latest Android version for iOS.
+-Selected Verizon as carrier.
+- Completed the USSD command successfully.
+
+-  Once the client was able to log in, we went to to settings and confirmed that everything was configured properly:
+-Call forwarding showing active.
+*Do not disturb me with creditors calls.
+*Do not disturb me with collection agency calls.
+*Push notifications.
+*VM recording.
+
+--Resolved withe the client--",,,
+"Albert Vasquez",Josias.Campusano@cordobalegal.com,2026-08-31,T-MOBILE,1223836084,Android,"Samsung A14 5G","When we tried to do the process is this your first login? It appears unauthorized again and again. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","O: Unable to reach the client, VML.
+
+O: Unable to reach the client, VML.
+
+O: Unable to reach the client after 3 attempts.",,,
+"Barbara Glass",Valentina.Rivas@cordobalegal.com,2026-09-01,AT&T,CORDOBA-1240355651,IOS,"iPhone 17 pro","When cx clicks or taps on 'Is this your first login?' nothing happens, so she hasn't been able to use the app. *"" Is this your first login section unresponsive""*","First Login",,"In Progress","O: Unable to reach the client, VML.
+E:  I was trying to reach our client but there was an answered machine as dialed,  9/4/2026",,,
+"it does not sound the voicemail she recorded",Leidy.Sanchez@cordobalegal.com,2026-09-01,T-Mobile,1211456514,IOS,"Iphone 16","Customer cannot loguin into her creditorX App, it shows  an error message that says  ´´it does not sound the voicemail you recorded´´",Setup,,"In Progress","O: Unable to reach the client, VML.
+E: Client has told us, please reach her back at 2:00PM Central Time,  ET: 3:00PM  9/4/2026 she is currently on a meeting right now, so that  she won be stayed on the phone right now.",,,
+"David Sagraves",robertc@cordobalegal.com,2026-09-02,T-Mobile,CORDOBA-1239624622,IOS,"Iphone 13","already uninstall and install the app again but nothing , customer is not able to continue after creating the password.",Setup,,"In Progress","O: Unable to reach the client, VML.
+E: I was trying to reach our client but there was an answered machine as dialed.",,,
+"Michael Alston",mateo.rojas@cordobalegal.com,2026-09-01,T-Mobile,1239741314,IOS,"IPhone 17E","The ""Is this your first login?"" button is not working, it isnot doing anything on his app","First Login",,"Client not answering (3 days)","O: Resolution:
+ We first confirmed that the client had the latest vs installed for iOS:
+We reinstall the app
+cleared the cache
+Restarted the phone
+And first log in unresponsive
+
+-- Under Investigation--
+E: I was trying to reach our client but there was an answered machine as dialed. 9/4/2026",,,
+"William C Rudy",Juan.Yanez@cordobalegal.com,2026-09-01,T-Mobile,1209625087,Android,"Samsung Tap S23 ultra","Every time he open it get closed immnediately. has already re-install it and does not work.",Setup,,"In Progress","O: Resolution:
+
+-App uninstalled
+- Downloaded new version for Android: 1.9.3
+- Cache cleared
+- Call forwarding reconfigured ##002#
+- The client couldn't remember his password, so we followed the password recovery steps without any issues ✔
+- Once the client created a new password and their details were validated, the 3 USSD commands were completed; however, the client was unable to select the ""I've sent the required USSD commands"" checkbox. :x:
+
+We went to Settings and set the font size to the smallest possible option; we tried returning to the app, but the checkbox still couldn't be clicked, so we proceeded to select ""Abort on-boarding process.""
+
+We completed the remaining configuration steps and were able to log in without any issues. On the Home screen, call forwarding appeared as active, and the following app settings were configured:
+*Do not disturb me with credit calls
+*Do not disturb me with collection agency calls
+*VM recording
+
+*Issue: When the client tried to listen to voicemails, the error ""No private Key..."" kept appearing.
+Follow up",,,
+"Melanie Wuchter",Sharon.Amado@cordobalegal.com,2026-09-01,T-Mobile,1211270773,Android,"Samsungs Galaxy S24 Ultra","FETTIFHT/WEB, Victoria's Secret is not getting added on the account after client tries to add them.","Blocked List",,"Call Agent (Additional information)","O: For this type of escalation, please provide the number the client wants to block so we can validate the request and identify the root cause of the issue.",,,
+"Edward Ortiz",Jorge.Lopez@cordobalegal.com,2026-09-02,disible,1240294059,IOS,"iphone 11 pro max","client is trying to enter credentials but cannot enter letters just number and when entering phone number says it's not recognized",Setup,,"In Progress","O : Unable to reach the client, VML.
+E: Answered machine as dialed. 9/4/2026",,,
+CORDOBA-1242338803,Maria.Quinones@cordobalegal.com,2026-09-02,AT&T,"Tzanetos Philippakos",IOS,"Iphone 8","The client is not able to login, when cx click on the ""is this yor fisrt time login?"" it doesn`t let going foward, cx has already tried to delete and dowload the app again but still not able to going foward","First Login",,"In Progress","O: unable to reach the client, VML.
+E: I was trying to reach our client but there was a ring not answered as dialed.",,,
+"Jonathan Doleman",Catalina.Garzon@cordobalegal.com,2026-09-02,AT&T,CORDOBA-1244619910,IOS,Iphone,"When cx clicks on ""Is this your first login"" option gets stuck with no error code nor movement. Cx has not been contacted. Issue remains.","First Login",,"In Progress","E: I was trying to reach our client  but nobody has answered.",,,
+"Troy Baumann",Juan.Yanez@cordobalegal.com,2026-09-02,Verizon,1237270727,IOS,"Iphone 16","Credentials are not working 
+As soon as he clicks ""is this your first login"" nothing happens","First Login",,"In Progress","O: Unable to reach the client, VML.",,,
+"Leonora Adlawan",Diego.Reyes@cordobalegal.com,2026-09-02,"T mobiled",1224543660,IOS,"iphone 17","cx  has all the setting is active but  app is not  showing options to block number and  suggestion  tap is  not  working and not  let him proccess  to block  any call we try BTS  not  work","Blocked List",,"Resolved with cx","O: Resolution:  All the settings proper configured and advised her to block the numbers from ""suggestions"". NFA",,,
+"Christina Fazzini",Alex.Consuegra@cordobalegal.com,2026-09-02,AT&T,CORDOBA-1240818565,IOS,"Iphone 17 Pro","Cx reported she added some numbers to be blocked but there are some of thems still in ""In review"" and there are some others who said the number is block from being added and ask for her to give us a call.","Blocked List",,"Call Agent (Additional information)","O: For this type of escalation, please provide the number the client wants to block so we can validate the request and identify the root cause of the issue.",,,
+"Gloria G Mejia",rromero@cordobalegal.com,2026-08-24,"Consumer Cellular",CORDOBA-1226836599,Android,"Samsung Galaxy","wen client tries to block a number, the app tells her ''it says under review''. *""Number showing under review""*","Blocked List",,"Resolved with cx","E:I was Able reach our client due to the following issue “wen client tries to block a number, the app tells her ''it says under review'”.
+
+Client was educated it is normally,
+
+Best buy_ Citi bank, +8778365674, 8664192078 / 8778365629, are being blocked into our platform, peer client request sent by : CreditoR x app. Control panel. They are currently blocked, ADDED DATE: 08/08/2026 03:01PM BBY/CBNA
+
+-Old version has been uninstalled.
+-Last version has been installed at : V1.6.2 Android.
+-Password recovery
+-Temporary password has been sent to the client emails.
+-Username: 13234765289 +temp password sent via email at: gloriagmejia25@gmail.com
+-Setup her own password, at least 1 lowercase, uppercase letters, 1 characters in total 8 characters.
+Success!
+Grantee permission allowed,
+Allow cal blocking : Yes.
+Defualt_caller ID APP: YES (Creditor X ).
+Carrier: Consumer Celular.
+Call forwarding/blocking: active.
+Voice mail Recording : Enable (Last 3 month only more than 3 Seconds ).
+
+Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done!
+-Educated about blocked/suggested number, how does it works.
+
+Call forwarding was being tested, regular Contact number, wont be redirected it is just for creditors Subscriber DID.
+
+Solved!",,,
+"Traci Paseka",Ronald.Lara@cordobalegal.com,2026-08-24,AT&T,1245149019,IOS,"iphone 11 pro","""Verification required, clik on continue and sign. verification required."" Apple store doesn't allows client to download the app.",Setup,,"Client not answering (3 days)","O: Unable to reach the client, VML.
+E:Ring not an answered as dialed.
+E:Ring not an answered as dialed.",,,
+"Deborah Magos+6",Carlos.Solano@cordobalegal.com,2026-08-06,"T- Mobile",CORDOBA-1224539576,IOS,"Iphone 13","Phone number missing from the external system data. *""Phone number missing from the external system data""*","First Login",,"Resolved with cx","O: The number in Forth CRM has been correctly updated and duplicated; the Co-applicant was guided through all the steps, and everything was configured correctly.",,,
+"Ellsworth Price",Alejandro.Centeno@cordobalegal.com,2026-08-13,Verizon,CORDOBA-1230876080,IOS,"Iphone 17","Cx is trying to set up Creditor X app since the begining but once cx tap on first login nothing happens. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: I appreciated too much! I would be more than glad to assist our client, relate to the following issue "" *Cx is trying to set up Creditor X app since the beginning but once cx tap on first login nothing happens, Currently we are still developing a new version of CREDITOR X APP, FOR IOS, to get this resolved, regarding to ""Grayed out"". not commanding button functionally.*
+
+E:I was trying to reach our client but there was an answered machine as dialed.
+
+:I was trying to reach our client but there was an answered machine as dialed.
+O: First attempt to download the new version of iOS 1.4.6. VML.",,,
+"Angel Aguilera",Julian.Pena@cordobalegal.com,2026-08-11,AT&T,CORDOBA-1227143229,IOS,"Iphone 17 pro","The client reported that they blocked multiple phone numbers, but the same number keeps trying to call them. The application informs the client that the number is still under review to be blocked. The client reported the phone number last week and it remains under review. *""Number showing under review""*","Blocked List",,"Resolved with cx","E: I was able to reach our clients relate to a creditor blocking features whose not working at all. They are currently displayed on his CREDITOR X APP, sections /Block list, but he is till receving calls from the following subscriber list :
+
+18007101892,
+18772085256
+ 18888009030.
+
+We have performed a test for those number, and we have got the following results :
+
+18007101892 Chase.IVR. “
+blocked” Original blocked. On control Panel.
+
+18772085256 Unsigned. Is not displayed on control panel. Its not a creditor number.
+
+18888009030 Bank of america. IVR Original blocked.
+
+Please go to :
+
+Settings: Features do not disturb when collectors agency call. Done!
+Settings : Features do not disturb when creditors calls / Done!
+
+Solved!",,,
+"Bruce M Ayers",Alejandro.Centeno@cordobalegal.com,2026-08-12,Verizon,CORDOBA-1239491509,Android,"Samsung A17","Cx is trying to set up the account but in the USSD section is not allowing to conitnue",Setup,,"Client not answering (3 days)","O: After verification, it was confirmed that the USSD command was not sent correctly; therefore, it was not possible to proceed. When the USSD command is sent, a series of numbers will appear on the phone keypad. Once the number is called, a confirmation will be received, then the user can then return to the app, where the command will appear in green ( if there are more than one, we just need to repeat the process) and the option to proceed will become available.
+
+O:Unable to reach the client VML.
+
+E: I was trying to reach our client relate to the USSD COMMAND setup, but there was a ring not answered as dialed.
+
+O:Unable to reach the client VML.
+
+E: Unable to reazch our client.",,,
+"peter Parker",Guillermo.Malagon@hiredexpertscol.com,2026-08-12,Test-Mobile,000000,Android,"Oppo 2026","Testing please","Carrier List",Completed,"Resolved with cx","E:TESTED FIELD TR2 FORM, NON IN QUEUE.",,,
+"Troy Baumann",Jessi.Correa@cordobalegal.com,2026-08-12,Verizon,1237270727,IOS,"Iphone 16","As soon as he clicks ""is this your first login"" nothing happens. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","O: Under investigation.
+
+
+E: Thank for the info;  We are currently experiences some issues  still having  an issue, relate to the Event ""Is this your first login  "" on Creditor X APP,
+
+ We are still developing a new released version For IOS back soon, to get this resolved, Thanks so much for let us knows the issue, relate to this  ""Grayed out button "".
+
+O: First attempt to download the new version of iOS 1.4.6. VML.
+
+E: Ring not answered as dialed.",,,
+"Tara L Phillips",andres.quiroz@cordobalegal.com,2026-08-12,Cellcom,CORDOBA-1230988107,IOS,"Iphone 14","Wrong credentials even we got the phone number duplicated and tried the basic TS.","First Login",,"Client not answering (3 days)","E: I was trying to reach our client relate to the following issue: *Wrong credentials even we got the phone number duplicated and tried the basic TS. but there was an answered machine as dialed.*
+
+E:Answered machine as dialed.
+
+O: First attempt to download the new version of iOS 1.4.6. VML.
+
+E: RING NOT ANSWERED
+E: RING NOT ANSWERED",,,
+"Brenda Gowdy",Saray.Beltran@cordobalegal.com,2026-08-13,"Carrier: C SPIRE 70-1_AT&T",1214831540,IOS,"Iphone 13","cx cannot find her carrier on the list and cannot continue with the login process","Carrier List",,"Resolved with cx","E:  I was able to get in touch with the client relate to the following issue :  cx cannot find her carrier on the list and cannot continue with the login process.Carrier:  Cspire, its a regional player Get the best home fiber internet, wireless service powered by our blazing-fast 5G network, and managed IT, cybersecurity, and cloud solutions from C Spire.Settings   / About /  C SPIRE 70-1IMEI:350419534953441  LOCATION: Ridgeland, Mississippi,  Its a private network provider not a Tr1 carrier, not competitive carrier such as  AT&T and Xfinity'into her area, not a nationwide network provider..  Otherwise This is a priviate networks,  based on public networks....    We tried to connected with: AT&T   -Home page :   Call forwarding /bollockings are being activated.   “Turned on green
+
+Client, was educated, I will reach her back within  30 minutes.
+
+-Home page : Call forwarding /bollockings are being activated.
+
+Please go to :
+Settings: Features do not disturb when collectors agency call. Done!
+Settings : Features do not disturb when creditors calls / Done! .
+
+USSD COMMAND IS DONE ! Engage with : AT&T networsk.
+
+Client was educated, if there is any issue relate to her main network provider “” C SPIRE 70-1. she may need to ported out each number into an other carrier such as Xfinity mobil or AT &T, just in case when callforwarding would have any further problems,
+
+APP Is currently working property, are features are currently turned on,  call forwarding is enable !
+
+Solved!",,,
+"Eric Blakely",Dayan.Duarte@cordobalegal.com,2026-08-13,T-Mobile,1239140040,IOS,"Iphone 17e","Client is trying to register but the option to do it is grey out we tried to delete and re-install the app and it is still the same. *"" Is this your first login section unresponsive""*","First Login","Unresolved with cx",Triage,"E:I was trying to reach our clients, in order to provide support, but there was an answered machine as dialed.
+
+E: Ring not answered.
+
+E: Client has told us, please reach him back for about 10 minutes because of he does not have enough signal at his current locations.
+
+App has been uninstalled,
+App has beein installed at the last recent version v1.4.1 IS
+Device: Iphone 17
+
+I was able to reach him back, in order to let him knows, we are still working on behalf to this scenarios on IOS., to get this resolved, we are going to reach him back once we internally fix it.
+
+*----- 8/20/26 ----*
+O: We deleted the app and downloaded it again; once downloaded, I confirmed with the client that the version was at the bottom showing 1.4.6. We tried with the first time log in and din't work. We tried closing the app, but still getting the same issue.
+
+E:I have lost connection meanwhile fixing his creditor X APP",,,
+"Erica Norris",Saray.Beltran@cordobalegal.com,2026-08-13,"xfinity mobile",1231244465,Android,"Samsung galaxy","cx report the app is blocking all the vm she receive, not just for the blocked numbers. *""Voicemail recording""*",Setup,,"Client not answering (3 days)","O: Thank you for letting us know. In this case we'll have to call ##004# using the phone keypad to reconfigure call forwarding. Once that is done, return to the app, follow the ""Calls are not being forwarded — 6-Step Checklist"". Unable to reach the client (1st).
+
+E: I was trying to reach our client relate to their call forwarding features commanding for being setup, but there was an answered machine as dialed.
+
+O: Unable to reach the client, VML.",,,
+"Demetra Young",Maria.Cortes@cordobalegal.com,2026-08-13,AT&T,CORDOBA-1230762980,IOS,"Iphone Pro Max","unexpected error on the page with the acct number and SSN but the info is correct","First Login",,"Client not answering (3 days)","E: Thanks! for sharing this information with us, its very important for us looking for an effective solutions due to this matter relate with the Creditor X APP, Remember to write down the error messages it has for us to determine whats seems to be the trouble when authentication failures occurred. "" it may need to be documented "".
+<@U0985P4K5FZ>
+
+E:I was trying to reach our client, but there was an answered machine as dialed.
+
+O: First attempt to download the new version of iOS 1.4.6. VML.",,,
+"Deborah Bedward",Andersson.Acosta@cordobalegal.com,2026-08-11,T-Mobile,1231042804,Android,"Samsung Galaxy S25","The customer experienced issues logging in for the first time. In the section requesting the User ID, the last 4 digits of their SSN, and their Date of Birth, they repeatedly received a 'wrong credentials' error message. After validating the details, we confirmed the User ID was correct, but the last 4 digits of the SSN did not match our records. I advised the customer to send a photo of their ID to update the information. Although the system updated successfully, the same error message persisted during the next login attempt. I then advised them to uninstall and reinstall the app to clear the cache and ensure they had the latest version, but the issue remained unresolved. *"" Wrong credentials""*","First Login",,"Resolved with cx","E: I WAS TRYING TO REACH OUR CLIENT RELATE THE FOLLOWING ISSUE : WRONG CREDENTIALS BUT THERE WAS AN ANSWERED MACHINE AS DIALED.
+
+O: Unable to reach, VML.
+
+O: Resolved with the client.
+
+*Resolution:*
+- SSN Updated by Tier 3
+-Followed the steps for the first log in successfully.
+-The Inbound calls settings were properly configured and call forwarding is showing active. :white_check_mark:.",,,
+"Rachael Tobin",Alex.Consuegra@cordobalegal.com,2026-08-13,SPECTRUM,CORDOBA-1226815421,Android,"Samsumg Z flip 6","Calls are not being blocked. Per Cx it says that is under review from more than a week. *""Number showing under review""*","Blocked List",,"Client not answering (3 days)","O: Thank you for letting us know. In this case we'll have follow the ""Calls are not being forwarded — 6-Step Checklist"" on creditor X Guide. Unable to reach the client (1st).
+
+E: I was trying to reach our client relate to the following issue ""
+Calls are not being blocked. Per Cx it says that is under review from more than a week:"" but there was an answered machine as dialed our client.
+
+O: First attempt to download the new version of Android 1.6.2. VML.",,,
+"Booker Washington",rosbelym@cordobalegal.com,2026-08-13,Spectrum,CORDOBA-1235940660,Android,N/A,"You log in before",Auth/Login,,"Resolved with cx","E:I was able to reach our client in order to assist him relate to the following issue “Login failures ”or “ You have alredy logged in before ”.
+
+-Creditor X old version has been uninstalled.
+-Creditor X new version 1.5.1 has been installed/ OPEN.
+-Click on Password recovery, “use not found “
+-Click on Password recovery, “ bookerw5542@gmail.com “ Done!
+-Temporary password has been sent to : bookerw5542@gmail.com
+• Username : bookerw5542@gmail.com , Password: ******* (Temp).
+• Setup his own password requirements at least minimum 8 chapters!
+• - Call blocking : Enable,”Permission”.
+• Select Creditor X as default app.
+• Creditor call blockign forwarding : Active “ Green color ”.
+• Settings /Carrier : Spectrum.
+• USSD Command 1# 2# Done!
+• Settings: Features do not disturb when collectors agency call. Done!
+• Settings : Features do not disturb when creditors calls / Done! .
+• Voice mail recording, turned on..
+• Block sections/SUggested list/
+• App is currently working without any troubles !  100% ",,,
+"Kathleen Rice",ed78d2d63bc44c32b310fdbf5bd37a7fAngie.Novoa@cordobalegal.com,2026-08-13,"Consumer Cellular",1235963649,IOS,"iPhone 11","The cx tells us that she is still having problems getting the Creditor X app to block calls from creditors. She mentions that someone previously told her that numbers starting with 800 cannot be blocked, and that when she enters her provider (Consumer Cellular), it is not listed in our system as an option.","Carrier List",,"Resolved with cx","E: I was trying to reach our client but there was an answered machine as dialed.
+
+
+E:
+E: Error message.
+THE BLOCK OF THIS NUMBER HAS BEEN REJECTED, ""Please contact support team for more information, when trying to single “ add ” a creditor manually blocked, from : 8553025006 Creditor “ Reach financial. Client has confirmed us, it was being made at 6:00AM.
+
+Each number is not listed into Admin panel
+Phone number: 9553022506, has been tested,
+Its is an invalid phone number as verified on our ends.
+
+-Please go to : Creditor X ./Settings
+-Carrier : Consumer cellular Grade carrier (AT&T)
+-USSD has been setup.
+-Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+-Dismiss, Press :YES
+Suggested/blocked list. Performed. Prefix : 9553022506 not in used.. Not available in database, DID : 9553022506 its not listed as a primary phone number to be added into the black list. Client was educated about it even how does it works.
+Client is happy, app is currently working property.",,,
+1200557599,ed78d2d63bc44c32b310fdbf5bd37a7fAngie.Novoa@cordobalegal.com,2026-08-13,T-Mobile,1200557599,IOS,"iPhone 17","The cx says he can't log into the Creditor X application because it doesn't recognize his password. Troubleshooting was performed, but even though the passwords match, when he click on next the application continues to display an error.",Auth/Login,Completed,"Resolved with cx","E:Client has told us, he is currently working right now, please reach him back at 3:30PM
+Rescheduled a callback : 3:30 PM
+
+E:  I was trying to reach our client but there was an answered machine as dialed.
+
+E: Client has told us, he was able to follow up a Quick Setup & and Guide to setup his Creditor X  APP,  by saying us, it has been working property without any troubles, he says thanks for my helps!  All Forwarding/blocks  features are currently in use relate to his APP.
+
+Situation has been resolved! Happy customer!",,,
+CORDOBA-1228602127,Luis.Agramonte@cordobalegal.com,2026-08-14,Verizon,"Sandra Fink",Android,"Samsung Galaxy S23","The client can't set up a password to log in. She said she tried with several options that meet the requirements for a password but gets an error and is unable to proceed.","First Login",,"Client not answering (3 days)","E:There was an answered machine as dialed.
+E:I was trying to reach our client due to the following issue: The client can't set up a password to log in. She said she tried with several options that meet the requirements for a password but gets an error and is unable to proceed.
+
+E: Anwered machine as dialed.
+
+
+O: Unable to reach the client. VML",,,
+"Joann Hilberger",Maria.Quinones@cordobalegal.com,2026-08-14,verizon,CORDOBA-1236079850,IOS,"iphone 15 pro max","cx is trying to bloque the creditor number but The application is not blocking the numbers. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","O: In this case we need to follow "" Calls are not being forwarded - 6 Steps"" on Creditor X guide. Unable to reach the client (1st)
+
+O: Unable to reach the client, VML.
+E: Ring not answered as dialed.",,,
+"Alfredo Gonzales",rosbelym@cordobalegal.com,2026-08-14,verizon,1234263918,IOS,"Iphone 17","wrong credentials","First Login",,"Resolved with cx","E:  I was able to reach our clients, in order to setup creditor X APP, due to a wrong credentials, mismatch information relate to login attempts.
+
+-Carrier: verizon
+-Device Iphone 17
+-Creditor X old version has been uninstalled.
+-Creditor X new version v1.4.1 IOS.
+
+Tried to created a new credentials, but it says,
+“You have already logged in this app before “
+tap: Recovery password, Subscriber: 806-778-4081, has been registered,
+
+*New password has been assigned “
+-Call forwarding: Enable.
+-Creditor call blocking/forwarding active.
+-Voice mail recording ON.
+-USSD COMMAND SETUP / CARRIER SETTINGS DONE..
+-Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+
+APP is currently working now.",,,
+"Tami Smith",Josias.Campusano@cordobalegal.com,2026-08-14,verizon,1229352178,IOS,"iphone 17 pro","client unable to properly sign in for first log in producing credential error. *"" Wrong credentials""*","First Login",,"Resolved with cx","E:I was able to reach our client on behalf to the following issues “
+client unable to properly sign in for first log in producing credential error. “
+
+App has been close/open.
+App has been launched.
+Primary ID : CORDOBA-1229352178  setup.
+*New password has been assigned “
+-Call forwarding: Enable.
+-Creditor call blocking/forwarding active.
+-Voice mail recording ON.
+-USSD COMMAND SETUP / CARRIER SETTINGS DONE..
+-Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+-All features are fully setup with out any troubles, app is working property.
+
+“All suggested numbers were being moved into the blocket list.
+Creditor call blocking/forwarding active.
+
+APP is working property now!
+Solved!",,,
+"Flora Bramwell",Daniel.Zorro@cordobalegal.com,2026-08-14,verizon,1227119690,IOS,iphon,"the cx 1227119690 have an issue with the creditor x
+ , she already set up the account and can not log in,
+ she already try with the email and the phone number
+ but says user not found. Is an iphone, the carrier
+ is verizon",Auth/Login,,"Resolved with cx","E:I was able to reach our clients, due to the following issue “ the cx 1227119690 have an issue with the creditor x , she already set up the account and can not log in, she already try with the email and the phone number but says user not found. Is an iphone, the carrier
+ is verizon
+
+
+Creditor x old, version uninstalled.
+Creditor X new version V1.4.1 IOS has been installed via app store.
+Creditor X launched.
+All permissions : Allowed.
+Tap “ Is this your 1s login “
+Please acept the policy and concerning.
+Enter ID: 1227119690
+last 4 of her SSN / Date of birth.
+Messages “ You have already logged on the app before '
+Hit “ Password recovery “ performed by : 505-320-5943 but it says, user not found, tried : anbram@gmail.com. Tried with : ID
+
+
+Settings app.
+Select General.
+Scroll down and tap on iPhone Storage.
+You will see a list of all installed apps on your device. ...
+Tap on Offload App. ...
+Once the app is offloaded, you can reinstall it from the App Store.
+Forth_ Data_base_ contact “0000000 “ , Saved/unsaved, them updated fiels” Home Phone /Cell Phone = 505-320-5943 updated!
+Temporary password has been sent to her email addres: onanbram@gmail.com,
+Setup her own password. Minum characters 8, at least 1 wrong,
+
+Username : onanbram@gmail.com Password “ ***** (Credentials ) for being used any times.
+
+Solved!! ,",,,
+"Susan M Nickles",304a91de81b644f6aab52b022db63f5dLaura.Cocinero@cordobalegal.com,2026-08-11,Verizon,1221466129,Android,"samsung galaxy 25","Client still receving error message about credantials not found password recovery, I gave her instrunctions left form zen desk, but still not working",Auth/Login,,"Resolved with cx","E:   I have reached our client relate to the following issue : “
+Client still receiving error message about credentials not found password recovery, I gave her instructions left form zen desk, but still not working “.
+
+Device: samsung galaxy 25
+Creditor X version V1.5.0 has been uninstalled.
+Creditor X version V1.5.1 has been installed via play store/ OPEN, Updated on
+Aug 11, 2026
+Click on :Recovery password, but there is an error whose say “User not found” by
+trying with { Phone,,ID}, Recovery email : susannickles1949@gmail.com was done, ther is a temporary “Lower case “” password + username: Phone/email to get fully authenticated on the app.
+
+Username: 904-438-0440 “It must be used any times “
+Temporay password: ***** Set his own password.
+Retype a new password, 'Lowercase Including special characters.
+New password has been assigned. It works.
+
+Error: Entered username and password is incorrect.
+Try: susannickles1949@gmail.com as username. Done! It works.
+temporary password.
+
+Acces warranty !
+
+Settings : Carrier : Verizon
+USSD COMMAND #1 #2, “Red color displayed” Press “Dial “
+Completed USSD CODE : YES. /Send required ussd Command. All creditors call will be redirected to the Call center.
+
+Please go to :
+Settings: Features do not disturb when collectors agency call. Done! *
+Settings : Features do not disturb when creditors calls / Done! *
+Set as default app. Warranty permissions ON.
+Voice mail recording : ON. For their last 3 months only.
+Block sections has been setup, Migrated from the suggested list on Creditor X APP.
+
+Home page : Call forwarding /bollockings are being activated. “Turned on green “.
+
+Solved! Fixed !",,,
+"Jacquelyn Scott",Carlos.Tarazona@cordobalegal.com,2026-08-11,Verizon,1228590774,IOS,"iPhone 15","Listed numbers are still calling and the list is under review when the client adds a number. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","O: Please for this type of escalation provide with the numbers that appears ""under review"" to validate.
+
+If we verify that these numbers are being blocked and the calls are still coming through, we need to follow ""Calls are not being forwarded — 6-Step Checklist"" on creditor X guide to make sure that the call forwarding is working properly.
+
+Creditor X Guide - ""Calls are not being forwarded — 6-Step Checklist""
+172.30.1.31/article.html?…
+
+
+E: E: I WAS TRYING TO REACH OUR CLIENT BUT THERE WAS AN ANSWERED MACHINE AS DIALED.
+
+O: Unable to reach the client, VML.",,,
+"Everette Powe",304a91de81b644f6aab52b022db63f5dLaura.Cocinero@cordobalegal.com,2026-08-14,"Millry comunicators",1228596189,Android,"Samsung galaxy  s26","When client tried to set up creditor x app shows error that says, phone number is missing from external system data.  *""Phone number missing from the external system data""*","First Login",,"Client not answering (3 days)","OO: Unable to reach the clientO: When the first login cannot be generated and your receive this error alert *'Associated phone number this missing from external system data'*, it is because the user does not have a phone number registered in FORTH CRM. The number has been duplicated on file already.
+
+O: Unable to reach the client
+
+O: Unable to reach the client, VM Full.
+
+O:First attempt to download the new version of Android 1.6.2.",,,
+"Lisa Finn",Josias.Campusano@cordobalegal.com,2026-08-08,"Metro PCS",1225496759,Android,"not specified","added number for Discover who's been calling client from 866-408-4070 and added the number within the app and showing under review for about a week and calls still coming through. *""Number showing under review""*","Blocked List",,"Resolved with cx","O: We contacted the customer, dialed ##002# to correctly configure call forwarding, and successfully followed the six steps for call forwarding according to the Creditor X guide.",,,
+"Denise Hampton",rosbelym@cordobalegal.com,2026-08-06,"AT & T",CORDOBA-1229366826,Android,android,"Wrong User ID or Password.","First Login",,"Resolved with cx","E: I was able to reach our client, relate to the following issue:  Wrong user ID OR Password., but there was an answered machine as dialed.
+Unable to reach our client ,   it was being routed to an answered machine as dialed.
+
+I was able to reach our clients in order to assist her with her Creditor X. app due to the following issue Wrong User ID or Password.
+
+- Phone: 773-706-0220 has been duplicated on forth CRM, assisted by ext99 opt 2, who assist Mateo.
+-Carrier : AT &T
+
+-Device : Samsung galaxy A 26 Current/Upgraded OS Support: Up to Android 21 (6 major generational upgrades promised).
+
+-App was being uninstalled
+-App has been downloaded.
+-App has been updated at the last version V1.5.0 Android Via play_store library. Cordoba Legal Creditor x LLC.
+-App has been already installed.
+-Please click on “ is this your 1st time to login “ ID: 1229366826,last 4 digits of your SSN,Enter your date of birth in the requested format. MM-DD-YYYY but The command Button, “Next “ is not going any further.
+
+
+*Settings
+Tap Apps or Apps & notifications.
+Select the specific app you want to change (such as Chrome or Facebook).
+Tap Storage or Storage & cache.
+Tap Clear cache. Do not tap ""Clear data"" or ""Clear storage,"" as that will erase your saved info and sign you out.
+
+Internet is on. App has been updated at the last version V1.5.0
+API_ responses ok.. 200 ok. Non mi-smashed data on Core CRM.
+
+Clear cache Data.
+Phone has been rebooted. “Turned off/on “
+Mobil data : on.
+
+It does not go any further, when setup her date of birth, when submit.
+
+Client was educated to go :
+Adjust Font Size / Display,
+Select Font size was being setup,( text smaller ) Slider left.
+
+when setup her date of birth, Please select her username, it would be
+her Email address, or even her phone number. Them Created a new password.
+
+It must be at least 8 characters, such as : 1 lowercase, letter, 1 uppercase and 1special character.
+
+-Press /Click on “Done “ . !
+
+New password has been assigned to her account “ Press OK “. !
+Enter her 4 digit code whose has sent into her mobil phone : 773-706-0220
+
+Then Press Next!
+
+Carrier : AT&T
+USSD : DONE. Call forwarding: Active. USSD Command #1 # 2 Done!! Registration was Successfully
+
+CREDITOR CALLS BLOCKING AND FORWARDING :ACTIVE
+
+• Settings: Features do not disturb when collectors agency call.
+• Settings : Features do not disturb when creditors calls /
+* Call forwarding turned on. App has been setup as default app.
+Voice mail recording : ON.
+
+App is currently working now!!
+
+Issue has been fixed ! Client happy.",,,
+"Liliya Yakovenko",Saray.Beltran@cordobalegal.com,2026-08-06,T.mobile,1205665025,IOS,"Iphone 11","cx report the app is blocking all the vm she receive, not just for the blocked numbers. cx report the app is blocking all the vm she receive, not just for the blocked numbers. *""All the calls blocked, including the list of contacts""*","Blocked List",,"Resolved with cx","E: I was able to reach our client on behalf to the following ticket” cx report the app is blocking all the vm she receive, not just for the blocked numbers
+
+Device: Iphone 11
+Network: T mobile.
+Creditor x APP has been updated at the last version.
+Please dial ##002# from the phone, in order to canceling forwarding calls. Cancel all forwarding
+Client was educated, please Dial “ ##21# in order to disable call forwarding or even dial ##004# as well.
+IMSI:/SIMCARD ON,
+Settings, tapping Apps, and selecting Default Apps on creditors X
+Voice mail recording : Turned on .
+Default app setup.
+
+ I was able  to do a test call, at the subscriber phone : 847-873-5654, it was being redirected to the voice mail after  12 seconds of ringing time attempts  5,  t the original phone instead of the  generic extension “#120 “
+
+Resolved!!",,,
+"Laurie Ryan",Maria.Cortes@cordobalegal.com,2026-08-06,verizon,CORDOBA-1240816022,Android,android,"creditor X app is not letting her create the password",,,"Client not answering (3 days)","E: Under investigation. Answered machine as dialed.
+
+E: Answered machine as dialed after 3 attempts.
+
+O: First attempt to download the new version of iOS 1.4.6. VML.",,,
+"Henry Chapman",Maria.Quinones@cordobalegal.com,2026-08-07,verizon,CORDOBA-1242639088,IOS,"iphone 16 pro max","cx cannot type the carrier, only show AT&T but he doesn't have that carrier, at the same time he try to go back but then it show that the phone already login but he never finish the process to login","Carrier List",,"Resolved with cx","O: Contacted the client and recovered the password successfully. We tried putting the code are (+1) it worked. We completed the USSD command and selected the right Carrier. NFA",,,
+"Lana Shields",robertc@cordobalegal.com,2026-08-07,"T mobile",CORDOBA-1216632944,Android,"Samsung Galxy A35 - 5G","customer getting error invalid code when entering the SMS and she is doing it within the minute","First Login",,"Client not answering (3 days)","E: Unable to reach the client VML and SMS trying to reach sent. Please confirm with the client if the number in the file is not a landline, and try to log in again with her username and password.
+
+I was trying to reach our client, due to the following error : Customer getting error invalid code when entering the SMS and she is doing it within the minute, but there was an answered machine as dialed.
+
+*Old version v1.5.0 was uninstalled.
+*I have sent creditor X Email in order to download a last version V1.5.1 for android, ""Getting on google play "" ' Cordoba Creditor X LLC. "" .APP.
+App has been Installed. /OPEN.
+
+>> TAP "" Is this your 1st time to login "" .
+>> Privacy concern ""Accepted "".
+>> Last 4 of her SSN ****
+>> Date of birth: *****
+>>
+>> Client, has told us, I will reach her back at 4 clock, because of she may need to get in touch with the doctor right now.
+>>
+E:Not answered as dialed.
+
+O: Answered machine as dialed after 3 attempts.
+
+O: First attempt to download the new version of Android 1.6.2. VML.",,,
+"Lester Cox",Maria.Quinones@cordobalegal.com,2026-08-07,"Consumer Cellular",CORDOBA-1228137448,Android,"Samsung A15","Cx block the creditors number but he still receiving calls from the creditor on the same number that cx already block. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","E: Please follow ""Calls are not being forwarded — 6-Step Checklist"" on Creditor x Guide.
+
+E: Ring not answered as diaeled.
+
+E: Ring not answered as diaeled.
+
+O: First attempt to download the new version of Android 1.6.2. VML.",,,
+"Oscar Lebron",Daniel.Sierra@cordobalegal.com,2026-08-07,Verizon,1231172439,IOS,"iPhone 17 Pro Max","Client have not selected the Carrier and aborted process to activate USSD command. You have already login - message received when trying to log in back. Active status in green color shown in creditor call forwarding. Just wanted to see if it was set up correctly the calls re-route.",Setup,,"Client not answering (3 days)","E: Great!!, Int this case according to provide a certain resolution due to this matter, Please confirm us, if there is a login failures, or Any relate messages, such as External phone number is not listed from the external system, because of there is a missed information on forth, relate to : 347-630-6483, on forth, it must be duplicated to get this resolved, please educated the agent, to use the ""Creditor X Guide "" .
+
+When forwarding active "" when retrieved or even dismissed USSD COMMANDS, in order to check Check Call Forwarding Status Codes, Our client may dial : *#21# OR It works for all All Forwarding / Unconditional Status:
+
+E:Tried to reach our client but there was an answer machine as dialed.
+
+E:Tried to reach our client but there was an answer machine as dialed.
+
+O: Unable to reach the client VML.",,,
+"Kathleen Rice",Juan.Yanez@cordobalegal.com,2026-08-07,"Consumer cellular",1235963649,IOS,"Iphone 11","Is not letting her log in and introduce the credentials / trubleshoothing provided.","First Login",,"Resolved with cx","E: I was trying to reach our client due to the following issue : Login Failures,  or Login Fail, it would be a wrong credentials, due to a mismatched records entered by the client. Client would be guide with a basic trouble shoot, into the creditor X APP,
+
+There was a voice mail recorded when tried to reach our client to bring support on Creditor X APP
+
+E: I was able to reach our client but she has told us, please reach her back for about 1 hours
+
+E: OUTBOUND FOLLOW UP, CREDITOR X SUPPORT APP.
+* Verification Code: Date of birth/last 4 of her SSN.
+* If no verification code, Was Full Name and last 4 of SSN verified (Yes or No):YES
+* Reason for CB: FOLLOW UP. CREDITOR X PREFIX XXX.000.000 DOES NOT WORKS.. WHEN BLOCK FEATURES.
+* Resolution Provided:
+
+E: Error message.
+THE BLOCK OF THIS NUMBER HAS BEEN REJECTED, ""Please contact support team for more information, when trying to single “ add ” a creditor manually blocked, from : 8553025006 Creditor “ Reach financial. Client has confirmed us, it was being made at 6:00AM.
+
+Each number is not listed into Admin panel
+Phone number: 9553022506, has been tested,
+Its is an invalid phone number as verified on our ends.
+
+-Please go to : Creditor X ./Settings
+-Carrier : Consumer cellular Grade carrier (AT&T)
+-USSD has been setup.
+-Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+-Dismiss, Press :YES
+Suggested/blocked list. Performed. Prefix : 9553022506 not in used.. Not available in database, DID : 9553022506 its not listed as a primary phone number to be added into the black list. Client was educated about it even how does it works.
+Client is happy, app is currently working property.",,,
+"Deborah Teall",Saray.Beltran@cordobalegal.com,2026-08-10,Verizon,1232821263,IOS,"Iphone 16","""associated phone number is missing from external system data"" whe she tried to first login","First Login",,"Resolved with cx","O: When the first login cannot be generated and your receive this error alert *'Associated phone number this missing from external system data'*, it is because the user does not have a phone number registered in FORTH CRM. Please verify that cell phone and home phone are filled on forth.
+
+Client has been assisted according to the notes,  NFA.",,,
+"Brentina Varnado",jnunez@cordobalegal.com,2026-08-11,c-spire,1231280828,Android,N/A,"The carrier isn't available in the options to log in.","Carrier List",,"Client not answering (3 days)","O: For this carrier, the customer must select AT&T and follow the remaining steps. Unable to reach the client, VML.
+
+E: Not answered as dialed.
+
+O:Unable to reach the client, VML.",,,
+"Shantrice Littlejohn",Josias.Campusano@cordobalegal.com,2026-08-10,T-Mobile,1230010757,IOS,"iPhone 13","Customer is unable to create an account, is asking her for credentials she doesn't have.","First Login",,"Client not answering (3 days)","E:  Awaiting for a new version of  creditor X APP
+
+O: FIRST ATTEMPT TO DOWNLOAD THE NEW VERSION  IOS 1.4.6. VML
+
+E: Ring not answered",,,
+"Michael Foucault",brayan.pulido@cordobalegal.com,2026-08-10,T-Mobile,CORDOBA-1240598943,IOS,Iphone,"When the client clicks on ""Is this your first loginf"" nothing happens, he is not able to move foward. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: I was trying to reach our client, relate to the following issue:  is this your 1st login is grayed out, no functionally button.  There was an answered machine as dialed our client.
+
+O: FIRST ATTEMPT TO DOWNLOAD THE NEW VERSION IOS 1.4.6.
+
+E: Ring not answered as dialed",,,
+"Josa King",Laura.Arciniegas@cordobalegal.com,2026-08-10,AT&T,CORDOBA-1232455184,IOS,"Iphone 17","""Is this your first login"" option is not working, it happens nothing. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: I was trying to  reach our client, but there was an answered machine as dialed.
+
+O: Unable to reach the client, VML.
+
+E: Ring not answered as dialed.",,,
+"Daniel J Haslam",rosbelym@cordobalegal.com,2026-08-10,Xfinity,CORDOBA-1220594565,IOS,N/A,"client is using the app but he's still getting phone calls from creditors. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","O: In this case we need to confirm that the call forwarding properly configured. Please follow ""Calls are not being forwarded — 6-Step Checklist"". Below I'll leave the step- by-step
+
+E: I was able to reach our client but there was an answered machine as dialed.
+
+O: Unable to reach the client, VML
+
+172.30.1.31/article.html?…",,,
+"Yolanda Guzman",jnunez@cordobalegal.com,2026-08-10,N/A,1228582575,IOS,"iPhone 15","When the client is trying to log in,  her app stop working after she click on "" is this you first time log in ? "" *"" Is this your first login section unresponsive""*","First Login",,"Resolved with cx","E:I was able to reach our client on behalf to the following issue :
+When the client is trying to log in, her app stop working after she click on "" is this you first time log in ? "".
+
+-Wifi: ON.
+-Creditor X old version has been uninstalled
+-Creditor X new version has been installed. “Released v1.6.2 ” . via app store library.
+• Creditor X has been launched!
+• Click on “ Is this your 1st time to login “.
+Settings
+Display & Brightness
+Text Size “ Please reduces the size of their font buttons to get it done! Select the minimum size to fully setup even displaying all buttons on the APP, Fonts (Label buttons functions) displayed for commanding, When tap..
+
+Tap: APP refresh.
+Creditor X shutdown process.
+Creditor X Relaunched.
+General /about : Version 26.6, Iphone: 15.
+Software update.
+Phone has been restarted.
+
+Open Settings and tap Screen Time.
+Tap Content & Privacy Restrictions.
+Select Content Restrictions and tap Apps, then change it to Allow All Apps.
+
+App is working now! Client has been registered on the app.
+
+Solved!",,,
+"Johnson Randy",mateo.rojas@cordobalegal.com,2026-08-10,AT&T,1229357087,IOS,"Iphone (does not know the reference)","He tries to login for the first time but the client ID is not working","First Login",,"Client not answering (3 days)","E: I was trying to reach our client relate to the following issue : He tries to login for the first time but the client ID is not working, but there was an answered machine as dialed.
+E: Notbody has answered the phone.
+O: Unable to reach the client after 3 attempts.",,,
+"Wanda Crawford",38cd0fea77e741da85e4dc1331110ae9Juan.Lievano@cordobalegal.com,2026-08-11,.,1239919074,IOS,"iPHONE 14","When the client is trying to log in,  her app stop working after she click on"" is this you first time log in ? "" *"" Is this your first login section unresponsive""*","First Login",,"Resolved with cx","E: I was able to reach our client in order to let her knows, we have already found a solution based on her Creditor X APP.   Client has told us, it has been working now, so we will close her tickets, client has told us thanks for all. Email was being sent to the client about how to walkthrout the app.
+
+Solved!",,,
+"Thomas Percival",mateo.rojas@cordobalegal.com,2026-08-11,AT&T,1214995290,Android,"Samsung S25","The app shows an error with the phone number","First Login",,"Resolved with cx","O: When the first login cannot be generated and your receive this error alert *'Associated phone number this missing from external system data'*, it is because the user does not have a phone number registered in FORTH CRM. Please verify that cell phone and home phone are filled on forth.
+
+O: Unable to reach the client VML
+
+O: Resolved with the client
+
+*Resolution:*
+-Number duplicated on forth CRM.
+-App updated to the latest VS.
+-Followed the steps for the first log in successfully.
+-The Inbound calls settings were properly configured and call forwarding is showing active. :white_check_mark:",,,
+"Murray Richards",Ronald.Lara@cordobalegal.com,2026-08-11,T-Mobile,1243826122,Android,"Samsung 15a","We were on the set up process, first time steps completed until the 4 digits code. After complete that field, we had the screen returned to the begining, client was not able to login using the password created, neither using ""is this your first login"" option.",Auth/Login,,"Resolved with cx","O:To ensure we don't carry over errors from the previous version, we need to reinstall the app and use the password recovery feature (client's account has been created already). Once the password is recovered, the remaining steps can be completed.
+
+O: Unable to reach the client.
+O: Client has been assisted according to the notes on forth .",,,
+"STEPHEN FLOR",Carlos.Solano@cordobalegal.com,2026-08-14,Verizon,CORDOBA-1229070027,Android,"Galaxy A14","Cx´s phone in the app right now (502-894-0966) is a land line. It needs to be switched to 502-702-4917, which is the cx´s cellphone on file. *""Client has changes cellphone number""*","Blocked List",,"Resolved with cx","E:I was able to reach our client relate the following Creditor X situations “
+
+Cx´s phone in the app right now (502-894-0966) is a land line. It needs to be switched to 502-702-4917, which is the cx´s cellphone on file “
+
+Client has told us, he is currently busy right now, so that he wont be able to talk with us, he would like to talk with us on Monday next week
+
+E: Ring not answered as dialed.
+
+E:I was able to reach our client in order to assist him with his Creditor X APP, due to the following request: Cx´s phone in the app right now (502-894-0966) is a land line. It needs to be switched to 502-702-4917, which is the cx´s cellphone on file “
+
+Phone has been updated, Client has told us, he was able to setup his call forwarding by his own, even blocking creditors by their own way, he does not need Creditor X as sa main APP, to blocks creditors..",,,
+"Bruce Dennis",Valentina.Lavelez@cordobalegal.com,2026-08-14,"Boost Mobile",1231216356,Android,"Samsung Galaxy A16","customer contacted us to report that he is having issues setting up the  CreditorX, when he places his ID, the password and the DOB it gets an ""error"" code.  we confirm to the customer the user id, customer create a new password and he said it only says ""error"", *""Phone number missing from the external system data""*","First Login",,"Resolved with cx","E: I was able to reach our client relate to the following issue:
+ “Error” as when tried to login on the app.
+
+Contact number has been updated on forth as duplicated: 504-914-1346
+App has been uninstalled “Old version ”.
+app has been installed “Last version “, 1.5.0 Android. /OPEN
+Privacy accepted.
+Identity : ID 1231216356 “ Important for authentications purposes.
+Date of birth : xxxxx
+hit confim.
+Email : brucedennis36@gmail.com
+Please create a new password ******** *(It must be lowercase) at least 8 characters,
+them hit next! “Done”.
+Settings: Carrier : Boost mobil.
+USSD COMMAND IS DONE. 1# 2# done!
+Registration successfully !
+Completed: USSD Code: YES.
+
+USSD COMMAND SETUP / CARRIER SETTINGS DONE..
+-Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+-Enable blocking on..
+-App has been set as default/ = granted permissions
+-Select all suggested numbers. Submit.
+
+App is currently working now!!",,,
+"Ralph Simpson",Josias.Campusano@cordobalegal.com,2026-08-24,Verizon,1239641049,IOS,"Iphone 12 Pro Max","The app froze after he block the number while clicking on the Add+ button. *""Nothing happens when the click submit""*","Blocked List",,"Client not answering (3 days)","E: I was trying to reach our client due to the following issue: App is frozen when clicking on add button.
+
+E:There was a ring not answered as  dialed.
+
+E:There was a ring not answered as  dialed.",,,
+"Mayra Mosqueda",brayan.pulido@cordobalegal.com,2026-08-21,T-mobile,CORDOBA-1221458030,IOS,Iphone,"When she write the ID, DOB and SSN this messeges ""Associate number is missing""","First Login",,"Client not answering (3 days)","O: I'll be more than glad to assist you with this issue. When the first login cannot be generated and we receive this error alert: *""Associated phone number is missing from external system data""*, it is because the user does not have the Work phone or Cell Phone section filled on FORTH CRM.
+
+*For future reference:*
+TS on creditor X Guide: http://172.30.1.31:3000/article.html?id=phone-number-missing
+
+O: Unable to reach the Client, VML.",,,
+"Miguel Ponciano",Carlos.Solano@cordobalegal.com,2026-08-20,"T -mobile",CORDOBA-1197864221,IOS,"Iphone 15","Customer states he cannot use the ""is this your first time logging option"". *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: I was trying to reach our client but there was an answered machine as dialed.",,,
+"REGINAL HOWARD",Alex.Consuegra@cordobalegal.com,2026-08-21,AT&T,CORDOBA-1244178664,Android,"Samsung Galaxy S22","Cx is trying to set up the app and the app is asking for him to add an USSD Code. Cx does not know how to do it, Cx does not even know what is a USSD Code and how to get it. Cx will be available*.""Unable to send the USSD command""*",Setup,,"Client not answering (3 days)","E: I was trying to reach our client on behalf to her : *USSD Code, but there was an answered machine as dialed.*
+
+O: Unable to reach the client, VML.
+
+E: I was trying to reach our client on behalf to her : *USSD Code, but there was an answered machine as dialed.",,,
+"Vickie Rodgers",Josias.Campusano@cordobalegal.com,2026-08-21,Verizon,1232452596,IOS,iPhone,"Client is trap in the login page of the creditor.  Infinite loading. *""buffering""*",Setup,,"Client not answering (3 days)","O: First attempt to download the new version of iOS 1.4.7. VML.
+E: I was trying to reach our client but there was an answered machine as dialed.
+O: Unable to reach the client after 3 attempts.",,,
+"Karen Lamberth",Saray.Beltran@cordobalegal.com,2026-08-21,Xfinity,1236457275,IOS,"Iphone 14","cx cannot get any voicemail from creditors, she is not able to locate it, I completed the troubleshooting but it seems she cannot find it. *""Voicemail recording""*",Setup,,"Client not answering (3 days)","O: First attempt to download the new version of iOS 1.4.7. VML.
+O: Unable to reach the client, VML.",,,
+"Luz Maria Garcia",Josias.Campusano@cordobalegal.com,2026-08-21,"Boost Mobile",1239772953,Android,"Not specified","After putting the password and meeting all requirements, she's unable to continue.",Auth/Login,,"Resolved with cx","E: I was able to reach our client relate to the following issue : Unable to continue after setup her password, but there is not more option displayed as  confirmed, but our client has told us, her app is currently working property she used to talk with somebody to fix it now it works..
+
+I have sen an email about how to setup her app due to any further cases.",,,
+"CRYSTAL RAMIREZ",rosbelym@cordobalegal.com,2026-08-21,T-MOBILE,1240345549,Android,"Samsung S 25 Ultra","Keep getting phone calls from creditors. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","O: Unable to reach the client, VML.",,,
+"Vickie Rodgers",Josias.Campusano@cordobalegal.com,2026-08-21,Verizon,1232452596,IOS,"iPhone 17","Unable to login; client is not getting email for password reset.
+Password_recovery",Auth/Login,,"Client not answering (3 days)","O: Unable to reach the client, VML.
+O: Unable to reach the client after 3 attempts.",,,
+"Yolanda Logsdon",Laura.Corredor@cordobalegal.com,2026-08-21,verizon,CORDOBA-1227072339,Android,"galaxy s23 ultra","cx can not hear voicemails ""voicemail corrupted"" cx has latest version, tried with wifi and mobile data, none working. *""Voicemail recording""*",Setup,,"Resolved with cx","E: Thanks so much for providing us! This is a very important  reason for us to get a solutions timely matter, I would be more than glad to reach our client.
+
+I was able to reach our client in order to assist her relate with the Error "" Voice mail Corrupted "",  based on this scenarios Its is not a  Creditor X issue,  its a  Carrier Inbox  failures whose provide those  type of notifications  nearly to the app.   Client was educated about it.
+
+Client was educated, Phone must be turned on into an airplane mode at least  10 seconds,  then the network will be released, immediately back to works!  Please do this based on any further troubles relate with her carrier in this case  ""Verizon Wirelesses "".
+
+Client has told us, her voice mail is working now!
+Resolved..",,,
+"Crystal R Powell",Dana.Rojas@cordobalegal.com,2026-08-24,AT&T,CORDOBA-1242616673,Android,"Samsung S25","Cx made the process but when when she try to click on Send USSD command not allow her to made any actions. *""Unable to send the USSD command""*",Setup,,"Resolved with cx","O: Resolution:
+First, we verified that the latest version was installed (Android: 1.6.2).
+
+- I confirmed once again that the option to send the USSD command was not appearing.
+
+- I guided the customer to reduce the font size: Settings > Display > Font size and style.
+
+- Once the text size was reduced, the customer was able to see the option to send the USSD command, and the remaining steps were completed successfully.",,,
+"Cristole Kamalii",Monica.Munar@cordobalegal.com,2026-08-20,expectrum/verizon,1244915143,IOS,"iphone 13","customer followed the step by step to download the creditor x app, however when she was going to select the carrier (expectrum/verizon) the only option showing her was AT&T. Asked customer to provided version of the app version  but she was not able to find that info.","Carrier List",,"Resolved with cx","E:Contacted on behalf to  bring support on her creditor x app, but she has told us, somebody has assisted about it, even sending her an email about the instructions on the app, client has told us, she does not need helps, everything its done!",,,
+"Kody Huff",Sergio.Arias@cordobalegal.com,2026-08-24,"straigth talk",1239658423,IOS,"Iphone X plus","The cx carrier is  ¨Straigth talk¨ . We don´t have it as an option. I sent him the contact info for him to sent us an screenshot.  Could you please check if we can add this carrier.","Carrier List",,"Client not answering (3 days)","O: Thank you for sharing the issue with us. For this specific case, Verizon must be selected as the carrier.
+
+O: Unable to reach the client, VML.
+O: Unable to reach the client, VML.
+E:  Subscriber  8126538829 does not ring when dialed.",,,
+"Henry Chapman",rosbelym@cordobalegal.com,2026-08-24,Verizon,CORDOBA-1242639088,IOS,"16 pro max","Can not log in","First Login",,"Resolved with cx","E:I was able to reach our client but there was an answered machine as dialed.
+E: I was able to reach our client , on behalf to the following issue : ""Can not log in "".  App has been setup, Recovery password was being setup into a new password to log in, client has already access into his creditor x APP, blocked/suggested numbers setup. Voice mail recording turned on, allowed only a last 3 months, at least 3 seconds.    App has been updated at the last version : V1.4.1 IOS.
+
+Solved!",,,
+"Nairobic Suarez",andres.quiroz@cordobalegal.com,2026-08-24,"Metro T-Mobile",CORDOBA-1240594288,Android,"Samsung galaxy A14","Cx is trying to login the app but when she puts her personal information it shows an error, she has sent the screenshot and we have verified all the pieces of information on her account are correct. Thanks","First Login",,"Resolved with cx","E:Solved!
+
+O: It appears the client already has an account. In this case, we should try the password recovery process using either the number 1773-699-2817 *(including the area code)* or her email address as the username; this should allow her to receive the password reset email.
+
+O: Unable to reach the client, VML.
+
+
+E: I was able to reach our client, on behalf to the following issue,
+“Cx is trying to login the app but when she puts her personal information it shows an error, she has sent the screenshot and we have verified all the pieces of information on her account are correct”
+
+Creditor X old version was being installed
+Creditor x Last version 1.6.2 has been downloaded /installed.
+
+Error when login “ Wrong username /password” .Second attempts made by email: suarezlucia801@gmail.com, Phone: 773-699-2817 and 1240594288 but it does not works at all.
+
+-Tap Password Recovery. But there is an error when recovering..
+• Close/open the app.
+• Try again.
+Did not works.
+• Is this your first Login ? Click “
+• ID:1240594288 “Account has already login.
+Database user “ XXX-XXX-XXXX sin (1) 17736992817, temporary password was being sent to:suarezlucia801@gmail.com
+• Establish a new password, at least 8 characters, lowercase, uppercase letter = 1, 1 characters..
+• New password has been assigned to her account.
+• Press “OK “ .
+• Carrier: Metro T-Mobile/
+• Send USSD COMMAND 1# #2 “invalid USSD #1
+• Call forwarding/blocking: active.
+• Enable call blocking. /Allow access.
+• Default app.
+• Setup
+
+Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done!
+
+Solved!",,,
+"Priscilla TOSTADO",santiago.yate@cordobalegal.com,2026-08-24,AT&T,1230008050,IOS,"iphone 16","The app says that her phone number is incorrect.","First Login",,"Resolved with cx","E:I was Able reach our client due to the following issue :” Phone number is incorrect.
+
+-Contact Updated (Form) executed Trigger ID: 188, Core_CRM.
+-App has been uninstalled old version
+-Internet confection: ON.
+-Creditor X New version V1.4.1 IOS Most recent version via app_store.
+Tap, “is this your 1th time to login “.
+User ID: 1230008050 / last 4 of her SSN/date of birth.
+Setup her own password, minimal 8 characters, at least 1 uppercase letter, lowercase letter, 1 special character for being done.
+-Setup call forwarding.
+-Voice mail recording : Turned on.
+- Suggested/blocked number. Turner on call forwarding.
+Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done!
+Settings /USSD Command is done. Activation “ succeeded ! .
+
+Solved!",,,
+"Xiomara Sanchez",Andres.Guerrero@cordobalegal.com,2026-08-24,AT&T,1235645716,IOS,"Iphone 17 pro","phone number says that is incorrect and registration failed","First Login",,"Client not answering (3 days)","O: Unable to reach the client, VML.
+E: I was trying to reach our client but there was an answered machine as dialed.
+O: Resolution:
+-Installed new Version for iOS: V1.4.7
+-First time Log in Grayed out
+-Closed the app and opened back, and still the same.
+
+E:  Answered machine when dialed.",,,
+"Camden Gilliam",Julian.Hernandez@cordobalegal.com,2026-08-18,"Mint Mobile",CORDOBA-1228157009,Android,"OnePlus Nord N30","Client have completed the setup and there is no calls blocked at all, and also it was not completing the process to add new numbers. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","E: I was trying to reach our client but there was an answered machine as dialed.
+E: I was trying to reach our client but there was an answered machine as dialed
+E:I was trying to reach our client but there was an answered machine as dialed",,,
+"Eldridge Peterson",samuel.angel@cordobalegal.com,2026-08-24,AT&T,CORDOBA-1208795782,IOS,"IPHONE 14","CX Tried to do password recovery when cx puts in the info system saids user not found, cx saids he already made the first log in
+Password_recovery",Auth/Login,,"Client not answering (3 days)","E: Client has told us, please reach him back after 5:30PM
+E: Ring not answered as dialed.",,,
+"Lisandra Rodriguez",Catalina.Garzon@cordobalegal.com,2026-08-24,T-mobile,CORDOBA-1230749129,IOS,"Iphone 15 pro max","Cx gets an error message when she fills out her user ID, las 4 SSN and DOB. *"" Wrong credentials""*","First Login",,"Resolved with cx","E:Unable to reach our client, ring not answered as dialed.
+E:Client has told us, he is looking for somebody to assist him, he is  not easy going to do this by his own way, he will talk to his son. Client has told me he does not need help for now.",,,
+"Jacquelyn Scott",Leidy.Sanchez@cordobalegal.com,2026-08-24,VERIZON,1228590774,IOS,N/A,"The App Does not allow her to block the phone calls. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Client not answering (3 days)","E:Client has told us, She wont takes a call righ now, she would like to be reached after  5:00PM .
+
+E: Ring not answered as dialed.",,,
+"Loretta D. Davis",304a91de81b644f6aab52b022db63f5dLaura.Cocinero@cordobalegal.com,2026-08-20,"T mobile",1240931493,IOS,"Iphone 16","client reported app is loading (circling forever). *""Buffering""*",Setup,"Unresolved with cx","Client not answering (3 days)","O: First attempt to download the new version of iOS 1.4.7. VML.
+
+E: I was trying to reach our client but there was a ring not answered as dialed.
+
+O: Unable to reach the client after 3 attempts, VML.",,,
+"Erica Norris",laura.suarez@cordobalegal.com,2026-08-20,"Xfinity Mobile",CORDOBA-1231244465,Android,"S25 Galaxy","Client says that she install and get access to Creditor X but then was having some issues and uninstall the app, now the voicemail doesn't work at all. *""Voicemail recording""*",Setup,,"Client not answering (3 days)","E:Unable to reach the client.
+E:Unable to reach the client.",,,
+"Don Ferguson",jnunez@cordobalegal.com,2026-08-14,AT&T,CORDOBA-1231217966,Android,Samsung,"error coming up when client attempts to log in: Client is not able to create a new password, he is following the steps to create it and nothing is working","First Login",,"Client not answering (3 days)","E:I was trying to reach our client but there was an answered machine as dialed.
+
+E: Answered machine as dialed.
+
+E: Answered machine as dialed.",,,
+"Teresa F Lovejoy",samuel.angel@cordobalegal.com,2026-08-17,T-mobile,CORDOBA-1239921276,Android,motorola,"cx does the password recovery and system saids: error user not found after cx put all the right info in
+Password_recovery",Auth/Login,,"Client not answering (3 days)","O: Thanks for sharing this issue with us. First make sure that the client has the latest version. The username can be either the email address or the phone number; please try using the phone number, including the area code. (13044128949)
+
+O: Unable to reach the client. VML
+O: Unable to contact the client. VMlL.
+E: There was an answered machine as dialed.",,,
+"Renita Green",Laura.Camargo@cordobalegal.com,2026-08-15,T-Mobile,1228586388,Android,"sammung galaxy s","she is having issues with creditor x because when she still receiving calls from the creditors so at the begining it works but not now. *""Not blocking the calls from the list of ""blocked numbers""*","Blocked List",,"Resolved with cx","E:I was able to reach our client on behalf to her creditor x app,  whose creditor is till calling her for a different number ID.
+Call forwarding/blocking: Active.
+-Call forwarding: Enable.
+-Creditor call blocking/forwarding active.
+-Voice mail recording ON.
+-USSD COMMAND SETUP / CARRIER SETTINGS DONE..
+-Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+-All features are fully setup with out any troubles, app is working propertly.
+
+Provide a quick education about how to suggest a creditor phone number to moved into the black list, or even click on the top right corner “Add” to manually adding a creditor. I have sent a quick references about it via email.
+
+
+APP is currentlly working 100% setup!!",,,
+"Mark Bromberg",Julian.Hernandez@cordobalegal.com,2026-08-17,AT&T,CORDOBA-1232415253,Android,"Samsung A12","On the verification steps after setting up the account, after confirmed identity the keyboard on the phone will not change to Alpha/Numberic, but then only change to alpha. Client not able to place email in order to receive 6 digit code.",Setup,,"Resolved with cx","O: I was trying to get in touch with the client regarding that issue, but it went straight to voicemail. (1st)
+
+E: Creditor X FOLLOW UP. Confirmation was done under the last interaction with the client, saying their Creditor X app is working.
+
+E: Ring not answered as dialed.",,,
+"Daniel Foxx",304a91de81b644f6aab52b022db63f5dLaura.Cocinero@cordobalegal.com,2026-08-17,AT&T,1228774026,IOS,"Iphone air 17","When client hits is this your first log in, is not doing anything. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","O: This Issue is still under review by the development team, once we release the new version we'll contact the client.
+
+O: Unable to reach the client, VML.
+
+O: Answered machine as dialed.
+E: Ring not answered
+Reschedulled a callback at 4:00pm  8/20/2026",,,
+"Carolyn Cooke",sebastian.zapata@cordobalegal.com,2026-08-17,T-MOBILE,CORDOBA-1235903983,IOS,"Iphone 14","The CX reported that she is having issues with her calls as the app it´s blocking all the calls she it´s receiving. I verified with 2 numbers (8438231052 - 8433254049) and this numbers are not reported in the app. Tried to help the CX with the CreditorX guide. *""All the calls blocked, including the list of contacts""*","Blocked List",,"Client not answering (3 days)","E:I would be more than glad to internal verify whats going on, relate to the following subscriber 8438231052 - 8433254049 mentioned by the client, in order to looking for a solutions on behalf of those DID, Subscriber phones.
+
+E:I was trying to reach our client but there was an answered machine as dialed.
+
+E:I was trying to reach our client but there was an answered machine as dialed.
+
+E: Voice mail",,,
+"Mark Bromberg",Jorge.Lopez@cordobalegal.com,2026-08-17,at&t,1232415253,Android,"samsung A 12","when client is putting id and email it leads him  to second page ans  sends a code doesn't allow him to pass from seconds page",Setup,,"Resolved with cx","E:I was trying to reach our client but there was an answered machine as dialed.
+
+E:: Creditor X FOLLOW UP. Confirmation was done under the last interaction with the client, saying their Creditor X app is working.",,,
+"Gloria G Mejia",304a91de81b644f6aab52b022db63f5dLaura.Cocinero@cordobalegal.com,2026-08-17,Consumer,1226836599,Android,"Samsung Galaxy","Is not letting client add a number, says number under review. *""Number showing under review""*","Blocked List",,"Resolved with cx","O: Resolved with the client.
+
+*Resolution:*
+-Followed ""6 - Steps call forwarding"" successfully.
+-The Inbound calls settings were properly configured and call forwarding is showing active. :white_check_mark:.
+-Confirmed that the number is blocked on the admin Panel.",,,
+"Lola carter",Alejandra.Montana@cordobalegal.com,2026-08-17,at&t,1234239505,IOS,"Iphone 15","The cx cant move forward on the app, iD is not working","First Login",,"Resolved with cx","E: I was able to reach our client back regarding to the following issue “ Client is trying to register but the option to do it is grey out we tried to delete and re-install the app and it is still the same. Cient has told us, please reach him back for about 10 minutes because of he does not have enough signal at his current locations.
+
+App has been uninstalled,
+App has been installed at the last recent version v1.4.1 IS
+Device: Iphone 17
+
+
+Creditor X support.
+I was able to get in touch with the client relate to the following issue :” Wrong credentials “
+
+App has been updated at the last released version : V1.4.1 IOS “Iphone 15 “ .
+App has been closed.
+App has been reloaded once again.
+“Associated phone number is not associated “ when 1th login “
+Phone number has been duplicated on forth,
+Try: Customer IDCORDOBA-1234239505 registered.
+Setup new credentials.
+Accept privacy policy.
+Settings /USSD Command is done. Activation “ succeeded !
+Carrier :AT&T.
+Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+-Voice mail recording : turned on.
+- Allowed only last 3 months on voice mail database.
+
+
+Solved!",,,
+"Noel Fernandez",Esnaider.Garzon@cordobalegal.com,2026-08-17,T-Mobile,1236272020,IOS,"Iphone 17 Pro Max","This cx downloaded the app, but for some reason he says that the fisrt time login option does ont work. When he clicks that option, but nothing happens. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","E: I was trying to reach our client due to a grayed out button, when tap, ""is this your 1st time login."" . Nobody has answered.
+
+E: Ring not answered.
+O: Unable to reach after 3 attempts.",,,
+"Steven Livingston",andres.quiroz@cordobalegal.com,2026-08-17,VERIZON,CORDOBA-1228587175,IOS,"iPHONE 16","Hello team, this client is unable to login the creditor x, every time he tried says wrong credentials, we tried the basic troubleshooting but still not working could you please review it?","First Login",,"Client not answering (3 days)","E: Thanks, for sharing us, this is a very important reason for us to quickly identity whats going on based on Creditor X APP. I was trying to reach our client but there was answered machine as dialed.
+
+E: RIng not answered as dialed..
+O: Unable to reach after 3 attempts.
+
+E: RIng not answered as dialed..",,,
+"David Griffin",rosbelym@cordobalegal.com,2026-08-17,AT&T,CORDOBA-1229971847,IOS,"17 pro max","cant go pass date of birth  information. *""Unable to move forward (Font size Issue)""*",Setup,,"Resolved with cx","E: I would be more than glad to verify whats seems to be the trouble relate to the Creditor X APP, versus 17 pro max General settings to make it works,  regarding to the reported issue ""  cant go pass date of birth information ""
+
+Settings
+Display & Brightness
+Text Size “ Please reduces the size of their font buttons to get it done! Select the minimums size to fully setup even displaying all buttons background on the APP,    Fonts
+ (Label buttons functions) displayed for commanding, When tap..
+TAP Creditor X APP, “ Launched “.
+Go to “ is this your 1st time to log in “
+Account information : ID :” 1229971847
+Setup new credentials, Please select his username, it would be his phone number or email. “Please attached it,
+Please created a new password. (Must be at least 8 characters. )
+At least 1 special character for being done.
+Confirm his password, but our client does not knows how to do it,
+USSD Command is done.
+Settings Carrier : AT&T.
+
+
+Settings /USSD Command is done. Activation “ succeeded !
+Carrier :AT&T.
+Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+-Voice mail recording : turned on.
+- Allowed only last 3 months on voice mail database.
+
+App has been working property now!
+
+Solved!
+
+FOLLOW UP :
+
+Reset was being performed.
+User not “found “
+Home phone/ Cell Phone Has been updated on forth.
+
+*USER ID:1229971847
+*Last 4 of his SSN.
+*Date of birth
+Check_mark !
+Tap confirm. “ It has already login on the app before “ .
+Try “
+
+[
+User ID : 504-401-6509 “Username “
+Password: House@12
+Next, Login “ Fail “
+The entered username and password is incorrect.
+
+Tried with his email : davidgriffin0524@icloud.com
+
+“ Authentication has been done “!
+
+Push notification : Turned on “Creditor X will send notifications.
+Allow Notification : Enable.
+Allow access: YES.
+Creditor blocked and forwarding : YES.
+Settings: Features do not disturb when collectors agency call. Done!
+-Settings : Features do not disturb when creditors calls / Done! .
+- Voice mail has been setup, “ Last 3 months features avialable “ .
+Solved!
+-*
+]",,,
+"Jonathan Doleman",santiago.yate@cordobalegal.com,2026-08-20,At&T,1244619910,IOS,"Iphone 13","When cx clicks on ""Is this your first login"" option gets stuck with no error code nor movement. *""Phone number missing from the external system data""*","First Login",,Dev,"E Unable to reach the client, there was a voice mail machine as dialed.
+E:I was able to reach our client back in order to assist him with a “1th login ” grayed out button. IPHONE.
+
+-Creditor X old version was being uninstalled.
+-Creditor X last version has been installed.
+-Standard Text Size : Settings /Display & Brightness.Tap Text Size.Drag.
+• Phone has been restarted/rebooted.
+• Clear cache.
+
+I was able to reach our client back in order to fix “ ""Is this your first login “ button, grayed out.
+
+-Creditor X old version was being uninstalled.
+-Creditor X last version has been installed.
+-
+-Settings app
+-Scroll down and tap Apps, then select Safari
+-Clear History and Website Data.
+
+-General > iPhone Storage
+-Select the app, Creditor X.
+-Tap Offload App / reinstalled in order to download a clearing version
+-Wifi: Turned off
+-Mobil date (Usage ) on
+
+Phone was being rebooted.
+
+-Standard Text Size : Settings /Display & Brightness.Tap Text Size.Drag.
+Phone has been restarted/rebooted.
+Clear cache.
+
+-General /about phone IOS Software :
+IOS VERSION 26.6.1 “Most recent updated. ”
+Iphone 13
+
+-Uninstalled creditor X.
+
+Settings app/ name / iCloud/ Manage Account Storage/ Backups Show All Apps
+Backups select his iPhone
+Tap Show All Apps.
+Find the app you want to remove and turn the switch off.
+Tap Turn Off in order to confirm and delete the data.
+
+Follow up.",,,
+"Jonathan Doleman",rromero@cordobalegal.com,2026-08-18,"ATT & T",CORDOBA-1244619910,IOS,"Iphone 13","The ''Is this your first login'' option is stuck with no error code nor movement. *"" Is this your first login section unresponsive""*","First Login",,"Client not answering (3 days)","O: Unable to reach the client. VML
+
+E: Ring not answered as dialed.
+E: Ring not answered as dialed.",,,
+"Raphael Serrano",Jessi.Correa@cordobalegal.com,2026-08-18,"T- mobile",1147437051,Android,"Samsung Galaxy S20","""wrong credentials""","First Login",,"Client not answering (3 days)","O:Thanks for sharing this issue with us. There could be several reasons why we are encountering this issue either the app isn't up to date, or the username isn't being entered correctly. It is a good idea to try entering the mobile number along with the area code. 16467898259
+
+O: Callback scheduled.
+O: Unable to reach the client, VML.
+E: Ring not answered as dialed.",,,
+"Edmond Anfom",pablo.correa@cordobalegal.com,2026-08-18,Optimum,CORDOBA-1232834873,Android,"Samsum Galaxy","Cx is trying to access again but changed phone and app is not letting access telling him he is already logged, could you please see the possibility of deleting account for cx to delete app and restart process, can you please review and assist? thanks",Auth/Login,"Unresolved with cx","Resolved with cx","E: I was trying to reach our client relate to the following issue
+""User ID is already login  "", But there was an answered machine as dialed.
+
+E: Creditor X APP old version V1.5.0 has been uninstall
+Creditor X app new version V1.6.2 has been installed.
+Creditor x has launched.
+Privacy has been done. “its says, it has alerady login .”
+Recovery password, performed by : 1232834873,
+Temporary password has been sent to : Eddiemarsh70@gmail.com
+USER1232834873, Error messages “ login fail “.
+It says, “User not found”.
+
+Client has told us, nothing is working at all, he must go! He wont be stayed on the phone.
+
+E:Ring not answered as dialed.
+
+E: I was able to reach our client, we were trying to setup the app, due to a wrong credentials, but he just wants to uninstalled because of it is not working ,  client refusing us he will uninstaller, by deny us to assit him.,",,,
+"Henry Chapman",Monica.Munar@cordobalegal.com,2026-08-19,n/a,1242639088,IOS,"Iphone 16 pro","Cusotmer mentioned once he filled out his credentials its says that was wrong.","First Login",,"Resolved with cx","O: Unable to reach the client, VML.
+
+E: Ring not answered as dialed.
+
+E:ISSUE: issue: Customer mentioned once he filled out his credentials its says that was wrong.
+E:I was able to reach our client but there was an answered machine as dialed.
+E: I was able to reach our client , on behalf to  the following issue : ""Can not log in "".   App has been setup,  Recovery password was being setup into a new password to log in, client has already access into his creditor x APP,  blocked/suggested numbers setup.  Voice mail recording turned on, allowed only a last 3 months, at least 3 seconds.     App has been updated at the last version : V1.4.1 IOS.
+
+Solved.",,,
+"Nora Snowden",mateo.rojas@cordobalegal.com,2026-08-19,Metro,1184542537,Android,Motorola,"She is trying to login for the first time, when she taps on Date of Birth is not showing anything and wont let her introduce her information. *""Unable to move forward (Font size Issue)""*",Setup,,"Resolved with cx","O: Resolution:
+- Cleared cache on settings.
+-App updated to Vs 1.6.2 Android.
+
+Once the application was updated, we proceeded with the initial login, but the client is still getting the same error when trying to enter the date of birth.
+I told her to send us a screenshot to gave her the best resolution possible. I'll call back an try changing the font size.
+
+E:I was able to reach our client on behalf to the following issue : “She is trying to login for the first time, when she taps on Date of Birth is not showing anything and wont let her introduce her information”
+
+* Wifi: on.
+*Creditox APP old version has been uninstaller.
+*Credito X last version has been installed, last released v1.6.2 Android.
+*App was being closed/ relaunched.
+
+Client Updated by trigger Contact Updated (Form) executed Trigger ID: 188 , subscriber 810-937-8413 has been updated on forth_ CRM, mark as duplicated number field “( Home Phone, _ Home Phone ) CONTAcT. Database.
+
+Accept concern.
+User ID : 1184542537
+Date of birth Format M:00/DAY/YEAR
+Last 4 of her SSN.
+
+Device motorola
+Display.
+Settings
+Display size and text.Move the Font size slider left or right to make text smaller or bigger.
+Restarted phone, if it does not work please go to Metro Pcs in order to replaced it, or even repairing each phone",,,
+"PAULA SMOAK",rosbelym@cordobalegal.com,2026-08-19,AT&T,CORDOBA-1237101709,Android,"Samsung S 26","Wrong ID or Password.","First Login",,"Resolved with cx","O: Client got confused with the forth Portal and Creditor X , I guided trough the first steps. Creditor X set up successfully.",,,
+"Douglas Blackwell",rromero@cordobalegal.com,2026-08-19,Verizon,CORDOBA-1240918629,Android,Samsung,"Client tried to add a new number to list and it's been 48 hr under review. *""Number showing under review""*","Blocked List",,"Resolved with cx","E: I was able to reach our client on behalf to his creditor X APP,Relate issue :
+# SECURITY FIN 7709425501 it has been around 48 hours under
+review.
+
+Admin_pane::database : Subscriber : 17709425501 current status: blocked, Identity : SECURITY FI Original Creditor. Added on :08/17/2026 04:28PM . It has been blocked, he will add a new creditor number, by clicking on “ADD ”.. It is a regular time frame for being included into our platform, otherwise as long as he has installed his new version, it wont be displayed on the app,
+
+-Creditor X old version has been uninstalled
+-Creditor X new version has been installed. “Released v1.6.2 ”
+
+App is currently working.",,,
+"Eric Jones",samuel.angel@cordobalegal.com,2026-08-20,AT&T,CORDOBA-1235314272,Android,Samsung,"Error asociated phone # is missing form exyernal system data please contatc creditor X. *""Phone number missing from the external system data""*","First Login","Resolved with cx","Resolved with cx","O: I'll be more than glad to assist you with this issue. When the first login cannot be generated and we receive this error alert: ""*Associated phone number this missing from external system data""*, it is because the user does not have the Work phone or Cell Phone section filled on  FORTH CRM.
+
+*For future reference:*
+TS on creditor X Guide: http://172.30.1.31:3000/article.html?id=phone-number-missing
+
+Number has been duplicated on filed already. First attempt unsuccessful, VML.
+
+E: Ring not answered",,,
+"Vickie Rodgers",mateo.rojas@cordobalegal.com,2026-08-20,Verizon,1232452596,IOS,Iphone,"The app is not letting her chang the cerrier, it only shows AT&T but she has Verizon","Carrier List",,"Client not answering (3 days)","O: contacting the client
+E: I was trying to reach our client but there was an answered machine as dialed.
+O: 3rd attempt o download the new version of iOS 1.4.7. Callback scheduled
+O: Unable to reach the client after 3 attempts.",,,
+"Michael Alston",Andres.Guerrero@cordobalegal.com,2026-09-04,T-Mobile,CORDOBA-1239741314,IOS,"Iphone 17e","Its not letting him download the app after delete it bc before it wasnt letting him get into the app",Setup,,New,,,,
