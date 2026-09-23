@@ -209,8 +209,14 @@
                     <span class="trend-subtag">Daily story points trend</span>
                 </div>
                 <div class="trend-grid">
-                    <div class="trend-chart">
-                        <canvas id="sprintTrendChart"></canvas>
+                    <div class="trend-chart trend-chart--scrollable">
+                        <button type="button" class="trend-scroll-nav trend-scroll-nav--prev" id="sprintTrendScrollPrev" aria-label="Sprints anteriores">&#10094;</button>
+                        <div class="trend-chart-scroll-track" id="sprintTrendScrollTrack">
+                            <div class="trend-chart-scroll-inner" id="sprintTrendScrollInner">
+                                <canvas id="sprintTrendChart"></canvas>
+                            </div>
+                        </div>
+                        <button type="button" class="trend-scroll-nav trend-scroll-nav--next" id="sprintTrendScrollNext" aria-label="Sprints siguientes">&#10095;</button>
                     </div>
                     <div class="trend-chart trend-chart--members">
                         <div class="trend-subtag trend-subtag--chart">Story Points Done + Ready for Deployment per member</div>

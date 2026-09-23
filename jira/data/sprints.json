@@ -816,6 +816,33 @@
       "blockersRisks": [],
       "scopeChanges": [],
       "recommendations": []
+    },
+    {
+      "name": "Sprint 21 CP - CX",
+      "period": "2026-09-07 to 2026-09-21",
+      "csvFile": "sprints-csv/Sprint 21 Summary export (Jira).csv",
+      "description": "",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
+    },
+    {
+      "name": "Sprint 22 CP - CX",
+      "period": "2026-09-21 to 2026-10-05",
+      "csvFile": "sprints-csv/Sprint 22 Summary export (Jira).csv",
+      "description": "CP /n - Onboarding flow definition & implementation/n - Tooltips, implementation/n - Bugs/n - Final version pre Launch/n - Forth CRM Stats (Aren)/n - Marketing/Launch strategy beginning CX/n - After Relaunch",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     }
+
   ]
 }

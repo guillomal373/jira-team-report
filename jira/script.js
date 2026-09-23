@@ -43,6 +43,7 @@ let statusChartInstance = null;
 let teamCache = [];
 const memberStatusCharts = new Map();
 const excludedAverageNames = ['Guillermo Malagón'];
+const excludedByDefaultNames = ['Guillermo Malagón'];
 const isActiveMember = (member = {}) => member?.active !== false;
 const getActiveMembers = (members = []) => (members || []).filter(isActiveMember);
 let selectedMemberNames = new Set();
@@ -93,7 +94,9 @@ function buildMemberFilter(teamMembers = [], onChange = () => {}) {
 
     const activeMembers = getActiveMembers(teamMembers);
     if (!isMemberFilterInitialized) {
-        selectedMemberNames = new Set(activeMembers.map(member => member?.name).filter(Boolean));
+        selectedMemberNames = new Set(activeMembers
+            .map(member => member?.name)
+            .filter(name => name && !excludedByDefaultNames.includes(name)));
         isMemberFilterInitialized = true;
     }
 
@@ -2861,10 +2864,33 @@ function aggregateSprintData(sprint) {
     return { labels, datasets };
 }
 
+const SPRINT_TREND_VISIBLE_BARS = 6;
+
+function updateSprintTrendScrollButtons() {
+    const track = document.getElementById('sprintTrendScrollTrack');
+    const prevBtn = document.getElementById('sprintTrendScrollPrev');
+    const nextBtn = document.getElementById('sprintTrendScrollNext');
+    if (!track || !prevBtn || !nextBtn) return;
+    prevBtn.disabled = track.scrollLeft <= 4;
+    nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+}
+
 function renderTrendChart(canvas, labels, datasets) {
     if (!canvas) return;
     if (sprintTrendChart) {
         sprintTrendChart.destroy();
+    }
+
+    const scrollTrack = document.getElementById('sprintTrendScrollTrack');
+    const scrollInner = document.getElementById('sprintTrendScrollInner');
+    const prevBtn = document.getElementById('sprintTrendScrollPrev');
+    const nextBtn = document.getElementById('sprintTrendScrollNext');
+
+    if (scrollInner) {
+        const widthPercent = labels.length > SPRINT_TREND_VISIBLE_BARS
+            ? (labels.length / SPRINT_TREND_VISIBLE_BARS) * 100
+            : 100;
+        scrollInner.style.width = `${widthPercent}%`;
     }
 
     sprintTrendChart = new Chart(canvas, {
@@ -2928,6 +2954,25 @@ function renderTrendChart(canvas, labels, datasets) {
             }
         }
     });
+
+    if (scrollTrack) {
+        requestAnimationFrame(() => {
+            scrollTrack.scrollLeft = scrollTrack.scrollWidth;
+            updateSprintTrendScrollButtons();
+        });
+
+        if (!scrollTrack.dataset.scrollBound) {
+            scrollTrack.dataset.scrollBound = '1';
+            scrollTrack.addEventListener('scroll', updateSprintTrendScrollButtons);
+            prevBtn?.addEventListener('click', () => {
+                scrollTrack.scrollBy({ left: -scrollTrack.clientWidth, behavior: 'smooth' });
+            });
+            nextBtn?.addEventListener('click', () => {
+                scrollTrack.scrollBy({ left: scrollTrack.clientWidth, behavior: 'smooth' });
+            });
+            window.addEventListener('resize', updateSprintTrendScrollButtons);
+        }
+    }
 }
 
 function findSprintByNumber(sprints = [], number = 0) {

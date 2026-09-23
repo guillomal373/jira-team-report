@@ -801,6 +801,70 @@ h1 {
     margin-top: 0;
 }
 
+.trend-chart--scrollable {
+    position: relative;
+    padding: 0 30px;
+}
+
+.trend-chart-scroll-track {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201, 168, 92, 0.5) transparent;
+}
+
+.trend-chart-scroll-track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.trend-chart-scroll-track::-webkit-scrollbar-thumb {
+    background: rgba(201, 168, 92, 0.5);
+    border-radius: 3px;
+}
+
+.trend-chart-scroll-inner {
+    height: 100%;
+}
+
+.trend-scroll-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 168, 92, 0.5);
+    background: rgba(26, 26, 26, 0.85);
+    color: #c9a85c;
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.trend-scroll-nav:hover:not(:disabled) {
+    background: rgba(201, 168, 92, 0.25);
+}
+
+.trend-scroll-nav:disabled {
+    opacity: 0.25;
+    cursor: default;
+}
+
+.trend-scroll-nav--prev {
+    left: 0;
+}
+
+.trend-scroll-nav--next {
+    right: 0;
+}
+
 .trend-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
