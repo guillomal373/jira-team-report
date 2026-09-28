@@ -4,8 +4,8 @@
 //
 // date:  "YYYY-MM-DD" (must match the timeline's daily buckets)
 // icon:  a single emoji shown inside the dot, or one of the keywords
-//        "apple" / "android" / "megaphone" to draw a vector icon (in white)
-//        instead of an emoji
+//        "apple" / "android" / "megaphone" / "database" to draw a vector
+//        icon (in white) instead of an emoji
 // label: short text shown above the dot (keep it brief, a tooltip on hover
 //        shows the full label + date)
 // color: any CSS color, used for the dot, line and label
@@ -27,5 +27,11 @@ window.CREDITORX_TIMELINE_EVENTS = [
     icon: "megaphone",
     label: "Marketing campaign",
     color: "#ff375f",
+  },
+  {
+    date: "2026-09-21",
+    icon: "database",
+    label: "Database erased",
+    color: "#ff3b30",
   },
 ];
