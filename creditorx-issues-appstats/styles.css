@@ -2092,8 +2092,8 @@ a.topics-top-tickets__link:focus-visible {
 }
 
 .status-unable-to-contact {
-  --row-color: rgba(120, 90, 20, 0.22);
-  --status-accent: #d9a441;
+  --row-color: rgba(63, 163, 77, 0.22);
+  --status-accent: #3fa34d;
 }
 
 .status-dev {

@@ -196,7 +196,7 @@ const STATUS_COLOR_MAP = {
   "unresolved with cx": "#b1163d",
   "follow up": "#c38711",
   solved: "#11a86a",
-  "unable to contact": "#d9a441",
+  "unable to contact": "#3fa34d",
   dev: "#ff3b30",
   unknown: "#8b8b8b",
 };
