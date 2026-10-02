@@ -389,6 +389,24 @@ const PLAYBOOK_THEME_MATCHES = {
       ],
     },
   ],
+  "Calls Not Being Blocked": [
+    {
+      category: "Blocked List",
+      articles: ["Calls are not being forwarded"],
+    },
+  ],
+  "Numbers Under Review & Add Creditor Failures": [
+    {
+      category: "Blocked List",
+      articles: ["When they indicate errors but without information"],
+    },
+  ],
+  "Voicemail Blocked": [
+    {
+      category: "Redirecting Setup",
+      articles: ["Calls are not being forwarded"],
+    },
+  ],
   "Generic Error & Missing Details": [
     {
       category: "General",

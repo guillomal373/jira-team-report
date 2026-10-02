@@ -34,4 +34,10 @@ window.CREDITORX_TIMELINE_EVENTS = [
     label: "Database erased",
     color: "#ff3b30",
   },
+  {
+    date: "2026-10-01",
+    icon: "android",
+    label: "Android v1.11.0",
+    color: "#34c759",
+  }
 ];
