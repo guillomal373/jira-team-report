@@ -791,17 +791,17 @@ function getTimelineTooltipText(point) {
   return lines.join("\n");
 }
 
-function showTimelineTooltip(point, clientX, clientY) {
+function renderTimelineTooltip({ title, totalText, segments, activeStatus }, clientX, clientY) {
   const tooltip = getTimelineTooltip();
   tooltip.replaceChildren();
 
   const dateLabel = document.createElement("p");
   dateLabel.className = "timeline-tooltip__date";
-  dateLabel.textContent = formatDisplayDate(point.date);
+  dateLabel.textContent = title;
 
   const totalLabel = document.createElement("p");
   totalLabel.className = "timeline-tooltip__total";
-  totalLabel.textContent = `${point.total} issue${point.total === 1 ? "" : "s"} total`;
+  totalLabel.textContent = totalText;
 
   const conventionLabel = document.createElement("p");
   conventionLabel.className = "timeline-tooltip__section-label";
@@ -810,9 +810,12 @@ function showTimelineTooltip(point, clientX, clientY) {
   const list = document.createElement("div");
   list.className = "timeline-tooltip__list";
 
-  point.segments.forEach((segment) => {
+  segments.forEach((segment) => {
     const item = document.createElement("div");
     item.className = "timeline-tooltip__item";
+    if (activeStatus && segment.status !== activeStatus) {
+      item.style.opacity = "0.55";
+    }
 
     const statusGroup = document.createElement("div");
     statusGroup.className = "timeline-tooltip__status";
@@ -837,6 +840,18 @@ function showTimelineTooltip(point, clientX, clientY) {
   tooltip.append(dateLabel, totalLabel, conventionLabel, list);
   tooltip.hidden = false;
   setTimelineTooltipPosition(clientX, clientY);
+}
+
+function showTimelineTooltip(point, clientX, clientY) {
+  renderTimelineTooltip(
+    {
+      title: formatDisplayDate(point.date),
+      totalText: `${point.total} issue${point.total === 1 ? "" : "s"} total`,
+      segments: point.segments,
+    },
+    clientX,
+    clientY,
+  );
 }
 
 function toIsoDate(date) {
@@ -2159,9 +2174,24 @@ function renderStatusPie(rows, headers) {
       fill: getStatusColor(status),
       class: "status-pie-slice",
     });
-    const title = createSvgElement("title");
-    title.textContent = `${status}: ${value} ticket${value === 1 ? "" : "s"} (${(percentage * 100).toFixed(1)}%)`;
-    slice.appendChild(title);
+    if (percentage < 0.02) {
+      // Thin slices would be swallowed by the 2px dark separator stroke.
+      slice.style.strokeWidth = "0";
+    }
+    const showTip = (event) =>
+      renderTimelineTooltip(
+        {
+          title: `${status}: ${(percentage * 100).toFixed(1)}%`,
+          totalText: `${total} ticket${total === 1 ? "" : "s"} total`,
+          segments: entries.map(([name, count]) => ({ status: name, value: count })),
+          activeStatus: status,
+        },
+        event.clientX,
+        event.clientY,
+      );
+    slice.addEventListener("mouseenter", showTip);
+    slice.addEventListener("mousemove", showTip);
+    slice.addEventListener("mouseleave", hideTimelineTooltip);
     statusPieChart.appendChild(slice);
     currentAngle += sweepAngle;
   });
