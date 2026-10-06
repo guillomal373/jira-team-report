@@ -2,7 +2,7 @@
   "team": [
     {
       "name": "Nicolás Díaz",
-      "role": "Junior Full stack Developer",
+      "role": "Mid Full Stack Developer",
       "hero": "deadpool",
       "level": 10,
       "color": "#ab0101",
@@ -23,7 +23,7 @@
       "csvAliases": [
         "Handersson Felipe Pacheco Espitia"
       ],
-      "role": "Junior FullStack Developer",
+      "role": "Mid Full Stack Developer",
       "hero": "masterchief",
       "level": 10,
       "color": "#ff6a00",

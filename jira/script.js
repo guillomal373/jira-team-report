@@ -727,7 +727,7 @@ async function loadTeam() {
             },
             {
                 name: 'Nicolás Díaz',
-                role: 'Junior Developer',
+                role: 'Mid Full Stack Developer',
                 hero: 'deadpool',
                 level: 10,
                 color: '#6ec5ff',
