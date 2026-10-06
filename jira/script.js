@@ -42,8 +42,8 @@ const memberPalette = ['#c9a85c', '#4b8cff', '#6ec5ff', '#f5d469', '#ff5f56', '#
 let statusChartInstance = null;
 let teamCache = [];
 const memberStatusCharts = new Map();
-const excludedAverageNames = ['Guillermo Malagón'];
-const excludedByDefaultNames = ['Guillermo Malagón'];
+const excludedAverageNames = [];
+const excludedByDefaultNames = [];
 const isActiveMember = (member = {}) => member?.active !== false;
 const getActiveMembers = (members = []) => (members || []).filter(isActiveMember);
 let selectedMemberNames = new Set();

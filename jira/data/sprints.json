@@ -842,7 +842,19 @@
       "blockersRisks": [],
       "scopeChanges": [],
       "recommendations": []
+    },
+    {
+      "name": "Sprint 23 CP - CX",
+      "period": "2026-10-05 to 2026-10-19",
+      "csvFile": "sprints-csv/Sprint 23 Summary export (Jira).csv",
+      "description": "CP /n - Onboarding flow definition & implementation/n - Tooltips, implementation/n - Bugs/n - Final version pre Launch/n - Forth CRM Stats (Aren)/n - Marketing/Launch strategy beginning CX/n - After Relaunch",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     }
-
   ]
 }
