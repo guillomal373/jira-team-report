@@ -141,6 +141,13 @@ p {
   text-shadow: 0 0 8px rgba(205, 170, 86, 0.08);
 }
 
+.hero__updated {
+  margin-top: -18px;
+  font-size: clamp(0.7rem, 0.95vw, 1rem);
+  letter-spacing: 0.16em;
+  opacity: 0.75;
+}
+
 .hero__accent {
   display: block;
   width: 134px;
@@ -676,6 +683,17 @@ p {
   text-shadow: none;
 }
 
+.timeline-panel__hint {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  font-style: italic;
+  color: var(--text-soft);
+  opacity: 0.8;
+  text-shadow: none;
+}
+
 .timeline-panel__legend {
   display: flex;
   flex-wrap: wrap;
@@ -868,6 +886,50 @@ p {
 }
 
 .timeline-bar-hitbox {
+  cursor: pointer;
+}
+
+.timeline-bar-hitbox:hover {
+  fill: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-bar-hitbox--selected {
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 1;
+}
+
+.timeline-bar-segment--dimmed {
+  opacity: 0.28;
+}
+
+.timeline-day-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f3f3f3;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.timeline-panel__header .timeline-day-chip {
+  margin-top: 12px;
+}
+
+.timeline-day-chip[hidden] {
+  display: none;
+}
+
+.timeline-day-chip__clear {
+  padding: 0 2px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
   cursor: pointer;
 }
 

@@ -17,7 +17,8 @@
     <main class="hero">
       <section class="hero__content" aria-label="Elite Development Squad banner">
         <h1>Issues and App Stats for CreditorX</h1>
-        <p>Legendary Code Architects v1.7.0</p>
+        <p>Legendary Code Architects v1.8.1</p>
+        <p class="hero__updated">Last update: Oct 9, 2026</p>
         <span class="hero__accent" aria-hidden="true"></span>
         <nav class="hero__nav" aria-label="CreditorX app navigation">
           <a class="hero__nav-link hero__nav-link--active" href="./index.html" aria-current="page">
@@ -204,7 +205,11 @@
             <p class="timeline-panel__subtitle" id="timeline-subtitle">
               Daily issue volume from Mar 1 to today.
             </p>
+            <p class="timeline-panel__hint">
+              Tip: click a day to see that day's issues. Ctrl/Cmd/Shift + click to select several days; click again to clear.
+            </p>
           </div>
+          <div class="timeline-day-chip" id="timeline-day-filter" hidden></div>
         </header>
         <div class="timeline-panel__legend" id="timeline-legend"></div>
         <div class="timeline-panel__chart-wrap">

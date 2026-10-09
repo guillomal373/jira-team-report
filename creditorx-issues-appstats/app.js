@@ -116,6 +116,7 @@ const tier2OwnerSubtitle = document.getElementById("tier2-owner-subtitle");
 const tier2OwnerBar = document.getElementById("tier2-owner-bar");
 const tier2OwnerList = document.getElementById("tier2-owner-list");
 const timelineChart = document.getElementById("timeline-chart");
+const timelineDayFilter = document.getElementById("timeline-day-filter");
 const timelineSubtitle = document.getElementById("timeline-subtitle");
 const timelineLegend = document.getElementById("timeline-legend");
 const topicsSubtitle = document.getElementById("topics-subtitle");
@@ -148,6 +149,7 @@ let visibleColumns = new Set();
 let timelineTooltip = null;
 let issueTextTooltip = null;
 let selectedIssueThemeLabel = "";
+let selectedTimelineDays = new Set();
 
 const STATUS_CLASS_MAP = {
   new: "status-new",
@@ -1356,6 +1358,87 @@ function getRangeFilteredRows() {
   });
 }
 
+function getTimelineDayFilteredRows(rows, headers) {
+  if (selectedTimelineDays.size === 0) {
+    return rows;
+  }
+
+  const dateColumnIndex = getDateColumnIndex(headers);
+
+  if (dateColumnIndex < 0) {
+    return rows;
+  }
+
+  return rows.filter((row) => {
+    const parsedDate = parseIsoDate(row[dateColumnIndex] ?? "");
+    return parsedDate && selectedTimelineDays.has(toIsoDate(parsedDate));
+  });
+}
+
+function toggleTimelineDay(isoDate, additive) {
+  if (additive) {
+    if (selectedTimelineDays.has(isoDate)) {
+      selectedTimelineDays.delete(isoDate);
+    } else {
+      selectedTimelineDays.add(isoDate);
+    }
+  } else if (selectedTimelineDays.size === 1 && selectedTimelineDays.has(isoDate)) {
+    selectedTimelineDays.clear();
+  } else {
+    selectedTimelineDays = new Set([isoDate]);
+  }
+
+  refreshTable();
+}
+
+function clearTimelineDays() {
+  selectedTimelineDays.clear();
+  refreshTable();
+}
+
+function pruneTimelineDaysToRange() {
+  const selectedRange = getSelectedDateRange();
+
+  if (!selectedRange) {
+    return;
+  }
+
+  selectedTimelineDays.forEach((isoDate) => {
+    const day = parseIsoDate(isoDate);
+
+    if (!day || day < selectedRange.startDate || day > selectedRange.endDate) {
+      selectedTimelineDays.delete(isoDate);
+    }
+  });
+}
+
+function renderTimelineDayChip() {
+  timelineDayFilter.replaceChildren();
+  timelineDayFilter.hidden = selectedTimelineDays.size === 0;
+
+  if (selectedTimelineDays.size === 0) {
+    return;
+  }
+
+  const labels = [...selectedTimelineDays]
+    .sort()
+    .map((isoDate) => {
+      const day = parseIsoDate(isoDate);
+      return day ? formatCompactDate(day) : isoDate;
+    });
+  const label = document.createElement("span");
+  label.textContent = `${labels.length === 1 ? "Day" : "Days"}: ${labels.join(", ")}`;
+
+  const clearButton = document.createElement("button");
+  clearButton.type = "button";
+  clearButton.className = "timeline-day-chip__clear";
+  clearButton.setAttribute("aria-label", "Clear day filter");
+  clearButton.textContent = "\u2715";
+  clearButton.addEventListener("click", clearTimelineDays);
+
+  timelineDayFilter.append(label, clearButton);
+}
+
 let selectedStatuses = new Set();
 let statusFilterDisabled = false;
 
@@ -1970,7 +2053,20 @@ function describeDateRangeSelection() {
     return "the selected range";
   }
 
-  return `${formatCompactDate(selectedRange.startDate)} to ${formatCompactDate(selectedRange.endDate)}`;
+  const rangeLabel = `${formatCompactDate(selectedRange.startDate)} to ${formatCompactDate(selectedRange.endDate)}`;
+
+  if (selectedTimelineDays.size === 0) {
+    return rangeLabel;
+  }
+
+  const dayLabels = [...selectedTimelineDays]
+    .sort()
+    .map((isoDate) => {
+      const day = parseIsoDate(isoDate);
+      return day ? formatCompactDate(day) : isoDate;
+    });
+
+  return `${rangeLabel} (${dayLabels.join(", ")})`;
 }
 
 function describeActiveFilterSelection() {
@@ -2587,6 +2683,8 @@ function renderTimeline(rows, headers, scaleRows = rows) {
   series.forEach((point, index) => {
     const x = getBarX(index);
     const slotX = margin.left + index * slotWidth;
+    const isDaySelected = selectedTimelineDays.has(point.isoDate);
+    const isDayDimmed = selectedTimelineDays.size > 0 && !isDaySelected;
     let accumulatedValue = 0;
 
     point.segments.forEach((segment) => {
@@ -2602,7 +2700,7 @@ function renderTimeline(rows, headers, scaleRows = rows) {
         rx: nextValue === point.total ? 4 : 0,
         ry: nextValue === point.total ? 4 : 0,
         fill: color,
-        class: "timeline-bar-segment",
+        class: `timeline-bar-segment${isDayDimmed ? " timeline-bar-segment--dimmed" : ""}`,
       });
       const title = createSvgElement("title");
       title.textContent = `${point.isoDate} · ${segment.status}: ${segment.value} issue${segment.value === 1 ? "" : "s"}`;
@@ -2638,8 +2736,10 @@ function renderTimeline(rows, headers, scaleRows = rows) {
         width: slotWidth,
         height: innerHeight,
         fill: "transparent",
-        class: "timeline-bar-hitbox",
+        class: `timeline-bar-hitbox${isDaySelected ? " timeline-bar-hitbox--selected" : ""}`,
         tabindex: 0,
+        role: "button",
+        "aria-pressed": isDaySelected ? "true" : "false",
       });
       hitbox.setAttribute("aria-label", getTimelineTooltipText(point));
       const title = createSvgElement("title");
@@ -2665,6 +2765,15 @@ function renderTimeline(rows, headers, scaleRows = rows) {
       });
       hitbox.addEventListener("blur", () => {
         hideTimelineTooltip();
+      });
+      hitbox.addEventListener("click", (event) => {
+        toggleTimelineDay(point.isoDate, event.ctrlKey || event.metaKey || event.shiftKey);
+      });
+      hitbox.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleTimelineDay(point.isoDate, event.ctrlKey || event.metaKey || event.shiftKey);
+        }
       });
 
       timelineChart.appendChild(hitbox);
@@ -3365,12 +3474,14 @@ function refreshTable() {
   const statusFilteredRows = getStatusFilteredRows(searchFilteredRows, tableHeaders);
   populateModuleFilter(statusFilteredRows, tableHeaders);
 
-  const baseFilteredRows = getModuleFilteredRows(statusFilteredRows, tableHeaders);
+  const timelineRows = getModuleFilteredRows(statusFilteredRows, tableHeaders);
+  const baseFilteredRows = getTimelineDayFilteredRows(timelineRows, tableHeaders);
   renderStatusSummary(baseFilteredRows, tableHeaders);
   renderStatusPie(baseFilteredRows, tableHeaders);
   renderPlatformDistribution(baseFilteredRows, tableHeaders);
   renderTier2OwnerDistribution(baseFilteredRows, tableHeaders);
-  renderTimeline(baseFilteredRows, tableHeaders);
+  renderTimeline(timelineRows, tableHeaders);
+  renderTimelineDayChip();
   renderTopicInsights(baseFilteredRows, tableHeaders);
   renderReportedByDistribution(baseFilteredRows, tableHeaders);
 
@@ -3395,6 +3506,7 @@ function handleDateRangeFilterChange() {
     endDateFilter.value = toIsoDate(startDate);
   }
 
+  pruneTimelineDaysToRange();
   refreshTable();
 }
 
