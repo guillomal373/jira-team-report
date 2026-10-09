@@ -64,6 +64,7 @@ async function loadCsvTable() {
     }
 
     setSubtitle(successfulDatasets.length);
+    setLastUpdate(successfulDatasets);
     tableHeaders = headers;
     allRows = rows;
     issueThemeHeaders = issueThemeDataset.headers;

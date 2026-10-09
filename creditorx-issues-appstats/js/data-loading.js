@@ -29,6 +29,18 @@ function getFileUpdateMeta(response, fileUrl) {
   };
 }
 
+// "Last update" is the date of the newest CSV, read from the file names.
+function setLastUpdate(datasets) {
+  const timestamps = datasets
+    .map((dataset) => dataset.sourceTimestamp)
+    .filter((timestamp) => Number.isFinite(timestamp));
+
+  lastUpdateLabel.textContent =
+    timestamps.length > 0
+      ? `Last update: ${formatFullDate(new Date(Math.max(...timestamps)))}`
+      : "";
+}
+
 function setSubtitle(fileCount) {
   const label = fileCount === 1 ? "file" : "files";
   recordsSubtitle.innerHTML = `Data loaded from ${fileCount} CSV ${label} in <code>data/</code>.`;
@@ -202,6 +214,7 @@ function mergeDatasets(datasets, options = {}) {
     mergedHeaders.splice(insertionIndex, 0, LAST_UPDATE_COLUMN_NAME);
   }
 
+  const ambiguousIssueKeys = findAmbiguousIssueKeys(datasetsInOrder);
   const consolidatedIssues = new Map();
   const latestTimestamp = Math.max(
     ...datasetsInOrder.map((dataset) => dataset.sourceTimestamp)
@@ -213,7 +226,7 @@ function mergeDatasets(datasets, options = {}) {
       const rowMap = new Map(
         dataset.headers.map((header, columnIndex) => [header, row[columnIndex] ?? ""])
       );
-      const identityKey = getIssueIdentityKey(rowMap);
+      const identityKey = getIssueIdentityKey(rowMap, ambiguousIssueKeys);
       const nextStatus = (rowMap.get(STATUS_COLUMN_NAME) ?? "").trim();
       const existingIssue = consolidatedIssues.get(identityKey);
 

@@ -7,6 +7,7 @@ const recordsHead = document.getElementById("records-head");
 const recordsBody = document.getElementById("records-body");
 
 const recordsSubtitle = document.getElementById("records-subtitle");
+const lastUpdateLabel = document.getElementById("last-update");
 
 const startDateFilter = document.getElementById("start-date-filter");
 

@@ -90,13 +90,9 @@ function normalizeCustomerId(value) {
   return normalizeIdentityValue(value).replace(/^cordoba-/, "");
 }
 
-function getIssueIdentityKey(rowMap) {
-  const jiraTicket = normalizeIdentityValue(rowMap.get(JIRA_TICKET_COLUMN_NAME));
-
-  if (jiraTicket) {
-    return `jira:${jiraTicket}`;
-  }
-
+// An issue is identified by customer + creation date (the "Date" column). The Jira
+// ticket is deliberately NOT part of the identity: one ticket can resolve many issues.
+function getIssueBaseKey(rowMap) {
   const customerId = normalizeCustomerId(rowMap.get("Customer ID"));
   const issueDate = normalizeIdentityValue(rowMap.get(DATE_COLUMN_NAME));
 
@@ -107,4 +103,42 @@ function getIssueIdentityKey(rowMap) {
   return `details:${ISSUE_IDENTITY_COLUMN_NAMES.map((header) =>
     normalizeIdentityValue(rowMap.get(header))
   ).join("||")}`;
+}
+
+function getDatasetRowMap(dataset, row) {
+  return new Map(dataset.headers.map((header, columnIndex) => [header, row[columnIndex] ?? ""]));
+}
+
+// Customer + date keys that appear on more than one row of the SAME file: those are
+// different issues reported by one customer on one day, so they are told apart by
+// their reported text. Every other issue keeps the plain key, so editing its text
+// does not break tracking across files.
+function findAmbiguousIssueKeys(datasets) {
+  const ambiguousKeys = new Set();
+
+  datasets.forEach((dataset) => {
+    const seenKeys = new Set();
+
+    dataset.rows.forEach((row) => {
+      const baseKey = getIssueBaseKey(getDatasetRowMap(dataset, row));
+
+      if (seenKeys.has(baseKey)) {
+        ambiguousKeys.add(baseKey);
+      }
+
+      seenKeys.add(baseKey);
+    });
+  });
+
+  return ambiguousKeys;
+}
+
+function getIssueIdentityKey(rowMap, ambiguousKeys = new Set()) {
+  const baseKey = getIssueBaseKey(rowMap);
+
+  if (!ambiguousKeys.has(baseKey)) {
+    return baseKey;
+  }
+
+  return `${baseKey}||${normalizeIdentityValue(rowMap.get("Reported Issue"))}`;
 }

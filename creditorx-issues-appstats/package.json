@@ -1,0 +1,8 @@
+{
+  "name": "creditorx-issues-appstats",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "archive-csvs": "node scripts/archive-csvs.mjs"
+  }
+}

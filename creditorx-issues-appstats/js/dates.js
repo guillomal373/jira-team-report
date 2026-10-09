@@ -8,6 +8,14 @@ function formatDisplayDate(date) {
   }).format(date);
 }
 
+function formatFullDate(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }).format(date);
+}
+
 function formatCompactDate(date) {
   return new Intl.DateTimeFormat("en-US", {
     month: "short",

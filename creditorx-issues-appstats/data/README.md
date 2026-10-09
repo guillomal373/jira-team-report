@@ -28,3 +28,20 @@ This allows the dashboard to infer the file date correctly.
 
 - If you only copy the CSV but do not run the `node` command, the dashboard may not load the new file.
 - If `node` is not installed on your machine, the command will fail and `data/files.json` must be updated another way.
+
+## Archiving redundant CSV files
+
+The dashboard identifies an issue by **Customer ID + Date (creation date)**; the Jira ticket is not part of the identity, because one ticket can resolve many issues. Two rows with the same customer and date in one file are told apart by their reported text. For every issue the dashboard keeps the row from the **last** CSV that contains it
+(that row also sets its "Last Update"). A CSV that is the last one for no issue is redundant.
+
+```bash
+npm run archive-csvs              # report only, nothing is moved
+npm run archive-csvs -- --apply   # move redundant files to data/archive/ and refresh files.json
+npm test                          # run the tests
+```
+
+Before moving anything, the script merges the CSVs with the dashboard's real code
+(`js/*.js`) with and without the candidates and refuses to proceed unless the result is
+identical. If a move fails or the result changes afterwards, everything is put back.
+Files in `data/archive/` are not loaded by the dashboard; move one back and run
+`node scripts/update-files-manifest.mjs` to restore it.
