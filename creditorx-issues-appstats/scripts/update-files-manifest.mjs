@@ -90,6 +90,17 @@ async function main() {
 
   await fs.writeFile(`${manifestPath}`, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
   console.log(`Updated ${path.relative(projectRoot, manifestPath)} with ${csvFiles.length} CSV files.`);
+
+  // Also refresh the pre-merged file. If it fails the dashboard still works from the CSVs.
+  try {
+    const { buildMergedData } = await import("./build-merged-data.mjs");
+    const { outFile, issues, bytes } = await buildMergedData(dataDir);
+    console.log(
+      `Updated ${path.relative(projectRoot, outFile)} with ${issues} issues (${(bytes / 1024 / 1024).toFixed(2)} MB).`
+    );
+  } catch (error) {
+    console.warn(`Could not update data/issues-merged.json (the dashboard will read the CSV files): ${error.message}`);
+  }
 }
 
 main().catch((error) => {

@@ -1981,7 +1981,7 @@ a.topics-top-tickets__link:focus-visible {
 
 .records-table {
   width: 100%;
-  min-width: 1680px;
+  min-width: 1100px;
   border-collapse: collapse;
 }
 
@@ -2034,39 +2034,76 @@ a.topics-top-tickets__link:focus-visible {
   word-break: break-word;
 }
 
+/* Tier 2 State: as wide as its header, long values wrap between words. */
+.records-table__col-state {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.records-table td.records-table__col-state {
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.records-table__col-issue,
+.records-table__col-comments {
+  width: 400px;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.records-table__expandable-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+}
+
+.records-table__expandable-text--expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  overflow: visible;
+}
+
+.records-table__expand-toggle {
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  font: inherit;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.records-table__expand-toggle[hidden] {
+  display: none;
+}
+
 .records-table__date-column {
   min-width: 132px;
   white-space: nowrap;
 }
 
 .records-table__jira-cell {
-  text-align: center;
+  white-space: nowrap;
 }
 
 .records-table__jira-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(205, 170, 86, 0.45);
-  border-radius: 6px;
   color: #f1d18a;
-  background: rgba(205, 170, 86, 0.08);
-  transition: background-color 140ms ease, border-color 140ms ease,
-    transform 140ms ease;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.records-table__jira-link:hover {
-  background: rgba(205, 170, 86, 0.16);
-  border-color: rgba(241, 209, 138, 0.8);
-  transform: translateY(-1px);
-}
-
-.records-table__jira-link svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
+.records-table__jira-link:hover,
+.records-table__jira-link:focus-visible {
+  color: #fff1c9;
 }
 
 .records-table__row td:first-child {

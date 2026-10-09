@@ -9,9 +9,10 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DASHBOARD_SOURCES = ["config.js", "csv.js", "dates.js", "data-loading.js"];
 
-export async function createDashboardLoader() {
+// `root` is the folder the dashboard's index.html would live in (so "data/..." URLs resolve).
+export async function createDashboardLoader({ root = projectRoot } = {}) {
   const context = vm.createContext({
-    window: { location: { href: pathToFileURL(`${projectRoot}/`).href } },
+    window: { location: { href: pathToFileURL(`${root}/`).href } },
     console,
     URL,
     Intl,
@@ -21,8 +22,13 @@ export async function createDashboardLoader() {
 
   vm.runInContext(
     `globalThis.fetch = async (fileUrl) => {
-       const text = await __readFile(String(fileUrl));
-       return { ok: true, status: 200, text: async () => text, headers: { get: () => null } };
+       let text;
+       try {
+         text = await __readFile(String(fileUrl));
+       } catch {
+         return { ok: false, status: 404, text: async () => "", json: async () => { throw new Error("404"); }, headers: { get: () => null } };
+       }
+       return { ok: true, status: 200, text: async () => text, json: async () => JSON.parse(text), headers: { get: () => null } };
      };`,
     context
   );
@@ -100,5 +106,35 @@ export async function createDashboardLoader() {
     };
   }
 
-  return { merge, countIssuesOwnedByFile };
+  // Same data the dashboard computes from the CSV files (see buildDashboardData in
+  // js/data-loading.js), plus the file format number used by data/issues-merged.json.
+  async function build(filePaths) {
+    context.__urls = filePaths.map(toUrl);
+    const json = await vm.runInContext(
+      `(async () => {
+         const results = await Promise.allSettled(__urls.map((url) => __load(url)));
+         const datasets = results
+           .filter((result) => result.status === "fulfilled")
+           .map((result) => result.value)
+           .filter((dataset) => dataset.headers.length > 0);
+         if (datasets.length === 0) return "null";
+         return JSON.stringify({ format: MERGED_DATA_FORMAT, data: buildDashboardData(datasets) });
+       })()`,
+      context
+    );
+    return JSON.parse(json);
+  }
+
+  // Runs any expression of the dashboard's own code (e.g. loadMergedData(__urls)) and
+  // returns its result as plain JSON.
+  async function evaluate(expression, variables = {}) {
+    Object.assign(context, variables);
+    const json = await vm.runInContext(
+      `(async () => JSON.stringify(await (${expression})) ?? "null")()`,
+      context
+    );
+    return JSON.parse(json);
+  }
+
+  return { merge, countIssuesOwnedByFile, build, evaluate, toUrl };
 }

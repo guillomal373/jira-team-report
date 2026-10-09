@@ -36,45 +36,32 @@ function refreshTable() {
 async function loadCsvTable() {
   try {
     const csvFiles = await discoverCsvFiles();
-    const results = await Promise.allSettled(
-      csvFiles.map((fileUrl) => loadCsvFile(fileUrl))
-    );
-    const successfulDatasets = results
-      .filter((result) => result.status === "fulfilled")
-      .map((result) => result.value)
-      .filter((dataset) => dataset.headers.length > 0);
+    const data = (await loadMergedData(csvFiles)) ?? (await loadDataFromCsvFiles(csvFiles));
 
-    if (successfulDatasets.length === 0) {
+    if (!data) {
       updateRecordCount([]);
       renderMessage("No CSV data could be loaded from the data folder.");
       return;
     }
-    const { headers, rows } = mergeDatasets(successfulDatasets, {
-      latestOnly: false,
-    });
-    const issueThemeDatasets = getDatasetsThroughToday(successfulDatasets);
-    const issueThemeDataset = mergeDatasets(issueThemeDatasets, {
-      latestOnly: false,
-    });
 
-    if (rows.length === 0) {
+    if (data.rows.length === 0) {
       updateRecordCount([]);
-      renderMessage("CSV files were found, but they do not contain data rows.", headers.length);
+      renderMessage("CSV files were found, but they do not contain data rows.", data.headers.length);
       return;
     }
 
-    setSubtitle(successfulDatasets.length);
-    setLastUpdate(successfulDatasets);
-    tableHeaders = headers;
-    allRows = rows;
-    issueThemeHeaders = issueThemeDataset.headers;
-    issueThemeRows = issueThemeDataset.rows;
-    issueThemeSourceCount = issueThemeDatasets.length;
+    setSubtitle(data.fileCount);
+    setLastUpdate(data.latestTimestamp);
+    tableHeaders = data.headers;
+    allRows = data.rows;
+    issueThemeHeaders = data.themeHeaders;
+    issueThemeRows = data.themeRows;
+    issueThemeSourceCount = data.themeFileCount;
     issueThemeThroughDateLabel = formatCompactDate(getEndOfToday());
 
-    initializeVisibleColumns(headers);
-    renderColumnsMenu(headers);
-    populateDateRangeFilter(headers, rows);
+    initializeVisibleColumns(tableHeaders);
+    renderColumnsMenu(tableHeaders);
+    populateDateRangeFilter(tableHeaders, allRows);
     refreshTable();
   } catch (error) {
     updateRecordCount([]);
@@ -206,5 +193,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("resize", syncTopicCardHeights);
+window.addEventListener("resize", () => window.requestAnimationFrame(updateExpandableCells));
 
 loadCsvTable();

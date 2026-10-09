@@ -74,6 +74,11 @@ function getJiraTicketUrl(value) {
     if (/^[A-Z]+-\d+$/i.test(trimmed)) {
       return `https://hiredexperts.atlassian.net/browse/${trimmed}`;
     }
+
+    // Exports often drop the scheme and truncate the tracking query ("...?atlOrigin=…").
+    if (/^[\w.-]+\.atlassian\.net\//i.test(trimmed)) {
+      return `https://${trimmed.split("?")[0]}`;
+    }
   }
 
   return "";
@@ -106,6 +111,23 @@ function formatJiraTicketLabel(value) {
   return trimmed;
 }
 
+// Columns with a controlled width (see .records-table__col-* in styles.css).
+function getColumnWidthClass(normalizedHeader) {
+  if (normalizedHeader === TIER_2_STATE_COLUMN_NAME.toLowerCase()) {
+    return "records-table__col-state";
+  }
+
+  if (normalizedHeader === "reported issue") {
+    return "records-table__col-issue";
+  }
+
+  if (normalizedHeader === TIER_2_COMMENTS_COLUMN_NAME.toLowerCase()) {
+    return "records-table__col-comments";
+  }
+
+  return "";
+}
+
 function renderTable(headers, rows) {
   const headerRow = document.createElement("tr");
   const visibleColumnIndices = getVisibleColumnIndices(headers);
@@ -118,6 +140,11 @@ function renderTable(headers, rows) {
     const cell = document.createElement("th");
     cell.scope = "col";
     const normalizedHeader = header.trim().toLowerCase();
+    const widthClass = getColumnWidthClass(normalizedHeader);
+
+    if (widthClass) {
+      cell.classList.add(widthClass);
+    }
 
     if (
       normalizedHeader === DATE_COLUMN_NAME.toLowerCase() ||
@@ -172,6 +199,12 @@ function renderTable(headers, rows) {
     visibleColumnIndices.forEach(({ header, index: columnIndex }) => {
       const cell = document.createElement("td");
       const normalizedHeader = header.trim().toLowerCase();
+      const widthClass = getColumnWidthClass(normalizedHeader);
+
+      if (widthClass) {
+        cell.classList.add(widthClass);
+      }
+
       const cellValue =
         normalizedHeader === REPORTED_BY_COLUMN_NAME.toLowerCase()
           ? formatReportedByValue(rowData[columnIndex] ?? "")
@@ -186,19 +219,18 @@ function renderTable(headers, rows) {
           link.href = jiraUrl;
           link.target = "_blank";
           link.rel = "noopener noreferrer";
-          link.setAttribute("aria-label", "Open Jira ticket in a new tab");
-          link.title = "Open Jira ticket";
-          link.innerHTML = `
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M10.59 13.41a1 1 0 0 1 0-1.41l4.17-4.17H12a1 1 0 1 1 0-2h5.17A1.83 1.83 0 0 1 19 7.66v5.17a1 1 0 1 1-2 0V10l-4.17 4.17a1 1 0 0 1-1.41 0Z"></path>
-              <path d="M6 7a2 2 0 0 1 2-2h2a1 1 0 1 1 0 2H8v9h9v-2a1 1 0 1 1 2 0v2a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7Z"></path>
-            </svg>
-          `;
+          link.title = "Open Jira ticket in a new tab";
+          link.textContent = "Ver ticket";
           cell.classList.add("records-table__jira-cell");
           cell.appendChild(link);
         } else {
           cell.textContent = "";
         }
+      } else if (
+        normalizedHeader === TIER_2_COMMENTS_COLUMN_NAME.toLowerCase() &&
+        cellValue.trim() !== ""
+      ) {
+        buildExpandableCell(cell, cellValue);
       } else {
         cell.textContent = cellValue;
       }
@@ -218,5 +250,40 @@ function renderTable(headers, rows) {
     });
 
     recordsBody.appendChild(row);
+  });
+
+  updateExpandableCells();
+}
+
+// Long comments show 5 lines (see .records-table__expandable-text in styles.css) and
+// a "Show more" button, which only appears when the text really overflows.
+function buildExpandableCell(cell, text) {
+  const textBlock = document.createElement("div");
+  textBlock.className = "records-table__expandable-text";
+  textBlock.textContent = text;
+
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "records-table__expand-toggle";
+  toggle.textContent = "Show more";
+  toggle.hidden = true;
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.addEventListener("click", () => {
+    const isExpanded = textBlock.classList.toggle("records-table__expandable-text--expanded");
+    toggle.textContent = isExpanded ? "Show less" : "Show more";
+    toggle.setAttribute("aria-expanded", String(isExpanded));
+  });
+
+  cell.classList.add("records-table__comments-cell");
+  cell.append(textBlock, toggle);
+}
+
+function updateExpandableCells() {
+  recordsBody.querySelectorAll(".records-table__comments-cell").forEach((cell) => {
+    const textBlock = cell.querySelector(".records-table__expandable-text");
+    const toggle = cell.querySelector(".records-table__expand-toggle");
+    const isExpanded = textBlock.classList.contains("records-table__expandable-text--expanded");
+
+    toggle.hidden = !isExpanded && textBlock.scrollHeight <= textBlock.clientHeight + 1;
   });
 }

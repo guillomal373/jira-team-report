@@ -15,6 +15,18 @@ node scripts/update-files-manifest.mjs
 4. Confirm that `data/files.json` now includes the new CSV file.
 5. Reload the dashboard in the browser.
 
+## Pre-merged file (`issues-merged.json`)
+
+`node scripts/update-files-manifest.mjs` also writes `data/issues-merged.json`: all the CSVs
+already merged (latest row per issue, with "Last Update"). The dashboard reads that one file
+(about 1 MB) instead of every CSV. If it is missing, corrupt, or was built from a different
+list of CSV files than `files.json`, the dashboard silently falls back to reading the CSVs.
+
+- Run the command again whenever you add, replace or archive a CSV. If you edit a CSV
+  **without changing its name**, the dashboard cannot tell, so always re-run the command.
+- Do not edit `issues-merged.json` by hand. It is regenerated every time.
+- To rebuild only this file: `node scripts/build-merged-data.mjs`.
+
 ## Filename format
 
 Use filenames like:

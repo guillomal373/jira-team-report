@@ -2,17 +2,20 @@
 
 const DATA_DIRECTORY = "data/";
 
+// Pre-merged data written by scripts/build-merged-data.mjs; the CSV files are the fallback.
+const MERGED_DATA_PATH = "data/issues-merged.json";
+const MERGED_DATA_FORMAT = 1;
 const CSV_MANIFEST_PATH = `${DATA_DIRECTORY}files.json`;
 
 const FALLBACK_CSV_FILES = [
-  "data/Issues-4-may.csv",
-  "data/Issues-5-may.csv",
-  "data/issues-6-may.csv",
-  "data/Issues-7-may.csv",
-  "data/Issues-8-may.csv",
+  "data/Issues-4-may-2026.csv",
+  "data/Issues-5-may-2026.csv",
+  "data/issues-6-may-2026.csv",
+  "data/Issues-7-may-2026.csv",
+  "data/Issues-8-may-2026.csv",
 ];
 
-const COLUMN_PREFS_STORAGE_KEY = "creditorx-issues-visible-columns-v2";
+const COLUMN_PREFS_STORAGE_KEY = "creditorx-issues-visible-columns-v3";
 
 const DATE_COLUMN_NAME = "Date";
 
@@ -47,17 +50,14 @@ const ISSUE_IDENTITY_COLUMN_NAMES = [
 const REQUIRED_COLUMN_NAMES = [
   DATE_COLUMN_NAME,
   "Reported Issue",
-  STATUS_COLUMN_NAME,
 ];
 
 const DEFAULT_VISIBLE_COLUMN_NAMES = [
   DATE_COLUMN_NAME,
   LAST_UPDATE_COLUMN_NAME,
   "Reported Issue",
-  STATUS_COLUMN_NAME,
   TIER_2_STATE_COLUMN_NAME,
   TIER_2_COMMENTS_COLUMN_NAME,
-  DEV_TEAM_COMMENTS_COLUMN_NAME,
   JIRA_TICKET_COLUMN_NAME,
 ];
 

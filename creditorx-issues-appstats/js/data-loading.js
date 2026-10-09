@@ -30,15 +30,10 @@ function getFileUpdateMeta(response, fileUrl) {
 }
 
 // "Last update" is the date of the newest CSV, read from the file names.
-function setLastUpdate(datasets) {
-  const timestamps = datasets
-    .map((dataset) => dataset.sourceTimestamp)
-    .filter((timestamp) => Number.isFinite(timestamp));
-
-  lastUpdateLabel.textContent =
-    timestamps.length > 0
-      ? `Last update: ${formatFullDate(new Date(Math.max(...timestamps)))}`
-      : "";
+function setLastUpdate(latestTimestamp) {
+  lastUpdateLabel.textContent = Number.isFinite(latestTimestamp)
+    ? `Last update: ${formatFullDate(new Date(latestTimestamp))}`
+    : "";
 }
 
 function setSubtitle(fileCount) {
@@ -147,6 +142,93 @@ async function loadCsvFile(fileUrl) {
     sourceLastUpdate: updateMeta.label,
     fileUrl,
   };
+}
+
+// Everything the dashboard needs from the CSV files. The browser (when it falls back
+// to the CSVs) and scripts/build-merged-data.mjs both call this, so the pre-merged
+// file always matches what the dashboard would compute itself.
+function buildDashboardData(datasets) {
+  const main = mergeDatasets(datasets, { latestOnly: false });
+  const themeDatasets = getDatasetsThroughToday(datasets);
+  const themes = mergeDatasets(themeDatasets, { latestOnly: false });
+  const timestamps = datasets
+    .map((dataset) => dataset.sourceTimestamp)
+    .filter((timestamp) => Number.isFinite(timestamp));
+
+  return {
+    headers: main.headers,
+    rows: main.rows,
+    themeHeaders: themes.headers,
+    themeRows: themes.rows,
+    fileCount: datasets.length,
+    themeFileCount: themeDatasets.length,
+    latestTimestamp: timestamps.length > 0 ? Math.max(...timestamps) : null,
+  };
+}
+
+async function loadDataFromCsvFiles(csvFiles) {
+  const results = await Promise.allSettled(csvFiles.map((fileUrl) => loadCsvFile(fileUrl)));
+  const datasets = results
+    .filter((result) => result.status === "fulfilled")
+    .map((result) => result.value)
+    .filter((dataset) => dataset.headers.length > 0);
+
+  return datasets.length > 0 ? buildDashboardData(datasets) : null;
+}
+
+function getFileNameFromUrl(fileUrl) {
+  return decodeURIComponent(new URL(fileUrl).pathname.split("/").pop() ?? "");
+}
+
+// Reads data/issues-merged.json instead of every CSV. Returns null (so the caller
+// falls back to the CSVs) when the file is missing, unreadable, has another format,
+// or was built from a different list of CSV files than data/files.json.
+async function loadMergedData(csvFiles) {
+  try {
+    const response = await fetch(new URL(MERGED_DATA_PATH, window.location.href), {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const merged = await response.json();
+
+    if (
+      merged.format !== MERGED_DATA_FORMAT ||
+      !Array.isArray(merged.headers) ||
+      !Array.isArray(merged.rows) ||
+      !Array.isArray(merged.sourceFiles)
+    ) {
+      return null;
+    }
+
+    const expectedFiles = csvFiles.map(getFileNameFromUrl).sort();
+    const builtFromFiles = [...merged.sourceFiles].sort();
+
+    if (JSON.stringify(expectedFiles) !== JSON.stringify(builtFromFiles)) {
+      console.warn(
+        "data/issues-merged.json is out of date; loading the CSV files instead. " +
+          "Run: node scripts/update-files-manifest.mjs"
+      );
+      return null;
+    }
+
+    const themes = merged.themes ?? { headers: merged.headers, rows: merged.rows };
+
+    return {
+      headers: merged.headers,
+      rows: merged.rows,
+      themeHeaders: themes.headers,
+      themeRows: themes.rows,
+      fileCount: merged.fileCount,
+      themeFileCount: merged.themeFileCount,
+      latestTimestamp: merged.latestTimestamp,
+    };
+  } catch {
+    return null;
+  }
 }
 
 function getEndOfToday() {

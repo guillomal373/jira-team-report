@@ -81,6 +81,10 @@ function showIssueTextTooltip(issueText, clientX, clientY) {
   setIssueTextTooltipPosition(clientX, clientY);
 }
 
+function getTimelineEventsForDate(isoDate) {
+  return TIMELINE_EVENTS.filter((event) => event.date === isoDate);
+}
+
 function getTimelineTooltipText(point) {
   const lines = [
     `${formatDisplayDate(point.date)}: ${point.total} issue${point.total === 1 ? "" : "s"}`,
@@ -90,10 +94,14 @@ function getTimelineTooltipText(point) {
     lines.push(`${segment.status}: ${segment.value}`);
   });
 
+  getTimelineEventsForDate(point.isoDate).forEach((event) => {
+    lines.push(`Event: ${event.label}`);
+  });
+
   return lines.join("\n");
 }
 
-function renderTimelineTooltip({ title, totalText, segments, activeStatus }, clientX, clientY) {
+function renderTimelineTooltip({ title, totalText, segments, activeStatus, events = [] }, clientX, clientY) {
   const tooltip = getTimelineTooltip();
   tooltip.replaceChildren();
 
@@ -140,6 +148,38 @@ function renderTimelineTooltip({ title, totalText, segments, activeStatus }, cli
   });
 
   tooltip.append(dateLabel, totalLabel, conventionLabel, list);
+
+  if (events.length > 0) {
+    const eventsLabel = document.createElement("p");
+    eventsLabel.className = "timeline-tooltip__section-label";
+    eventsLabel.textContent = events.length === 1 ? "Event" : "Events";
+
+    const eventsList = document.createElement("div");
+    eventsList.className = "timeline-tooltip__list timeline-tooltip__events";
+
+    events.forEach((event) => {
+      const item = document.createElement("div");
+      item.className = "timeline-tooltip__item";
+
+      const statusGroup = document.createElement("div");
+      statusGroup.className = "timeline-tooltip__status";
+
+      const swatch = document.createElement("span");
+      swatch.className = "timeline-tooltip__swatch";
+      swatch.style.setProperty("--tooltip-color", event.color || "#cdaa56");
+
+      const label = document.createElement("span");
+      label.className = "timeline-tooltip__label";
+      label.textContent = event.label;
+
+      statusGroup.append(swatch, label);
+      item.appendChild(statusGroup);
+      eventsList.appendChild(item);
+    });
+
+    tooltip.append(eventsLabel, eventsList);
+  }
+
   tooltip.hidden = false;
   setTimelineTooltipPosition(clientX, clientY);
 }
@@ -150,6 +190,7 @@ function showTimelineTooltip(point, clientX, clientY) {
       title: formatDisplayDate(point.date),
       totalText: `${point.total} issue${point.total === 1 ? "" : "s"} total`,
       segments: point.segments,
+      events: getTimelineEventsForDate(point.isoDate),
     },
     clientX,
     clientY,
