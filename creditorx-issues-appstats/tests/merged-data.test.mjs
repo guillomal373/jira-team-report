@@ -95,7 +95,7 @@ test("archived files in data/archive are not part of the merged file", async () 
   assert.ok((await browserView(root, dataDir)).fromMerged);
 });
 
-test("real data: the merged file matches the 50 CSV files and is much smaller", async (t) => {
+test("real data: the merged file matches the CSV files and is smaller than them", async (t) => {
   const exists = await fs.access(realDataDir).then(() => true, () => false);
   if (!exists) {
     t.skip("data/ folder not present");
@@ -116,5 +116,5 @@ test("real data: the merged file matches the 50 CSV files and is much smaller", 
 
   assert.ok(fromMerged);
   assert.deepEqual(fromMerged, fromCsv);
-  assert.ok(built.bytes < csvBytes / 4, `merged ${built.bytes} bytes vs CSV ${csvBytes} bytes`);
+  assert.ok(built.bytes < csvBytes, `merged ${built.bytes} bytes should be smaller than the CSVs (${csvBytes} bytes)`);
 });

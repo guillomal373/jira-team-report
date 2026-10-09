@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Generates wall-chart.html from an issues CSV.
-Usage: python3 scripts/build-wall-chart.py data/Issues-2-oct.csv
+"""Generates wall-chart.html from the issues data.
+Usage: python3 scripts/build-wall-chart.py [data/issues-merged.json | some-issues.csv]
+Default source: data/issues-merged.json, every CSV already merged the way the dashboard
+merges them (refresh it first with: node scripts/update-files-manifest.mjs).
 Uses the same rules as the dashboard (scripts/issue-theme-rules.js)."""
 import csv, re, sys, json, unicodedata, subprocess, collections, html, datetime, pathlib
 root = pathlib.Path(__file__).resolve().parent.parent
-src = sys.argv[1] if len(sys.argv) > 1 else 'data/Issues-2-oct.csv'
+src = sys.argv[1] if len(sys.argv) > 1 else 'data/issues-merged.json'
 cfg = json.loads(subprocess.check_output(['node', '-e', 'global.window={};require("./scripts/issue-theme-rules.js");console.log(JSON.stringify(window.CREDITORX_ISSUE_THEME_CONFIG))'], cwd=root, text=True))
 
 def norm(v):
@@ -33,7 +35,20 @@ STAGE = {
 }
 DAYS = 60
 cutoff = (datetime.date.today() - datetime.timedelta(days=DAYS)).isoformat()
-rows = [r for r in csv.DictReader(open(root / src, encoding='utf-8')) if norm(r['Reported Issue']) and r['Date'][:10] >= cutoff]
+COLUMNS = ['Reported Issue', 'Tier 2 Comments', 'Dev Team Comments', 'Date', 'IOS or Android', 'Carrier/Provider']
+def load_rows(path):
+    """Rows as dicts with the column names used below (headers matched ignoring case)."""
+    if str(path).lower().endswith('.json'):
+        merged = json.load(open(path, encoding='utf-8'))
+        headers, values = merged['headers'], merged['rows']
+        records = [dict(zip(headers, v)) for v in values]
+    else:
+        records = list(csv.DictReader(open(path, encoding='utf-8-sig')))
+        headers = list(records[0].keys()) if records else []
+    by_lower = {h.strip().lower(): h for h in headers}
+    return [{c: rec.get(by_lower.get(c.lower(), c), '') or '' for c in COLUMNS} for rec in records]
+
+rows = [r for r in load_rows(root / src) if norm(r['Reported Issue']) and r['Date'][:10] >= cutoff]
 themes = collections.defaultdict(list)
 for r in rows:
     themes[theme(' '.join([r['Reported Issue'], r['Tier 2 Comments'], r['Dev Team Comments']]))].append(r)
@@ -100,6 +115,6 @@ h1{{font-size:clamp(28px,4vw,52px);margin:0;letter-spacing:-.02em}}header p{{mar
 <div class="card"><h2>Platform</h2>{bars(osc, '#29335c')}</div>
 <div class="card"><h2>Carrier</h2>{bars(car, '#2a9d8f')}</div>
 <div class="card"><h2>Issues per week (last {DAYS} days)</h2><div class="trend">{trend}</div></div></div></div>
-<footer>Automatic keyword-based classification (scripts/issue-theme-rules.js). Generated on {datetime.date.today()}. Regenerate: python3 scripts/build-wall-chart.py &lt;csv&gt;</footer></div></body></html>'''
+<footer>Automatic keyword-based classification (scripts/issue-theme-rules.js). Generated on {datetime.date.today()}. Regenerate: node scripts/update-files-manifest.mjs, then python3 scripts/build-wall-chart.py</footer></div></body></html>'''
 (root / 'wall-chart.html').write_text(out, encoding='utf-8')
 print('ok', total, [(k, len(v)) for k, v in ranked[:5]], dict(stages))
