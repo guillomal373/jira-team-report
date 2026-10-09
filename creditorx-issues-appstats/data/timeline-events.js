@@ -29,6 +29,12 @@ window.CREDITORX_TIMELINE_EVENTS = [
     color: "#ff375f",
   },
   {
+    date: "2026-09-05",
+    icon: "apple",
+    label: "iOS release v1.5.1",
+    color: "#0a84ff",
+  },
+  {
     date: "2026-09-21",
     icon: "database",
     label: "Database erased",
