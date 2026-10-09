@@ -48,9 +48,6 @@ function getTimelineSeries(rows, headers) {
   const dateColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(DATE_COLUMN_NAME)
   );
-  const statusColumnIndex = headers.findIndex(
-    (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
-  );
   const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
   const { startDate, endDate } = buildTimelineRange();
   const series = [];
@@ -59,7 +56,15 @@ function getTimelineSeries(rows, headers) {
   const timelineStatusCounts = new Map();
 
   rows.forEach((row) => {
-    if (dateColumnIndex < 0) {
+    if (dateColumnIndex < 0 || tier2StateColumnIndex < 0) {
+      return;
+    }
+
+    // The timeline only plots Tier 2 State; rows without one are skipped
+    // (no fallback to the older "Status" column).
+    const tier2State = (row[tier2StateColumnIndex] ?? "").trim();
+
+    if (!tier2State) {
       return;
     }
 
@@ -70,8 +75,7 @@ function getTimelineSeries(rows, headers) {
     }
 
     const isoDate = toIsoDate(parsedDate);
-    const rawStatus = getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex);
-    const status = normalizeStatusForCharts(rawStatus) || "Unknown";
+    const status = normalizeStatusForCharts(tier2State);
     const dateCounts = counts.get(isoDate) ?? new Map();
     dateCounts.set(status, (dateCounts.get(status) ?? 0) + 1);
     counts.set(isoDate, dateCounts);
@@ -156,35 +160,6 @@ function renderTimeline(rows, headers, scaleRows = rows) {
     item.append(swatch, label);
     timelineLegend.appendChild(item);
   });
-
-  [...new Map(visibleEvents.map((event) => [event.label, event])).values()].forEach(
-    (event) => {
-      const item = document.createElement("div");
-      item.className = "timeline-panel__legend-item timeline-panel__legend-item--event";
-
-      const swatch = document.createElement("span");
-      swatch.className = "timeline-panel__legend-swatch timeline-panel__legend-swatch--event";
-      swatch.style.setProperty("--legend-color", event.color);
-      if (event.icon === "apple") {
-        swatch.innerHTML = APPLE_LOGO_SVG_MARKUP;
-      } else if (event.icon === "android") {
-        swatch.innerHTML = ANDROID_LOGO_SVG_MARKUP;
-      } else if (event.icon === "megaphone") {
-        swatch.innerHTML = MEGAPHONE_SVG_MARKUP;
-      } else if (event.icon === "database") {
-        swatch.innerHTML = DATABASE_SVG_MARKUP;
-      } else {
-        swatch.textContent = event.icon;
-      }
-
-      const label = document.createElement("span");
-      label.className = "timeline-panel__legend-label";
-      label.textContent = event.label;
-
-      item.append(swatch, label);
-      timelineLegend.appendChild(item);
-    }
-  );
 
   for (let tick = 0; tick <= tickCount; tick += 1) {
     const value = tickStep * tick;

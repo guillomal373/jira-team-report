@@ -59,6 +59,10 @@ const platformBar = document.getElementById("platform-bar");
 
 const platformList = document.getElementById("platform-list");
 
+const carrierSubtitle = document.getElementById("carrier-subtitle");
+
+const carrierList = document.getElementById("carrier-list");
+
 const tier2OwnerSubtitle = document.getElementById("tier2-owner-subtitle");
 
 const tier2OwnerBar = document.getElementById("tier2-owner-bar");
@@ -72,6 +76,12 @@ const timelineDayFilter = document.getElementById("timeline-day-filter");
 const timelineSubtitle = document.getElementById("timeline-subtitle");
 
 const timelineLegend = document.getElementById("timeline-legend");
+
+const themeTrendSubtitle = document.getElementById("theme-trend-subtitle");
+
+const themeTrendLegend = document.getElementById("theme-trend-legend");
+
+const themeTrendChart = document.getElementById("theme-trend-chart");
 
 const topicsSubtitle = document.getElementById("topics-subtitle");
 

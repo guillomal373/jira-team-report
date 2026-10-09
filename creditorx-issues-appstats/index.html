@@ -170,6 +170,19 @@
               ></svg>
               <div class="status-pie-card__legend" id="status-pie-legend"></div>
             </div>
+            <section class="carrier-card" aria-labelledby="carrier-title">
+              <div class="carrier-card__header">
+                <h3 id="carrier-title">Carrier / Provider</h3>
+                <div class="carrier-card__key" aria-hidden="true">
+                  <span class="carrier-card__key-item" style="--platform-color: #11a86a">Android</span>
+                  <span class="carrier-card__key-item" style="--platform-color: #1aa8ee">iOS</span>
+                </div>
+              </div>
+              <p class="status-pie-card__subtitle" id="carrier-subtitle">
+                Carrier by platform.
+              </p>
+              <div class="carrier-card__list" id="carrier-list"></div>
+            </section>
           </div>
         </div>
         <div class="status-overview__platform">
@@ -216,6 +229,26 @@
             viewBox="0 0 960 280"
             role="img"
             aria-label="Daily issues timeline chart"
+          ></svg>
+        </div>
+      </section>
+      <section class="timeline-panel" aria-labelledby="theme-trend-title">
+        <header class="timeline-panel__header">
+          <div>
+            <h2 id="theme-trend-title">Themes By Week</h2>
+            <p class="timeline-panel__subtitle" id="theme-trend-subtitle">
+              Weekly issue volume by theme.
+            </p>
+          </div>
+        </header>
+        <div class="timeline-panel__legend" id="theme-trend-legend"></div>
+        <div class="timeline-panel__chart-wrap">
+          <svg
+            class="timeline-panel__chart"
+            id="theme-trend-chart"
+            viewBox="0 0 960 340"
+            role="img"
+            aria-label="Weekly issue volume by theme"
           ></svg>
         </div>
       </section>
@@ -339,6 +372,7 @@
     <script src="js/timeline.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/topics.js"></script>
+    <script src="js/theme-trend.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

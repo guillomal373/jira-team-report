@@ -31,6 +31,8 @@ const TIER_2_STATE_COLUMN_NAME = "Tier 2 State";
 
 const PLATFORM_COLUMN_NAME = "IOS or Android";
 
+const CARRIER_COLUMN_NAME = "Carrier/Provider";
+
 const DEV_TEAM_COMMENTS_COLUMN_NAME = "Dev Team comments";
 
 const TIER_2_COMMENTS_COLUMN_NAME = "Tier 2 Comments";

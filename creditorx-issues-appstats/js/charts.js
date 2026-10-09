@@ -218,6 +218,93 @@ function renderPlatformDistribution(rows, headers) {
   });
 }
 
+const CARRIER_VISIBLE_COUNT = 6;
+
+function renderCarrierDistribution(rows, headers) {
+  carrierList.replaceChildren();
+
+  const { carriers, notReported } = getCarrierPlatformCounts(rows, headers);
+  const reportedTotal = carriers.reduce((sum, entry) => sum + entry.total, 0);
+
+  carrierSubtitle.textContent = `Carrier by platform for ${describeDateRangeSelection()}. ${notReported.toLocaleString("en-US")} issue${notReported === 1 ? "" : "s"} with no carrier reported are not counted.`;
+
+  if (reportedTotal === 0) {
+    const empty = document.createElement("p");
+    empty.className = "platform-card__empty";
+    empty.textContent = "No carrier data for the selected range.";
+    carrierList.appendChild(empty);
+    return;
+  }
+
+  // "Other" always goes last, whatever its size.
+  const named = carriers
+    .filter((entry) => entry.label !== "Other")
+    .sort((left, right) => right.total - left.total || left.label.localeCompare(right.label));
+  const visible = named.slice(0, CARRIER_VISIBLE_COUNT);
+  const other = {
+    label: "Other",
+    Android: 0,
+    iOS: 0,
+    Unknown: 0,
+    total: 0,
+  };
+
+  [...named.slice(CARRIER_VISIBLE_COUNT), ...carriers.filter((entry) => entry.label === "Other")].forEach(
+    (entry) => {
+      other.Android += entry.Android;
+      other.iOS += entry.iOS;
+      other.Unknown += entry.Unknown;
+      other.total += entry.total;
+    }
+  );
+
+  const entries = other.total > 0 ? [...visible, other] : visible;
+  const maxTotal = Math.max(...entries.map((entry) => entry.total));
+
+  entries.forEach((entry) => {
+    const percentage = (entry.total / reportedTotal) * 100;
+    const item = document.createElement("div");
+    item.className = "carrier-row";
+    item.title = `${entry.label}: ${entry.total.toLocaleString("en-US")} issues (${percentage.toFixed(1)}% of issues with a carrier)\nAndroid: ${entry.Android} · iOS: ${entry.iOS}${entry.Unknown > 0 ? ` · Unknown platform: ${entry.Unknown}` : ""}`;
+
+    const name = document.createElement("span");
+    name.className = "platform-card__label";
+    name.textContent = entry.label;
+
+    const track = document.createElement("div");
+    track.className = "carrier-row__track";
+
+    const bar = document.createElement("div");
+    bar.className = "carrier-row__bar";
+    bar.style.width = `${(entry.total / maxTotal) * 100}%`;
+
+    ["Android", "iOS", "Unknown"].forEach((platform) => {
+      if (entry[platform] === 0) {
+        return;
+      }
+
+      const segment = document.createElement("span");
+      segment.className = "platform-card__bar-segment";
+      segment.style.setProperty("--platform-color", PLATFORM_COLOR_MAP[platform]);
+      segment.style.width = `${(entry[platform] / entry.total) * 100}%`;
+      bar.appendChild(segment);
+    });
+
+    track.appendChild(bar);
+
+    const count = document.createElement("span");
+    count.className = "platform-card__count carrier-row__count";
+    count.textContent = `${entry.total.toLocaleString("en-US")} issues`;
+
+    const percent = document.createElement("strong");
+    percent.className = "platform-card__percent";
+    percent.textContent = `${percentage.toFixed(1)}%`;
+
+    item.append(name, track, count, percent);
+    carrierList.appendChild(item);
+  });
+}
+
 function renderTier2OwnerDistribution(rows, headers) {
   tier2OwnerBar.replaceChildren();
   tier2OwnerList.replaceChildren();

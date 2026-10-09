@@ -72,6 +72,68 @@ function normalizePlatform(value) {
   return "Unknown";
 }
 
+// The "Carrier/Provider" column is free text (typos, casing, "Metro by
+// T-Mobile", "xfinity/ verizon"...). Rules run in order and the first match
+// wins, so resellers (Metro, Cricket, Straight Talk...) are tested before the
+// network they run on. Returns null when no carrier was actually reported.
+const CARRIER_RULES = [
+  { label: "Metro", pattern: /metro/ },
+  { label: "Cricket", pattern: /cricket/ },
+  { label: "Consumer Cellular", pattern: /consum/ },
+  { label: "Xfinity", pattern: /xfin|x fin|xdin|exfin|finity|infinity|comcast|xpin|x pin/ },
+  { label: "Spectrum", pattern: /spectr|espectr|expectr/ },
+  {
+    label: "Other",
+    pattern: /straight|strike talk|mint|boost|visible|total wireless|simple mobile|pure ?talk|google fi|us mobile|us cel|cspire|c spire|c-spire|cellcom|cox|optimum|patriot|sprint|millry|stand up|amac|sixfaire/,
+  },
+  { label: "T-Mobile", pattern: /t[\s.\-/]*mobil|tmobil|r-mobile|t-life/ },
+  { label: "Verizon", pattern: /ver[iy]|verizon|verison|veraizon/ },
+  { label: "AT&T", pattern: /at ?& ?t|^att\b|^att /i },
+];
+
+const CARRIER_NOT_REPORTED_PATTERN =
+  /^(|-+|\.|n\/?a\.?|na|unknown|unspecified|test|disible|not (provided|specified|confirmed)|\d+)$/;
+
+function normalizeCarrier(value) {
+  const normalized = String(value ?? "").trim().toLowerCase();
+
+  if (CARRIER_NOT_REPORTED_PATTERN.test(normalized)) {
+    return null;
+  }
+
+  return CARRIER_RULES.find(({ pattern }) => pattern.test(normalized))?.label ?? "Other";
+}
+
+// Per-carrier issue counts split by platform, plus how many issues had no
+// usable carrier.
+function getCarrierPlatformCounts(rows, headers) {
+  const carrierColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(CARRIER_COLUMN_NAME)
+  );
+  const platformColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(PLATFORM_COLUMN_NAME)
+  );
+  const carriers = new Map();
+  let notReported = 0;
+
+  rows.forEach((row) => {
+    const carrier = normalizeCarrier(carrierColumnIndex >= 0 ? row[carrierColumnIndex] : "");
+
+    if (!carrier) {
+      notReported += 1;
+      return;
+    }
+
+    const platform = normalizePlatform(platformColumnIndex >= 0 ? row[platformColumnIndex] : "");
+    const entry = carriers.get(carrier) ?? { label: carrier, Android: 0, iOS: 0, Unknown: 0, total: 0 };
+    entry[platform] += 1;
+    entry.total += 1;
+    carriers.set(carrier, entry);
+  });
+
+  return { carriers: [...carriers.values()], notReported };
+}
+
 function getPlatformCounts(rows, headers) {
   const platformColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(PLATFORM_COLUMN_NAME)

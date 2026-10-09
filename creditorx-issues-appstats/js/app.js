@@ -15,10 +15,12 @@ function refreshTable() {
   renderStatusSummary(baseFilteredRows, tableHeaders);
   renderStatusPie(baseFilteredRows, tableHeaders);
   renderPlatformDistribution(baseFilteredRows, tableHeaders);
+  renderCarrierDistribution(baseFilteredRows, tableHeaders);
   renderTier2OwnerDistribution(baseFilteredRows, tableHeaders);
   renderTimeline(timelineRows, tableHeaders);
   renderTimelineDayChip();
   renderTopicInsights(baseFilteredRows, tableHeaders);
+  renderThemeTrend(timelineRows, tableHeaders);
   renderReportedByDistribution(baseFilteredRows, tableHeaders);
 
   const filteredRows = getTableFilteredRows(baseFilteredRows, tableHeaders);
