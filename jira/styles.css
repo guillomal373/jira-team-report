@@ -1865,3 +1865,40 @@ h1 {
         height: 240px;
     }
 }
+
+.portal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(243, 240, 234, 0.74);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.portal-footer svg {
+  width: 20px;
+  height: 20px;
+  stroke: #efba77;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.portal-footer__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.portal-footer__author {
+  font-size: 0.78rem;
+  color: rgba(243, 240, 234, 0.5);
+  letter-spacing: 0.02em;
+}

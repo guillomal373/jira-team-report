@@ -344,6 +344,19 @@
             stroke-linejoin: round;
         }
 
+        .portal-footer__text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .portal-footer__author {
+            font-size: 0.78rem;
+            color: rgba(243, 240, 234, 0.5);
+            letter-spacing: 0.02em;
+        }
+
         @media (max-width: 1100px) {
             .page {
                 width: min(100% - 32px, 980px);
@@ -470,7 +483,7 @@
                 <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path>
                 <path d="M9.5 12.5l1.7 1.7 3.6-4"></path>
             </svg>
-            <span>Secure access. Real-time insights. Smarter decisions.</span>
+            <div class="portal-footer__text"><span>Secure access. Real-time insights. Smarter decisions.</span><small class="portal-footer__author">Guillermo Malagon - Project Manager, 2026</small></div>
         </footer>
     </main>
 </body>
