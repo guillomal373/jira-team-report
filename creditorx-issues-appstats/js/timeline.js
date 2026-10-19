@@ -48,6 +48,9 @@ function getTimelineSeries(rows, headers) {
   const dateColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(DATE_COLUMN_NAME)
   );
+  const statusColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
+  );
   const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
   const { startDate, endDate } = buildTimelineRange();
   const series = [];
@@ -56,17 +59,12 @@ function getTimelineSeries(rows, headers) {
   const timelineStatusCounts = new Map();
 
   rows.forEach((row) => {
-    if (dateColumnIndex < 0 || tier2StateColumnIndex < 0) {
+    if (dateColumnIndex < 0) {
       return;
     }
 
-    // The timeline only plots Tier 2 State; rows without one are skipped
-    // (no fallback to the older "Status" column).
-    const tier2State = (row[tier2StateColumnIndex] ?? "").trim();
-
-    if (!tier2State) {
-      return;
-    }
+    // Same rule as the other charts: Tier 2 State, then Status; blank counts as "New".
+    const rawStatus = getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex);
 
     const parsedDate = parseIsoDate(row[dateColumnIndex] ?? "");
 
@@ -75,7 +73,7 @@ function getTimelineSeries(rows, headers) {
     }
 
     const isoDate = toIsoDate(parsedDate);
-    const status = normalizeStatusForCharts(tier2State);
+    const status = normalizeStatusForCharts(rawStatus);
     const dateCounts = counts.get(isoDate) ?? new Map();
     dateCounts.set(status, (dateCounts.get(status) ?? 0) + 1);
     counts.set(isoDate, dateCounts);
