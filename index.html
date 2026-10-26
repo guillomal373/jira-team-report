@@ -483,7 +483,7 @@
         </header>
 
         <section class="portal-grid" aria-label="Dashboard modules">
-            <a class="portal-card portal-card--jira" href="jira/index.html">
+            <a class="portal-card portal-card--jira" href="jira/index.html" data-dashboard="jira">
                 <div class="portal-card-head">
                     <div class="portal-card-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24">
@@ -495,7 +495,7 @@
                             <h2 class="portal-card-title">JIRA</h2>
                             <span class="portal-card-version">(v1.7.0)</span>
                         </div>
-                        <div class="portal-card-updated">Updated <time datetime="2026-10-19">19 Oct 2026</time></div>
+                        <div class="portal-card-updated">Updated <time datetime="2026-10-26">26 Oct 2026</time></div>
                         <div class="portal-card-line" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -509,7 +509,7 @@
                 </div>
             </a>
 
-            <a class="portal-card portal-card--creditorx" href="creditorx-issues-appstats/index.html">
+            <a class="portal-card portal-card--creditorx" href="creditorx-issues-appstats/index.html" data-dashboard="creditorx">
                 <div class="portal-card-head">
                     <div class="portal-card-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24">
@@ -521,7 +521,7 @@
                             <h2 class="portal-card-title">CreditorX</h2>
                             <span class="portal-card-version">(v1.12.1)</span>
                         </div>
-                        <div class="portal-card-updated">Updated <time datetime="2026-10-21">21 Oct 2026</time></div>
+                        <div class="portal-card-updated">Updated <time datetime="2026-10-26">26 Oct 2026</time></div>
                         <div class="portal-card-line" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -544,5 +544,76 @@
             <div class="portal-footer__text"><span>Secure access. Real-time insights. Smarter decisions.</span><small class="portal-footer__author">Guillermo Malagon - Project Manager, 2026</small></div>
         </footer>
     </main>
+    <script>
+        // Version and date shown on each card come from the dashboards themselves.
+        // The static HTML values are only a fallback if a fetch fails.
+        (function () {
+            var MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+            var LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            function pad(n) { return String(n).padStart(2, '0'); }
+
+            function setVersion(card, version) {
+                var el = card.querySelector('.portal-card-version');
+                if (el && version) el.textContent = '(' + version + ')';
+            }
+
+            function setUpdated(card, date) {
+                var time = card.querySelector('.portal-card-updated time');
+                if (!time || !date) return;
+                time.setAttribute('datetime', date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate()));
+                time.textContent = date.getDate() + ' ' + LABELS[date.getMonth()] + ' ' + date.getFullYear();
+            }
+
+            function fetchText(url) {
+                return fetch(url, { cache: 'no-store' }).then(function (r) {
+                    if (!r.ok) throw new Error('HTTP ' + r.status);
+                    return r.text();
+                });
+            }
+
+            function readVersion(card) {
+                return fetchText(card.getAttribute('href')).then(function (html) {
+                    var m = html.match(/\bv(\d+\.\d+\.\d+)/);
+                    if (m) setVersion(card, 'v' + m[1]);
+                });
+            }
+
+            // Newest date found in the CSV file names listed in data/files.json.
+            function readCreditorxDate(card) {
+                return fetchText('creditorx-issues-appstats/data/files.json').then(function (text) {
+                    var latest = null;
+                    JSON.parse(text).files.forEach(function (file) {
+                        var m = file.match(/(\d{1,2})-([a-zA-Z]+)(?:-(\d{4}))?/);
+                        var month = m && MONTHS[m[2].slice(0, 3).toLowerCase()];
+                        if (month === undefined) return;
+                        var date = new Date(m[3] ? Number(m[3]) : new Date().getFullYear(), month, Number(m[1]));
+                        if (!latest || date > latest) latest = date;
+                    });
+                    setUpdated(card, latest);
+                });
+            }
+
+            // JIRA exports carry no date in the file name: use the modified time of the
+            // newest sprint's CSV (last entry in data/sprints.json).
+            function readJiraDate(card) {
+                return fetchText('jira/data/sprints.json').then(function (text) {
+                    var sprints = JSON.parse(text).sprints;
+                    var csvFile = sprints[sprints.length - 1].csvFile;
+                    return fetch('jira/data/' + encodeURI(csvFile), { method: 'HEAD', cache: 'no-store' });
+                }).then(function (r) {
+                    var modified = r.ok && r.headers.get('Last-Modified');
+                    var date = modified ? new Date(modified) : null;
+                    if (date && !isNaN(date.getTime())) setUpdated(card, date);
+                });
+            }
+
+            document.querySelectorAll('[data-dashboard]').forEach(function (card) {
+                readVersion(card).catch(function () {});
+                if (card.dataset.dashboard === 'creditorx') readCreditorxDate(card).catch(function () {});
+                if (card.dataset.dashboard === 'jira') readJiraDate(card).catch(function () {});
+            });
+        })();
+    </script>
 </body>
 </html>
