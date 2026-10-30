@@ -249,7 +249,13 @@
                         </div>
                     </div>
                     <div class="matrix-chart-panel">
-                        <div class="trend-subtag trend-subtag--chart">Tasks vs Avg SP / Task</div>
+                        <div class="chart-head">
+                            <div class="trend-subtag trend-subtag--chart">Tasks vs Avg SP / Task</div>
+                            <button type="button" class="history-toggle" id="bubbleHistoryToggle" aria-pressed="true" title="Show or hide the 3 previous sprints">
+                                <span class="history-toggle__dot" aria-hidden="true"></span>
+                                Previous sprints
+                            </button>
+                        </div>
                         <div class="matrix-bubble-chart">
                             <canvas id="storypointBubbleChart"></canvas>
                         </div>

@@ -933,6 +933,61 @@ h1 {
     min-width: 0;
 }
 
+.chart-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 16px;
+    flex-wrap: wrap;
+}
+
+.history-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 28px;
+    padding: 0 12px;
+    margin-bottom: 6px;
+    border: 1px solid rgba(201, 168, 92, 0.85);
+    background: rgba(17, 17, 17, 0.96);
+    color: #c9a85c;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.history-toggle[hidden] {
+    display: none;
+}
+
+.history-toggle__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    background: currentColor;
+    opacity: 0.5;
+}
+
+.history-toggle[aria-pressed="false"] {
+    border-color: #3a3a3a;
+    color: #7a7a7a;
+}
+
+.history-toggle[aria-pressed="false"] .history-toggle__dot {
+    background: transparent;
+    opacity: 1;
+}
+
+.history-toggle:hover,
+.history-toggle:focus-visible {
+    border-color: #f1d18a;
+    color: #f1d18a;
+}
+
 .matrix-stacked-chart,
 .matrix-bubble-chart {
     height: 360px;

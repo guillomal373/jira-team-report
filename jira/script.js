@@ -38,6 +38,8 @@ let memberSummaryChart = null;
 let sprint3SummaryChart = null;
 let storyPointStackedChart = null;
 let storyPointBubbleChart = null;
+let showPreviousSprintBubbles = true;
+const PREVIOUS_SPRINTS_IN_BUBBLE_CHART = 3;
 const memberPalette = ['#c9a85c', '#4b8cff', '#6ec5ff', '#f5d469', '#ff5f56', '#7de1c3'];
 let statusChartInstance = null;
 let teamCache = [];
@@ -1219,8 +1221,17 @@ async function loadSprintTrends() {
                         console.warn('Unable to load CSV for sprint overview:', csvPath, error);
                     });
                 loadCsvTable(csvPath);
+                const previousSprints = optionsSource
+                    .slice(0, idx)
+                    .filter(entry => entry?.csvFile)
+                    .slice(-PREVIOUS_SPRINTS_IN_BUBBLE_CHART)
+                    .reverse()
+                    .map(entry => ({ name: entry.name, csvPath: `./data/${entry.csvFile}` }));
                 loadCsvMemberTrendForSprint(csvPath, filteredTeam);
-                loadCsvStoryPointMatrixForSprint(csvPath, filteredTeam);
+                loadCsvStoryPointMatrixForSprint(csvPath, filteredTeam, {
+                    sprintName: metaEntry.name,
+                    previousSprints
+                });
             } else {
                 loadCsvTable(null);
                 loadCsvMemberTrendForSprint(null, filteredTeam);
@@ -1541,7 +1552,22 @@ function renderStoryPointStackedChart(canvas, stackedData = null) {
     });
 }
 
-function renderStoryPointBubbleChart(canvas, bubbleData = []) {
+function bindBubbleHistoryToggle() {
+    const toggle = document.getElementById('bubbleHistoryToggle');
+    if (!toggle || toggle.dataset.bound) return;
+
+    toggle.addEventListener('click', () => {
+        showPreviousSprintBubbles = !showPreviousSprintBubbles;
+        toggle.setAttribute('aria-pressed', String(showPreviousSprintBubbles));
+        if (storyPointBubbleChart) {
+            storyPointBubbleChart.setDatasetVisibility(1, showPreviousSprintBubbles);
+            storyPointBubbleChart.update();
+        }
+    });
+    toggle.dataset.bound = 'true';
+}
+
+function renderStoryPointBubbleChart(canvas, bubbleData = [], previousBubbleData = [], currentSprintName = 'Current sprint') {
     if (!canvas || typeof Chart === 'undefined') return;
     if (storyPointBubbleChart) {
         storyPointBubbleChart.destroy();
@@ -1551,23 +1577,44 @@ function renderStoryPointBubbleChart(canvas, bubbleData = []) {
     const points = (bubbleData || []).filter(point => (Number(point.tasks) || 0) > 0);
     if (!points.length) return;
 
-    const maxTasks = Math.max(...points.map(point => Number(point.tasks) || 0), 1);
-    const maxAverage = Math.max(...points.map(point => Number(point.average) || 0), 1);
+    const previousPoints = (previousBubbleData || []).filter(point => (Number(point.tasks) || 0) > 0);
+    const allPoints = points.concat(previousPoints);
+    const maxTasks = Math.max(...allPoints.map(point => Number(point.tasks) || 0), 1);
+    const maxAverage = Math.max(...allPoints.map(point => Number(point.average) || 0), 1);
+
+    const toBubble = (point, sprintName) => ({
+        x: point.tasks,
+        y: point.average,
+        r: point.radius,
+        member: point.member,
+        sprint: sprintName,
+        totalPoints: point.totalPoints
+    });
+
+    bindBubbleHistoryToggle();
+    const historyToggle = document.getElementById('bubbleHistoryToggle');
+    if (historyToggle) {
+        historyToggle.hidden = !previousPoints.length;
+        historyToggle.setAttribute('aria-pressed', String(showPreviousSprintBubbles));
+    }
 
     storyPointBubbleChart = new Chart(canvas, {
         type: 'bubble',
         data: {
             datasets: [{
                 label: 'Members',
-                data: points.map(point => ({
-                    x: point.tasks,
-                    y: point.average,
-                    r: point.radius,
-                    member: point.member,
-                    totalPoints: point.totalPoints
-                })),
+                order: 0,
+                data: points.map(point => toBubble(point, currentSprintName)),
                 backgroundColor: points.map(point => `${point.color}99`),
                 borderColor: points.map(point => point.color),
+                borderWidth: 1.5
+            }, {
+                label: 'Previous sprints',
+                order: 1,
+                hidden: !showPreviousSprintBubbles,
+                data: previousPoints.map(point => toBubble(point, point.sprint)),
+                backgroundColor: previousPoints.map(point => `${point.color}4d`),
+                borderColor: previousPoints.map(point => `${point.color}80`),
                 borderWidth: 1.5
             }]
         },
@@ -1584,7 +1631,10 @@ function renderStoryPointBubbleChart(canvas, bubbleData = []) {
                     bodyColor: '#ffffff',
                     displayColors: false,
                     callbacks: {
-                        title: items => items?.[0]?.raw?.member || 'Member',
+                        title: items => {
+                            const raw = items?.[0]?.raw || {};
+                            return raw.sprint ? `${raw.member || 'Member'} · ${raw.sprint}` : (raw.member || 'Member');
+                        },
                         label: context => {
                             const raw = context.raw || {};
                             return [
@@ -2725,7 +2775,21 @@ async function loadCsvTable(csvPathOverride) {
     }
 }
 
-async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = []) {
+async function loadPreviousSprintBubbles(previousSprints = [], teamMembers = []) {
+    const results = await Promise.all(previousSprints.map(async ({ name, csvPath }) => {
+        try {
+            const rows = await loadCsvRows(csvPath);
+            const { bubbleData = [] } = buildStoryPointMatrixFromCsvRows(rows, teamMembers);
+            return bubbleData.map(point => ({ ...point, sprint: name }));
+        } catch (error) {
+            console.warn('Unable to load previous sprint bubbles:', csvPath, error);
+            return [];
+        }
+    }));
+    return results.flat();
+}
+
+async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = [], { sprintName = 'Current sprint', previousSprints = [] } = {}) {
     const table = document.getElementById('storypoint-matrix-table');
     const stackedCanvas = document.getElementById('storypointStackedChart');
     const bubbleCanvas = document.getElementById('storypointBubbleChart');
@@ -2764,7 +2828,8 @@ async function loadCsvStoryPointMatrixForSprint(csvPathOverride, teamMembers = [
         const { header, rows, total, reason, bubbleData, stackedData } = buildStoryPointMatrixFromCsvRows(normalizedRows, teamMembers);
         renderStoryPointMatrix(table, header, rows);
         renderStoryPointStackedChart(stackedCanvas, stackedData);
-        renderStoryPointBubbleChart(bubbleCanvas, bubbleData);
+        const previousBubbleData = await loadPreviousSprintBubbles(previousSprints, teamMembers);
+        renderStoryPointBubbleChart(bubbleCanvas, bubbleData, previousBubbleData, sprintName);
         if (countEl) countEl.textContent = String(total || 0);
         if (messageEl) {
             if (rows.length) {
