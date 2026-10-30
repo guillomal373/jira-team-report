@@ -1990,8 +1990,8 @@ function buildTrendDataFromCsvRows(rows = [], teamMembers = []) {
 }
 
 function buildStatusTotalsFromCsvRows(rows = [], teamMembers = []) {
-    if (!rows.length) return { counts: {}, states: [] };
-    if (hasNoSelectedMembers(teamMembers)) return { counts: {}, states: [] };
+    if (!rows.length) return { counts: {}, states: [], memberCount: 0 };
+    if (hasNoSelectedMembers(teamMembers)) return { counts: {}, states: [], memberCount: 0 };
 
     const header = rows[0].map(cell => String(cell || '').trim());
     const headerLower = header.map(cell => cell.toLowerCase());
@@ -1999,7 +1999,7 @@ function buildStatusTotalsFromCsvRows(rows = [], teamMembers = []) {
     const statusIndex = headerLower.findIndex(cell => cell === 'status' || cell.includes('status'));
     const pointsIndex = headerLower.findIndex(cell => cell.includes('story point'));
 
-    if (statusIndex < 0 || pointsIndex < 0) return { counts: {}, states: [] };
+    if (statusIndex < 0 || pointsIndex < 0) return { counts: {}, states: [], memberCount: 0 };
 
     const dataRows = rows.slice(1);
     const csvAssignees = assigneeIndex >= 0
@@ -2014,12 +2014,14 @@ function buildStatusTotalsFromCsvRows(rows = [], teamMembers = []) {
 
     const counts = {};
     const states = new Set();
+    const members = new Set();
 
     dataRows.forEach(row => {
+        let canonical = null;
         if (assigneeIndex >= 0 && activeNames.size) {
             const rawAssignee = String(row[assigneeIndex] || '').trim();
             if (!rawAssignee) return;
-            const canonical = aliasMap.get(rawAssignee) || rawAssignee;
+            canonical = aliasMap.get(rawAssignee) || rawAssignee;
             if (!activeNames.has(canonical)) return;
         }
 
@@ -2029,9 +2031,10 @@ function buildStatusTotalsFromCsvRows(rows = [], teamMembers = []) {
         const points = Number(pointsValue) || 0;
         counts[status] = (counts[status] || 0) + points;
         states.add(status);
+        if (canonical) members.add(canonical);
     });
 
-    return { counts, states: Array.from(states) };
+    return { counts, states: Array.from(states), memberCount: members.size };
 }
 
 function buildMemberDatasetsFromCsvRows(rows = [], teamMembers = []) {
@@ -2143,18 +2146,19 @@ async function loadCsvStatusSummaryForAllSprints(sprintMeta = [], teamMembers = 
     const results = await Promise.all(sprintMeta.map(async entry => {
         const name = entry?.name || 'Sprint';
         const csvFile = entry?.csvFile ? `./data/${entry.csvFile}` : '';
-        if (!csvFile) return { name, counts: {}, states: [] };
+        if (!csvFile) return { name, counts: {}, states: [], memberCount: 0 };
         try {
             const rows = await loadCsvRows(csvFile);
-            const { counts, states } = buildStatusTotalsFromCsvRows(rows, teamMembers);
-            return { name, counts, states };
+            const { counts, states, memberCount } = buildStatusTotalsFromCsvRows(rows, teamMembers);
+            return { name, counts, states, memberCount };
         } catch (error) {
             console.warn('CSV not found for sprint status summary:', csvFile, error);
-            return { name, counts: {}, states: [] };
+            return { name, counts: {}, states: [], memberCount: 0 };
         }
     }));
 
     const labels = results.map(r => r.name);
+    const memberCounts = results.map(r => r.memberCount);
     const countsBySprint = results.map(r => r.counts);
     const seenStates = new Set(results.flatMap(r => r.states));
 
@@ -2177,7 +2181,7 @@ async function loadCsvStatusSummaryForAllSprints(sprintMeta = [], teamMembers = 
         };
     });
 
-    renderTrendChart(chartCanvas, labels, datasets);
+    renderTrendChart(chartCanvas, labels, datasets, memberCounts);
 }
 
 async function loadCsvMemberTrendForSprint(csvPathOverride, teamMembers = []) {
@@ -2875,7 +2879,68 @@ function updateSprintTrendScrollButtons() {
     nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
 }
 
-function renderTrendChart(canvas, labels, datasets) {
+const SPRINT_TREND_AVERAGE_SPRINTS = 10;
+const SPRINT_TREND_AVERAGE_MEMBERS = 7;
+
+function formatSprintAverage(value) {
+    return Number.isInteger(value) ? String(value) : value.toFixed(1);
+}
+
+function getRecentSprintTotals(chart) {
+    const labels = chart.data.labels || [];
+    const memberCounts = chart.data.memberCounts || [];
+    const recent = labels
+        .map((label, idx) => ({
+            label,
+            members: memberCounts[idx],
+            total: chart.data.datasets.reduce((sum, dataset, datasetIndex) => {
+                if (chart.getDatasetMeta(datasetIndex)?.hidden) return sum;
+                return sum + (Number(dataset.data?.[idx]) || 0);
+            }, 0)
+        }))
+        .slice(-SPRINT_TREND_AVERAGE_SPRINTS);
+    const counted = recent.filter(item => item.members === SPRINT_TREND_AVERAGE_MEMBERS);
+    return {
+        recent,
+        counted,
+        average: getNonZeroAverage(counted.map(item => item.total))
+    };
+}
+
+const sprintAverageLinePlugin = {
+    id: 'sprintAverageLinePlugin',
+    afterDatasetsDraw(chart) {
+        const { ctx, chartArea, scales } = chart;
+        const yScale = scales?.y;
+        if (!chartArea || !yScale) return;
+
+        const { average } = getRecentSprintTotals(chart);
+        if (!average) return;
+
+        const y = yScale.getPixelForValue(average);
+        const color = '#c9a85c';
+        const text = `Avg ${SPRINT_TREND_AVERAGE_MEMBERS} members: ${formatSprintAverage(average)} SP`;
+
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([6, 4]);
+        ctx.beginPath();
+        ctx.moveTo(chartArea.left, y);
+        ctx.lineTo(chartArea.right, y);
+        ctx.stroke();
+
+        ctx.setLineDash([]);
+        ctx.font = 'bold 11px Roboto Condensed';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'bottom';
+        ctx.fillStyle = color;
+        ctx.fillText(text, chartArea.right - 4, y - 4);
+        ctx.restore();
+    }
+};
+
+function renderTrendChart(canvas, labels, datasets, memberCounts = []) {
     if (!canvas) return;
     if (sprintTrendChart) {
         sprintTrendChart.destroy();
@@ -2895,7 +2960,8 @@ function renderTrendChart(canvas, labels, datasets) {
 
     sprintTrendChart = new Chart(canvas, {
         type: 'bar',
-        data: { labels, datasets },
+        data: { labels, datasets, memberCounts },
+        plugins: [sprintAverageLinePlugin],
         options: {
             responsive: true,
             maintainAspectRatio: false,
@@ -2919,8 +2985,28 @@ function renderTrendChart(canvas, labels, datasets) {
                     borderWidth: 1,
                     titleColor: '#c9a85c',
                     bodyColor: '#ffffff',
+                    footerColor: '#c9a85c',
+                    footerFont: {
+                        family: 'Roboto Condensed',
+                        size: 11,
+                        weight: 'bold'
+                    },
+                    footerMarginTop: 8,
                     callbacks: {
-                        label: context => `${context.dataset.label}: ${context.parsed.y}`
+                        label: context => `${context.dataset.label}: ${context.parsed.y}`,
+                        footer: items => {
+                            const chart = items?.[0]?.chart;
+                            if (!chart) return [];
+                            const { recent, counted, average } = getRecentSprintTotals(chart);
+                            if (!recent.length) return [];
+                            return [
+                                `Last ${recent.length} sprints (total SP):`,
+                                ...recent.map(item => Number.isFinite(item.members)
+                                    ? `${item.label}: ${item.total} (${item.members})`
+                                    : `${item.label}: ${item.total}`),
+                                `Average (${counted.length} sprints with ${SPRINT_TREND_AVERAGE_MEMBERS} members): ${formatSprintAverage(average)} SP`
+                            ];
+                        }
                     }
                 }
             },
