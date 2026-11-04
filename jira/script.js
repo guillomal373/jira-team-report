@@ -2735,7 +2735,22 @@ async function loadCsvTable(csvPathOverride) {
             ))
             : [];
         const normalizedFilteredRows = [header, ...filteredRows];
-        const tableData = groupCsvLabelColumns(header, filteredRows);
+        const selectedNames = getSelectedMemberNameSet(teamCache);
+        const tableRows = assigneeIndex >= 0
+            ? filteredRows.filter(row => {
+                const raw = String(row[assigneeIndex] || '').trim();
+                const canonical = assigneeAliases.get(raw) || raw;
+                return selectedNames.has(canonical);
+            })
+            : filteredRows;
+        const tableStatuses = statusIndex >= 0
+            ? Array.from(new Set(
+                tableRows
+                    .map(row => String(row[statusIndex] || '').trim())
+                    .filter(Boolean)
+            ))
+            : [];
+        const tableData = groupCsvLabelColumns(header, tableRows);
         const tableAssigneeIndex = getAssigneeIndex(tableData.header);
         const tableStatusIndex = getStatusIndex(tableData.header);
 
@@ -2750,8 +2765,8 @@ async function loadCsvTable(csvPathOverride) {
         isCurrentLabelsReady = true;
         updateWordClouds();
 
-        buildAssigneeOptions(filterEl, teamCache, filteredAssignees, assigneeAliases);
-        buildStatusOptions(statusEl, filteredStatuses.length ? filteredStatuses : csvStatuses);
+        buildAssigneeOptions(filterEl, getSelectedTeamMembers(teamCache), filteredAssignees, assigneeAliases);
+        buildStatusOptions(statusEl, tableStatuses.length ? tableStatuses : (filteredStatuses.length ? filteredStatuses : csvStatuses));
         renderCsvColumnsMenu();
         bindCsvColumnsControl();
         if (filterEl && !filterEl.dataset.bound) {
