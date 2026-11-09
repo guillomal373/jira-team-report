@@ -1600,7 +1600,7 @@ hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Eileen Larocque",Daniel.Sierra@cordobalegal.com,2026-07-15,AT&T,1211673667,Android,"Samsung 803 Galaxy","1-8003882200 - Tried to add the number and it can not take the number. It says disregard number.","Resolved with cx",,"D - After validation, it was confirmed that the phone number has already been verified.
 The customer can now block the number directly from the application.
 If the customer is still unable to block the number, please provide the exact error message along with a screenshot or screen recording for further investigation.",,Medium
-"Daniel Belfontaine",Laura.Arciniegas@cordobalegal.com,2026-07-15,T-Mobile,CORDOBA-,Android,"Samsung Note 10 & Samsung 23","Cx unable to get calls at all after installing the app, the app was uninstalled but the issue persist, no calls even from the saved numbers","Call Agent (Additional information)","Blocked List","D - Please ask the customer to dial *##002#* from the phone. This will cancel any existing call forwarding configuration on the device.
+"Daniel Belfontaine",Laura.Arciniegas@cordobalegal.com,2026-07-15,T-Mobile,CORDOBA-1200694513,Android,"Samsung Note 10 & Samsung 23","Cx unable to get calls at all after installing the app, the app was uninstalled but the issue persist, no calls even from the saved numbers","Call Agent (Additional information)","Blocked List","D - Please ask the customer to dial *##002#* from the phone. This will cancel any existing call forwarding configuration on the device.
 After that, the customer should open the application and execute the USSD commands again to configure call forwarding.
 As an alternative, the customer can follow the *""Calls are not being forwarded - 6 Steps""* guide to ensure the call forwarding configuration is completed correctly.
 If the issue still persists, please remind the customer that if they do not answer an incoming call, those calls may still be forwarded according to the configured call forwarding settings.
@@ -2055,7 +2055,7 @@ https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 The agent must update this field inside ForthCRM
 
 https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
-"Jorge Molanphy",wilid@cordobalegal.com,2026-05-01,,,Android,,"the cx can't log into Creditor X, when hit create a account the system doesn't respond","Call Agent (Additional information)",,"D- Inform the client that they can validate the initial login again, ensuring the entered data and format are correct. Attached is a link where step 4 provides step-by-step instructions for this process.
+"Jorge Molanphy",wilid@cordobalegal.com,2026-05-01,,1201365623,Android,,"the cx can't log into Creditor X, when hit create a account the system doesn't respond","Call Agent (Additional information)",,"D- Inform the client that they can validate the initial login again, ensuring the entered data and format are correct. Attached is a link where step 4 provides step-by-step instructions for this process.
 
 https://hiredexperts.atlassian.net/wiki/x/AgCnGQ",,Medium
 "Lucy Kimani",Luis.Agramonte@cordobalegal.com,2026-04-28,,CORDOBA-1192239779,IOS,,"cx is getting a message cx had access before for the application but cx says she has never accessed","Call Agent (Additional information)",Auth/Login,"D- The user is validated and it is confirmed that the account has already been created. Please assist the client in the password reset process so they can regain access. Attached is a link where step 3 provides a step-by-step guide on how to perform this process.

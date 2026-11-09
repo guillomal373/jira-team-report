@@ -417,7 +417,8 @@ O: Unable to reach the client, VML.",,,
 --Resolved with the client--",,,
 "Albert Vasquez",mateo.rojas@cordobalegal.com,2026-08-28,T-Mobile,1223836084,Android,"Samsung Galaxy A14 5G","Cx already login for the first time but the last 3 days the app is not working for him to access, it is blocking the calls but he can not access to check the info",Auth/Login,,"In Progress","O: Cx busy, call back scheduled
 O: Unable to reach the client, VML.",,,
-"Vickie Rodgers",Josias.Campusano@cordobalegal.com,2026-08-21,Verizon,1232452596,IOS,"iPhone 17","Unable to login; client is not getting email for password reset.",Auth/Login,,"Client not answering (3 days)","O: Unable to reach the client, VML.
+"Vickie Rodgers",Josias.Campusano@cordobalegal.com,2026-08-21,Verizon,1232452596,IOS,"iPhone 17","Unable to login; client is not getting email for password reset.
+Password_recovery",Auth/Login,,"Client not answering (3 days)","O: Unable to reach the client, VML.
 O: Unable to reach the client after 3 attempts.",,,
 "Larry Rick arthur",rosbelym@cordobalegal.com,2026-08-31,cricket,1246813822,IOS,"iphone se","wrong credential issues",Auth/Login,,"In Progress","O:Unable to reach the client, VML.
 
@@ -1183,7 +1184,7 @@ O: Unable to reach the client after 3 attempts, VML.",,,
 O: Unable to reach the client, VML.
 
 E: I was trying to reach our client on behalf to her : *USSD Code, but there was an answered machine as dialed.",,,
-"Vickie Rodgers",Josias.Campusano@cordobalegal.com,2026-08-21,Verizon,1232452596,IOS,iPhone,"Client is trap in the login page of the creditor.  Infinite loading.",Setup,,"Client not answering (3 days)","O: First attempt to download the new version of iOS 1.4.7. VML.
+"Vickie Rodgers",Josias.Campusano@cordobalegal.com,2026-08-21,Verizon,1232452596,IOS,iPhone,"Client is trap in the login page of the creditor.  Infinite loading. *""buffering""*",Setup,,"Client not answering (3 days)","O: First attempt to download the new version of iOS 1.4.7. VML.
 E: I was trying to reach our client but there was an answered machine as dialed.
 O: Unable to reach the client after 3 attempts.",,,
 "Karen Lamberth",Saray.Beltran@cordobalegal.com,2026-08-21,Xfinity,1236457275,IOS,"Iphone 14","cx cannot get any voicemail from creditors, she is not able to locate it, I completed the troubleshooting but it seems she cannot find it",Setup,,"Client not answering (3 days)","O: First attempt to download the new version of iOS 1.4.7. VML.
