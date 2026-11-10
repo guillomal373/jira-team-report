@@ -606,8 +606,58 @@ const badgeAssets = {
     jira: 'images/badges/jira.svg',
     confluence: 'images/badges/confluence.svg',
     dotnet: 'images/badges/dotnet.svg',
-    claude: 'images/badges/claude.svg'
+    claude: 'images/badges/claude.svg',
+    // Achievement badges (based on Jira sprint exports)
+    workhorse: 'images/badges/workhorse.svg',
+    'quality-guardian': 'images/badges/quality-guardian.svg',
+    'epic-builder': 'images/badges/epic-builder.svg',
+    veteran: 'images/badges/veteran.svg',
+    'swiss-army-knife': 'images/badges/swiss-army-knife.svg',
+    consistent: 'images/badges/consistent.svg',
+    'bug-slayer': 'images/badges/bug-slayer.svg',
+    'rising-star': 'images/badges/rising-star.svg',
+    'mobile-specialist': 'images/badges/mobile-specialist.svg',
+    firefighter: 'images/badges/firefighter.svg',
+    'fast-starter': 'images/badges/fast-starter.svg',
+    'sprint-master': 'images/badges/sprint-master.svg',
+    'founding-member': 'images/badges/founding-member.svg'
 };
+
+// Tooltip text for every badge: what it means and, for achievements, how it is earned.
+// Achievement criteria come from the Jira sprint exports (issue counts, priority, consistency).
+const badgeInfo = {
+    // Tech / tools
+    js: { name: 'JavaScript', text: 'Works with JavaScript and modern web development.' },
+    dotnet: { name: '.NET', text: 'Backend development with the .NET platform.' },
+    net: { name: '.NET', text: 'Backend development with the .NET platform.' },
+    aws: { name: 'AWS', text: 'Cloud infrastructure and deployments on Amazon Web Services.' },
+    laravel: { name: 'Laravel', text: 'PHP backend development with the Laravel framework.' },
+    swift: { name: 'Swift', text: 'Native iOS development with Swift.' },
+    android: { name: 'Android', text: 'Native Android app development.' },
+    e2e: { name: 'End-to-End Testing', text: 'Writes and runs end-to-end tests that cover full user flows.' },
+    cypress: { name: 'Cypress', text: 'Automated browser testing with Cypress.' },
+    jira: { name: 'Jira', text: 'Plans, tracks and closes work in Jira sprints.' },
+    confluence: { name: 'Confluence', text: 'Documents decisions, standards and retrospectives in Confluence.' },
+    claude: { name: 'Claude', text: 'Uses Claude as an AI assistant in day-to-day work.' },
+    fire: { name: 'On Fire', text: 'Sustained high output over recent sprints.' },
+    diamond: { name: 'Diamond', text: 'Top-tier contributor recognized by the team.' },
+    // Achievements
+    workhorse: { name: 'Workhorse', text: 'Closes the most issues on the team across all sprints.' },
+    'quality-guardian': { name: 'Quality Guardian', text: 'Protects quality by closing a high number of bugs and high-priority issues.' },
+    'epic-builder': { name: 'Epic Builder', text: 'Delivers the big features: closes the most Stories (large, multi-step work).' },
+    veteran: { name: 'Veteran', text: 'Active in 20+ sprints, from the early days of the project.' },
+    'swiss-army-knife': { name: 'Swiss Army Knife', text: 'Versatile: work is spread evenly across mobile, fixes, infra, docs and QA.' },
+    consistent: { name: 'Mr. Consistent', text: 'Closes about 98% of assigned issues, with very few left open or carried over.' },
+    'bug-slayer': { name: 'Bug Slayer', text: 'Resolves the most bugs: almost every bug assigned gets closed.' },
+    'rising-star': { name: 'Rising Star', text: 'Most issues closed in the last 4 sprints: fast growth and strong recent output.' },
+    'mobile-specialist': { name: 'Mobile Specialist', text: 'Most of the work is focused on mobile app features and fixes.' },
+    firefighter: { name: 'Firefighter', text: 'Takes the urgent work: closes the most High/Highest priority issues on the team.' },
+    'fast-starter': { name: 'Fast Starter', text: 'Joined recently and already delivers at the pace of veterans.' },
+    'sprint-master': { name: 'Sprint Master', text: 'Keeps the sprints moving: Stories, requirements and docs across 19+ sprints.' },
+    'founding-member': { name: 'Founding Member', text: 'Part of the original team and closed 100% of assigned issues.' }
+};
+
+const escapeAttr = value => String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 function buildBadges(badges = []) {
     const list = badges.length ? badges : ['js'];
@@ -615,10 +665,15 @@ function buildBadges(badges = []) {
     const items = list.map(key => {
         const normalized = (key || '').toString().toLowerCase();
         const src = badgeAssets[normalized];
+        const info = badgeInfo[normalized];
+        const name = info ? info.name : String(key);
+        const text = info ? info.text : 'Badge';
+        const label = `${name}: ${text}`;
+        const attrs = `data-badge-name="${escapeAttr(name)}" data-badge-text="${escapeAttr(text)}" aria-label="${escapeAttr(label)}" tabindex="0"`;
         if (src) {
-            return `<span class="dev-badge"><img src="${src}" alt="Badge ${key}"></span>`;
+            return `<span class="dev-badge" ${attrs}><img src="${src}" alt="" aria-hidden="true"></span>`;
         }
-        return `<span class="dev-badge dev-badge--text">${key}</span>`;
+        return `<span class="dev-badge dev-badge--text" ${attrs}>${key}</span>`;
     }).join('');
     return `<div class="${columnsClass}">${items}</div>`;
 }
@@ -3964,3 +4019,88 @@ function renderMemberChart(canvas, labels, datasets) {
         }
     });
 }
+
+
+// Custom badge tooltip: one floating element positioned next to the hovered/focused badge,
+// so it is never clipped by the cards. Also opens on tap for touch devices.
+(function initBadgeTooltip() {
+    let tip = null;
+    let activeBadge = null;
+
+    const getTip = () => {
+        if (tip) return tip;
+        tip = document.createElement('div');
+        tip.className = 'badge-tooltip';
+        tip.setAttribute('role', 'tooltip');
+        tip.innerHTML = '<div class="badge-tooltip__name"></div><div class="badge-tooltip__text"></div>';
+        document.body.appendChild(tip);
+        return tip;
+    };
+
+    const place = badge => {
+        const el = getTip();
+        const rect = badge.getBoundingClientRect();
+        const gap = 10;
+        const margin = 8;
+        const tipRect = el.getBoundingClientRect();
+        let left = rect.left + rect.width / 2 - tipRect.width / 2;
+        left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+        let top = rect.top - tipRect.height - gap;
+        let below = false;
+        if (top < margin) {
+            top = rect.bottom + gap;
+            below = true;
+        }
+        const arrowX = Math.max(14, Math.min(rect.left + rect.width / 2 - left, tipRect.width - 14));
+        el.style.left = `${Math.round(left)}px`;
+        el.style.top = `${Math.round(top)}px`;
+        el.style.setProperty('--arrow-x', `${Math.round(arrowX)}px`);
+        el.classList.toggle('badge-tooltip--below', below);
+    };
+
+    const show = badge => {
+        const el = getTip();
+        el.querySelector('.badge-tooltip__name').textContent = badge.dataset.badgeName || '';
+        el.querySelector('.badge-tooltip__text').textContent = badge.dataset.badgeText || '';
+        activeBadge = badge;
+        badge.setAttribute('aria-describedby', 'badge-tooltip');
+        el.id = 'badge-tooltip';
+        el.classList.add('badge-tooltip--visible');
+        place(badge);
+    };
+
+    const hide = () => {
+        if (activeBadge) activeBadge.removeAttribute('aria-describedby');
+        activeBadge = null;
+        if (tip) tip.classList.remove('badge-tooltip--visible');
+    };
+
+    const badgeFrom = event => (event.target instanceof Element ? event.target.closest('.dev-badge[data-badge-name]') : null);
+
+    document.addEventListener('mouseover', event => {
+        const badge = badgeFrom(event);
+        if (badge && badge !== activeBadge) show(badge);
+    });
+    document.addEventListener('mouseout', event => {
+        const badge = badgeFrom(event);
+        if (badge && !badge.contains(event.relatedTarget)) hide();
+    });
+    document.addEventListener('focusin', event => {
+        const badge = badgeFrom(event);
+        if (badge) show(badge);
+    });
+    document.addEventListener('focusout', event => {
+        if (badgeFrom(event)) hide();
+    });
+    // Touch: tap a badge to open it, tap anywhere else to close it.
+    document.addEventListener('click', event => {
+        const badge = badgeFrom(event);
+        if (badge && badge !== activeBadge) show(badge);
+        else if (!badge) hide();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') hide();
+    });
+    window.addEventListener('scroll', hide, { passive: true });
+    window.addEventListener('resize', hide);
+})();
