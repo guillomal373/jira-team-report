@@ -45,7 +45,7 @@
       "hero": "dexter",
       "level": 10,
       "color": "#54bdc8",
-      "badges": ["laravel", "jira", "confluence", "android", "epic-builder", "veteran"],
+      "badges": ["laravel", "jira", "confluence", "android"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [9, 9, 9, 8, 7],
@@ -66,7 +66,7 @@
       "hero": "darkowl",
       "level": 10,
       "color": "#6002bb",
-      "badges": ["swift", "jira", "confluence", "dotnet", "mobile-specialist", "veteran"],
+      "badges": ["swift", "jira", "confluence", "dotnet", "mobile-specialist"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [8, 7, 8, 7, 8],
@@ -142,9 +142,27 @@
       "level": 10,
       "color": "#3f73cf",
       "csvAliases": ["Daniel Esteban Rodriguez Velasco"],
-      "badges": ["jira", "confluence", "claude", "dotnet", "firefighter", "fast-starter"],
+      "badges": ["jira", "confluence", "claude", "dotnet", "firefighter", "fast-starter", "mobile-specialist"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
+        "levels": [7, 6, 7, 6, 5],
+        "initialLevels": [2, 2, 2, 2, 2]
+      },
+      "status": {
+        "labels": ["To Do", "In Progress", "In Review", "Done"],
+        "counts": [5, 2, 1, 4]
+      },
+      "active": true
+    },
+    {
+      "name": "Paula Amaya",
+      "role": "QA Mid Developer",
+      "hero": "bubbles",
+      "level": 10,
+      "color": "#ffe14d",
+      "badges": ["jira", "confluence"],
+      "skills": {
+        "labels": [],
         "levels": [7, 6, 7, 6, 5],
         "initialLevels": [2, 2, 2, 2, 2]
       },
