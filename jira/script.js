@@ -607,6 +607,7 @@ const badgeAssets = {
     confluence: 'images/badges/confluence.svg',
     dotnet: 'images/badges/dotnet.svg',
     claude: 'images/badges/claude.svg',
+    browserstack: 'images/badges/browserstack.svg',
     // Achievement badges (based on Jira sprint exports)
     workhorse: 'images/badges/workhorse.svg',
     'quality-guardian': 'images/badges/quality-guardian.svg',
@@ -639,6 +640,7 @@ const badgeInfo = {
     jira: { name: 'Jira', text: 'Plans, tracks and closes work in Jira sprints.' },
     confluence: { name: 'Confluence', text: 'Documents decisions, standards and retrospectives in Confluence.' },
     claude: { name: 'Claude', text: 'Uses Claude as an AI assistant in day-to-day work.' },
+    browserstack: { name: 'BrowserStack', text: 'Tests across real browsers and devices with BrowserStack.' },
     fire: { name: 'On Fire', text: 'Sustained high output over recent sprints.' },
     diamond: { name: 'Diamond', text: 'Top-tier contributor recognized by the team.' },
     // Achievements

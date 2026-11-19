@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="#0f0f0f"/>
+  <!-- BrowserStack-inspired eye: offset concentric circles -->
+  <g transform="translate(32 32) scale(0.075) translate(-378 -338)">
+    <circle cx="378" cy="338" r="300" fill="#ecbb6d"/>
+    <circle cx="347" cy="307" r="271" fill="#d67640"/>
+    <circle cx="384" cy="271" r="234" fill="#d34b49"/>
+    <circle cx="401" cy="290" r="216" fill="#c2d05c"/>
+    <circle cx="386" cy="305" r="200" fill="#7db358"/>
+    <circle cx="354" cy="275" r="168" fill="#b8dbe5"/>
+    <circle cx="382" cy="248" r="140" fill="#6fb5db"/>
+    <circle cx="395" cy="262" r="122" fill="#4facd3"/>
+    <circle cx="381" cy="282" r="106" fill="#201f1e"/>
+    <ellipse cx="423" cy="243" rx="20" ry="32" transform="rotate(22 423 243)" fill="#ffffff"/>
+  </g>
+</svg>

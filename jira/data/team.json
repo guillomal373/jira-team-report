@@ -160,7 +160,7 @@
       "hero": "bubbles",
       "level": 10,
       "color": "#ffe14d",
-      "badges": ["jira", "confluence"],
+      "badges": ["jira", "confluence", "browserstack"],
       "skills": {
         "labels": [],
         "levels": [7, 6, 7, 6, 5],
