@@ -67,7 +67,13 @@ window.CREDITORX_TIMELINE_EVENTS = [
   {
     date: "2026-11-04",
     icon: "android",
-    label: "Android v41 (1.14.1)",
+    label: "Android v1.14.1",
+    color: "#34c759",
+  },
+  {
+    date: "2026-11-17",
+    icon: "android",
+    label: "Android v1.15",
     color: "#34c759",
   }
 ];
