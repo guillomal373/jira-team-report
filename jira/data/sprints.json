@@ -881,6 +881,19 @@
       "blockersRisks": [],
       "scopeChanges": [],
       "recommendations": []
+    },
+    {
+      "name": "Sprint 26 ",
+      "period": "2026-11-17 to 2026-11-27",
+      "csvFile": "sprints-csv/Sprint 26 Summary export (Jira).csv",
+      "description": "",
+      "summary": "",
+      "improvements": "",
+      "members": [],
+      "keyAchievements": [],
+      "blockersRisks": [],
+      "scopeChanges": [],
+      "recommendations": []
     }
 
   ]
