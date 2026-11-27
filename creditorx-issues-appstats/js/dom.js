@@ -43,6 +43,8 @@ const odanaOwnerToggle = document.getElementById("odana-owner-toggle");
 
 const dianaOwnerToggle = document.getElementById("diana-owner-toggle");
 
+const newOwnerToggle = document.getElementById("new-owner-toggle");
+
 const issueSearchFilter = document.getElementById("issue-search-filter");
 
 const statusSummaryList = document.getElementById("status-summary-list");

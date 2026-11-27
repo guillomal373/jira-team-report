@@ -113,19 +113,71 @@ function formatJiraTicketLabel(value) {
 
 // Columns with a controlled width (see .records-table__col-* in styles.css).
 function getColumnWidthClass(normalizedHeader) {
+  if (normalizedHeader === PLATFORM_COLUMN_NAME.toLowerCase()) {
+    return "records-table__col-platform";
+  }
+
   if (normalizedHeader === TIER_2_STATE_COLUMN_NAME.toLowerCase()) {
     return "records-table__col-state";
   }
 
-  if (normalizedHeader === "reported issue") {
+  if (
+    normalizedHeader === ISSUE_TEXT_COLUMN_NAME.toLowerCase() ||
+    normalizedHeader === WHAT_HAPPENED_COLUMN_NAME.toLowerCase()
+  ) {
     return "records-table__col-issue";
   }
 
-  if (normalizedHeader === TIER_2_COMMENTS_COLUMN_NAME.toLowerCase()) {
+  if (
+    normalizedHeader === TIER_2_COMMENTS_COLUMN_NAME.toLowerCase() ||
+    normalizedHeader === DEV_TEAM_COMMENTS_COLUMN_NAME.toLowerCase()
+  ) {
     return "records-table__col-comments";
   }
 
   return "";
+}
+
+// Same dot colors as the app-release markers on the timeline (data/timeline-events.js).
+function getPlatformIconColor(icon, fallback) {
+  return TIMELINE_EVENTS.find((event) => event.icon === icon)?.color ?? fallback;
+}
+
+// Operating system as the Apple / Android logos used on the timeline instead of text.
+// "IOS, Android" shows both; an empty or unrecognised value shows the raw text.
+function buildPlatformCell(cell, value) {
+  const text = String(value ?? "").trim();
+  const lower = text.toLowerCase();
+  const platforms = [];
+
+  if (/ios|iphone|ipad|apple/.test(lower)) {
+    platforms.push({ name: "iOS", markup: APPLE_LOGO_SVG_MARKUP, color: getPlatformIconColor("apple", "#0a84ff") });
+  }
+
+  if (lower.includes("android")) {
+    platforms.push({ name: "Android", markup: ANDROID_LOGO_SVG_MARKUP, color: getPlatformIconColor("android", "#34c759") });
+  }
+
+  if (platforms.length === 0) {
+    cell.textContent = text;
+    return;
+  }
+
+  const wrapper = document.createElement("span");
+  wrapper.className = "records-table__platforms";
+  wrapper.title = text;
+  wrapper.setAttribute("role", "img");
+  wrapper.setAttribute("aria-label", text);
+
+  platforms.forEach(({ markup, color }) => {
+    const badge = document.createElement("span");
+    badge.className = "records-table__platform-badge";
+    badge.style.backgroundColor = color;
+    badge.innerHTML = markup; // static SVG constants from config.js, never row data
+    wrapper.appendChild(badge);
+  });
+
+  cell.appendChild(wrapper);
 }
 
 function renderTable(headers, rows) {
@@ -175,6 +227,10 @@ function renderTable(headers, rows) {
       });
 
       cell.appendChild(sortButton);
+    } else if (normalizedHeader === PLATFORM_COLUMN_NAME.toLowerCase()) {
+      // Short label so the icon column stays thin; the full name is in the tooltip.
+      cell.textContent = PLATFORM_COLUMN_SHORT_LABEL;
+      cell.title = header.trim();
     } else {
       cell.textContent = header.trim() || "Unnamed Column";
     }
@@ -210,7 +266,9 @@ function renderTable(headers, rows) {
           ? formatReportedByValue(rowData[columnIndex] ?? "")
           : rowData[columnIndex] ?? "";
 
-      if (normalizedHeader === JIRA_TICKET_COLUMN_NAME.toLowerCase()) {
+      if (normalizedHeader === PLATFORM_COLUMN_NAME.toLowerCase()) {
+        buildPlatformCell(cell, cellValue);
+      } else if (normalizedHeader === JIRA_TICKET_COLUMN_NAME.toLowerCase()) {
         const jiraUrl = getJiraTicketUrl(cellValue);
 
         if (jiraUrl) {

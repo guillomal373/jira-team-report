@@ -85,6 +85,8 @@ odanaOwnerToggle.addEventListener("change", refreshTable);
 
 dianaOwnerToggle.addEventListener("change", refreshTable);
 
+newOwnerToggle.addEventListener("change", refreshTable);
+
 let issueSearchDebounceTimer = null;
 
 issueSearchFilter.addEventListener("input", () => {

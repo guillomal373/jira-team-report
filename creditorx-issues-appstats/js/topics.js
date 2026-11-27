@@ -136,7 +136,7 @@ function renderPlaybookMatches(themeLabel) {
 
 function getIssueThemeAnalysis(rows, headers) {
   const issueColumnIndex = headers.findIndex(
-    (header) => normalizeColumnKey(header) === normalizeColumnKey("Reported Issue")
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(ISSUE_TEXT_COLUMN_NAME)
   );
   const dateColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(DATE_COLUMN_NAME)
@@ -153,6 +153,9 @@ function getIssueThemeAnalysis(rows, headers) {
   );
   const tier2CommentsColumnIndex = headers.findIndex(
     (header) => normalizeColumnKey(header) === normalizeColumnKey(TIER_2_COMMENTS_COLUMN_NAME)
+  );
+  const whatHappenedColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(WHAT_HAPPENED_COLUMN_NAME)
   );
   const themes = new Map();
   let issueTextCount = 0;
@@ -186,7 +189,9 @@ function getIssueThemeAnalysis(rows, headers) {
       tier2CommentsColumnIndex >= 0
         ? (row[tier2CommentsColumnIndex] ?? "").trim()
         : "";
-    const classificationText = [issueText, tier2Comments, devTeamComments]
+    const whatHappened =
+      whatHappenedColumnIndex >= 0 ? (row[whatHappenedColumnIndex] ?? "").trim() : "";
+    const classificationText = [issueText, whatHappened, tier2Comments, devTeamComments]
       .filter(Boolean)
       .join(" ");
     const { theme, matchedKeywords } = getIssueTheme(classificationText);

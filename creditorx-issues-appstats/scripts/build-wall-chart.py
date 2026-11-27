@@ -35,7 +35,8 @@ STAGE = {
 }
 DAYS = 60
 cutoff = (datetime.date.today() - datetime.timedelta(days=DAYS)).isoformat()
-COLUMNS = ['Reported Issue', 'Tier 2 Comments', 'Dev Team Comments', 'Date', 'IOS or Android', 'Carrier/Provider']
+# Current form column names; the merged JSON already renames the old exports' columns.
+COLUMNS = ['What was the customer trying to do?', 'What Happened?', 'Tier 2 Comments', 'Dev Team Comments', 'Date', 'Operating system', 'Carrier/Provider']
 def load_rows(path):
     """Rows as dicts with the column names used below (headers matched ignoring case)."""
     if str(path).lower().endswith('.json'):
@@ -48,15 +49,15 @@ def load_rows(path):
     by_lower = {h.strip().lower(): h for h in headers}
     return [{c: rec.get(by_lower.get(c.lower(), c), '') or '' for c in COLUMNS} for rec in records]
 
-rows = [r for r in load_rows(root / src) if norm(r['Reported Issue']) and r['Date'][:10] >= cutoff]
+rows = [r for r in load_rows(root / src) if norm(r['What was the customer trying to do?']) and r['Date'][:10] >= cutoff]
 themes = collections.defaultdict(list)
 for r in rows:
-    themes[theme(' '.join([r['Reported Issue'], r['Tier 2 Comments'], r['Dev Team Comments']]))].append(r)
+    themes[theme(' '.join([r['What was the customer trying to do?'], r['What Happened?'], r['Tier 2 Comments'], r['Dev Team Comments']]))].append(r)
 total = len(rows)
 ranked = sorted(themes.items(), key=lambda kv: -len(kv[1]))
 stages = collections.Counter()
 for k, v in themes.items(): stages[STAGE.get(k, 'Unclassified / generic')] += len(v)
-osc = collections.Counter('iOS' if r['IOS or Android'] == 'IOS' else 'Android' if r['IOS or Android'] == 'Android' else 'Both/N/A' for r in rows)
+osc = collections.Counter('iOS' if r['Operating system'] == 'IOS' else 'Android' if r['Operating system'] == 'Android' else 'Both/N/A' for r in rows)
 car = collections.Counter()
 for r in rows:
     c = r['Carrier/Provider'].strip().lower().replace('-', '').replace(' ', '')
@@ -66,9 +67,9 @@ def week(d):
 weeks = collections.Counter(week(r['Date']) for r in rows if r['Date'][:10] >= cutoff)
 
 def example(rs):
-    rs = sorted(rs, key=lambda r: len(r['Reported Issue']))
+    rs = sorted(rs, key=lambda r: len(r['What was the customer trying to do?']))
     for r in rs:
-        t = ' '.join(r['Reported Issue'].split()).split('*')[0].strip()
+        t = ' '.join(r['What was the customer trying to do?'].split()).split('*')[0].strip()
         if 25 < len(t) < 110: return t
     return ''
 def bars(counter, color, n=None):

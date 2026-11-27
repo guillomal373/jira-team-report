@@ -82,9 +82,30 @@ function showAllColumns() {
   refreshTable();
 }
 
+// Headers as { header, index } in display order (index = position in the data rows).
+function getOrderedColumns(headers) {
+  const columns = headers.map((header, index) => ({ header, index }));
+  const rankOf = (header) =>
+    TEXT_COLUMN_DISPLAY_ORDER.findIndex(
+      (name) => normalizeColumnKey(name) === normalizeColumnKey(header)
+    );
+  const grouped = columns
+    .filter(({ header }) => rankOf(header) >= 0)
+    .sort((left, right) => rankOf(left.header) - rankOf(right.header));
+
+  if (grouped.length === 0) {
+    return columns;
+  }
+
+  const firstGroupedIndex = columns.findIndex(({ header }) => rankOf(header) >= 0);
+  const others = columns.filter(({ header }) => rankOf(header) < 0);
+  const insertAt = columns.slice(0, firstGroupedIndex).filter(({ header }) => rankOf(header) < 0).length;
+
+  return [...others.slice(0, insertAt), ...grouped, ...others.slice(insertAt)];
+}
+
 function getVisibleColumnIndices(headers) {
-  return headers
-    .map((header, index) => ({ header, index }))
+  return getOrderedColumns(headers)
     .filter(
       ({ header }) => isRequiredColumn(header) || visibleColumns.has(header)
     );
@@ -93,7 +114,7 @@ function getVisibleColumnIndices(headers) {
 function renderColumnsMenu(headers) {
   columnsList.replaceChildren();
 
-  headers.forEach((header) => {
+  getOrderedColumns(headers).forEach(({ header }) => {
     const item = document.createElement("div");
     item.className = "columns-menu__item";
 

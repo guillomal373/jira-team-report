@@ -2059,14 +2059,18 @@ a.topics-top-tickets__link:focus-visible {
   background: rgba(16, 16, 16, 0.88);
 }
 
+/* Columns keep a readable width and the wrapper scrolls horizontally, instead of the
+   table squeezing every column into the container. */
 .records-table {
-  width: 100%;
-  min-width: 1100px;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
 }
 
 .records-table th,
 .records-table td {
+  min-width: 140px;
+  max-width: 400px;
   padding: 14px 12px;
   text-align: left;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -2117,6 +2121,7 @@ a.topics-top-tickets__link:focus-visible {
 /* Tier 2 State: as wide as its header, long values wrap between words. */
 .records-table__col-state {
   width: 1%;
+  min-width: 150px;
   white-space: nowrap;
 }
 
@@ -2126,8 +2131,8 @@ a.topics-top-tickets__link:focus-visible {
   overflow-wrap: normal;
 }
 
-.records-table__col-issue,
-.records-table__col-comments {
+.records-table td.records-table__col-issue,
+.records-table td.records-table__col-comments {
   width: 400px;
   min-width: 300px;
   max-width: 400px;
@@ -2163,6 +2168,37 @@ a.topics-top-tickets__link:focus-visible {
 
 .records-table__expand-toggle[hidden] {
   display: none;
+}
+
+/* Operating system: Apple / Android logo badges (same colors as the timeline markers). */
+.records-table th.records-table__col-platform,
+.records-table td.records-table__col-platform {
+  width: 1%;
+  min-width: 0;
+  max-width: 64px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.records-table__platforms {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.records-table__platform-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(18, 18, 18, 0.9);
+}
+
+.records-table__platform-badge svg {
+  display: block;
 }
 
 .records-table__date-column {

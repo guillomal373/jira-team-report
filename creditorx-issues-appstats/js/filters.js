@@ -115,10 +115,17 @@ function getCoverageFilteredRows(rows, headers) {
 // Engel, "O:" for Odana) appears in Tier 2 Comments. Combines with OR, so
 // an "E+O" issue matches when EITHER toggle is on. With both off, the OR
 // is vacuous and nothing passes — same convention as Tracking Data.
+// The "New" toggle also lets through issues whose state is still "New": Tier 2 has not
+// worked them yet, so they have no owner marker and would otherwise disappear.
 function getTier2OwnerFilteredRows(rows, headers) {
   const includeEngel = engelOwnerToggle.checked;
   const includeOdana = odanaOwnerToggle.checked;
   const includeDiana = dianaOwnerToggle.checked;
+  const includeNew = newOwnerToggle.checked;
+  const statusColumnIndex = headers.findIndex(
+    (header) => normalizeColumnKey(header) === normalizeColumnKey(STATUS_COLUMN_NAME)
+  );
+  const tier2StateColumnIndex = getTier2StateColumnIndex(headers);
 
   const { tier2CommentsColumnIndex, devTeamCommentsColumnIndex } = getTier2OwnerColumnIndices(headers);
 
@@ -132,7 +139,11 @@ function getTier2OwnerFilteredRows(rows, headers) {
     return (
       (includeEngel && hasEngel) ||
       (includeOdana && hasOdana) ||
-      (includeDiana && hasDiana)
+      (includeDiana && hasDiana) ||
+      (includeNew &&
+        normalizeStatusForCharts(
+          getEffectiveRawStatus(row, statusColumnIndex, tier2StateColumnIndex)
+        ) === "New")
     );
   });
 }

@@ -57,3 +57,24 @@ Before moving anything, the script merges the CSVs with the dashboard's real cod
 identical. If a move fails or the result changes afterwards, everything is put back.
 Files in `data/archive/` are not loaded by the dashboard; move one back and run
 `node scripts/update-files-manifest.mjs` to restore it.
+
+## Column names (old vs. current form)
+
+The CSV columns changed on 12-nov and 19-nov. The dashboard renames/merges them when it
+loads each file (`HEADER_ALIASES` in `js/config.js`, `normalizeDatasetColumns` in
+`js/csv.js`), so old and new CSVs appear in the same columns:
+
+| Old column | Current column |
+|---|---|
+| IOS or Android | Operating system |
+| CreditorX Device | Brand and Model |
+| Reported Issue | What was the customer trying to do? |
+| Carrier/Provider | Carrier/Provider (also filled from `Carrier/Provider2`; "Otro" uses `Carrier/Provider/Otro`) |
+| Module/Section | Module/Section (blank values filled from "Which part of the app has the issue?", e.g. Login → Auth/Login, Blocked / Call blocking → Blocked List) |
+
+New columns shown as-is: `What Happened?`, `Which part of the app has the issue?`,
+`Which other part of the app?`, `Time to Call`. `What Happened?` is also used for theme
+classification and search.
+
+If the columns change again, add the new name to `config.js` and re-run
+`node scripts/update-files-manifest.mjs`. Bump `MERGED_DATA_FORMAT` when column names change.

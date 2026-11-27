@@ -56,6 +56,10 @@ function describeActiveFilterSelection() {
     parts.push(`answered by ${owners.join(" or ")}`);
   }
 
+  if (!newOwnerToggle.checked) {
+    parts.push("New issues hidden");
+  }
+
   const searchTerm = issueSearchFilter.value.trim();
   if (searchTerm) {
     parts.push(`matching "${searchTerm}"`);

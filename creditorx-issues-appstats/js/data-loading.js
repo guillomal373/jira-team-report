@@ -133,11 +133,16 @@ async function loadCsvFile(fileUrl) {
   const [headers, ...dataRows] = parsedRows;
   const normalizedHeaders = headers.map(normalizeHeader);
 
-  return {
-    headers: normalizedHeaders,
-    rows: dataRows.map((row) =>
+  const { headers: columnHeaders, rows: columnRows } = normalizeDatasetColumns(
+    normalizedHeaders,
+    dataRows.map((row) =>
       normalizedHeaders.map((_, columnIndex) => row[columnIndex] ?? "")
-    ),
+    )
+  );
+
+  return {
+    headers: columnHeaders,
+    rows: columnRows,
     sourceTimestamp: updateMeta.timestamp,
     sourceLastUpdate: updateMeta.label,
     fileUrl,

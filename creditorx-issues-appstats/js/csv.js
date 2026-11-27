@@ -79,6 +79,82 @@ function normalizeColumnKey(header) {
   return normalizeHeader(header).toLowerCase();
 }
 
+// Carrier names typed in "Carrier/Provider/Otro" that mean "nothing useful".
+const CARRIER_OTHER_EMPTY_PATTERN = /^(|-+|\.|n\/?a\.?|na|no\.?|none|unknown)$/i;
+
+// Brings one CSV file to the current column layout so the old and new exports merge
+// into the same columns:
+//  - old column names are renamed (HEADER_ALIASES, applied by the caller);
+//  - "Carrier/Provider2" (new form) fills a blank "Carrier/Provider" and is dropped;
+//    when it says "Otro", the text from "Carrier/Provider/Otro" is used instead;
+//  - a blank "Module/Section" takes "Which part of the app has the issue?" (the
+//    latter column is kept as it is).
+function normalizeDatasetColumns(headers, rows) {
+  const nextHeaders = [...headers];
+  const nextRows = rows.map((row) => [...row]);
+  const indexOf = (name) =>
+    nextHeaders.findIndex((header) => normalizeColumnKey(header) === normalizeColumnKey(name));
+  const blank = (value) => !String(value ?? "").trim();
+
+  const carrierFormIndex = indexOf(CARRIER_FORM_COLUMN_NAME);
+
+  if (carrierFormIndex >= 0) {
+    let carrierIndex = indexOf(CARRIER_COLUMN_NAME);
+    const otherIndex = indexOf(CARRIER_OTHER_COLUMN_NAME);
+
+    if (carrierIndex < 0) {
+      nextHeaders[carrierFormIndex] = CARRIER_COLUMN_NAME;
+      carrierIndex = carrierFormIndex;
+    }
+
+    nextRows.forEach((row) => {
+      if (carrierIndex === carrierFormIndex) {
+        return;
+      }
+
+      if (blank(row[carrierIndex])) {
+        row[carrierIndex] = row[carrierFormIndex] ?? "";
+      }
+    });
+
+    nextRows.forEach((row) => {
+      const carrier = String(row[carrierIndex] ?? "").trim().toLowerCase();
+      const otherText = otherIndex >= 0 ? String(row[otherIndex] ?? "").trim() : "";
+
+      if ((carrier === "otro" || carrier === "other") && !CARRIER_OTHER_EMPTY_PATTERN.test(otherText)) {
+        row[carrierIndex] = otherText;
+      }
+    });
+
+    if (carrierIndex !== carrierFormIndex) {
+      nextHeaders.splice(carrierFormIndex, 1);
+      nextRows.forEach((row) => row.splice(carrierFormIndex, 1));
+    }
+  }
+
+  const appPartIndex = indexOf(APP_PART_COLUMN_NAME);
+
+  if (appPartIndex >= 0) {
+    let moduleIndex = indexOf(MODULE_COLUMN_NAME);
+
+    if (moduleIndex < 0) {
+      nextHeaders.push(MODULE_COLUMN_NAME);
+      nextRows.forEach((row) => row.push(""));
+      moduleIndex = nextHeaders.length - 1;
+    }
+
+    nextRows.forEach((row) => {
+      const appPart = String(row[appPartIndex] ?? "").trim();
+
+      if (blank(row[moduleIndex]) && appPart) {
+        row[moduleIndex] = APP_PART_TO_MODULE.get(appPart.toLowerCase()) ?? appPart;
+      }
+    });
+  }
+
+  return { headers: nextHeaders, rows: nextRows };
+}
+
 function normalizeIdentityValue(value) {
   return String(value ?? "")
     .trim()
@@ -140,5 +216,5 @@ function getIssueIdentityKey(rowMap, ambiguousKeys = new Set()) {
     return baseKey;
   }
 
-  return `${baseKey}||${normalizeIdentityValue(rowMap.get("Reported Issue"))}`;
+  return `${baseKey}||${normalizeIdentityValue(rowMap.get(ISSUE_TEXT_COLUMN_NAME))}`;
 }

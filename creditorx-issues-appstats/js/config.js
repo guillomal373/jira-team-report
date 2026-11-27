@@ -4,7 +4,9 @@ const DATA_DIRECTORY = "data/";
 
 // Pre-merged data written by scripts/build-merged-data.mjs; the CSV files are the fallback.
 const MERGED_DATA_PATH = "data/issues-merged.json";
-const MERGED_DATA_FORMAT = 1;
+// Bumped to 2 when the CSV columns were renamed (see HEADER_ALIASES): a merged file
+// built with the old column names is ignored and the CSVs are read instead.
+const MERGED_DATA_FORMAT = 2;
 const CSV_MANIFEST_PATH = `${DATA_DIRECTORY}files.json`;
 
 const FALLBACK_CSV_FILES = [
@@ -15,7 +17,7 @@ const FALLBACK_CSV_FILES = [
   "data/Issues-8-may-2026.csv",
 ];
 
-const COLUMN_PREFS_STORAGE_KEY = "creditorx-issues-visible-columns-v3";
+const COLUMN_PREFS_STORAGE_KEY = "creditorx-issues-visible-columns-v5";
 
 const DATE_COLUMN_NAME = "Date";
 
@@ -29,7 +31,30 @@ const STATUS_COLUMN_NAME = "Status";
 
 const TIER_2_STATE_COLUMN_NAME = "Tier 2 State";
 
-const PLATFORM_COLUMN_NAME = "IOS or Android";
+// Column names of the CURRENT form. Older exports used "IOS or Android",
+// "CreditorX Device" and "Reported Issue"; HEADER_ALIASES renames them on load.
+const PLATFORM_COLUMN_NAME = "Operating system";
+
+// Header text shown in the table for the icon-only Operating system column.
+const PLATFORM_COLUMN_SHORT_LABEL = "S.O.";
+
+const DEVICE_COLUMN_NAME = "Brand and Model";
+
+const ISSUE_TEXT_COLUMN_NAME = "What was the customer trying to do?";
+
+const WHAT_HAPPENED_COLUMN_NAME = "What Happened?";
+
+const APP_PART_COLUMN_NAME = "Which part of the app has the issue?";
+
+const APP_OTHER_PART_COLUMN_NAME = "Which other part of the app?";
+
+const TIME_TO_CALL_COLUMN_NAME = "Time to Call";
+
+// New exports put the carrier in "Carrier/Provider2" (and free text in
+// "Carrier/Provider/Otro" when it is "Otro"); older ones used "Carrier/Provider".
+const CARRIER_FORM_COLUMN_NAME = "Carrier/Provider2";
+
+const CARRIER_OTHER_COLUMN_NAME = "Carrier/Provider/Otro";
 
 const CARRIER_COLUMN_NAME = "Carrier/Provider";
 
@@ -45,28 +70,43 @@ const ISSUE_IDENTITY_COLUMN_NAMES = [
   "Customer Name",
   DATE_COLUMN_NAME,
   "Customer ID",
-  "IOS or Android",
-  "Reported Issue",
+  PLATFORM_COLUMN_NAME,
+  ISSUE_TEXT_COLUMN_NAME,
 ];
 
 const REQUIRED_COLUMN_NAMES = [
   DATE_COLUMN_NAME,
-  "Reported Issue",
+  ISSUE_TEXT_COLUMN_NAME,
 ];
 
 const DEFAULT_VISIBLE_COLUMN_NAMES = [
   DATE_COLUMN_NAME,
   LAST_UPDATE_COLUMN_NAME,
-  "Reported Issue",
+  PLATFORM_COLUMN_NAME,
+  ISSUE_TEXT_COLUMN_NAME,
+  WHAT_HAPPENED_COLUMN_NAME,
   TIER_2_STATE_COLUMN_NAME,
   TIER_2_COMMENTS_COLUMN_NAME,
   JIRA_TICKET_COLUMN_NAME,
 ];
 
+// The reported-text columns are always shown together, in this order, at the place
+// of the first one of them; every other column keeps its position.
+const TEXT_COLUMN_DISPLAY_ORDER = [
+  ISSUE_TEXT_COLUMN_NAME,
+  APP_PART_COLUMN_NAME,
+  APP_OTHER_PART_COLUMN_NAME,
+  WHAT_HAPPENED_COLUMN_NAME,
+  TIME_TO_CALL_COLUMN_NAME,
+];
+
 const ISSUE_SEARCH_COLUMN_NAMES = [
   PLATFORM_COLUMN_NAME,
-  "CreditorX Device",
-  "Reported Issue",
+  DEVICE_COLUMN_NAME,
+  ISSUE_TEXT_COLUMN_NAME,
+  WHAT_HAPPENED_COLUMN_NAME,
+  APP_PART_COLUMN_NAME,
+  APP_OTHER_PART_COLUMN_NAME,
   TIER_2_STATE_COLUMN_NAME,
   TIER_2_COMMENTS_COLUMN_NAME,
   DEV_TEAM_COMMENTS_COLUMN_NAME,
@@ -116,4 +156,17 @@ const DATABASE_SVG_MARKUP = `<svg viewBox="0 0 448 512" width="12" height="14" a
 const HEADER_ALIASES = new Map([
   ["dev team comments", DEV_TEAM_COMMENTS_COLUMN_NAME],
   ["jira ticket", JIRA_TICKET_COLUMN_NAME],
+  // Old export column -> current form column.
+  ["ios or android", PLATFORM_COLUMN_NAME],
+  ["creditorx device", DEVICE_COLUMN_NAME],
+  ["reported issue", ISSUE_TEXT_COLUMN_NAME],
+]);
+
+// "Which part of the app has the issue?" (new form) -> the Module/Section names used
+// by Tier 2 so one filter covers old and new issues. Unlisted values pass through.
+const APP_PART_TO_MODULE = new Map([
+  ["login", "Auth/Login"],
+  ["first login", "First Login"],
+  ["blocked", "Blocked List"],
+  ["call blocking", "Blocked List"],
 ]);

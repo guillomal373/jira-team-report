@@ -18,8 +18,9 @@ function getWeekStart(date) {
 function getThemeTrendData(rows, headers) {
   const indexOfColumn = (name) =>
     headers.findIndex((header) => normalizeColumnKey(header) === normalizeColumnKey(name));
-  const issueColumnIndex = indexOfColumn("Reported Issue");
+  const issueColumnIndex = indexOfColumn(ISSUE_TEXT_COLUMN_NAME);
   const dateColumnIndex = indexOfColumn(DATE_COLUMN_NAME);
+  const whatHappenedColumnIndex = indexOfColumn(WHAT_HAPPENED_COLUMN_NAME);
   const devTeamCommentsColumnIndex = indexOfColumn(DEV_TEAM_COMMENTS_COLUMN_NAME);
   const tier2CommentsColumnIndex = indexOfColumn(TIER_2_COMMENTS_COLUMN_NAME);
   const { startDate, endDate } = buildTimelineRange();
@@ -44,6 +45,7 @@ function getThemeTrendData(rows, headers) {
       // Same classification text as the Top Issue Themes panel.
       const classificationText = [
         issueText,
+        whatHappenedColumnIndex >= 0 ? (row[whatHappenedColumnIndex] ?? "").trim() : "",
         tier2CommentsColumnIndex >= 0 ? (row[tier2CommentsColumnIndex] ?? "").trim() : "",
         devTeamCommentsColumnIndex >= 0 ? (row[devTeamCommentsColumnIndex] ?? "").trim() : "",
       ]

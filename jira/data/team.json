@@ -6,7 +6,7 @@
       "hero": "deadpool",
       "level": 10,
       "color": "#ab0101",
-      "badges": ["aws", "jira", "confluence", "dotnet", "swift", "cypress", "workhorse", "quality-guardian"],
+      "badges": ["aws", "cypress", "workhorse", "quality-guardian"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
@@ -27,7 +27,7 @@
       "hero": "masterchief",
       "level": 10,
       "color": "#ff6a00",
-      "badges": ["aws", "cypress", "jira", "confluence", "dotnet", "swiss-army-knife", "consistent"],
+      "badges": ["aws", "cypress", "dotnet", "swiss-army-knife", "consistent"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
@@ -66,7 +66,7 @@
       "hero": "darkowl",
       "level": 10,
       "color": "#6002bb",
-      "badges": ["swift", "jira", "confluence", "dotnet", "mobile-specialist"],
+      "badges": ["swift", "mobile-specialist"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [8, 7, 8, 7, 8],
@@ -105,7 +105,7 @@
       "hero": "lucy",
       "level": 10,
       "color": "#FF00FF",
-      "badges": ["jira", "confluence", "bug-slayer", "rising-star"],
+      "badges": ["bug-slayer", "rising-star"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React"],
         "levels": [7, 6, 7, 6, 5],
@@ -142,7 +142,7 @@
       "level": 10,
       "color": "#3f73cf",
       "csvAliases": ["Daniel Esteban Rodriguez Velasco"],
-      "badges": ["jira", "confluence", "claude", "dotnet", "firefighter", "fast-starter", "mobile-specialist"],
+      "badges": [ "claude", "firefighter", "fast-starter", "mobile-specialist", "android"],
       "skills": {
         "labels": ["JavaScript", "TypeScript", "React", "Node.js", "Flutter"],
         "levels": [7, 6, 7, 6, 5],
